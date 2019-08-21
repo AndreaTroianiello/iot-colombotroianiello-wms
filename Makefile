@@ -1,3 +1,3 @@
-COMPONENT=BinMoteAppC
+COMPONENT=WMSMoteAppC
 include $(MAKERULES)
 

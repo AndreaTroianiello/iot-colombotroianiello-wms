@@ -1,8 +1,8 @@
-configuration BinMoteAppC {}
+configuration WMSMoteAppC {}
 
 implementation {
 
-  components MainC, BinMoteC as Mote, RandomC;
+  components MainC, WMSMoteC as Mote, RandomC;
   components new BinSensorAppC() as Sensor;
 
   Mote.Random -> RandomC;
