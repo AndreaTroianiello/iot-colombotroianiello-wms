@@ -13,7 +13,6 @@ generic module BinSensorC() {
 	void setTimer();
 
 	command error_t Read.read(){
-		dbg("boot","Read called\n");
 		setTimer();
 		return SUCCESS;
 	}
