@@ -13,17 +13,19 @@ generic module BinSensorC() {
 	void setTimer();
 
 	command error_t Read.read(){
-		
+		dbg("boot","Read called\n");
+		setTimer();
 		return SUCCESS;
 	}
 
 	event void Timer0.fired() {
 		uint8_t trash = 1 + ( call Random.rand16() %MAX_TRASH);
 		signal Read.readDone( SUCCESS, trash );
+		setTimer();
 	}
 	
 	void setTimer(){
-		call Timer0.startOneShot( 1000* (1 + (call Random.rand16() % GENERATION_INTERVAL)));
+		call Timer0.startOneShot( 1000 * (1 + (call Random.rand16() % GENERATION_INTERVAL)));
 	}
 	
 }

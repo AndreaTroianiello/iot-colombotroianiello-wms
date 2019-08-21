@@ -3,7 +3,7 @@ configuration BinMoteAppC {}
 implementation {
 
   components MainC, BinMoteC as Mote;
-  components new BinSensorC() as Sensor;
+  components new BinSensorAppC() as Sensor;
 
   Mote.Boot -> MainC.Boot;
 
