@@ -1,0 +1,3 @@
+COMPONENT=BinMoteAppC
+include $(MAKERULES)
+

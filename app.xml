@@ -1,0 +1,3242 @@
+<nesc xmlns="http://www.tinyos.net/nesC">
+  <components>
+    <component qname="BinMoteC" loc="1:BinMoteC.nc">
+      <module/>
+    </component>
+    <component qname="TinySchedulerC" loc="42:/opt/tinyos-main-2.1.2/tos/lib/tossim/TinySchedulerC.nc">
+      <documentation loc="32:/opt/tinyos-main-2.1.2/tos/lib/tossim/TinySchedulerC.nc">
+        <short>&#10; TOSSIM-specific scheduler implementation, which models&#10; tasks as simulation events (in order to capture delay).</short>
+        <long>&#10; TOSSIM-specific scheduler implementation, which models&#10; tasks as simulation events (in order to capture delay).&#10;&#10; @author Philip Levis&#10; @date   Nov 22 2005&#10;</long>
+      </documentation>
+      <configuration/>
+    </component>
+    <component qname="SimSchedulerBasicP" loc="47:/opt/tinyos-main-2.1.2/tos/lib/tossim/SimSchedulerBasicP.nc">
+      <documentation loc="33:/opt/tinyos-main-2.1.2/tos/lib/tossim/sim_event_queue.h">
+        <short>&#10; The event queue is the core of the mote side of TOSSIM.</short>
+        <long>&#10; The event queue is the core of the mote side of TOSSIM. It is a&#10; wrapper around the underlying heap. Unlike the 1.x version, it is&#10; not re-entrant: merging the Python console and TOSSIM means that&#10; functionality like packet injection/reception from external tools&#10; is on the Python side.&#10;&#10; @author Phil Levis&#10; @date   November 22 2005&#10;</long>
+      </documentation>
+      <module/>
+    </component>
+  </components>
+  <interfaces>
+  </interfaces>
+  <interfacedefs>
+    <interfacedef qname="TaskBasic" loc="55:/opt/tinyos-main-2.1.2/tos/interfaces/TaskBasic.nc">
+      <function command="" provided="0" name="postTask" ref="0xb7940888" loc="67:/opt/tinyos-main-2.1.2/tos/interfaces/TaskBasic.nc">
+        <documentation loc="57:/opt/tinyos-main-2.1.2/tos/interfaces/TaskBasic.nc">
+          <short>&#10; Post this task to the TinyOS scheduler.</short>
+          <long>&#10; Post this task to the TinyOS scheduler. At some later time,&#10; depending on the scheduling policy, the scheduler will signal the&#10; &#60;tt>run()&#60;/tt> event. &#10;&#10; @return SUCCESS if task was successfuly&#10; posted; the semantics of a non-SUCCESS return value depend on the&#10; implementation of this interface (the class of task).&#10;</long>
+        </documentation>
+        <interfacedef-ref qname="TaskBasic"/>
+        <type-function size="I:1" alignment="I:1">
+          <type-int cname="unsigned char" unsigned="" size="I:1" alignment="I:1">
+            <typename><typedef-ref name="error_t" ref="0xb79ff340"/></typename>
+          </type-int>
+          <function-parameters>
+          </function-parameters>
+        </type-function>
+        <parameters>
+        </parameters>
+      </function>
+      <function event="" provided="0" name="runTask" ref="0xb7940da0" loc="75:/opt/tinyos-main-2.1.2/tos/interfaces/TaskBasic.nc">
+        <documentation loc="69:/opt/tinyos-main-2.1.2/tos/interfaces/TaskBasic.nc">
+          <short>&#10; Event from the scheduler to run this task.</short>
+          <long>&#10; Event from the scheduler to run this task. Following the TinyOS&#10; concurrency model, the codes invoked from &#60;tt>run()&#60;/tt> signals&#10; execute atomically with respect to one another, but can be&#10; preempted by async commands/events.&#10;</long>
+        </documentation>
+        <interfacedef-ref qname="TaskBasic"/>
+        <type-function size="I:1" alignment="I:1">
+          <type-void size="I:1" alignment="I:1"></type-void>
+          <function-parameters>
+          </function-parameters>
+        </type-function>
+        <parameters>
+        </parameters>
+      </function>
+    </interfacedef>
+    <interfacedef qname="Boot" loc="50:/opt/tinyos-main-2.1.2/tos/interfaces/Boot.nc">
+      <documentation loc="42:/opt/tinyos-main-2.1.2/tos/interfaces/Boot.nc">
+        <short>&#10; Interface that notifies components when TinyOS has booted&#10; (initialized all of its components), as discussed in TEP 107.</short>
+        <long>&#10; Interface that notifies components when TinyOS has booted&#10; (initialized all of its components), as discussed in TEP 107.&#10;&#10; @author Philip Levis&#10; @date   January 5 2005&#10;</long>
+      </documentation>
+      <function event="" provided="0" name="booted" ref="0xb7891210" loc="60:/opt/tinyos-main-2.1.2/tos/interfaces/Boot.nc">
+        <documentation loc="51:/opt/tinyos-main-2.1.2/tos/interfaces/Boot.nc">
+          <short>&#10; Signaled when the system has booted successfully.</short>
+          <long>&#10; Signaled when the system has booted successfully. Components can&#10; assume the system has been initialized properly. Services may&#10; need to be started to work, however.&#10;&#10; @see StdControl&#10; @see SplitConrol&#10; @see TEP 107: Boot Sequence&#10;</long>
+        </documentation>
+        <interfacedef-ref qname="Boot"/>
+        <type-function size="I:1" alignment="I:1">
+          <type-void size="I:1" alignment="I:1"></type-void>
+          <function-parameters>
+          </function-parameters>
+        </type-function>
+        <parameters>
+        </parameters>
+      </function>
+    </interfacedef>
+    <interfacedef qname="Read" loc="49:/opt/tinyos-main-2.1.2/tos/interfaces/Read.nc">
+      <documentation loc="33:/opt/tinyos-main-2.1.2/tos/interfaces/Read.nc">
+        <short>&#10; The Read interface is intended for split-phase low-rate or&#10; high-latency reading of small values.</short>
+        <long>&#10; The Read interface is intended for split-phase low-rate or&#10; high-latency reading of small values. The type of the value is&#10; given as a template argument. Because this interface is&#10; split-phase, these values may be backed by hardware, or a&#10; long-running computation.&#10;&#10; &#60;p>&#10; See TEP114 - SIDs: Source and Sink Independent Drivers for details.&#10; &#10; @param val_t the type of the object that will be returned&#10;&#10; @author Gilman Tolle &#60;gtolle@archrock.com>&#10; @version $Revision: 1.4 $ $Date: 2006-12-12 18:23:14 $&#10;</long>
+      </documentation>
+      <parameters>
+        <typedef name="val_t" ref="0xb7891c88" loc="49:/opt/tinyos-main-2.1.2/tos/interfaces/Read.nc">
+          <interfacedef-ref qname="Read"/>
+          <type-var size="U:" alignment="U:"><typedef-ref name="val_t" scoped="" ref="0xb7891c88"/></type-var>
+        </typedef>
+      </parameters>
+      <function command="" provided="0" name="read" ref="0xb7890158" loc="55:/opt/tinyos-main-2.1.2/tos/interfaces/Read.nc">
+        <documentation loc="50:/opt/tinyos-main-2.1.2/tos/interfaces/Read.nc">
+          <short>&#10; Initiates a read of the value.</short>
+          <long>&#10; Initiates a read of the value.&#10; &#10; @return SUCCESS if a readDone() event will eventually come back.&#10;</long>
+        </documentation>
+        <interfacedef-ref qname="Read"/>
+        <type-function size="I:1" alignment="I:1">
+          <type-int cname="unsigned char" unsigned="" size="I:1" alignment="I:1">
+            <typename><typedef-ref name="error_t" ref="0xb79ff340"/></typename>
+          </type-int>
+          <function-parameters>
+          </function-parameters>
+        </type-function>
+        <parameters>
+        </parameters>
+      </function>
+      <function event="" provided="0" name="readDone" ref="0xb7890908" loc="63:/opt/tinyos-main-2.1.2/tos/interfaces/Read.nc">
+        <documentation loc="57:/opt/tinyos-main-2.1.2/tos/interfaces/Read.nc">
+          <short>&#10; Signals the completion of the read().</short>
+          <long>&#10; Signals the completion of the read().&#10;&#10; @param result SUCCESS if the read() was successful&#10; @param val the value that has been read&#10;</long>
+        </documentation>
+        <interfacedef-ref qname="Read"/>
+        <type-function size="I:1" alignment="I:1">
+          <type-void size="I:1" alignment="I:1"></type-void>
+          <function-parameters>
+            <type-int cname="unsigned char" unsigned="" size="I:1" alignment="I:1">
+              <typename><typedef-ref name="error_t" ref="0xb79ff340"/></typename>
+            </type-int>
+            <type-var size="U:" alignment="U:"><typedef-ref name="val_t" scoped="" ref="0xb7891c88"/></type-var>
+          </function-parameters>
+        </type-function>
+        <parameters>
+          <variable name="result" ref="0xb78905d8" loc="63:/opt/tinyos-main-2.1.2/tos/interfaces/Read.nc">
+            <type-int cname="unsigned char" unsigned="" size="I:1" alignment="I:1">
+              <typename><typedef-ref name="error_t" ref="0xb79ff340"/></typename>
+            </type-int>
+          </variable>
+          <variable name="val" ref="0xb78907a8" loc="63:/opt/tinyos-main-2.1.2/tos/interfaces/Read.nc">
+            <type-var size="U:" alignment="U:"><typedef-ref name="val_t" scoped="" ref="0xb7891c88"/></type-var>
+          </variable>
+        </parameters>
+      </function>
+    </interfacedef>
+    <interfacedef qname="Scheduler" loc="52:/opt/tinyos-main-2.1.2/tos/interfaces/Scheduler.nc">
+      <documentation loc="42:/opt/tinyos-main-2.1.2/tos/interfaces/Scheduler.nc">
+        <short> &#10; The interface to a TinyOS task scheduler.</short>
+        <long> &#10; The interface to a TinyOS task scheduler.&#10;&#10; @author Philip Levis&#10; @date   January 19 2005&#10; @see TEP 106: Tasks and Schedulers&#10; @see TEP 107: Boot Sequence&#10;</long>
+      </documentation>
+      <function command="" provided="0" name="init" ref="0xb7bdb010" loc="57:/opt/tinyos-main-2.1.2/tos/interfaces/Scheduler.nc">
+        <documentation loc="54:/opt/tinyos-main-2.1.2/tos/interfaces/Scheduler.nc">
+          <short> &#10; Initialize the scheduler.</short>
+          <long> &#10; Initialize the scheduler.&#10;</long>
+        </documentation>
+        <interfacedef-ref qname="Scheduler"/>
+        <type-function size="I:1" alignment="I:1">
+          <type-void size="I:1" alignment="I:1"></type-void>
+          <function-parameters>
+          </function-parameters>
+        </type-function>
+        <parameters>
+        </parameters>
+      </function>
+      <function command="" provided="0" name="taskLoop" ref="0xb7bdb918" loc="72:/opt/tinyos-main-2.1.2/tos/interfaces/Scheduler.nc">
+        <documentation loc="67:/opt/tinyos-main-2.1.2/tos/interfaces/Scheduler.nc">
+          <short>&#10; Enter an infinite task-running loop.</short>
+          <long>&#10; Enter an infinite task-running loop. Put the MCU into a low power&#10; state when the processor is idle (task queue empty, waiting for&#10; interrupts). This call never returns.&#10;</long>
+        </documentation>
+        <interfacedef-ref qname="Scheduler"/>
+        <type-function size="I:1" alignment="I:1">
+          <type-void size="I:1" alignment="I:1"></type-void>
+          <function-parameters>
+          </function-parameters>
+        </type-function>
+        <parameters>
+        </parameters>
+      </function>
+      <function command="" provided="0" name="runNextTask" ref="0xb7bdb450" loc="65:/opt/tinyos-main-2.1.2/tos/interfaces/Scheduler.nc">
+        <documentation loc="59:/opt/tinyos-main-2.1.2/tos/interfaces/Scheduler.nc">
+          <short> &#10; Run the next task if one is waiting, otherwise return immediately.</short>
+          <long> &#10; Run the next task if one is waiting, otherwise return immediately. &#10;&#10; @return        whether a task was run -- TRUE indicates a task&#10;                ran, FALSE indicates there was no task to run.&#10;</long>
+        </documentation>
+        <interfacedef-ref qname="Scheduler"/>
+        <type-function size="I:1" alignment="I:1">
+          <type-int cname="unsigned char" unsigned="" size="I:1" alignment="I:1">
+            <typename><typedef-ref name="bool" ref="0xb7a9cd38"/></typename>
+          </type-int>
+          <function-parameters>
+          </function-parameters>
+        </type-function>
+        <parameters>
+        </parameters>
+      </function>
+    </interfacedef>
+  </interfacedefs>
+  <tags>
+    <struct loc="84:/usr/include/i386-linux-gnu/bits/waitstatus.h" ref="0xb7c82010" defined="" size="I:4" alignment="I:4">
+      <field name="__w_stopval" ref="0xb7c82120" bit-offset="I:0" bit-size="I:8">
+        <type-int cname="unsigned int" unsigned="" size="I:4" alignment="I:4"></type-int>
+      </field>
+      <field name="__w_stopsig" ref="0xb7c82180" bit-offset="I:8" bit-size="I:8">
+        <type-int cname="unsigned int" unsigned="" size="I:4" alignment="I:4"></type-int>
+      </field>
+    </struct>
+    <enum loc="94:/opt/tinyos-main-2.1.2/tos/lib/serial/Serial.h" ref="0xb78d6df0" defined="" size="I:4" alignment="I:4">
+      <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+    </enum>
+    <attribute name="bnd" loc="9:/usr/lib/ncc/deputy_nodeputy.h" ref="0xb7fc1118" defined="" size="I:8" alignment="I:4">
+      <field name="lo" ref="0xb7fc1378" bit-offset="I:0" size="I:4">
+        <type-pointer size="I:4" alignment="I:4">
+          <type-void size="I:1" alignment="I:1"></type-void>
+        </type-pointer>
+      </field>
+      <field name="hi" ref="0xb7fc13d8" bit-offset="I:32" size="I:4">
+        <type-pointer size="I:4" alignment="I:4">
+          <type-void size="I:1" alignment="I:1"></type-void>
+        </type-pointer>
+      </field>
+    </attribute>
+    <union loc="90:/usr/include/i386-linux-gnu/bits/pthreadtypes.h" ref="0xb7c59ef8" defined="" size="I:24" alignment="I:4">
+      <field name="__data" ref="0xb7c58050" bit-offset="I:0" size="I:24">
+        <type-tag size="I:24" alignment="I:4"><struct-ref name="__pthread_mutex_s" ref="0xb7c5a8e0"/></type-tag>
+      </field>
+      <field name="__size" ref="0xb7c580b0" bit-offset="I:0" size="I:24">
+        <type-array elements="I:24" size="I:24" alignment="I:1">
+          <type-int cname="char" size="I:1" alignment="I:1"></type-int>
+        </type-array>
+      </field>
+      <field name="__align" ref="0xb7c58110" bit-offset="I:0" size="I:4">
+        <type-int cname="long" size="I:4" alignment="I:4"></type-int>
+      </field>
+    </union>
+    <struct name="itimerspec" loc="161:/usr/include/time.h" ref="0xb79693d8" defined="" size="I:16" alignment="I:4">
+      <field name="it_interval" ref="0xb7969810" bit-offset="I:0" size="I:8">
+        <type-tag size="I:8" alignment="I:4"><struct-ref name="timespec" ref="0xb7c66308"/></type-tag>
+      </field>
+      <field name="it_value" ref="0xb7969870" bit-offset="I:64" size="I:8">
+        <type-tag size="I:8" alignment="I:4"><struct-ref name="timespec" ref="0xb7c66308"/></type-tag>
+      </field>
+    </struct>
+    <nx_struct name="tossim_metadata" loc="18:/opt/tinyos-main-2.1.2/tos/lib/tossim/TossimRadioMsg.h" ref="0xb78d78a0" defined="" size="I:4" alignment="I:1">
+      <field name="strength" ref="0xb78d6270" bit-offset="I:0" size="I:1">
+        <type-int cname="signed char" size="I:1" alignment="I:1" network="nx_int8_t">
+          <typename><typedef-ref name="nx_int8_t" ref="0xb7cc65a0"/></typename>
+        </type-int>
+      </field>
+      <field name="ack" ref="0xb78d62d0" bit-offset="I:8" size="I:1">
+        <type-int cname="unsigned char" unsigned="" size="I:1" alignment="I:1" network="nx_uint8_t">
+          <typename><typedef-ref name="nx_uint8_t" ref="0xb7cc5728"/></typename>
+        </type-int>
+      </field>
+      <field name="time" ref="0xb78d6330" bit-offset="I:16" size="I:2">
+        <type-int cname="unsigned short" unsigned="" size="I:2" alignment="I:1" network="nx_uint16_t">
+          <typename><typedef-ref name="nx_uint16_t" ref="0xb7cc5ba0"/></typename>
+        </type-int>
+      </field>
+    </nx_struct>
+    <struct name="gain_entry" loc="53:/opt/tinyos-main-2.1.2/tos/lib/tossim/sim_gain.h" ref="0xb79b0d60" defined="" size="I:16" alignment="I:4">
+      <field name="mote" ref="0xb79af288" bit-offset="I:0" size="I:4">
+        <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+      </field>
+      <field name="gain" ref="0xb79af2e8" bit-offset="I:32" size="I:8">
+        <type-float cname="double" size="I:8" alignment="I:8"></type-float>
+      </field>
+      <field name="next" ref="0xb79af348" bit-offset="I:96" size="I:4">
+        <type-pointer size="I:4" alignment="I:4">
+          <type-tag size="I:16" alignment="I:4"><struct-ref name="gain_entry" ref="0xb79b0d60"/></type-tag>
+        </type-pointer>
+      </field>
+    </struct>
+    <union loc="85:/usr/include/wchar.h" ref="0xb7af8398" defined="" size="I:4" alignment="I:4">
+      <field name="__wch" ref="0xb7af84a8" bit-offset="I:0" size="I:4">
+        <type-int cname="unsigned int" unsigned="" size="I:4" alignment="I:4"></type-int>
+      </field>
+      <field name="__wchb" ref="0xb7af8508" bit-offset="I:0" size="I:4">
+        <type-array elements="I:4" size="I:4" alignment="I:1">
+          <type-int cname="char" size="I:1" alignment="I:1"></type-int>
+        </type-array>
+      </field>
+    </union>
+    <attribute name="deputy_scope"  loc="NONE" ref="0xb7fc6c28" size="V:" alignment="V:">
+    </attribute>
+    <struct name="timeval" loc="30:/usr/include/i386-linux-gnu/bits/time.h" ref="0xb7c668e0" defined="" size="I:8" alignment="I:4">
+      <field name="tv_sec" ref="0xb7c66ca8" bit-offset="I:0" size="I:4">
+        <type-int cname="long" size="I:4" alignment="I:4">
+          <typename><typedef-ref name="__time_t" ref="0xb7c8ca28"/></typename>
+        </type-int>
+      </field>
+      <field name="tv_usec" ref="0xb7c66d08" bit-offset="I:32" size="I:4">
+        <type-int cname="long" size="I:4" alignment="I:4">
+          <typename><typedef-ref name="__suseconds_t" ref="0xb7c8cf00"/></typename>
+        </type-int>
+      </field>
+    </struct>
+    <struct name="sim_gain_noise" loc="3:/opt/tinyos-main-2.1.2/tos/lib/tossim/sim_gain.c" ref="0xb79a8148" defined="" size="I:16" alignment="I:4">
+      <field name="mean" ref="0xb79a84b8" bit-offset="I:0" size="I:8">
+        <type-float cname="double" size="I:8" alignment="I:8"></type-float>
+      </field>
+      <field name="range" ref="0xb79a8518" bit-offset="I:64" size="I:8">
+        <type-float cname="double" size="I:8" alignment="I:8"></type-float>
+      </field>
+    </struct>
+    <attribute name="nonnull" loc="8:/usr/lib/ncc/deputy_nodeputy.h" ref="0xb7fc5b38" defined="" size="I:4" alignment="I:4">
+      <field name="dummy" ref="0xb7fc5d90" bit-offset="I:0" size="I:4">
+        <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+      </field>
+    </attribute>
+    <struct loc="64:/usr/include/i386-linux-gnu/sys/select.h" ref="0xb7c64890" defined="" size="I:128" alignment="I:4">
+      <field name="__fds_bits" ref="0xb7c649a0" bit-offset="I:0" size="I:128">
+        <type-array elements="I:32" size="I:128" alignment="I:4">
+          <type-int cname="long" size="I:4" alignment="I:4">
+            <typename><typedef-ref name="__fd_mask" ref="0xb7c64170"/></typename>
+          </type-int>
+        </type-array>
+      </field>
+    </struct>
+    <attribute name="number"  loc="NONE" ref="0xb7fc8cf0" size="V:" alignment="V:">
+    </attribute>
+    <struct name="node" loc="62:/opt/tinyos-main-2.1.2/tos/lib/tossim/heap.c" ref="0xb7a3ecb0" defined="" size="I:12" alignment="I:4">
+      <field name="data" ref="0xb7a3d050" bit-offset="I:0" size="I:4">
+        <type-pointer size="I:4" alignment="I:4">
+          <type-void size="I:1" alignment="I:1"></type-void>
+        </type-pointer>
+      </field>
+      <field name="key" ref="0xb7a3d0b0" bit-offset="I:32" size="I:8">
+        <type-int cname="long long" size="I:8" alignment="I:8"></type-int>
+      </field>
+    </struct>
+    <nx_struct name="serial_packet" loc="131:/opt/tinyos-main-2.1.2/tos/lib/serial/Serial.h" ref="0xb78d1968" defined="" size="I:7" alignment="I:1">
+      <field name="header" ref="0xb78d1df0" bit-offset="I:0" size="I:7">
+        <type-tag size="I:7" alignment="I:1"><nx_struct-ref name="serial_header" ref="0xb78d2ce8"/>
+          <typename><typedef-ref name="serial_header_t" ref="0xb78d1760"/></typename>
+        </type-tag>
+      </field>
+      <field name="data" ref="0xb78d1e50" bit-offset="I:56" size="I:0">
+        <type-array elements="I:0" size="I:0" alignment="I:1">
+          <type-int cname="unsigned char" unsigned="" size="I:1" alignment="I:1" network="nx_uint8_t">
+            <typename><typedef-ref name="nx_uint8_t" ref="0xb7cc5728"/></typename>
+          </type-int>
+        </type-array>
+      </field>
+    </nx_struct>
+    <attribute name="integer"  loc="NONE" ref="0xb7fc8b88" size="V:" alignment="V:">
+    </attribute>
+    <enum loc="46:/usr/include/ctype.h" ref="0xb7b16688" defined="" size="I:4" alignment="I:4">
+      <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+    </enum>
+    <struct loc="82:/usr/include/wchar.h" ref="0xb7af8688" defined="" size="I:8" alignment="I:4">
+      <field name="__count" ref="0xb7af8798" bit-offset="I:0" size="I:4">
+        <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+      </field>
+      <field name="__value" ref="0xb7af87f8" bit-offset="I:32" size="I:4">
+        <type-tag size="I:4" alignment="I:4"><union-ref ref="0xb7af8398"/></type-tag>
+      </field>
+    </struct>
+    <attribute name="exactlyonce" loc="99:/opt/tinyos-main-2.1.2/tos/lib/tossim/tos.h" ref="0xb7a84990" defined="" size="I:0" alignment="I:1">
+    </attribute>
+    <union name="message_footer" loc="55:/opt/tinyos-main-2.1.2/tos/lib/tossim/platform_message.h" ref="0xb78ce010" defined="" size="I:2" alignment="I:1">
+      <field name="tossim" ref="0xb78ce350" bit-offset="I:0" size="I:2">
+        <type-tag size="I:2" alignment="I:1"><nx_struct-ref name="tossim_footer" ref="0xb78d72d0"/>
+          <typename><typedef-ref name="tossim_footer_t" ref="0xb78d7688"/></typename>
+        </type-tag>
+      </field>
+    </union>
+    <union name="message_metadata" loc="59:/opt/tinyos-main-2.1.2/tos/lib/tossim/platform_message.h" ref="0xb78ce630" defined="" size="I:4" alignment="I:1">
+      <field name="tossim" ref="0xb78ce998" bit-offset="I:0" size="I:4">
+        <type-tag size="I:4" alignment="I:1"><nx_struct-ref name="tossim_metadata" ref="0xb78d78a0"/>
+          <typename><typedef-ref name="tossim_metadata_t" ref="0xb78d63e8"/></typename>
+        </type-tag>
+      </field>
+    </union>
+    <attribute name="combine"  loc="NONE" ref="0xb7fc6890" size="V:" alignment="V:">
+      <field name="fn" ref="0xb7fc69a0" bit-offset="U:" bit-size="U:">
+        <type-pointer size="I:4" alignment="I:4">
+          <type-int cname="char" size="I:1" alignment="I:1"></type-int>
+        </type-pointer>
+      </field>
+    </attribute>
+    <struct loc="202:/usr/include/i386-linux-gnu/bits/pthreadtypes.h" ref="0xb7c54ab0" defined="" size="I:32" alignment="I:4">
+      <field name="__lock" ref="0xb7c54dc0" bit-offset="I:0" size="I:4">
+        <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+      </field>
+      <field name="__nr_readers" ref="0xb7c54e20" bit-offset="I:32" size="I:4">
+        <type-int cname="unsigned int" unsigned="" size="I:4" alignment="I:4"></type-int>
+      </field>
+      <field name="__readers_wakeup" ref="0xb7c54e80" bit-offset="I:64" size="I:4">
+        <type-int cname="unsigned int" unsigned="" size="I:4" alignment="I:4"></type-int>
+      </field>
+      <field name="__writer_wakeup" ref="0xb7c54ee0" bit-offset="I:96" size="I:4">
+        <type-int cname="unsigned int" unsigned="" size="I:4" alignment="I:4"></type-int>
+      </field>
+      <field name="__nr_readers_queued" ref="0xb7c54f40" bit-offset="I:128" size="I:4">
+        <type-int cname="unsigned int" unsigned="" size="I:4" alignment="I:4"></type-int>
+      </field>
+      <field name="__nr_writers_queued" ref="0xb7c54fa0" bit-offset="I:160" size="I:4">
+        <type-int cname="unsigned int" unsigned="" size="I:4" alignment="I:4"></type-int>
+      </field>
+      <field name="__flags" ref="0xb7c53018" bit-offset="I:192" size="I:1">
+        <type-int cname="unsigned char" unsigned="" size="I:1" alignment="I:1"></type-int>
+      </field>
+      <field name="__shared" ref="0xb7c53078" bit-offset="I:200" size="I:1">
+        <type-int cname="unsigned char" unsigned="" size="I:1" alignment="I:1"></type-int>
+      </field>
+      <field name="__rwelision" ref="0xb7c530d8" bit-offset="I:208" size="I:1">
+        <type-int cname="signed char" size="I:1" alignment="I:1"></type-int>
+      </field>
+      <field name="__pad2" ref="0xb7c53138" bit-offset="I:216" size="I:1">
+        <type-int cname="unsigned char" unsigned="" size="I:1" alignment="I:1"></type-int>
+      </field>
+      <field name="__writer" ref="0xb7c53198" bit-offset="I:224" size="I:4">
+        <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+      </field>
+    </struct>
+    <struct name="drand48_data" loc="412:/usr/include/stdlib.h" ref="0xb7c41210" defined="" size="I:24" alignment="I:4">
+      <field name="__x" ref="0xb7c419e8" bit-offset="I:0" size="I:6">
+        <type-array elements="I:3" size="I:6" alignment="I:2">
+          <type-int cname="unsigned short" unsigned="" size="I:2" alignment="I:2"></type-int>
+        </type-array>
+      </field>
+      <field name="__old_x" ref="0xb7c41a48" bit-offset="I:48" size="I:6">
+        <type-array elements="I:3" size="I:6" alignment="I:2">
+          <type-int cname="unsigned short" unsigned="" size="I:2" alignment="I:2"></type-int>
+        </type-array>
+      </field>
+      <field name="__c" ref="0xb7c41aa8" bit-offset="I:96" size="I:2">
+        <type-int cname="unsigned short" unsigned="" size="I:2" alignment="I:2"></type-int>
+      </field>
+      <field name="__init" ref="0xb7c41b08" bit-offset="I:112" size="I:2">
+        <type-int cname="unsigned short" unsigned="" size="I:2" alignment="I:2"></type-int>
+      </field>
+      <field name="__a" ref="0xb7c41b68" bit-offset="I:128" size="I:8">
+        <type-int cname="unsigned long long" unsigned="" size="I:8" alignment="I:8"></type-int>
+      </field>
+    </struct>
+    <struct name="__locale_struct" loc="27:/usr/include/xlocale.h" ref="0xb7cb2838" defined="" size="I:116" alignment="I:4">
+      <field name="__locales" ref="0xb7cb13f8" bit-offset="I:0" size="I:52">
+        <type-array elements="I:13" size="I:52" alignment="I:4">
+          <type-pointer size="I:4" alignment="I:4">
+            <type-tag size="V:" alignment="V:"><struct-ref name="__locale_data" ref="0xb7cb29d0"/></type-tag>
+          </type-pointer>
+        </type-array>
+      </field>
+      <field name="__ctype_b" ref="0xb7cb1458" bit-offset="I:416" size="I:4">
+        <type-pointer size="I:4" alignment="I:4">
+          <type-qualified const="">
+            <type-int cname="unsigned short" unsigned="" size="I:2" alignment="I:2"></type-int>
+          </type-qualified>
+        </type-pointer>
+      </field>
+      <field name="__ctype_tolower" ref="0xb7cb14b8" bit-offset="I:448" size="I:4">
+        <type-pointer size="I:4" alignment="I:4">
+          <type-qualified const="">
+            <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+          </type-qualified>
+        </type-pointer>
+      </field>
+      <field name="__ctype_toupper" ref="0xb7cb1518" bit-offset="I:480" size="I:4">
+        <type-pointer size="I:4" alignment="I:4">
+          <type-qualified const="">
+            <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+          </type-qualified>
+        </type-pointer>
+      </field>
+      <field name="__names" ref="0xb7cb1578" bit-offset="I:512" size="I:52">
+        <type-array elements="I:13" size="I:52" alignment="I:4">
+          <type-pointer size="I:4" alignment="I:4">
+            <type-qualified const="">
+              <type-int cname="char" size="I:1" alignment="I:1"></type-int>
+            </type-qualified>
+          </type-pointer>
+        </type-array>
+      </field>
+    </struct>
+    <enum loc="209:/usr/include/math.h" ref="0xb7b1abe8" defined="" size="I:4" alignment="I:4">
+      <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+    </enum>
+    <struct ref="0xb7fcff48" size="V:" alignment="V:">
+    </struct>
+    <struct loc="21:/usr/include/_G_config.h" ref="0xb7af8d28" defined="" size="I:12" alignment="I:4">
+      <field name="__pos" ref="0xb7af8e38" bit-offset="I:0" size="I:4">
+        <type-int cname="long" size="I:4" alignment="I:4">
+          <typename><typedef-ref name="__off_t" ref="0xb7c8d4c0"/></typename>
+        </type-int>
+      </field>
+      <field name="__state" ref="0xb7af8e98" bit-offset="I:32" size="I:8">
+        <type-tag size="I:8" alignment="I:4"><struct-ref ref="0xb7af8688"/>
+          <typename><typedef-ref name="__mbstate_t" ref="0xb7af88b0"/></typename>
+        </type-tag>
+      </field>
+    </struct>
+    <nx_struct name="serial_header" loc="123:/opt/tinyos-main-2.1.2/tos/lib/serial/Serial.h" ref="0xb78d2ce8" defined="" size="I:7" alignment="I:1">
+      <field name="dest" ref="0xb78d1528" bit-offset="I:0" size="I:2">
+        <type-int cname="unsigned short" unsigned="" size="I:2" alignment="I:1" network="nx_uint16_t">
+          <typename><typedef-ref name="nx_am_addr_t" ref="0xb78d9410"/></typename>
+        </type-int>
+      </field>
+      <field name="src" ref="0xb78d1588" bit-offset="I:16" size="I:2">
+        <type-int cname="unsigned short" unsigned="" size="I:2" alignment="I:1" network="nx_uint16_t">
+          <typename><typedef-ref name="nx_am_addr_t" ref="0xb78d9410"/></typename>
+        </type-int>
+      </field>
+      <field name="length" ref="0xb78d15e8" bit-offset="I:32" size="I:1">
+        <type-int cname="unsigned char" unsigned="" size="I:1" alignment="I:1" network="nx_uint8_t">
+          <typename><typedef-ref name="nx_uint8_t" ref="0xb7cc5728"/></typename>
+        </type-int>
+      </field>
+      <field name="group" ref="0xb78d1648" bit-offset="I:40" size="I:1">
+        <type-int cname="unsigned char" unsigned="" size="I:1" alignment="I:1" network="nx_uint8_t">
+          <typename><typedef-ref name="nx_am_group_t" ref="0xb78d9178"/></typename>
+        </type-int>
+      </field>
+      <field name="type" ref="0xb78d16a8" bit-offset="I:48" size="I:1">
+        <type-int cname="unsigned char" unsigned="" size="I:1" alignment="I:1" network="nx_uint8_t">
+          <typename><typedef-ref name="nx_am_id_t" ref="0xb78dbdc0"/></typename>
+        </type-int>
+      </field>
+    </nx_struct>
+    <enum loc="76:/opt/tinyos-main-2.1.2/tos/lib/tossim/tos.h" ref="0xb7a9ceb8" defined="" size="I:4" alignment="I:4">
+      <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+    </enum>
+    <union name="message_header" loc="50:/opt/tinyos-main-2.1.2/tos/lib/tossim/platform_message.h" ref="0xb78d07e8" defined="" size="I:7" alignment="I:1">
+      <field name="tossim" ref="0xb78d0ca0" bit-offset="I:0" size="I:7">
+        <type-tag size="I:7" alignment="I:1"><nx_struct-ref name="tossim_header" ref="0xb78d8638"/>
+          <typename><typedef-ref name="tossim_header_t" ref="0xb78d70c8"/></typename>
+        </type-tag>
+      </field>
+      <field name="serial" ref="0xb78d0d00" bit-offset="I:0" size="I:7">
+        <type-tag size="I:7" alignment="I:1"><nx_struct-ref name="serial_header" ref="0xb78d2ce8"/>
+          <typename><typedef-ref name="serial_header_t" ref="0xb78d1760"/></typename>
+        </type-tag>
+      </field>
+    </union>
+    <struct name="timespec" loc="120:/usr/include/time.h" ref="0xb7c66308" defined="" size="I:8" alignment="I:4">
+      <field name="tv_sec" ref="0xb7c666f8" bit-offset="I:0" size="I:4">
+        <type-int cname="long" size="I:4" alignment="I:4">
+          <typename><typedef-ref name="__time_t" ref="0xb7c8ca28"/></typename>
+        </type-int>
+      </field>
+      <field name="tv_nsec" ref="0xb7c66758" bit-offset="I:32" size="I:4">
+        <type-int cname="long" size="I:4" alignment="I:4">
+          <typename><typedef-ref name="__syscall_slong_t" ref="0xb7c881e0"/></typename>
+        </type-int>
+      </field>
+    </struct>
+    <attribute name="count" loc="11:/usr/lib/ncc/deputy_nodeputy.h" ref="0xb7fc1da8" defined="" size="I:4" alignment="I:4">
+      <field name="n" ref="0xb7fc1f58" bit-offset="I:0" size="I:4">
+        <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+      </field>
+    </attribute>
+    <attribute name="bnd_nok" loc="10:/usr/lib/ncc/deputy_nodeputy.h" ref="0xb7fc1768" defined="" size="I:8" alignment="I:4">
+      <field name="lo" ref="0xb7fc19c8" bit-offset="I:0" size="I:4">
+        <type-pointer size="I:4" alignment="I:4">
+          <type-void size="I:1" alignment="I:1"></type-void>
+        </type-pointer>
+      </field>
+      <field name="hi" ref="0xb7fc1a28" bit-offset="I:32" size="I:4">
+        <type-pointer size="I:4" alignment="I:4">
+          <type-void size="I:1" alignment="I:1"></type-void>
+        </type-pointer>
+      </field>
+    </attribute>
+    <union loc="130:/usr/include/i386-linux-gnu/bits/pthreadtypes.h" ref="0xb7c58668" defined="" size="I:4" alignment="I:4">
+      <field name="__size" ref="0xb7c58778" bit-offset="I:0" size="I:4">
+        <type-array elements="I:4" size="I:4" alignment="I:1">
+          <type-int cname="char" size="I:1" alignment="I:1"></type-int>
+        </type-array>
+      </field>
+      <field name="__align" ref="0xb7c587d8" bit-offset="I:0" size="I:4">
+        <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+      </field>
+    </union>
+    <struct name="timezone" loc="55:/usr/include/i386-linux-gnu/sys/time.h" ref="0xb7a04bb0" defined="" size="I:8" alignment="I:4">
+      <field name="tz_minuteswest" ref="0xb7a04f08" bit-offset="I:0" size="I:4">
+        <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+      </field>
+      <field name="tz_dsttime" ref="0xb7a04f68" bit-offset="I:32" size="I:4">
+        <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+      </field>
+    </struct>
+    <union name="wait" loc="66:/usr/include/i386-linux-gnu/bits/waitstatus.h" ref="0xb7c84e48" defined="" size="I:4" alignment="I:4">
+      <field name="w_status" ref="0xb7c82328" bit-offset="I:0" size="I:4">
+        <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+      </field>
+      <field name="__wait_terminated" ref="0xb7c82388" bit-offset="I:0" size="I:4">
+        <type-tag size="I:4" alignment="I:4"><struct-ref ref="0xb7c83730"/></type-tag>
+      </field>
+      <field name="__wait_stopped" ref="0xb7c823e8" bit-offset="I:0" size="I:4">
+        <type-tag size="I:4" alignment="I:4"><struct-ref ref="0xb7c82010"/></type-tag>
+      </field>
+    </union>
+    <enum loc="50:/usr/include/i386-linux-gnu/bits/waitflags.h" ref="0xb7c939f8" defined="" size="I:4" alignment="I:4">
+      <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+    </enum>
+    <struct name="sim_event" loc="53:/opt/tinyos-main-2.1.2/tos/lib/tossim/sim_event_queue.h" ref="0xb7a945b8" defined="" size="I:28" alignment="I:4">
+      <field name="time" ref="0xb7a92868" bit-offset="I:0" size="I:8">
+        <type-int cname="long long" size="I:8" alignment="I:8">
+          <typename><typedef-ref name="sim_time_t" ref="0xb7a9a748"/></typename>
+        </type-int>
+      </field>
+      <field name="mote" ref="0xb7a928c8" bit-offset="I:64" size="I:4">
+        <type-int cname="unsigned long" unsigned="" size="I:4" alignment="I:4"></type-int>
+      </field>
+      <field name="force" ref="0xb7a92928" bit-offset="I:96" size="I:1">
+        <type-int cname="unsigned char" unsigned="" size="I:1" alignment="I:1">
+          <typename><typedef-ref name="bool" ref="0xb7a9cd38"/></typename>
+        </type-int>
+      </field>
+      <field name="cancelled" ref="0xb7a92988" bit-offset="I:104" size="I:1">
+        <type-int cname="unsigned char" unsigned="" size="I:1" alignment="I:1">
+          <typename><typedef-ref name="bool" ref="0xb7a9cd38"/></typename>
+        </type-int>
+      </field>
+      <field name="data" ref="0xb7a929e8" bit-offset="I:128" size="I:4">
+        <type-pointer size="I:4" alignment="I:4">
+          <type-void size="I:1" alignment="I:1"></type-void>
+        </type-pointer>
+      </field>
+      <field name="handle" ref="0xb7a92a48" bit-offset="I:160" size="I:4">
+        <type-pointer size="I:4" alignment="I:4">
+          <type-function size="I:1" alignment="I:1">
+            <type-void size="I:1" alignment="I:1"></type-void>
+            <function-parameters>
+              <type-pointer size="I:4" alignment="I:4">
+                <type-tag size="I:28" alignment="I:4"><struct-ref name="sim_event" ref="0xb7a945b8"/>
+                  <typename><typedef-ref name="sim_event_t" ref="0xb7a94820"/></typename>
+                </type-tag>
+              </type-pointer>
+            </function-parameters>
+          </type-function>
+        </type-pointer>
+      </field>
+      <field name="cleanup" ref="0xb7a92ab8" bit-offset="I:192" size="I:4">
+        <type-pointer size="I:4" alignment="I:4">
+          <type-function size="I:1" alignment="I:1">
+            <type-void size="I:1" alignment="I:1"></type-void>
+            <function-parameters>
+              <type-pointer size="I:4" alignment="I:4">
+                <type-tag size="I:28" alignment="I:4"><struct-ref name="sim_event" ref="0xb7a945b8"/>
+                  <typename><typedef-ref name="sim_event_t" ref="0xb7a94820"/></typename>
+                </type-tag>
+              </type-pointer>
+            </function-parameters>
+          </type-function>
+        </type-pointer>
+      </field>
+    </struct>
+    <struct name="_IO_jump_t" ref="0xb7af7c08" size="V:" alignment="V:">
+    </struct>
+    <union loc="139:/usr/include/i386-linux-gnu/bits/pthreadtypes.h" ref="0xb7c57d28" defined="" size="I:48" alignment="I:4">
+      <field name="__data" ref="0xb7c57e38" bit-offset="I:0" size="I:44">
+        <type-tag size="I:44" alignment="I:4"><struct-ref ref="0xb7c57518"/></type-tag>
+      </field>
+      <field name="__size" ref="0xb7c57e98" bit-offset="I:0" size="I:48">
+        <type-array elements="I:48" size="I:48" alignment="I:1">
+          <type-int cname="char" size="I:1" alignment="I:1"></type-int>
+        </type-array>
+      </field>
+      <field name="__align" ref="0xb7c57ef8" bit-offset="I:0" size="I:8">
+        <type-int cname="long long" size="I:8" alignment="I:8"></type-int>
+      </field>
+    </union>
+    <enum name="__codecvt_result" loc="176:/usr/include/libio.h" ref="0xb7af5850" defined="" size="I:4" alignment="I:4">
+      <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+    </enum>
+    <struct name="sim_packet" loc="59:/opt/tinyos-main-2.1.2/tos/lib/tossim/sim_packet.h" ref="0xb78e37a8" defined="" size="I:0" alignment="I:1">
+    </struct>
+    <nx_struct name="tossim_footer" loc="14:/opt/tinyos-main-2.1.2/tos/lib/tossim/TossimRadioMsg.h" ref="0xb78d72d0" defined="" size="I:2" alignment="I:1">
+      <field name="crc" ref="0xb78d75d0" bit-offset="I:0" size="I:2">
+        <type-int cname="unsigned short" unsigned="" size="I:2" alignment="I:1" network="nxle_uint16_t">
+          <typename><typedef-ref name="nxle_uint16_t" ref="0xb7cc0018"/></typename>
+        </type-int>
+      </field>
+    </nx_struct>
+    <struct loc="69:/usr/include/i386-linux-gnu/bits/waitstatus.h" ref="0xb7c83730" defined="" size="I:4" alignment="I:4">
+      <field name="__w_termsig" ref="0xb7c83840" bit-offset="I:0" bit-size="I:7">
+        <type-int cname="unsigned int" unsigned="" size="I:4" alignment="I:4"></type-int>
+      </field>
+      <field name="__w_coredump" ref="0xb7c838a0" bit-offset="I:7" bit-size="I:1">
+        <type-int cname="unsigned int" unsigned="" size="I:4" alignment="I:4"></type-int>
+      </field>
+      <field name="__w_retcode" ref="0xb7c83900" bit-offset="I:8" bit-size="I:8">
+        <type-int cname="unsigned int" unsigned="" size="I:4" alignment="I:4"></type-int>
+      </field>
+    </struct>
+    <union loc="156:/usr/include/i386-linux-gnu/bits/pthreadtypes.h" ref="0xb7c554a8" defined="" size="I:4" alignment="I:4">
+      <field name="__size" ref="0xb7c555b8" bit-offset="I:0" size="I:4">
+        <type-array elements="I:4" size="I:4" alignment="I:1">
+          <type-int cname="char" size="I:1" alignment="I:1"></type-int>
+        </type-array>
+      </field>
+      <field name="__align" ref="0xb7c55618" bit-offset="I:0" size="I:4">
+        <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+      </field>
+    </union>
+    <union loc="174:/usr/include/i386-linux-gnu/bits/pthreadtypes.h" ref="0xb7c535d0" defined="" size="I:32" alignment="I:4">
+      <field name="__data" ref="0xb7c536e0" bit-offset="I:0" size="I:32">
+        <type-tag size="I:32" alignment="I:4"><struct-ref ref="0xb7c54ab0"/></type-tag>
+      </field>
+      <field name="__size" ref="0xb7c53740" bit-offset="I:0" size="I:32">
+        <type-array elements="I:32" size="I:32" alignment="I:1">
+          <type-int cname="char" size="I:1" alignment="I:1"></type-int>
+        </type-array>
+      </field>
+      <field name="__align" ref="0xb7c537a0" bit-offset="I:0" size="I:4">
+        <type-int cname="long" size="I:4" alignment="I:4"></type-int>
+      </field>
+    </union>
+    <union loc="245:/usr/include/i386-linux-gnu/bits/pthreadtypes.h" ref="0xb7c51e40" defined="" size="I:4" alignment="I:4">
+      <field name="__size" ref="0xb7c51f50" bit-offset="I:0" size="I:4">
+        <type-array elements="I:4" size="I:4" alignment="I:1">
+          <type-int cname="char" size="I:1" alignment="I:1"></type-int>
+        </type-array>
+      </field>
+      <field name="__align" ref="0xb7c50010" bit-offset="I:0" size="I:4">
+        <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+      </field>
+    </union>
+    <struct loc="134:/usr/include/i386-linux-gnu/bits/types.h" ref="0xb7c8dc88" defined="" size="I:8" alignment="I:4">
+      <field name="__val" ref="0xb7c8dd98" bit-offset="I:0" size="I:8">
+        <type-array elements="I:2" size="I:8" alignment="I:4">
+          <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+        </type-array>
+      </field>
+    </struct>
+    <struct loc="114:/usr/include/i386-linux-gnu/bits/pthreadtypes.h" ref="0xb7c591b0" defined="" size="I:4" alignment="I:2">
+      <field name="__espins" ref="0xb7c592c0" bit-offset="I:0" size="I:2">
+        <type-int cname="short" size="I:2" alignment="I:2"></type-int>
+      </field>
+      <field name="__elision" ref="0xb7c59320" bit-offset="I:16" size="I:2">
+        <type-int cname="short" size="I:2" alignment="I:2"></type-int>
+      </field>
+    </struct>
+    <struct name="__pthread_internal_slist" loc="81:/usr/include/i386-linux-gnu/bits/pthreadtypes.h" ref="0xb7c5a1c0" defined="" size="I:4" alignment="I:4">
+      <field name="__next" ref="0xb7c5a5b8" bit-offset="I:0" size="I:4">
+        <type-pointer size="I:4" alignment="I:4">
+          <type-tag size="I:4" alignment="I:4"><struct-ref name="__pthread_internal_slist" ref="0xb7c5a1c0"/></type-tag>
+        </type-pointer>
+      </field>
+    </struct>
+    <union loc="239:/usr/include/i386-linux-gnu/bits/pthreadtypes.h" ref="0xb7c51760" defined="" size="I:20" alignment="I:4">
+      <field name="__size" ref="0xb7c51870" bit-offset="I:0" size="I:20">
+        <type-array elements="I:20" size="I:20" alignment="I:1">
+          <type-int cname="char" size="I:1" alignment="I:1"></type-int>
+        </type-array>
+      </field>
+      <field name="__align" ref="0xb7c518d0" bit-offset="I:0" size="I:4">
+        <type-int cname="long" size="I:4" alignment="I:4"></type-int>
+      </field>
+    </union>
+    <nx_struct name="serial_metadata" loc="136:/opt/tinyos-main-2.1.2/tos/lib/serial/Serial.h" ref="0xb78d0228" defined="" size="I:1" alignment="I:1">
+      <field name="ack" ref="0xb78d0520" bit-offset="I:0" size="I:1">
+        <type-int cname="unsigned char" unsigned="" size="I:1" alignment="I:1" network="nx_uint8_t">
+          <typename><typedef-ref name="nx_uint8_t" ref="0xb7cc5728"/></typename>
+        </type-int>
+      </field>
+    </nx_struct>
+    <enum name="__itimer_which" loc="91:/usr/include/i386-linux-gnu/sys/time.h" ref="0xb7a00348" defined="" size="I:4" alignment="I:4">
+      <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+    </enum>
+    <attribute name="atmostonce" loc="97:/opt/tinyos-main-2.1.2/tos/lib/tossim/tos.h" ref="0xb7a84590" defined="" size="I:0" alignment="I:1">
+    </attribute>
+    <enum loc="51:/opt/tinyos-main-2.1.2/tos/types/TinyError.h" ref="0xb7fc32d0" defined="" size="I:4" alignment="I:4">
+      <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+    </enum>
+    <enum loc="102:/opt/tinyos-main-2.1.2/tos/lib/serial/Serial.h" ref="0xb78d4940" defined="" size="I:4" alignment="I:4">
+      <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+    </enum>
+    <attribute name="hwevent"  loc="NONE" ref="0xb7fc6448" size="V:" alignment="V:">
+    </attribute>
+    <struct name="_IO_FILE" loc="241:/usr/include/libio.h" ref="0xb7afb770" defined="" size="I:148" alignment="I:4">
+      <field name="_flags" ref="0xb7af2b60" bit-offset="I:0" size="I:4">
+        <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+      </field>
+      <field name="_IO_read_ptr" ref="0xb7af2bc0" bit-offset="I:32" size="I:4">
+        <type-pointer size="I:4" alignment="I:4">
+          <type-int cname="char" size="I:1" alignment="I:1"></type-int>
+        </type-pointer>
+      </field>
+      <field name="_IO_read_end" ref="0xb7af2c20" bit-offset="I:64" size="I:4">
+        <type-pointer size="I:4" alignment="I:4">
+          <type-int cname="char" size="I:1" alignment="I:1"></type-int>
+        </type-pointer>
+      </field>
+      <field name="_IO_read_base" ref="0xb7af2c80" bit-offset="I:96" size="I:4">
+        <type-pointer size="I:4" alignment="I:4">
+          <type-int cname="char" size="I:1" alignment="I:1"></type-int>
+        </type-pointer>
+      </field>
+      <field name="_IO_write_base" ref="0xb7af2ce0" bit-offset="I:128" size="I:4">
+        <type-pointer size="I:4" alignment="I:4">
+          <type-int cname="char" size="I:1" alignment="I:1"></type-int>
+        </type-pointer>
+      </field>
+      <field name="_IO_write_ptr" ref="0xb7af2d40" bit-offset="I:160" size="I:4">
+        <type-pointer size="I:4" alignment="I:4">
+          <type-int cname="char" size="I:1" alignment="I:1"></type-int>
+        </type-pointer>
+      </field>
+      <field name="_IO_write_end" ref="0xb7af2da0" bit-offset="I:192" size="I:4">
+        <type-pointer size="I:4" alignment="I:4">
+          <type-int cname="char" size="I:1" alignment="I:1"></type-int>
+        </type-pointer>
+      </field>
+      <field name="_IO_buf_base" ref="0xb7af2e00" bit-offset="I:224" size="I:4">
+        <type-pointer size="I:4" alignment="I:4">
+          <type-int cname="char" size="I:1" alignment="I:1"></type-int>
+        </type-pointer>
+      </field>
+      <field name="_IO_buf_end" ref="0xb7af2e60" bit-offset="I:256" size="I:4">
+        <type-pointer size="I:4" alignment="I:4">
+          <type-int cname="char" size="I:1" alignment="I:1"></type-int>
+        </type-pointer>
+      </field>
+      <field name="_IO_save_base" ref="0xb7af2ec0" bit-offset="I:288" size="I:4">
+        <type-pointer size="I:4" alignment="I:4">
+          <type-int cname="char" size="I:1" alignment="I:1"></type-int>
+        </type-pointer>
+      </field>
+      <field name="_IO_backup_base" ref="0xb7af2f20" bit-offset="I:320" size="I:4">
+        <type-pointer size="I:4" alignment="I:4">
+          <type-int cname="char" size="I:1" alignment="I:1"></type-int>
+        </type-pointer>
+      </field>
+      <field name="_IO_save_end" ref="0xb7af2f80" bit-offset="I:352" size="I:4">
+        <type-pointer size="I:4" alignment="I:4">
+          <type-int cname="char" size="I:1" alignment="I:1"></type-int>
+        </type-pointer>
+      </field>
+      <field name="_markers" ref="0xb7af0010" bit-offset="I:384" size="I:4">
+        <type-pointer size="I:4" alignment="I:4">
+          <type-tag size="I:12" alignment="I:4"><struct-ref name="_IO_marker" ref="0xb7af50c8"/></type-tag>
+        </type-pointer>
+      </field>
+      <field name="_chain" ref="0xb7af00f0" bit-offset="I:416" size="I:4">
+        <type-pointer size="I:4" alignment="I:4">
+          <type-tag size="I:148" alignment="I:4"><struct-ref name="_IO_FILE" ref="0xb7afb770"/></type-tag>
+        </type-pointer>
+      </field>
+      <field name="_fileno" ref="0xb7af0150" bit-offset="I:448" size="I:4">
+        <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+      </field>
+      <field name="_flags2" ref="0xb7af01b0" bit-offset="I:480" size="I:4">
+        <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+      </field>
+      <field name="_old_offset" ref="0xb7af0210" bit-offset="I:512" size="I:4">
+        <type-int cname="long" size="I:4" alignment="I:4">
+          <typename><typedef-ref name="__off_t" ref="0xb7c8d4c0"/></typename>
+        </type-int>
+      </field>
+      <field name="_cur_column" ref="0xb7af0270" bit-offset="I:544" size="I:2">
+        <type-int cname="unsigned short" unsigned="" size="I:2" alignment="I:2"></type-int>
+      </field>
+      <field name="_vtable_offset" ref="0xb7af02d0" bit-offset="I:560" size="I:1">
+        <type-int cname="signed char" size="I:1" alignment="I:1"></type-int>
+      </field>
+      <field name="_shortbuf" ref="0xb7af0330" bit-offset="I:568" size="I:1">
+        <type-array elements="I:1" size="I:1" alignment="I:1">
+          <type-int cname="char" size="I:1" alignment="I:1"></type-int>
+        </type-array>
+      </field>
+      <field name="_lock" ref="0xb7af0390" bit-offset="I:576" size="I:4">
+        <type-pointer size="I:4" alignment="I:4">
+          <type-void size="I:1" alignment="I:1">
+            <typename><typedef-ref name="_IO_lock_t" ref="0xb7af7eb0"/></typename>
+          </type-void>
+        </type-pointer>
+      </field>
+      <field name="_offset" ref="0xb7af03f0" bit-offset="I:608" size="I:8">
+        <type-int cname="long long" size="I:8" alignment="I:8">
+          <typename><typedef-ref name="__off64_t" ref="0xb7c8d740"/></typename>
+        </type-int>
+      </field>
+      <field name="__pad1" ref="0xb7af0450" bit-offset="I:672" size="I:4">
+        <type-pointer size="I:4" alignment="I:4">
+          <type-void size="I:1" alignment="I:1"></type-void>
+        </type-pointer>
+      </field>
+      <field name="__pad2" ref="0xb7af04b0" bit-offset="I:704" size="I:4">
+        <type-pointer size="I:4" alignment="I:4">
+          <type-void size="I:1" alignment="I:1"></type-void>
+        </type-pointer>
+      </field>
+      <field name="__pad3" ref="0xb7af0510" bit-offset="I:736" size="I:4">
+        <type-pointer size="I:4" alignment="I:4">
+          <type-void size="I:1" alignment="I:1"></type-void>
+        </type-pointer>
+      </field>
+      <field name="__pad4" ref="0xb7af0670" bit-offset="I:768" size="I:4">
+        <type-pointer size="I:4" alignment="I:4">
+          <type-void size="I:1" alignment="I:1"></type-void>
+        </type-pointer>
+      </field>
+      <field name="__pad5" ref="0xb7af06d0" bit-offset="I:800" size="I:4">
+        <type-int cname="unsigned int" unsigned="" size="I:4" alignment="I:4">
+          <typename><typedef-ref name="size_t" ref="0xb7fc5488"/></typename>
+        </type-int>
+      </field>
+      <field name="_mode" ref="0xb7af0730" bit-offset="I:832" size="I:4">
+        <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+      </field>
+      <field name="_unused2" ref="0xb7af0790" bit-offset="I:864" size="I:40">
+        <type-array elements="I:40" size="I:40" alignment="I:1">
+          <type-int cname="char" size="I:1" alignment="I:1"></type-int>
+        </type-array>
+      </field>
+    </struct>
+    <struct loc="105:/usr/include/stdlib.h" ref="0xb7c804c8" defined="" size="I:8" alignment="I:4">
+      <field name="quot" ref="0xb7c805d8" bit-offset="I:0" size="I:4">
+        <type-int cname="long" size="I:4" alignment="I:4"></type-int>
+      </field>
+      <field name="rem" ref="0xb7c80638" bit-offset="I:32" size="I:4">
+        <type-int cname="long" size="I:4" alignment="I:4"></type-int>
+      </field>
+    </struct>
+    <union name="pthread_attr_t" loc="63:/usr/include/i386-linux-gnu/bits/pthreadtypes.h" ref="0xb7c5c8a8" defined="" size="I:36" alignment="I:4">
+      <field name="__size" ref="0xb7c5cc48" bit-offset="I:0" size="I:36">
+        <type-array elements="I:36" size="I:36" alignment="I:1">
+          <type-int cname="char" size="I:1" alignment="I:1"></type-int>
+        </type-array>
+      </field>
+      <field name="__align" ref="0xb7c5cca8" bit-offset="I:0" size="I:4">
+        <type-int cname="long" size="I:4" alignment="I:4"></type-int>
+      </field>
+    </union>
+    <struct name="hashtable" ref="0xb7a84c90" size="V:" alignment="V:">
+    </struct>
+    <struct name="heap" loc="61:/opt/tinyos-main-2.1.2/tos/lib/tossim/heap.h" ref="0xb7a42570" defined="" size="I:12" alignment="I:4">
+      <field name="size" ref="0xb7a429b0" bit-offset="I:0" size="I:4">
+        <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+      </field>
+      <field name="data" ref="0xb7a42a10" bit-offset="I:32" size="I:4">
+        <type-pointer size="I:4" alignment="I:4">
+          <type-void size="I:1" alignment="I:1"></type-void>
+        </type-pointer>
+      </field>
+      <field name="private_size" ref="0xb7a42a70" bit-offset="I:64" size="I:4">
+        <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+      </field>
+    </struct>
+    <enum loc="26:/opt/tinyos-main-2.1.2/tos/types/AM.h" ref="0xb78d8010" defined="" size="I:4" alignment="I:4">
+      <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+    </enum>
+    <attribute name="safe"  loc="NONE" ref="0xb7fc6d90" size="V:" alignment="V:">
+    </attribute>
+    <struct name="_IO_marker" loc="156:/usr/include/libio.h" ref="0xb7af50c8" defined="" size="I:12" alignment="I:4">
+      <field name="_next" ref="0xb7af55e8" bit-offset="I:0" size="I:4">
+        <type-pointer size="I:4" alignment="I:4">
+          <type-tag size="I:12" alignment="I:4"><struct-ref name="_IO_marker" ref="0xb7af50c8"/></type-tag>
+        </type-pointer>
+      </field>
+      <field name="_sbuf" ref="0xb7af5648" bit-offset="I:32" size="I:4">
+        <type-pointer size="I:4" alignment="I:4">
+          <type-tag size="I:148" alignment="I:4"><struct-ref name="_IO_FILE" ref="0xb7afb770"/></type-tag>
+        </type-pointer>
+      </field>
+      <field name="_pos" ref="0xb7af56a8" bit-offset="I:64" size="I:4">
+        <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+      </field>
+    </struct>
+    <struct name="random_data" loc="343:/usr/include/stdlib.h" ref="0xb7c4d288" defined="" size="I:28" alignment="I:4">
+      <field name="fptr" ref="0xb7c4db98" bit-offset="I:0" size="I:4">
+        <type-pointer size="I:4" alignment="I:4">
+          <type-int cname="int" size="I:4" alignment="I:4">
+            <typename><typedef-ref name="int32_t" ref="0xb7fbdd78"/></typename>
+          </type-int>
+        </type-pointer>
+      </field>
+      <field name="rptr" ref="0xb7c4dbf8" bit-offset="I:32" size="I:4">
+        <type-pointer size="I:4" alignment="I:4">
+          <type-int cname="int" size="I:4" alignment="I:4">
+            <typename><typedef-ref name="int32_t" ref="0xb7fbdd78"/></typename>
+          </type-int>
+        </type-pointer>
+      </field>
+      <field name="state" ref="0xb7c4dc58" bit-offset="I:64" size="I:4">
+        <type-pointer size="I:4" alignment="I:4">
+          <type-int cname="int" size="I:4" alignment="I:4">
+            <typename><typedef-ref name="int32_t" ref="0xb7fbdd78"/></typename>
+          </type-int>
+        </type-pointer>
+      </field>
+      <field name="rand_type" ref="0xb7c4dcb8" bit-offset="I:96" size="I:4">
+        <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+      </field>
+      <field name="rand_deg" ref="0xb7c4dd18" bit-offset="I:128" size="I:4">
+        <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+      </field>
+      <field name="rand_sep" ref="0xb7c4dd78" bit-offset="I:160" size="I:4">
+        <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+      </field>
+      <field name="end_ptr" ref="0xb7c4ddd8" bit-offset="I:192" size="I:4">
+        <type-pointer size="I:4" alignment="I:4">
+          <type-int cname="int" size="I:4" alignment="I:4">
+            <typename><typedef-ref name="int32_t" ref="0xb7fbdd78"/></typename>
+          </type-int>
+        </type-pointer>
+      </field>
+    </struct>
+    <struct name="tm" loc="133:/usr/include/time.h" ref="0xb796a2a8" defined="" size="I:44" alignment="I:4">
+      <field name="tm_sec" ref="0xb796ae30" bit-offset="I:0" size="I:4">
+        <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+      </field>
+      <field name="tm_min" ref="0xb796ae90" bit-offset="I:32" size="I:4">
+        <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+      </field>
+      <field name="tm_hour" ref="0xb796aef0" bit-offset="I:64" size="I:4">
+        <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+      </field>
+      <field name="tm_mday" ref="0xb796af50" bit-offset="I:96" size="I:4">
+        <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+      </field>
+      <field name="tm_mon" ref="0xb7969010" bit-offset="I:128" size="I:4">
+        <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+      </field>
+      <field name="tm_year" ref="0xb7969070" bit-offset="I:160" size="I:4">
+        <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+      </field>
+      <field name="tm_wday" ref="0xb79690d0" bit-offset="I:192" size="I:4">
+        <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+      </field>
+      <field name="tm_yday" ref="0xb7969130" bit-offset="I:224" size="I:4">
+        <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+      </field>
+      <field name="tm_isdst" ref="0xb7969190" bit-offset="I:256" size="I:4">
+        <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+      </field>
+      <field name="tm_gmtoff" ref="0xb79691f0" bit-offset="I:288" size="I:4">
+        <type-int cname="long" size="I:4" alignment="I:4"></type-int>
+      </field>
+      <field name="tm_zone" ref="0xb7969250" bit-offset="I:320" size="I:4">
+        <type-pointer size="I:4" alignment="I:4">
+          <type-qualified const="">
+            <type-int cname="char" size="I:1" alignment="I:1"></type-int>
+          </type-qualified>
+        </type-pointer>
+      </field>
+    </struct>
+    <struct name="sim_log_output" loc="51:/opt/tinyos-main-2.1.2/tos/lib/tossim/sim_log.c" ref="0xb7a7dab8" defined="" size="I:8" alignment="I:4">
+      <field name="num" ref="0xb7a7de88" bit-offset="I:0" size="I:4">
+        <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+      </field>
+      <field name="files" ref="0xb7a7dee8" bit-offset="I:32" size="I:4">
+        <type-pointer size="I:4" alignment="I:4">
+          <type-pointer size="I:4" alignment="I:4">
+            <type-tag size="I:148" alignment="I:4"><struct-ref name="_IO_FILE" ref="0xb7afb770"/>
+              <typename><typedef-ref name="FILE" ref="0xb7afb9b0"/></typename>
+            </type-tag>
+          </type-pointer>
+        </type-pointer>
+      </field>
+    </struct>
+    <struct name="radio_stats" loc="109:/opt/tinyos-main-2.1.2/tos/lib/serial/Serial.h" ref="0xb78d34f8" defined="" size="I:18" alignment="I:2">
+      <field name="version" ref="0xb78d2668" bit-offset="I:0" size="I:1">
+        <type-int cname="unsigned char" unsigned="" size="I:1" alignment="I:1">
+          <typename><typedef-ref name="uint8_t" ref="0xb7dac250"/></typename>
+        </type-int>
+      </field>
+      <field name="flags" ref="0xb78d26c8" bit-offset="I:8" size="I:1">
+        <type-int cname="unsigned char" unsigned="" size="I:1" alignment="I:1">
+          <typename><typedef-ref name="uint8_t" ref="0xb7dac250"/></typename>
+        </type-int>
+      </field>
+      <field name="reserved" ref="0xb78d2728" bit-offset="I:16" size="I:1">
+        <type-int cname="unsigned char" unsigned="" size="I:1" alignment="I:1">
+          <typename><typedef-ref name="uint8_t" ref="0xb7dac250"/></typename>
+        </type-int>
+      </field>
+      <field name="platform" ref="0xb78d2788" bit-offset="I:24" size="I:1">
+        <type-int cname="unsigned char" unsigned="" size="I:1" alignment="I:1">
+          <typename><typedef-ref name="uint8_t" ref="0xb7dac250"/></typename>
+        </type-int>
+      </field>
+      <field name="MTU" ref="0xb78d27e8" bit-offset="I:32" size="I:2">
+        <type-int cname="unsigned short" unsigned="" size="I:2" alignment="I:2">
+          <typename><typedef-ref name="uint16_t" ref="0xb7dac490"/></typename>
+        </type-int>
+      </field>
+      <field name="radio_crc_fail" ref="0xb78d2848" bit-offset="I:48" size="I:2">
+        <type-int cname="unsigned short" unsigned="" size="I:2" alignment="I:2">
+          <typename><typedef-ref name="uint16_t" ref="0xb7dac490"/></typename>
+        </type-int>
+      </field>
+      <field name="radio_queue_drops" ref="0xb78d28a8" bit-offset="I:64" size="I:2">
+        <type-int cname="unsigned short" unsigned="" size="I:2" alignment="I:2">
+          <typename><typedef-ref name="uint16_t" ref="0xb7dac490"/></typename>
+        </type-int>
+      </field>
+      <field name="serial_crc_fail" ref="0xb78d2908" bit-offset="I:80" size="I:2">
+        <type-int cname="unsigned short" unsigned="" size="I:2" alignment="I:2">
+          <typename><typedef-ref name="uint16_t" ref="0xb7dac490"/></typename>
+        </type-int>
+      </field>
+      <field name="serial_tx_fail" ref="0xb78d2968" bit-offset="I:96" size="I:2">
+        <type-int cname="unsigned short" unsigned="" size="I:2" alignment="I:2">
+          <typename><typedef-ref name="uint16_t" ref="0xb7dac490"/></typename>
+        </type-int>
+      </field>
+      <field name="serial_short_packets" ref="0xb78d29c8" bit-offset="I:112" size="I:2">
+        <type-int cname="unsigned short" unsigned="" size="I:2" alignment="I:2">
+          <typename><typedef-ref name="uint16_t" ref="0xb7dac490"/></typename>
+        </type-int>
+      </field>
+      <field name="serial_proto_drops" ref="0xb78d2a28" bit-offset="I:128" size="I:2">
+        <type-int cname="unsigned short" unsigned="" size="I:2" alignment="I:2">
+          <typename><typedef-ref name="uint16_t" ref="0xb7dac490"/></typename>
+        </type-int>
+      </field>
+    </struct>
+    <attribute name="one_nok" loc="14:/usr/lib/ncc/deputy_nodeputy.h" ref="0xb7fbfda8" defined="" size="I:4" alignment="I:4">
+      <field name="dummy" ref="0xb7fbff80" bit-offset="I:0" size="I:4">
+        <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+      </field>
+    </attribute>
+    <attribute name="dmemset" loc="15:/usr/lib/ncc/deputy_nodeputy.h" ref="0xb7fbe340" defined="" size="I:12" alignment="I:4">
+      <field name="a1" ref="0xb7fbe5c8" bit-offset="I:0" size="I:4">
+        <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+      </field>
+      <field name="a2" ref="0xb7fbe628" bit-offset="I:32" size="I:4">
+        <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+      </field>
+      <field name="a3" ref="0xb7fbe688" bit-offset="I:64" size="I:4">
+        <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+      </field>
+    </attribute>
+    <union loc="224:/usr/include/i386-linux-gnu/bits/pthreadtypes.h" ref="0xb7c53d28" defined="" size="I:8" alignment="I:4">
+      <field name="__size" ref="0xb7c53e38" bit-offset="I:0" size="I:8">
+        <type-array elements="I:8" size="I:8" alignment="I:1">
+          <type-int cname="char" size="I:1" alignment="I:1"></type-int>
+        </type-array>
+      </field>
+      <field name="__align" ref="0xb7c53e98" bit-offset="I:0" size="I:4">
+        <type-int cname="long" size="I:4" alignment="I:4"></type-int>
+      </field>
+    </union>
+    <attribute name="atleastonce" loc="98:/opt/tinyos-main-2.1.2/tos/lib/tossim/tos.h" ref="0xb7a84790" defined="" size="I:0" alignment="I:1">
+    </attribute>
+    <enum loc="47:/opt/tinyos-main-2.1.2/tos/lib/tossim/sim_log.c" ref="0xb7a7d678" defined="" size="I:4" alignment="I:4">
+      <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+    </enum>
+    <struct name="itimerval" loc="107:/usr/include/i386-linux-gnu/sys/time.h" ref="0xb7a00b48" defined="" size="I:16" alignment="I:4">
+      <field name="it_interval" ref="0xb7a00f80" bit-offset="I:0" size="I:8">
+        <type-tag size="I:8" alignment="I:4"><struct-ref name="timeval" ref="0xb7c668e0"/></type-tag>
+      </field>
+      <field name="it_value" ref="0xb79fe010" bit-offset="I:64" size="I:8">
+        <type-tag size="I:8" alignment="I:4"><struct-ref name="timeval" ref="0xb7c668e0"/></type-tag>
+      </field>
+    </struct>
+    <struct loc="27:/usr/include/i386-linux-gnu/bits/sigset.h" ref="0xb7c67c78" defined="" size="I:128" alignment="I:4">
+      <field name="__val" ref="0xb7c67d88" bit-offset="I:0" size="I:128">
+        <type-array elements="I:32" size="I:128" alignment="I:4">
+          <type-int cname="unsigned long" unsigned="" size="I:4" alignment="I:4"></type-int>
+        </type-array>
+      </field>
+    </struct>
+    <attribute name="count_nok" loc="12:/usr/lib/ncc/deputy_nodeputy.h" ref="0xb7fbf328" defined="" size="I:4" alignment="I:4">
+      <field name="n" ref="0xb7fbf4d8" bit-offset="I:0" size="I:4">
+        <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+      </field>
+    </attribute>
+    <struct name="sigevent" ref="0xb79699b8" size="V:" alignment="V:">
+    </struct>
+    <attribute name="one" loc="13:/usr/lib/ncc/deputy_nodeputy.h" ref="0xb7fbf840" defined="" size="I:4" alignment="I:4">
+      <field name="dummy" ref="0xb7fbfa18" bit-offset="I:0" size="I:4">
+        <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+      </field>
+    </attribute>
+    <union loc="112:/usr/include/i386-linux-gnu/bits/pthreadtypes.h" ref="0xb7c595c0" defined="" size="I:4" alignment="I:4">
+      <field name="__elision_data" ref="0xb7c596d0" bit-offset="I:0" size="I:4">
+        <type-tag size="I:4" alignment="I:2"><struct-ref ref="0xb7c591b0"/></type-tag>
+      </field>
+      <field name="__list" ref="0xb7c59730" bit-offset="I:0" size="I:4">
+        <type-tag size="I:4" alignment="I:4"><struct-ref name="__pthread_internal_slist" ref="0xb7c5a1c0"/>
+          <typename><typedef-ref name="__pthread_slist_t" ref="0xb7c5a670"/></typename>
+        </type-tag>
+      </field>
+    </union>
+    <struct name="__locale_data" ref="0xb7cb29d0" size="V:" alignment="V:">
+    </struct>
+    <attribute name="spontaneous"  loc="NONE" ref="0xb7fc6728" size="V:" alignment="V:">
+    </attribute>
+    <attribute name="unsafe"  loc="NONE" ref="0xb7fc6ef8" size="V:" alignment="V:">
+    </attribute>
+    <enum loc="51:/opt/tinyos-main-2.1.2/tos/lib/tossim/sim_noise.h" ref="0xb79fa870" defined="" size="I:4" alignment="I:4">
+      <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+    </enum>
+    <struct loc="26:/usr/include/_G_config.h" ref="0xb7af7490" defined="" size="I:16" alignment="I:4">
+      <field name="__pos" ref="0xb7af75a0" bit-offset="I:0" size="I:8">
+        <type-int cname="long long" size="I:8" alignment="I:8">
+          <typename><typedef-ref name="__off64_t" ref="0xb7c8d740"/></typename>
+        </type-int>
+      </field>
+      <field name="__state" ref="0xb7af7600" bit-offset="I:64" size="I:8">
+        <type-tag size="I:8" alignment="I:4"><struct-ref ref="0xb7af8688"/>
+          <typename><typedef-ref name="__mbstate_t" ref="0xb7af88b0"/></typename>
+        </type-tag>
+      </field>
+    </struct>
+    <struct loc="280:/usr/include/inttypes.h" ref="0xb7da53b0" defined="" size="I:16" alignment="I:4">
+      <field name="quot" ref="0xb7da54c0" bit-offset="I:0" size="I:8">
+        <type-int cname="long long" size="I:8" alignment="I:8"></type-int>
+      </field>
+      <field name="rem" ref="0xb7da5520" bit-offset="I:64" size="I:8">
+        <type-int cname="long long" size="I:8" alignment="I:8"></type-int>
+      </field>
+    </struct>
+    <attribute name="nts" loc="17:/usr/lib/ncc/deputy_nodeputy.h" ref="0xb7fbd0f8" defined="" size="I:4" alignment="I:4">
+      <field name="dummy" ref="0xb7fbd2d0" bit-offset="I:0" size="I:4">
+        <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+      </field>
+    </attribute>
+    <struct loc="117:/usr/include/stdlib.h" ref="0xb7c80af8" defined="" size="I:16" alignment="I:4">
+      <field name="quot" ref="0xb7c80c08" bit-offset="I:0" size="I:8">
+        <type-int cname="long long" size="I:8" alignment="I:8"></type-int>
+      </field>
+      <field name="rem" ref="0xb7c80c68" bit-offset="I:64" size="I:8">
+        <type-int cname="long long" size="I:8" alignment="I:8"></type-int>
+      </field>
+    </struct>
+    <struct name="_IO_FILE_plus" ref="0xb7af0b80" size="V:" alignment="V:">
+    </struct>
+    <struct name="exception" loc="372:/usr/include/math.h" ref="0xb7b18788" defined="" size="I:32" alignment="I:4">
+      <field name="type" ref="0xb7b18ce8" bit-offset="I:0" size="I:4">
+        <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+      </field>
+      <field name="name" ref="0xb7b18d48" bit-offset="I:32" size="I:4">
+        <type-pointer size="I:4" alignment="I:4">
+          <type-int cname="char" size="I:1" alignment="I:1"></type-int>
+        </type-pointer>
+      </field>
+      <field name="arg1" ref="0xb7b18da8" bit-offset="I:64" size="I:8">
+        <type-float cname="double" size="I:8" alignment="I:8"></type-float>
+      </field>
+      <field name="arg2" ref="0xb7b18e08" bit-offset="I:128" size="I:8">
+        <type-float cname="double" size="I:8" alignment="I:8"></type-float>
+      </field>
+      <field name="retval" ref="0xb7b18e68" bit-offset="I:192" size="I:8">
+        <type-float cname="double" size="I:8" alignment="I:8"></type-float>
+      </field>
+    </struct>
+    <struct name="sim_log_channel" loc="56:/opt/tinyos-main-2.1.2/tos/lib/tossim/sim_log.c" ref="0xb7a7c228" defined="" size="I:16" alignment="I:4">
+      <field name="name" ref="0xb7a7c838" bit-offset="I:0" size="I:4">
+        <type-pointer size="I:4" alignment="I:4">
+          <type-qualified const="">
+            <type-int cname="char" size="I:1" alignment="I:1"></type-int>
+          </type-qualified>
+        </type-pointer>
+      </field>
+      <field name="numOutputs" ref="0xb7a7c898" bit-offset="I:32" size="I:4">
+        <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+      </field>
+      <field name="size" ref="0xb7a7c8f8" bit-offset="I:64" size="I:4">
+        <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+      </field>
+      <field name="outputs" ref="0xb7a7c958" bit-offset="I:96" size="I:4">
+        <type-pointer size="I:4" alignment="I:4">
+          <type-pointer size="I:4" alignment="I:4">
+            <type-tag size="I:148" alignment="I:4"><struct-ref name="_IO_FILE" ref="0xb7afb770"/>
+              <typename><typedef-ref name="FILE" ref="0xb7afb9b0"/></typename>
+            </type-tag>
+          </type-pointer>
+        </type-pointer>
+      </field>
+    </struct>
+    <enum loc="347:/usr/include/math.h" ref="0xb7b19838" defined="" size="I:4" alignment="I:4">
+      <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+    </enum>
+    <struct loc="97:/usr/include/stdlib.h" ref="0xb7c82eb8" defined="" size="I:8" alignment="I:4">
+      <field name="quot" ref="0xb7c80010" bit-offset="I:0" size="I:4">
+        <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+      </field>
+      <field name="rem" ref="0xb7c80070" bit-offset="I:32" size="I:4">
+        <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+      </field>
+    </struct>
+    <attribute name="C"  loc="NONE" ref="0xb7fc62e0" size="V:" alignment="V:">
+    </attribute>
+    <struct loc="141:/usr/include/i386-linux-gnu/bits/pthreadtypes.h" ref="0xb7c57518" defined="" size="I:44" alignment="I:4">
+      <field name="__lock" ref="0xb7c57628" bit-offset="I:0" size="I:4">
+        <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+      </field>
+      <field name="__futex" ref="0xb7c57688" bit-offset="I:32" size="I:4">
+        <type-int cname="unsigned int" unsigned="" size="I:4" alignment="I:4"></type-int>
+      </field>
+      <field name="__total_seq" ref="0xb7c576e8" bit-offset="I:64" size="I:8">
+        <type-int cname="unsigned long long" unsigned="" size="I:8" alignment="I:8"></type-int>
+      </field>
+      <field name="__wakeup_seq" ref="0xb7c57748" bit-offset="I:128" size="I:8">
+        <type-int cname="unsigned long long" unsigned="" size="I:8" alignment="I:8"></type-int>
+      </field>
+      <field name="__woken_seq" ref="0xb7c577a8" bit-offset="I:192" size="I:8">
+        <type-int cname="unsigned long long" unsigned="" size="I:8" alignment="I:8"></type-int>
+      </field>
+      <field name="__mutex" ref="0xb7c57808" bit-offset="I:256" size="I:4">
+        <type-pointer size="I:4" alignment="I:4">
+          <type-void size="I:1" alignment="I:1"></type-void>
+        </type-pointer>
+      </field>
+      <field name="__nwaiters" ref="0xb7c57868" bit-offset="I:288" size="I:4">
+        <type-int cname="unsigned int" unsigned="" size="I:4" alignment="I:4"></type-int>
+      </field>
+      <field name="__broadcast_seq" ref="0xb7c578c8" bit-offset="I:320" size="I:4">
+        <type-int cname="unsigned int" unsigned="" size="I:4" alignment="I:4"></type-int>
+      </field>
+    </struct>
+    <struct name="sim_noise_hash_t" loc="64:/opt/tinyos-main-2.1.2/tos/lib/tossim/sim_noise.h" ref="0xb79f88e8" defined="" size="I:480" alignment="I:4">
+      <field name="key" ref="0xb79f72a0" bit-offset="I:0" size="I:20">
+        <type-array elements="I:20" size="I:20" alignment="I:1">
+          <type-int cname="char" size="I:1" alignment="I:1"></type-int>
+        </type-array>
+      </field>
+      <field name="numElements" ref="0xb79f7300" bit-offset="I:160" size="I:4">
+        <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+      </field>
+      <field name="size" ref="0xb79f7360" bit-offset="I:192" size="I:4">
+        <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+      </field>
+      <field name="elements" ref="0xb79f73c0" bit-offset="I:224" size="I:4">
+        <type-pointer size="I:4" alignment="I:4">
+          <type-int cname="char" size="I:1" alignment="I:1"></type-int>
+        </type-pointer>
+      </field>
+      <field name="flag" ref="0xb79f7420" bit-offset="I:256" size="I:1">
+        <type-int cname="char" size="I:1" alignment="I:1"></type-int>
+      </field>
+      <field name="dist" ref="0xb79f7480" bit-offset="I:288" size="I:444">
+        <type-array elements="I:111" size="I:444" alignment="I:4">
+          <type-float cname="float" size="I:4" alignment="I:4"></type-float>
+        </type-array>
+      </field>
+    </struct>
+    <attribute name="macro"  loc="NONE" ref="0xb7fc6a58" size="V:" alignment="V:">
+      <field name="macro_name" ref="0xb7fc6b68" bit-offset="U:" bit-size="U:">
+        <type-pointer size="I:4" alignment="I:4">
+          <type-int cname="char" size="I:1" alignment="I:1"></type-int>
+        </type-pointer>
+      </field>
+    </attribute>
+    <enum loc="87:/opt/tinyos-main-2.1.2/tos/lib/serial/Serial.h" ref="0xb78d6838" defined="" size="I:4" alignment="I:4">
+      <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+    </enum>
+    <nx_struct name="message_t" loc="14:/opt/tinyos-main-2.1.2/tos/types/message.h" ref="0xb78cec30" defined="" size="I:41" alignment="I:1">
+      <field name="header" ref="0xb78cd858" bit-offset="I:0" size="I:7">
+        <type-array elements="I:7" size="I:7" alignment="I:1">
+          <type-int cname="unsigned char" unsigned="" size="I:1" alignment="I:1" network="nx_uint8_t">
+            <typename><typedef-ref name="nx_uint8_t" ref="0xb7cc5728"/></typename>
+          </type-int>
+        </type-array>
+      </field>
+      <field name="data" ref="0xb78cd8b8" bit-offset="I:56" size="I:28">
+        <type-array elements="I:28" size="I:28" alignment="I:1">
+          <type-int cname="unsigned char" unsigned="" size="I:1" alignment="I:1" network="nx_uint8_t">
+            <typename><typedef-ref name="nx_uint8_t" ref="0xb7cc5728"/></typename>
+          </type-int>
+        </type-array>
+      </field>
+      <field name="footer" ref="0xb78cd918" bit-offset="I:280" size="I:2">
+        <type-array elements="I:2" size="I:2" alignment="I:1">
+          <type-int cname="unsigned char" unsigned="" size="I:1" alignment="I:1" network="nx_uint8_t">
+            <typename><typedef-ref name="nx_uint8_t" ref="0xb7cc5728"/></typename>
+          </type-int>
+        </type-array>
+      </field>
+      <field name="metadata" ref="0xb78cd978" bit-offset="I:296" size="I:4">
+        <type-array elements="I:4" size="I:4" alignment="I:1">
+          <type-int cname="unsigned char" unsigned="" size="I:1" alignment="I:1" network="nx_uint8_t">
+            <typename><typedef-ref name="nx_uint8_t" ref="0xb7cc5728"/></typename>
+          </type-int>
+        </type-array>
+      </field>
+    </nx_struct>
+    <nx_struct name="tossim_header" loc="6:/opt/tinyos-main-2.1.2/tos/lib/tossim/TossimRadioMsg.h" ref="0xb78d8638" defined="" size="I:7" alignment="I:1">
+      <field name="dest" ref="0xb78d8e60" bit-offset="I:0" size="I:2">
+        <type-int cname="unsigned short" unsigned="" size="I:2" alignment="I:1" network="nx_uint16_t">
+          <typename><typedef-ref name="nx_am_addr_t" ref="0xb78d9410"/></typename>
+        </type-int>
+      </field>
+      <field name="src" ref="0xb78d8ec0" bit-offset="I:16" size="I:2">
+        <type-int cname="unsigned short" unsigned="" size="I:2" alignment="I:1" network="nx_uint16_t">
+          <typename><typedef-ref name="nx_am_addr_t" ref="0xb78d9410"/></typename>
+        </type-int>
+      </field>
+      <field name="length" ref="0xb78d8f20" bit-offset="I:32" size="I:1">
+        <type-int cname="unsigned char" unsigned="" size="I:1" alignment="I:1" network="nx_uint8_t">
+          <typename><typedef-ref name="nx_uint8_t" ref="0xb7cc5728"/></typename>
+        </type-int>
+      </field>
+      <field name="group" ref="0xb78d8f80" bit-offset="I:40" size="I:1">
+        <type-int cname="unsigned char" unsigned="" size="I:1" alignment="I:1" network="nx_uint8_t">
+          <typename><typedef-ref name="nx_am_group_t" ref="0xb78d9178"/></typename>
+        </type-int>
+      </field>
+      <field name="type" ref="0xb78d7010" bit-offset="I:48" size="I:1">
+        <type-int cname="unsigned char" unsigned="" size="I:1" alignment="I:1" network="nx_uint8_t">
+          <typename><typedef-ref name="nx_am_id_t" ref="0xb78dbdc0"/></typename>
+        </type-int>
+      </field>
+    </nx_struct>
+    <enum loc="14:/opt/tinyos-main-2.1.2/tos/types/AM.h" ref="0xb78d9c40" defined="" size="I:4" alignment="I:4">
+      <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+    </enum>
+    <struct name="sim_noise_node_t" loc="73:/opt/tinyos-main-2.1.2/tos/lib/tossim/sim_noise.h" ref="0xb79f7820" defined="" size="I:68" alignment="I:4">
+      <field name="key" ref="0xb79f5798" bit-offset="I:0" size="I:20">
+        <type-array elements="I:20" size="I:20" alignment="I:1">
+          <type-int cname="char" size="I:1" alignment="I:1"></type-int>
+        </type-array>
+      </field>
+      <field name="freqKey" ref="0xb79f57f8" bit-offset="I:160" size="I:20">
+        <type-array elements="I:20" size="I:20" alignment="I:1">
+          <type-int cname="char" size="I:1" alignment="I:1"></type-int>
+        </type-array>
+      </field>
+      <field name="lastNoiseVal" ref="0xb79f5858" bit-offset="I:320" size="I:1">
+        <type-int cname="char" size="I:1" alignment="I:1"></type-int>
+      </field>
+      <field name="noiseGenTime" ref="0xb79f58b8" bit-offset="I:352" size="I:4">
+        <type-int cname="unsigned int" unsigned="" size="I:4" alignment="I:4">
+          <typename><typedef-ref name="uint32_t" ref="0xb7dac6b0"/></typename>
+        </type-int>
+      </field>
+      <field name="noiseTable" ref="0xb79f5918" bit-offset="I:384" size="I:4">
+        <type-pointer size="I:4" alignment="I:4">
+          <type-tag size="V:" alignment="V:"><struct-ref name="hashtable" ref="0xb7a84c90"/></type-tag>
+        </type-pointer>
+      </field>
+      <field name="noiseTrace" ref="0xb79f5978" bit-offset="I:416" size="I:4">
+        <type-pointer size="I:4" alignment="I:4">
+          <type-int cname="char" size="I:1" alignment="I:1"></type-int>
+        </type-pointer>
+      </field>
+      <field name="noiseTraceLen" ref="0xb79f59d8" bit-offset="I:448" size="I:4">
+        <type-int cname="unsigned int" unsigned="" size="I:4" alignment="I:4">
+          <typename><typedef-ref name="uint32_t" ref="0xb7dac6b0"/></typename>
+        </type-int>
+      </field>
+      <field name="noiseTraceIndex" ref="0xb79f5a38" bit-offset="I:480" size="I:4">
+        <type-int cname="unsigned int" unsigned="" size="I:4" alignment="I:4">
+          <typename><typedef-ref name="uint32_t" ref="0xb7dac6b0"/></typename>
+        </type-int>
+      </field>
+      <field name="generated" ref="0xb79f5a98" bit-offset="I:512" size="I:1">
+        <type-int cname="unsigned char" unsigned="" size="I:1" alignment="I:1">
+          <typename><typedef-ref name="bool" ref="0xb7a9cd38"/></typename>
+        </type-int>
+      </field>
+    </struct>
+    <union loc="67:/usr/include/stdlib.h" ref="0xb7c82800" defined="" size="I:4" alignment="I:4">
+      <field name="__uptr" ref="0xb7c82910" bit-offset="I:0" size="I:4">
+        <type-pointer size="I:4" alignment="I:4">
+          <type-tag size="I:4" alignment="I:4"><union-ref name="wait" ref="0xb7c84e48"/></type-tag>
+        </type-pointer>
+      </field>
+      <field name="__iptr" ref="0xb7c82970" bit-offset="I:0" size="I:4">
+        <type-pointer size="I:4" alignment="I:4">
+          <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+        </type-pointer>
+      </field>
+    </union>
+    <enum loc="63:/opt/tinyos-main-2.1.2/tos/lib/tossim/sim_log.c" ref="0xb7a7cb50" defined="" size="I:4" alignment="I:4">
+      <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+    </enum>
+    <attribute name="atomic_hwevent"  loc="NONE" ref="0xb7fc65b8" size="V:" alignment="V:">
+    </attribute>
+    <attribute name="dmemcpy" loc="16:/usr/lib/ncc/deputy_nodeputy.h" ref="0xb7fbea18" defined="" size="I:12" alignment="I:4">
+      <field name="a1" ref="0xb7fbeca0" bit-offset="I:0" size="I:4">
+        <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+      </field>
+      <field name="a2" ref="0xb7fbed00" bit-offset="I:32" size="I:4">
+        <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+      </field>
+      <field name="a3" ref="0xb7fbed60" bit-offset="I:64" size="I:4">
+        <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+      </field>
+    </attribute>
+    <struct name="__pthread_mutex_s" loc="92:/usr/include/i386-linux-gnu/bits/pthreadtypes.h" ref="0xb7c5a8e0" defined="" size="I:24" alignment="I:4">
+      <field name="__lock" ref="0xb7c59890" bit-offset="I:0" size="I:4">
+        <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+      </field>
+      <field name="__count" ref="0xb7c598f0" bit-offset="I:32" size="I:4">
+        <type-int cname="unsigned int" unsigned="" size="I:4" alignment="I:4"></type-int>
+      </field>
+      <field name="__owner" ref="0xb7c59950" bit-offset="I:64" size="I:4">
+        <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+      </field>
+      <field name="__kind" ref="0xb7c599b0" bit-offset="I:96" size="I:4">
+        <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+      </field>
+      <field name="__nusers" ref="0xb7c59a10" bit-offset="I:128" size="I:4">
+        <type-int cname="unsigned int" unsigned="" size="I:4" alignment="I:4"></type-int>
+      </field>
+      <field name="__elision_data" ref="0xb7c59a70" bit-offset="I:160" size="I:4">
+        <type-tag size="I:4" alignment="I:2"><struct-ref ref="0xb7c591b0"/></type-tag>
+      </field>
+      <field name="__list" ref="0xb7c59ad0" bit-offset="I:160" size="I:4">
+        <type-tag size="I:4" alignment="I:4"><struct-ref name="__pthread_internal_slist" ref="0xb7c5a1c0"/>
+          <typename><typedef-ref name="__pthread_slist_t" ref="0xb7c5a670"/></typename>
+        </type-tag>
+      </field>
+    </struct>
+    <enum loc="53:/opt/tinyos-main-2.1.2/tos/lib/tossim/SimSchedulerBasicP.nc" ref="0xb78adc70" defined="" scoped="" size="I:4" alignment="I:4">
+      <component-ref qname="SimSchedulerBasicP"/>
+      <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+    </enum>
+  </tags>
+  <variables>
+    <variable name="randCM" ref="0xb7982a80" loc="39:/opt/tinyos-main-2.1.2/tos/lib/tossim/randomlib.c">
+      <type-float cname="double" size="I:8" alignment="I:8"></type-float>
+    </variable>
+    <variable name="dummy" ref="0xb790eb20" loc="283:/opt/tinyos-main-2.1.2/tos/lib/tossim/sim_noise.c">
+      <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+    </variable>
+    <variable name="current_node" ref="0xb79f1010" loc="52:/opt/tinyos-main-2.1.2/tos/lib/tossim/sim_tossim.c">
+      <type-int cname="unsigned long" unsigned="" size="I:4" alignment="I:4"></type-int>
+    </variable>
+    <variable name="test" ref="0xb7980010" loc="41:/opt/tinyos-main-2.1.2/tos/lib/tossim/randomlib.c">
+      <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+    </variable>
+    <variable name="__timezone" ref="0xb795d0f0" loc="284:/usr/include/time.h">
+      <type-int cname="long" size="I:4" alignment="I:4"></type-int>
+    </variable>
+    <variable name="channelTable" ref="0xb7a7a750" loc="68:/opt/tinyos-main-2.1.2/tos/lib/tossim/sim_log.c">
+      <type-pointer size="I:4" alignment="I:4">
+        <type-tag size="V:" alignment="V:"><struct-ref name="hashtable" ref="0xb7a84c90"/></type-tag>
+      </type-pointer>
+    </variable>
+    <variable name="noiseData" ref="0xb794dd60" loc="58:/opt/tinyos-main-2.1.2/tos/lib/tossim/sim_noise.c">
+      <type-array elements="I:1000" size="I:68000" alignment="I:4">
+        <type-tag size="I:68" alignment="I:4"><struct-ref name="sim_noise_node_t" ref="0xb79f7820"/>
+          <typename><typedef-ref name="sim_noise_node_t" ref="0xb79f5b50"/></typename>
+        </type-tag>
+      </type-array>
+    </variable>
+    <variable name="outputs" ref="0xb7a7a498" loc="67:/opt/tinyos-main-2.1.2/tos/lib/tossim/sim_log.c">
+      <type-array elements="I:53" size="I:424" alignment="I:4">
+        <type-tag size="I:8" alignment="I:4"><struct-ref name="sim_log_output" ref="0xb7a7dab8"/>
+          <typename><typedef-ref name="sim_log_output_t" ref="0xb7a7c010"/></typename>
+        </type-tag>
+      </type-array>
+    </variable>
+    <variable name="__tzname" ref="0xb795ec90" loc="282:/usr/include/time.h">
+      <type-array elements="I:2" size="I:8" alignment="I:4">
+        <type-pointer size="I:4" alignment="I:4">
+          <type-int cname="char" size="I:1" alignment="I:1"></type-int>
+        </type-pointer>
+      </type-array>
+    </variable>
+    <variable name="randU" ref="0xb7982620" loc="39:/opt/tinyos-main-2.1.2/tos/lib/tossim/randomlib.c">
+      <type-array elements="I:97" size="I:776" alignment="I:8">
+        <type-float cname="double" size="I:8" alignment="I:8"></type-float>
+      </type-array>
+    </variable>
+    <variable name="timezone" ref="0xb795dca0" loc="298:/usr/include/time.h">
+      <type-int cname="long" size="I:4" alignment="I:4"></type-int>
+    </variable>
+    <variable name="eventHeap" ref="0xb7a18c80" loc="44:/opt/tinyos-main-2.1.2/tos/lib/tossim/sim_event_queue.c">
+      <documentation loc="33:/opt/tinyos-main-2.1.2/tos/lib/tossim/sim_event_queue.h">
+        <short>&#10; The event queue is the core of the mote side of TOSSIM.</short>
+        <long>&#10; The event queue is the core of the mote side of TOSSIM. It is a&#10; wrapper around the underlying heap. Unlike the 1.x version, it is&#10; not re-entrant: merging the Python console and TOSSIM means that&#10; functionality like packet injection/reception from external tools&#10; is on the Python side.&#10;&#10; @author Phil Levis&#10; @date   November 22 2005&#10;</long>
+      </documentation>
+      <type-tag size="I:12" alignment="I:4"><struct-ref name="heap" ref="0xb7a42570"/>
+        <typename><typedef-ref name="heap_t" ref="0xb7a42b28"/></typename>
+      </type-tag>
+    </variable>
+    <variable name="csmaRxTxDelay" ref="0xb79c7cf8" loc="54:/opt/tinyos-main-2.1.2/tos/lib/tossim/sim_csma.c">
+      <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+    </variable>
+    <variable name="numCase1" ref="0xb794d0c0" loc="51:/opt/tinyos-main-2.1.2/tos/lib/tossim/sim_noise.c">
+      <documentation loc="32:/opt/tinyos-main-2.1.2/tos/lib/tossim/sim_noise.h">
+        <short>&#10; Implementation of all of the SNIST primitives and utility&#10; functions.</short>
+        <long>&#10; Implementation of all of the SNIST primitives and utility&#10; functions.&#10;&#10; @author Hyungjune Lee&#10; @date   Oct 13 2006&#10;</long>
+      </documentation>
+      <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+    </variable>
+    <variable name="randC" ref="0xb7982790" loc="39:/opt/tinyos-main-2.1.2/tos/lib/tossim/randomlib.c">
+      <type-float cname="double" size="I:8" alignment="I:8"></type-float>
+    </variable>
+    <variable name="FreqKeyNum" ref="0xb794d990" loc="56:/opt/tinyos-main-2.1.2/tos/lib/tossim/sim_noise.c">
+      <type-int cname="unsigned int" unsigned="" size="I:4" alignment="I:4">
+        <typename><typedef-ref name="uint32_t" ref="0xb7dac6b0"/></typename>
+      </type-int>
+    </variable>
+    <variable name="csmaLow" ref="0xb79c88e0" loc="47:/opt/tinyos-main-2.1.2/tos/lib/tossim/sim_csma.c">
+      <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+    </variable>
+    <variable name="csmaPreambleLength" ref="0xb79c71a0" loc="50:/opt/tinyos-main-2.1.2/tos/lib/tossim/sim_csma.c">
+      <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+    </variable>
+    <variable name="numTotal" ref="0xb794d690" loc="53:/opt/tinyos-main-2.1.2/tos/lib/tossim/sim_noise.c">
+      <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+    </variable>
+    <variable name="daylight" ref="0xb795da80" loc="297:/usr/include/time.h">
+      <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+    </variable>
+    <variable name="csmaExponentBase" ref="0xb79c7478" loc="51:/opt/tinyos-main-2.1.2/tos/lib/tossim/sim_csma.c">
+      <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+    </variable>
+    <variable name="_IO_2_1_stdin_" ref="0xb7af0e30" loc="315:/usr/include/libio.h">
+      <type-tag size="V:" alignment="V:"><struct-ref name="_IO_FILE_plus" ref="0xb7af0b80"/></type-tag>
+    </variable>
+    <variable name="randCD" ref="0xb7982908" loc="39:/opt/tinyos-main-2.1.2/tos/lib/tossim/randomlib.c">
+      <type-float cname="double" size="I:8" alignment="I:8"></type-float>
+    </variable>
+    <variable name="j97" ref="0xb7982da0" loc="40:/opt/tinyos-main-2.1.2/tos/lib/tossim/randomlib.c">
+      <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+    </variable>
+    <variable name="TOS_NODE_ID" ref="0xb7a9a478" loc="78:/opt/tinyos-main-2.1.2/tos/lib/tossim/tos.h">
+      <type-int cname="unsigned short" unsigned="" size="I:2" alignment="I:2">
+        <typename><typedef-ref name="uint16_t" ref="0xb7dac490"/></typename>
+      </type-int>
+    </variable>
+    <variable name="sys_errlist" ref="0xb7aa1508" loc="27:/usr/include/i386-linux-gnu/bits/sys_errlist.h">
+      <type-qualified const="">
+        <type-array elements="V:" size="V:" alignment="V:">
+          <type-qualified const="">
+            <type-pointer size="I:4" alignment="I:4">
+              <type-qualified const="">
+                <type-int cname="char" size="I:1" alignment="I:1"></type-int>
+              </type-qualified>
+            </type-pointer>
+          </type-qualified>
+        </type-array>
+      </type-qualified>
+    </variable>
+    <variable name="tzname" ref="0xb795d3a0" loc="289:/usr/include/time.h">
+      <type-array elements="I:2" size="I:8" alignment="I:4">
+        <type-pointer size="I:4" alignment="I:4">
+          <type-int cname="char" size="I:1" alignment="I:1"></type-int>
+        </type-pointer>
+      </type-array>
+    </variable>
+    <variable name="STARTING_SIZE" ref="0xb7a3ea58" loc="58:/opt/tinyos-main-2.1.2/tos/lib/tossim/heap.c">
+      <type-qualified const="">
+        <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+      </type-qualified>
+    </variable>
+    <variable name="=va_arg" ref="0xb7fc8128"  loc="NONE">
+      <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+    </variable>
+    <variable name="_IO_2_1_stderr_" ref="0xb7aee448" loc="317:/usr/include/libio.h">
+      <type-tag size="V:" alignment="V:"><struct-ref name="_IO_FILE_plus" ref="0xb7af0b80"/></type-tag>
+    </variable>
+    <variable name="csmaHigh" ref="0xb79c8668" loc="46:/opt/tinyos-main-2.1.2/tos/lib/tossim/sim_csma.c">
+      <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+    </variable>
+    <variable name="csmaMaxIterations" ref="0xb79c7758" loc="52:/opt/tinyos-main-2.1.2/tos/lib/tossim/sim_csma.c">
+      <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+    </variable>
+    <variable name="localNoise" ref="0xb79a8e10" loc="10:/opt/tinyos-main-2.1.2/tos/lib/tossim/sim_gain.c">
+      <type-array elements="I:1001" size="I:16016" alignment="I:4">
+        <type-tag size="I:16" alignment="I:4"><struct-ref name="sim_gain_noise" ref="0xb79a8148"/>
+          <typename><typedef-ref name="sim_gain_noise_t" ref="0xb79a85d0"/></typename>
+        </type-tag>
+      </type-array>
+    </variable>
+    <variable name="_IO_2_1_stdout_" ref="0xb7aee150" loc="316:/usr/include/libio.h">
+      <type-tag size="V:" alignment="V:"><struct-ref name="_IO_FILE_plus" ref="0xb7af0b80"/></type-tag>
+    </variable>
+    <variable name="csmaInitLow" ref="0xb79c83e0" loc="45:/opt/tinyos-main-2.1.2/tos/lib/tossim/sim_csma.c">
+      <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+    </variable>
+    <variable name="numCase2" ref="0xb794d408" loc="52:/opt/tinyos-main-2.1.2/tos/lib/tossim/sim_noise.c">
+      <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+    </variable>
+    <variable name="sim_ticks" ref="0xb79f3d80" loc="51:/opt/tinyos-main-2.1.2/tos/lib/tossim/sim_tossim.c">
+      <type-int cname="long long" size="I:8" alignment="I:8">
+        <typename><typedef-ref name="sim_time_t" ref="0xb7a9a748"/></typename>
+      </type-int>
+    </variable>
+    <variable name="__daylight" ref="0xb795eea0" loc="283:/usr/include/time.h">
+      <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+    </variable>
+    <variable name="stderr" ref="0xb7adf8a0" loc="170:/usr/include/stdio.h">
+      <type-pointer size="I:4" alignment="I:4">
+        <type-tag size="I:148" alignment="I:4"><struct-ref name="_IO_FILE" ref="0xb7afb770"/></type-tag>
+      </type-pointer>
+    </variable>
+    <variable name="connectivity" ref="0xb79a89f8" loc="9:/opt/tinyos-main-2.1.2/tos/lib/tossim/sim_gain.c">
+      <type-array elements="I:1001" size="I:4004" alignment="I:4">
+        <type-pointer size="I:4" alignment="I:4">
+          <type-tag size="I:16" alignment="I:4"><struct-ref name="gain_entry" ref="0xb79b0d60"/>
+            <typename><typedef-ref name="gain_entry_t" ref="0xb79af400"/></typename>
+          </type-tag>
+        </type-pointer>
+      </type-array>
+    </variable>
+    <variable name="sys_nerr" ref="0xb7aa1250" loc="26:/usr/include/i386-linux-gnu/bits/sys_errlist.h">
+      <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+    </variable>
+    <variable name="stdin" ref="0xb7adf380" loc="168:/usr/include/stdio.h">
+      <type-pointer size="I:4" alignment="I:4">
+        <type-tag size="I:148" alignment="I:4"><struct-ref name="_IO_FILE" ref="0xb7afb770"/></type-tag>
+      </type-pointer>
+    </variable>
+    <variable name="simTimeBuf" ref="0xb79d66d8" loc="183:/opt/tinyos-main-2.1.2/tos/lib/tossim/sim_tossim.c">
+      <type-array elements="I:128" size="I:128" alignment="I:1">
+        <type-int cname="char" size="I:1" alignment="I:1"></type-int>
+      </type-array>
+    </variable>
+    <variable name="sim_seed" ref="0xb79f1210" loc="53:/opt/tinyos-main-2.1.2/tos/lib/tossim/sim_tossim.c">
+      <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+    </variable>
+    <variable name="_LIB_VERSION" ref="0xb7b185a8" loc="359:/usr/include/math.h">
+      <type-tag size="I:4" alignment="I:4"><enum-ref ref="0xb7b19838"/>
+        <typename><typedef-ref name="_LIB_VERSION_TYPE" ref="0xb7b182c0"/></typename>
+      </type-tag>
+    </variable>
+    <variable name="sensitivity" ref="0xb79a7048" loc="11:/opt/tinyos-main-2.1.2/tos/lib/tossim/sim_gain.c">
+      <type-float cname="double" size="I:8" alignment="I:8"></type-float>
+    </variable>
+    <variable name="signgam" ref="0xb7b1aa68" loc="168:/usr/include/math.h">
+      <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+    </variable>
+    <variable name="csmaInitHigh" ref="0xb79c8140" loc="44:/opt/tinyos-main-2.1.2/tos/lib/tossim/sim_csma.c">
+      <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+    </variable>
+    <variable name="stdout" ref="0xb7adf610" loc="169:/usr/include/stdio.h">
+      <type-pointer size="I:4" alignment="I:4">
+        <type-tag size="I:148" alignment="I:4"><struct-ref name="_IO_FILE" ref="0xb7afb770"/></type-tag>
+      </type-pointer>
+    </variable>
+    <variable name="csmaAckTime" ref="0xb79c6010" loc="55:/opt/tinyos-main-2.1.2/tos/lib/tossim/sim_csma.c">
+      <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+    </variable>
+    <variable name="csmaSymbolsPerSec" ref="0xb79c8bc0" loc="48:/opt/tinyos-main-2.1.2/tos/lib/tossim/sim_csma.c">
+      <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+    </variable>
+    <variable name="csmaMinFreeSamples" ref="0xb79c7a40" loc="53:/opt/tinyos-main-2.1.2/tos/lib/tossim/sim_csma.c">
+      <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+    </variable>
+    <variable name="csmaBitsPerSymbol" ref="0xb79c8ea0" loc="49:/opt/tinyos-main-2.1.2/tos/lib/tossim/sim_csma.c">
+      <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+    </variable>
+    <variable name="i97" ref="0xb7982c48" loc="40:/opt/tinyos-main-2.1.2/tos/lib/tossim/randomlib.c">
+      <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+    </variable>
+    <variable name="CRITICAL" ref="0xb78ae9a8" loc="9:BinMoteC.nc">
+      <component-ref qname="BinMoteC"/>
+      <type-qualified const="">
+          <typename><typedef-ref name="uint8_t" ref="0xb7dac250"/></typename>
+        <type-int cname="unsigned char" unsigned="" size="I:1" alignment="I:1"></type-int>
+      </type-qualified>
+    </variable>
+    <variable name="MAX_X" ref="0xb7892010" loc="11:BinMoteC.nc">
+      <component-ref qname="BinMoteC"/>
+      <type-qualified const="">
+          <typename><typedef-ref name="uint16_t" ref="0xb7dac490"/></typename>
+        <type-int cname="unsigned short" unsigned="" size="I:2" alignment="I:2"></type-int>
+      </type-qualified>
+    </variable>
+    <variable name="counter" ref="0xb78925b0" loc="14:BinMoteC.nc">
+      <component-ref qname="BinMoteC"/>
+      <type-int cname="unsigned char" unsigned="" size="I:1" alignment="I:1">
+        <typename><typedef-ref name="uint8_t" ref="0xb7dac250"/></typename>
+      </type-int>
+    </variable>
+    <variable name="FULL" ref="0xb78aec70" loc="10:BinMoteC.nc">
+      <component-ref qname="BinMoteC"/>
+      <type-qualified const="">
+          <typename><typedef-ref name="uint8_t" ref="0xb7dac250"/></typename>
+        <type-int cname="unsigned char" unsigned="" size="I:1" alignment="I:1"></type-int>
+      </type-qualified>
+    </variable>
+    <variable name="MAX_Y" ref="0xb78922f0" loc="12:BinMoteC.nc">
+      <component-ref qname="BinMoteC"/>
+      <type-qualified const="">
+          <typename><typedef-ref name="uint16_t" ref="0xb7dac490"/></typename>
+        <type-int cname="unsigned short" unsigned="" size="I:2" alignment="I:2"></type-int>
+      </type-qualified>
+    </variable>
+    <variable name="x" ref="0xb78927a0" loc="15:BinMoteC.nc">
+      <component-ref qname="BinMoteC"/>
+      <type-int cname="unsigned short" unsigned="" size="I:2" alignment="I:2">
+        <typename><typedef-ref name="uint16_t" ref="0xb7dac490"/></typename>
+      </type-int>
+    </variable>
+    <variable name="y" ref="0xb78928e8" loc="15:BinMoteC.nc">
+      <component-ref qname="BinMoteC"/>
+      <type-int cname="unsigned short" unsigned="" size="I:2" alignment="I:2">
+        <typename><typedef-ref name="uint16_t" ref="0xb7dac490"/></typename>
+      </type-int>
+    </variable>
+    <variable name="sim_scheduler_event_pending" ref="0xb78ace00" loc="66:/opt/tinyos-main-2.1.2/tos/lib/tossim/SimSchedulerBasicP.nc">
+      <component-ref qname="SimSchedulerBasicP"/>
+      <type-int cname="unsigned char" unsigned="" size="I:1" alignment="I:1">
+        <typename><typedef-ref name="bool" ref="0xb7a9cd38"/></typename>
+      </type-int>
+    </variable>
+    <variable name="m_tail" ref="0xb78ac848" loc="60:/opt/tinyos-main-2.1.2/tos/lib/tossim/SimSchedulerBasicP.nc">
+      <component-ref qname="SimSchedulerBasicP"/>
+      <type-int cname="unsigned char" unsigned="" size="I:1" alignment="I:1">
+        <typename><typedef-ref name="uint8_t" ref="0xb7dac250"/></typename>
+      </type-int>
+    </variable>
+    <variable name="m_head" ref="0xb78ac638" loc="59:/opt/tinyos-main-2.1.2/tos/lib/tossim/SimSchedulerBasicP.nc">
+      <component-ref qname="SimSchedulerBasicP"/>
+      <type-int cname="unsigned char" unsigned="" size="I:1" alignment="I:1">
+        <typename><typedef-ref name="uint8_t" ref="0xb7dac250"/></typename>
+      </type-int>
+    </variable>
+    <variable name="m_next" ref="0xb78acb28" loc="61:/opt/tinyos-main-2.1.2/tos/lib/tossim/SimSchedulerBasicP.nc">
+      <component-ref qname="SimSchedulerBasicP"/>
+      <type-array elements="I:0" size="I:0" alignment="I:1">
+        <type-int cname="unsigned char" unsigned="" size="I:1" alignment="I:1">
+          <typename><typedef-ref name="uint8_t" ref="0xb7dac250"/></typename>
+        </type-int>
+      </type-array>
+    </variable>
+    <variable name="sim_scheduler_event" ref="0xb78ab1b8" loc="67:/opt/tinyos-main-2.1.2/tos/lib/tossim/SimSchedulerBasicP.nc">
+      <component-ref qname="SimSchedulerBasicP"/>
+      <type-tag size="I:28" alignment="I:4"><struct-ref name="sim_event" ref="0xb7a945b8"/>
+        <typename><typedef-ref name="sim_event_t" ref="0xb7a94820"/></typename>
+      </type-tag>
+    </variable>
+  </variables>
+  <constants>
+    <constant cst="I:255" name="TOS_SERIAL_UNKNOWN_ID" ref="0xb78d47e0" loc="98:/opt/tinyos-main-2.1.2/tos/lib/serial/Serial.h">
+      <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+    </constant>
+    <constant cst="I:0" name="P_ALL" ref="0xb7c93b08" loc="52:/usr/include/i386-linux-gnu/bits/waitflags.h">
+      <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+    </constant>
+    <constant cst="I:-1" name="_IEEE_" ref="0xb7b19a30" loc="349:/usr/include/math.h">
+      <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+    </constant>
+    <constant cst="I:32768" name="_ISgraph" ref="0xb7b11498" loc="55:/usr/include/ctype.h">
+      <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+    </constant>
+    <constant cst="I:1024" name="_ISalpha" ref="0xb7b14da8" loc="50:/usr/include/ctype.h">
+      <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+    </constant>
+    <constant cst="I:23" name="NOISE_BIN_SIZE" ref="0xb79f9890" loc="56:/opt/tinyos-main-2.1.2/tos/lib/tossim/sim_noise.h">
+      <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+    </constant>
+    <constant cst="I:255" name="SERIAL_PROTO_PACKET_UNKNOWN" ref="0xb78d3308" loc="106:/opt/tinyos-main-2.1.2/tos/lib/serial/Serial.h">
+      <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+    </constant>
+    <constant cst="I:125" name="HDLC_CTLESC_BYTE" ref="0xb78d6c50" loc="89:/opt/tinyos-main-2.1.2/tos/lib/serial/Serial.h">
+      <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+    </constant>
+    <constant cst="I:0" name="_SVID_" ref="0xb7b19ba8" loc="350:/usr/include/math.h">
+      <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+    </constant>
+    <constant cst="I:4" name="EOFF" ref="0xb7fc3b88" loc="56:/opt/tinyos-main-2.1.2/tos/types/TinyError.h">
+      <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+    </constant>
+    <constant cst="I:67" name="SERIAL_PROTO_ACK" ref="0xb78d4b38" loc="103:/opt/tinyos-main-2.1.2/tos/lib/serial/Serial.h">
+      <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+    </constant>
+    <constant cst="I:128" name="NOISE_MIN_TRACE" ref="0xb79f8238" loc="60:/opt/tinyos-main-2.1.2/tos/lib/tossim/sim_noise.h">
+      <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+    </constant>
+    <constant cst="I:8" name="ERESERVE" ref="0xb7ac62f0" loc="60:/opt/tinyos-main-2.1.2/tos/types/TinyError.h">
+      <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+    </constant>
+    <constant cst="I:1" name="_ISblank" ref="0xb7b11c48" loc="56:/usr/include/ctype.h">
+      <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+    </constant>
+    <constant cst="I:6" name="EINVAL" ref="0xb7fc3f20" loc="58:/opt/tinyos-main-2.1.2/tos/types/TinyError.h">
+      <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+    </constant>
+    <constant cst="I:-115" name="NOISE_MIN" ref="0xb79faa88" loc="52:/opt/tinyos-main-2.1.2/tos/lib/tossim/sim_noise.h">
+      <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+    </constant>
+    <constant cst="I:-5" name="NOISE_MAX" ref="0xb79face0" loc="53:/opt/tinyos-main-2.1.2/tos/lib/tossim/sim_noise.h">
+      <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+    </constant>
+    <constant cst="I:0" name="FP_NAN" ref="0xb7b1ad88" loc="211:/usr/include/math.h">
+      <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+    </constant>
+    <constant cst="I:8" name="NOISE_DEFAULT_ELEMENT_SIZE" ref="0xb79f9d40" loc="58:/opt/tinyos-main-2.1.2/tos/lib/tossim/sim_noise.h">
+      <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+    </constant>
+    <constant cst="I:1" name="ITIMER_VIRTUAL" ref="0xb7a00748" loc="97:/usr/include/i386-linux-gnu/sys/time.h">
+      <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+    </constant>
+    <constant cst="I:2" name="FP_ZERO" ref="0xb7b191f8" loc="217:/usr/include/math.h">
+      <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+    </constant>
+    <constant cst="I:0" name="FALSE" ref="0xb7a9a058" loc="76:/opt/tinyos-main-2.1.2/tos/lib/tossim/tos.h">
+      <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+    </constant>
+    <constant cst="I:5" name="EBUSY" ref="0xb7fc3d50" loc="57:/opt/tinyos-main-2.1.2/tos/types/TinyError.h">
+      <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+    </constant>
+    <constant cst="I:1" name="_XOPEN_" ref="0xb7b19d28" loc="351:/usr/include/math.h">
+      <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+    </constant>
+    <constant cst="I:8" name="DEFAULT_CHANNEL_SIZE" ref="0xb7a7d8a8" loc="48:/opt/tinyos-main-2.1.2/tos/lib/tossim/sim_log.c">
+      <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+    </constant>
+    <constant cst="I:5" name="NOISE_QUANTIZE_INTERVAL" ref="0xb79f9288" loc="55:/opt/tinyos-main-2.1.2/tos/lib/tossim/sim_noise.h">
+      <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+    </constant>
+    <constant cst="I:4" name="_ISpunct" ref="0xb7b10bd8" loc="58:/usr/include/ctype.h">
+      <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+    </constant>
+    <constant cst="I:16384" name="_ISprint" ref="0xb7b12cc0" loc="54:/usr/include/ctype.h">
+      <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+    </constant>
+    <constant cst="I:2" name="_POSIX_" ref="0xb7b19ea8" loc="352:/usr/include/math.h">
+      <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+    </constant>
+    <constant cst="I:2" name="__codecvt_error" ref="0xb7af5d60" loc="180:/usr/include/libio.h">
+      <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+    </constant>
+    <constant cst="I:10" name="ENOMEM" ref="0xb7ac66a8" loc="62:/opt/tinyos-main-2.1.2/tos/types/TinyError.h">
+      <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+    </constant>
+    <constant cst="I:1" name="__codecvt_partial" ref="0xb7af5b90" loc="179:/usr/include/libio.h">
+      <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+    </constant>
+    <constant cst="I:69" name="SERIAL_PROTO_PACKET_NOACK" ref="0xb78d3058" loc="105:/opt/tinyos-main-2.1.2/tos/lib/serial/Serial.h">
+      <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+    </constant>
+    <constant cst="I:11" name="ELAST" ref="0xb7ac6a50" loc="64:/opt/tinyos-main-2.1.2/tos/types/TinyError.h">
+      <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+    </constant>
+    <constant cst="I:1" name="P_PID" ref="0xb7c93c78" loc="53:/usr/include/i386-linux-gnu/bits/waitflags.h">
+      <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+    </constant>
+    <constant cst="I:3" name="_ISOC_" ref="0xb7b18058" loc="353:/usr/include/math.h">
+      <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+    </constant>
+    <constant cst="I:0" name="__codecvt_ok" ref="0xb7af59a8" loc="178:/usr/include/libio.h">
+      <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+    </constant>
+    <constant cst="I:2" name="ITIMER_PROF" ref="0xb7a00968" loc="101:/usr/include/i386-linux-gnu/sys/time.h">
+      <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+    </constant>
+    <constant cst="I:2" name="_IScntrl" ref="0xb7b10428" loc="57:/usr/include/ctype.h">
+      <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+    </constant>
+    <constant cst="I:1" name="TOS_SERIAL_CC1000_ID" ref="0xb78d4308" loc="96:/opt/tinyos-main-2.1.2/tos/lib/serial/Serial.h">
+      <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+    </constant>
+    <constant cst="I:3" name="__codecvt_noconv" ref="0xb7af4010" loc="181:/usr/include/libio.h">
+      <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+    </constant>
+    <constant cst="I:4096" name="_ISxdigit" ref="0xb7b13d40" loc="52:/usr/include/ctype.h">
+      <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+    </constant>
+    <constant cst="I:34" name="TOS_AM_GROUP" ref="0xb78d81e0" loc="27:/opt/tinyos-main-2.1.2/tos/types/AM.h">
+      <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+    </constant>
+    <constant cst="I:68" name="SERIAL_PROTO_PACKET_ACK" ref="0xb78d4db0" loc="104:/opt/tinyos-main-2.1.2/tos/lib/serial/Serial.h">
+      <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+    </constant>
+    <constant cst="I:4" name="FP_NORMAL" ref="0xb7b19628" loc="223:/usr/include/math.h">
+      <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+    </constant>
+    <constant cst="I:512" name="_ISlower" ref="0xb7b145f8" loc="49:/usr/include/ctype.h">
+      <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+    </constant>
+    <constant cst="I:0" name="TOS_SERIAL_ACTIVE_MESSAGE_ID" ref="0xb78d40a8" loc="95:/opt/tinyos-main-2.1.2/tos/lib/serial/Serial.h">
+      <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+    </constant>
+    <constant cst="I:3" name="ECANCEL" ref="0xb7fc39c8" loc="55:/opt/tinyos-main-2.1.2/tos/types/TinyError.h">
+      <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+    </constant>
+    <constant cst="I:3" name="FP_SUBNORMAL" ref="0xb7b19418" loc="220:/usr/include/math.h">
+      <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+    </constant>
+    <constant cst="I:128" name="NOISE_HASHTABLE_SIZE" ref="0xb79f8010" loc="59:/opt/tinyos-main-2.1.2/tos/lib/tossim/sim_noise.h">
+      <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+    </constant>
+    <constant cst="I:11" name="ENOACK" ref="0xb7ac6878" loc="63:/opt/tinyos-main-2.1.2/tos/types/TinyError.h">
+      <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+    </constant>
+    <constant cst="I:53" name="SIM_LOG_OUTPUT_COUNT" ref="0xb7a7a0c0" loc="64:/opt/tinyos-main-2.1.2/tos/lib/tossim/sim_log.c">
+      <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+    </constant>
+    <constant cst="I:126" name="HDLC_FLAG_BYTE" ref="0xb78d6a18" loc="88:/opt/tinyos-main-2.1.2/tos/lib/serial/Serial.h">
+      <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+    </constant>
+    <constant cst="I:7" name="ERETRY" ref="0xb7ac6108" loc="59:/opt/tinyos-main-2.1.2/tos/types/TinyError.h">
+      <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+    </constant>
+    <constant cst="I:256" name="_ISupper" ref="0xb7b16df8" loc="48:/usr/include/ctype.h">
+      <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+    </constant>
+    <constant cst="I:1" name="FP_INFINITE" ref="0xb7b19010" loc="214:/usr/include/math.h">
+      <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+    </constant>
+    <constant cst="I:-115" name="NOISE_MIN_QUANTIZE" ref="0xb79f9010" loc="54:/opt/tinyos-main-2.1.2/tos/lib/tossim/sim_noise.h">
+      <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+    </constant>
+    <constant cst="I:111" name="NOISE_NUM_VALUES" ref="0xb79f86b0" loc="61:/opt/tinyos-main-2.1.2/tos/lib/tossim/sim_noise.h">
+      <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+    </constant>
+    <constant cst="I:2048" name="_ISdigit" ref="0xb7b13588" loc="51:/usr/include/ctype.h">
+      <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+    </constant>
+    <constant cst="I:2" name="TOS_SERIAL_802_15_4_ID" ref="0xb78d4578" loc="97:/opt/tinyos-main-2.1.2/tos/lib/serial/Serial.h">
+      <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+    </constant>
+    <constant cst="I:0" name="SUCCESS" ref="0xb7fc3468" loc="52:/opt/tinyos-main-2.1.2/tos/types/TinyError.h">
+      <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+    </constant>
+    <constant cst="I:2" name="ESIZE" ref="0xb7fc37f0" loc="54:/opt/tinyos-main-2.1.2/tos/types/TinyError.h">
+      <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+    </constant>
+    <constant cst="I:65535" name="AM_BROADCAST_ADDR" ref="0xb78d9e40" loc="15:/opt/tinyos-main-2.1.2/tos/types/AM.h">
+      <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+    </constant>
+    <constant cst="I:1" name="FAIL" ref="0xb7fc3628" loc="53:/opt/tinyos-main-2.1.2/tos/types/TinyError.h">
+      <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+    </constant>
+    <constant cst="I:8" name="_ISalnum" ref="0xb7b0f3c0" loc="59:/usr/include/ctype.h">
+      <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+    </constant>
+    <constant cst="I:9" name="EALREADY" ref="0xb7ac64d8" loc="61:/opt/tinyos-main-2.1.2/tos/types/TinyError.h">
+      <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+    </constant>
+    <constant cst="I:1" name="TOS_AM_ADDRESS" ref="0xb78d8410" loc="28:/opt/tinyos-main-2.1.2/tos/types/AM.h">
+      <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+    </constant>
+    <constant cst="I:0" name="ITIMER_REAL" ref="0xb7a00518" loc="94:/usr/include/i386-linux-gnu/sys/time.h">
+      <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+    </constant>
+    <constant cst="I:1" name="TRUE" ref="0xb7a9a208" loc="76:/opt/tinyos-main-2.1.2/tos/lib/tossim/tos.h">
+      <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+    </constant>
+    <constant cst="I:20" name="NOISE_HISTORY" ref="0xb79f9aa8" loc="57:/opt/tinyos-main-2.1.2/tos/lib/tossim/sim_noise.h">
+      <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+    </constant>
+    <constant cst="I:2" name="P_PGID" ref="0xb7c93e00" loc="54:/usr/include/i386-linux-gnu/bits/waitflags.h">
+      <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+    </constant>
+    <constant cst="I:8192" name="_ISspace" ref="0xb7b12510" loc="53:/usr/include/ctype.h">
+      <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+    </constant>
+    <constant cst="I:255" name="NO_TASK" ref="0xb78ac3d8" loc="56:/opt/tinyos-main-2.1.2/tos/lib/tossim/SimSchedulerBasicP.nc">
+      <component-ref qname="SimSchedulerBasicP"/>
+      <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+    </constant>
+    <constant cst="I:0" name="NUM_TASKS" ref="0xb78ac200" loc="55:/opt/tinyos-main-2.1.2/tos/lib/tossim/SimSchedulerBasicP.nc">
+      <component-ref qname="SimSchedulerBasicP"/>
+      <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+    </constant>
+  </constants>
+  <functions>
+  </functions>
+  <typedefs>
+    <typedef name="intptr_t" ref="0xb7da8340" loc="125:/usr/include/stdint.h">
+      <type-int cname="int" size="I:4" alignment="I:4">
+        <typename><typedef-ref name="intptr_t" ref="0xb7da8340"/></typename>
+      </type-int>
+    </typedef>
+    <typedef name="serial_packet_t" ref="0xb78d0010" loc="134:/opt/tinyos-main-2.1.2/tos/lib/serial/Serial.h">
+      <type-tag size="I:7" alignment="I:1"><nx_struct-ref name="serial_packet" ref="0xb78d1968"/>
+        <typename><typedef-ref name="serial_packet_t" ref="0xb78d0010"/></typename>
+      </type-tag>
+    </typedef>
+    <typedef name="pthread_spinlock_t" ref="0xb7c512a0" loc="234:/usr/include/i386-linux-gnu/bits/pthreadtypes.h">
+      <type-qualified volatile="">
+          <typename><typedef-ref name="pthread_spinlock_t" ref="0xb7c512a0"/></typename>
+        <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+      </type-qualified>
+    </typedef>
+    <typedef name="wchar_t" ref="0xb7fc56d8" loc="324:/usr/lib/gcc/i686-linux-gnu/4.8/include/stddef.h">
+      <type-int cname="long" size="I:4" alignment="I:4">
+        <typename><typedef-ref name="wchar_t" ref="0xb7fc56d8"/></typename>
+      </type-int>
+    </typedef>
+    <typedef name="ushort" ref="0xb7c680a8" loc="151:/usr/include/i386-linux-gnu/sys/types.h">
+      <type-int cname="unsigned short" unsigned="" size="I:2" alignment="I:2">
+        <typename><typedef-ref name="ushort" ref="0xb7c680a8"/></typename>
+      </type-int>
+    </typedef>
+    <typedef name="tossim_footer_t" ref="0xb78d7688" loc="16:/opt/tinyos-main-2.1.2/tos/lib/tossim/TossimRadioMsg.h">
+      <type-tag size="I:2" alignment="I:1"><nx_struct-ref name="tossim_footer" ref="0xb78d72d0"/>
+        <typename><typedef-ref name="tossim_footer_t" ref="0xb78d7688"/></typename>
+      </type-tag>
+    </typedef>
+    <typedef name="__int64_t" ref="0xb7c90a18" loc="46:/usr/include/i386-linux-gnu/bits/types.h">
+      <type-int cname="long long" size="I:8" alignment="I:8">
+        <typename><typedef-ref name="__int64_t" ref="0xb7c90a18"/></typename>
+      </type-int>
+    </typedef>
+    <typedef name="__int16_t" ref="0xb7c90108" loc="38:/usr/include/i386-linux-gnu/bits/types.h">
+      <type-int cname="short" size="I:2" alignment="I:2">
+        <typename><typedef-ref name="__int16_t" ref="0xb7c90108"/></typename>
+      </type-int>
+    </typedef>
+    <typedef name="serial_header_t" ref="0xb78d1760" loc="129:/opt/tinyos-main-2.1.2/tos/lib/serial/Serial.h">
+      <type-tag size="I:7" alignment="I:1"><nx_struct-ref name="serial_header" ref="0xb78d2ce8"/>
+        <typename><typedef-ref name="serial_header_t" ref="0xb78d1760"/></typename>
+      </type-tag>
+    </typedef>
+    <typedef name="__u_char" ref="0xb7c923c0" loc="30:/usr/include/i386-linux-gnu/bits/types.h">
+      <type-int cname="unsigned char" unsigned="" size="I:1" alignment="I:1">
+        <typename><typedef-ref name="__u_char" ref="0xb7c923c0"/></typename>
+      </type-int>
+    </typedef>
+    <typedef name="__qaddr_t" ref="0xb7c889b8" loc="182:/usr/include/i386-linux-gnu/bits/types.h">
+      <type-pointer size="I:4" alignment="I:4">
+        <type-int cname="long long" size="I:8" alignment="I:8">
+          <typename><typedef-ref name="__quad_t" ref="0xb7c90f18"/></typename>
+        </type-int>
+        <typename><typedef-ref name="__qaddr_t" ref="0xb7c889b8"/></typename>
+      </type-pointer>
+    </typedef>
+    <typedef name="__intptr_t" ref="0xb7c88e00" loc="186:/usr/include/i386-linux-gnu/bits/types.h">
+      <type-int cname="int" size="I:4" alignment="I:4">
+        <typename><typedef-ref name="__intptr_t" ref="0xb7c88e00"/></typename>
+      </type-int>
+    </typedef>
+    <typedef name="fd_set" ref="0xb7c64a58" loc="75:/usr/include/i386-linux-gnu/sys/select.h">
+      <type-tag size="I:128" alignment="I:4"><struct-ref ref="0xb7c64890"/>
+        <typename><typedef-ref name="fd_set" ref="0xb7c64a58"/></typename>
+      </type-tag>
+    </typedef>
+    <typedef name="sim_time_t" ref="0xb7a9a748" loc="51:/opt/tinyos-main-2.1.2/tos/lib/tossim/sim_tossim.h">
+      <documentation loc="32:/opt/tinyos-main-2.1.2/tos/lib/tossim/sim_tossim.h">
+        <short>&#10; Implementation of all of the basic TOSSIM primitives and utility&#10; functions.</short>
+        <long>&#10; Implementation of all of the basic TOSSIM primitives and utility&#10; functions.&#10;&#10; @author Philip Levis&#10; @date   Nov 22 2005&#10;</long>
+      </documentation>
+      <type-int cname="long long" size="I:8" alignment="I:8">
+        <typename><typedef-ref name="sim_time_t" ref="0xb7a9a748"/></typename>
+      </type-int>
+    </typedef>
+    <typedef name="__caddr_t" ref="0xb7c88be0" loc="183:/usr/include/i386-linux-gnu/bits/types.h">
+      <type-pointer size="I:4" alignment="I:4">
+        <type-int cname="char" size="I:1" alignment="I:1"></type-int>
+        <typename><typedef-ref name="__caddr_t" ref="0xb7c88be0"/></typename>
+      </type-pointer>
+    </typedef>
+    <typedef name="__time_t" ref="0xb7c8ca28" loc="139:/usr/include/i386-linux-gnu/bits/types.h">
+      <type-int cname="long" size="I:4" alignment="I:4">
+        <typename><typedef-ref name="__time_t" ref="0xb7c8ca28"/></typename>
+      </type-int>
+    </typedef>
+    <typedef name="__ssize_t" ref="0xb7c89f28" loc="172:/usr/include/i386-linux-gnu/bits/types.h">
+      <type-int cname="int" size="I:4" alignment="I:4">
+        <typename><typedef-ref name="__ssize_t" ref="0xb7c89f28"/></typename>
+      </type-int>
+    </typedef>
+    <typedef name="float_t" ref="0xb7c0b870" loc="35:/usr/include/i386-linux-gnu/bits/mathdef.h">
+      <type-float cname="long double" size="I:12" alignment="I:4">
+        <typename><typedef-ref name="float_t" ref="0xb7c0b870"/></typename>
+      </type-float>
+    </typedef>
+    <typedef name="mode_t" ref="0xb7c6db60" loc="70:/usr/include/i386-linux-gnu/sys/types.h">
+      <type-int cname="unsigned int" unsigned="" size="I:4" alignment="I:4">
+        <typename><typedef-ref name="mode_t" ref="0xb7c6db60"/></typename>
+      </type-int>
+    </typedef>
+    <typedef name="_IO_lock_t" ref="0xb7af7eb0" loc="150:/usr/include/libio.h">
+      <type-void size="I:1" alignment="I:1">
+        <typename><typedef-ref name="_IO_lock_t" ref="0xb7af7eb0"/></typename>
+      </type-void>
+    </typedef>
+    <typedef name="int_least32_t" ref="0xb7dab048" loc="67:/usr/include/stdint.h">
+      <type-int cname="int" size="I:4" alignment="I:4">
+        <typename><typedef-ref name="int_least32_t" ref="0xb7dab048"/></typename>
+      </type-int>
+    </typedef>
+    <typedef name="__builtin_va_list" ref="0xb7fc8028"  loc="NONE">
+      <type-pointer size="I:4" alignment="I:4">
+        <type-tag size="V:" alignment="V:"><struct-ref ref="0xb7fcff48"/></type-tag>
+      </type-pointer>
+    </typedef>
+    <typedef name="__uint32_t" ref="0xb7c907b0" loc="41:/usr/include/i386-linux-gnu/bits/types.h">
+      <type-int cname="unsigned int" unsigned="" size="I:4" alignment="I:4">
+        <typename><typedef-ref name="__uint32_t" ref="0xb7c907b0"/></typename>
+      </type-int>
+    </typedef>
+    <typedef name="__fsword_t" ref="0xb7c89d00" loc="170:/usr/include/i386-linux-gnu/bits/types.h">
+      <type-int cname="int" size="I:4" alignment="I:4">
+        <typename><typedef-ref name="__fsword_t" ref="0xb7c89d00"/></typename>
+      </type-int>
+    </typedef>
+    <typedef name="__fsfilcnt_t" ref="0xb7c89800" loc="166:/usr/include/i386-linux-gnu/bits/types.h">
+      <type-int cname="unsigned long" unsigned="" size="I:4" alignment="I:4">
+        <typename><typedef-ref name="__fsfilcnt_t" ref="0xb7c89800"/></typename>
+      </type-int>
+    </typedef>
+    <typedef name="nlink_t" ref="0xb7c6ddb0" loc="75:/usr/include/i386-linux-gnu/sys/types.h">
+      <type-int cname="unsigned int" unsigned="" size="I:4" alignment="I:4">
+        <typename><typedef-ref name="nlink_t" ref="0xb7c6ddb0"/></typename>
+      </type-int>
+    </typedef>
+    <typedef name="clock_t" ref="0xb7c6b2c0" loc="59:/usr/include/time.h">
+      <type-int cname="long" size="I:4" alignment="I:4">
+        <typename><typedef-ref name="clock_t" ref="0xb7c6b2c0"/></typename>
+      </type-int>
+    </typedef>
+    <typedef name="pthread_condattr_t" ref="0xb7c556d0" loc="160:/usr/include/i386-linux-gnu/bits/pthreadtypes.h">
+      <type-tag size="I:4" alignment="I:4"><union-ref ref="0xb7c554a8"/>
+        <typename><typedef-ref name="pthread_condattr_t" ref="0xb7c556d0"/></typename>
+      </type-tag>
+    </typedef>
+    <typedef name="heap_t" ref="0xb7a42b28" loc="65:/opt/tinyos-main-2.1.2/tos/lib/tossim/heap.h">
+      <documentation loc="53:/opt/tinyos-main-2.1.2/tos/lib/tossim/heap.h">
+        <short>&#10; </short>
+        <long>&#10; @author Philip Levis&#10;</long>
+      </documentation>
+      <type-tag size="I:12" alignment="I:4"><struct-ref name="heap" ref="0xb7a42570"/>
+        <typename><typedef-ref name="heap_t" ref="0xb7a42b28"/></typename>
+      </type-tag>
+    </typedef>
+    <typedef name="__gid_t" ref="0xb7c8e8f8" loc="126:/usr/include/i386-linux-gnu/bits/types.h">
+      <type-int cname="unsigned int" unsigned="" size="I:4" alignment="I:4">
+        <typename><typedef-ref name="__gid_t" ref="0xb7c8e8f8"/></typename>
+      </type-int>
+    </typedef>
+    <typedef name="nxle_uint16_t" ref="0xb7cc0018" loc="446:/usr/lib/ncc/nesc_nx.h">
+      <type-int cname="unsigned short" unsigned="" size="I:2" alignment="I:1" network="nxle_uint16_t">
+        <typename><typedef-ref name="nxle_uint16_t" ref="0xb7cc0018"/></typename>
+      </type-int>
+    </typedef>
+    <typedef name="sim_log_channel_t" ref="0xb7a7ca10" loc="61:/opt/tinyos-main-2.1.2/tos/lib/tossim/sim_log.c">
+      <type-tag size="I:16" alignment="I:4"><struct-ref name="sim_log_channel" ref="0xb7a7c228"/>
+        <typename><typedef-ref name="sim_log_channel_t" ref="0xb7a7ca10"/></typename>
+      </type-tag>
+    </typedef>
+    <typedef name="u_int" ref="0xb7c6f728" loc="35:/usr/include/i386-linux-gnu/sys/types.h">
+      <type-int cname="unsigned int" unsigned="" size="I:4" alignment="I:4">
+        <typename><typedef-ref name="u_int" ref="0xb7c6f728"/></typename>
+      </type-int>
+    </typedef>
+    <typedef name="pthread_once_t" ref="0xb7c55b78" loc="168:/usr/include/i386-linux-gnu/bits/pthreadtypes.h">
+      <type-int cname="int" size="I:4" alignment="I:4">
+        <typename><typedef-ref name="pthread_once_t" ref="0xb7c55b78"/></typename>
+      </type-int>
+    </typedef>
+    <typedef name="uint" ref="0xb7c682a0" loc="152:/usr/include/i386-linux-gnu/sys/types.h">
+      <type-int cname="unsigned int" unsigned="" size="I:4" alignment="I:4">
+        <typename><typedef-ref name="uint" ref="0xb7c682a0"/></typename>
+      </type-int>
+    </typedef>
+    <typedef name="am_group_t" ref="0xb78d98a0" loc="11:/opt/tinyos-main-2.1.2/tos/types/AM.h">
+      <type-int cname="unsigned char" unsigned="" size="I:1" alignment="I:1">
+        <typename><typedef-ref name="am_group_t" ref="0xb78d98a0"/></typename>
+      </type-int>
+    </typedef>
+    <typedef name="uint_least8_t" ref="0xb7dab548" loc="76:/usr/include/stdint.h">
+      <type-int cname="unsigned char" unsigned="" size="I:1" alignment="I:1">
+        <typename><typedef-ref name="uint_least8_t" ref="0xb7dab548"/></typename>
+      </type-int>
+    </typedef>
+    <typedef name="__fsid_t" ref="0xb7c8de50" loc="134:/usr/include/i386-linux-gnu/bits/types.h">
+      <type-tag size="I:8" alignment="I:4"><struct-ref ref="0xb7c8dc88"/>
+        <typename><typedef-ref name="__fsid_t" ref="0xb7c8de50"/></typename>
+      </type-tag>
+    </typedef>
+    <typedef name="uint_fast32_t" ref="0xb7da9e48" loc="110:/usr/include/stdint.h">
+      <type-int cname="unsigned int" unsigned="" size="I:4" alignment="I:4">
+        <typename><typedef-ref name="uint_fast32_t" ref="0xb7da9e48"/></typename>
+      </type-int>
+    </typedef>
+    <typedef name="blksize_t" ref="0xb7c5ec68" loc="228:/usr/include/i386-linux-gnu/sys/types.h">
+      <type-int cname="long" size="I:4" alignment="I:4">
+        <typename><typedef-ref name="blksize_t" ref="0xb7c5ec68"/></typename>
+      </type-int>
+    </typedef>
+    <typedef name="int_least64_t" ref="0xb7dab2c8" loc="72:/usr/include/stdint.h">
+      <type-int cname="long long" size="I:8" alignment="I:8">
+        <typename><typedef-ref name="int_least64_t" ref="0xb7dab2c8"/></typename>
+      </type-int>
+    </typedef>
+    <typedef name="__pid_t" ref="0xb7c8d950" loc="133:/usr/include/i386-linux-gnu/bits/types.h">
+      <type-int cname="int" size="I:4" alignment="I:4">
+        <typename><typedef-ref name="__pid_t" ref="0xb7c8d950"/></typename>
+      </type-int>
+    </typedef>
+    <typedef name="__u_int" ref="0xb7c92818" loc="32:/usr/include/i386-linux-gnu/bits/types.h">
+      <type-int cname="unsigned int" unsigned="" size="I:4" alignment="I:4">
+        <typename><typedef-ref name="__u_int" ref="0xb7c92818"/></typename>
+      </type-int>
+    </typedef>
+    <typedef name="sim_event_t" ref="0xb7a94820" loc="51:/opt/tinyos-main-2.1.2/tos/lib/tossim/sim_event_queue.h">
+      <type-tag size="I:28" alignment="I:4"><struct-ref name="sim_event" ref="0xb7a945b8"/>
+        <typename><typedef-ref name="sim_event_t" ref="0xb7a94820"/></typename>
+      </type-tag>
+    </typedef>
+    <typedef name="error_t" ref="0xb79ff340" loc="67:/opt/tinyos-main-2.1.2/tos/types/TinyError.h">
+      <documentation loc="34:/opt/tinyos-main-2.1.2/tos/types/TinyError.h">
+        <short>&#10; </short>
+        <long>&#10; @author Phil Levis&#10; @author David Gay&#10; Revision:  $Revision: 1.12 $&#10;&#10; Defines global error codes for error_t in TinyOS.&#10;</long>
+      </documentation>
+      <type-int cname="unsigned char" unsigned="" size="I:1" alignment="I:1">
+        <typename><typedef-ref name="error_t" ref="0xb79ff340"/></typename>
+      </type-int>
+    </typedef>
+    <typedef name="__sig_atomic_t" ref="0xb7c67688" loc="22:/usr/include/i386-linux-gnu/bits/sigset.h">
+      <type-int cname="int" size="I:4" alignment="I:4">
+        <typename><typedef-ref name="__sig_atomic_t" ref="0xb7c67688"/></typename>
+      </type-int>
+    </typedef>
+    <typedef name="__daddr_t" ref="0xb7c8a158" loc="143:/usr/include/i386-linux-gnu/bits/types.h">
+      <type-int cname="int" size="I:4" alignment="I:4">
+        <typename><typedef-ref name="__daddr_t" ref="0xb7c8a158"/></typename>
+      </type-int>
+    </typedef>
+    <typedef name="__ino_t" ref="0xb7c8eb48" loc="127:/usr/include/i386-linux-gnu/bits/types.h">
+      <type-int cname="unsigned long" unsigned="" size="I:4" alignment="I:4">
+        <typename><typedef-ref name="__ino_t" ref="0xb7c8eb48"/></typename>
+      </type-int>
+    </typedef>
+    <typedef name="int_least8_t" ref="0xb7dacba8" loc="65:/usr/include/stdint.h">
+      <type-int cname="signed char" size="I:1" alignment="I:1">
+        <typename><typedef-ref name="int_least8_t" ref="0xb7dacba8"/></typename>
+      </type-int>
+    </typedef>
+    <typedef name="FILE" ref="0xb7afb9b0" loc="48:/usr/include/stdio.h">
+      <type-tag size="I:148" alignment="I:4"><struct-ref name="_IO_FILE" ref="0xb7afb770"/>
+        <typename><typedef-ref name="FILE" ref="0xb7afb9b0"/></typename>
+      </type-tag>
+    </typedef>
+    <typedef name="__compar_fn_t" ref="0xb7c27750" loc="741:/usr/include/stdlib.h">
+      <type-pointer size="I:4" alignment="I:4">
+        <type-function size="I:1" alignment="I:1">
+          <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+          <function-parameters>
+            <type-pointer size="I:4" alignment="I:4">
+              <type-qualified const="">
+                <type-void size="I:1" alignment="I:1"></type-void>
+              </type-qualified>
+            </type-pointer>
+            <type-pointer size="I:4" alignment="I:4">
+              <type-qualified const="">
+                <type-void size="I:1" alignment="I:1"></type-void>
+              </type-qualified>
+            </type-pointer>
+          </function-parameters>
+        </type-function>
+        <typename><typedef-ref name="__compar_fn_t" ref="0xb7c27750"/></typename>
+      </type-pointer>
+    </typedef>
+    <typedef name="__locale_t" ref="0xb7cb16b8" loc="39:/usr/include/xlocale.h">
+      <type-pointer size="I:4" alignment="I:4">
+        <type-tag size="I:116" alignment="I:4"><struct-ref name="__locale_struct" ref="0xb7cb2838"/></type-tag>
+        <typename><typedef-ref name="__locale_t" ref="0xb7cb16b8"/></typename>
+      </type-pointer>
+    </typedef>
+    <typedef name="__mode_t" ref="0xb7c8d048" loc="129:/usr/include/i386-linux-gnu/bits/types.h">
+      <type-int cname="unsigned int" unsigned="" size="I:4" alignment="I:4">
+        <typename><typedef-ref name="__mode_t" ref="0xb7c8d048"/></typename>
+      </type-int>
+    </typedef>
+    <typedef name="locale_t" ref="0xb7cb1930" loc="42:/usr/include/xlocale.h">
+      <type-pointer size="I:4" alignment="I:4">
+        <type-tag size="I:116" alignment="I:4"><struct-ref name="__locale_struct" ref="0xb7cb2838"/></type-tag>
+        <typename><typedef-ref name="locale_t" ref="0xb7cb1930"/></typename>
+      </type-pointer>
+    </typedef>
+    <typedef name="radio_stats_t" ref="0xb78d2ae0" loc="121:/opt/tinyos-main-2.1.2/tos/lib/serial/Serial.h">
+      <type-tag size="I:18" alignment="I:2"><struct-ref name="radio_stats" ref="0xb78d34f8"/>
+        <typename><typedef-ref name="radio_stats_t" ref="0xb78d2ae0"/></typename>
+      </type-tag>
+    </typedef>
+    <typedef name="clockid_t" ref="0xb7c6b828" loc="91:/usr/include/time.h">
+      <type-int cname="int" size="I:4" alignment="I:4">
+        <typename><typedef-ref name="clockid_t" ref="0xb7c6b828"/></typename>
+      </type-int>
+    </typedef>
+    <typedef name="gid_t" ref="0xb7c6d920" loc="65:/usr/include/i386-linux-gnu/sys/types.h">
+      <type-int cname="unsigned int" unsigned="" size="I:4" alignment="I:4">
+        <typename><typedef-ref name="gid_t" ref="0xb7c6d920"/></typename>
+      </type-int>
+    </typedef>
+    <typedef name="fsid_t" ref="0xb7c6d068" loc="39:/usr/include/i386-linux-gnu/sys/types.h">
+      <type-tag size="I:8" alignment="I:4"><struct-ref ref="0xb7c8dc88"/>
+        <typename><typedef-ref name="fsid_t" ref="0xb7c6d068"/></typename>
+      </type-tag>
+    </typedef>
+    <typedef name="sim_packet_t" ref="0xb78e3990" loc="59:/opt/tinyos-main-2.1.2/tos/lib/tossim/sim_packet.h">
+      <documentation loc="32:/opt/tinyos-main-2.1.2/tos/lib/tossim/sim_packet.h">
+        <short>&#10;&#10; TOSSIM packet abstract data type, so C++ code can call into nesC&#10; code that does the native-to-network type translation.</short>
+        <long>&#10;&#10; TOSSIM packet abstract data type, so C++ code can call into nesC&#10; code that does the native-to-network type translation.&#10;&#10; @author Philip Levis&#10; @date   Jan 2 2006&#10;</long>
+      </documentation>
+      <type-tag size="I:0" alignment="I:1"><struct-ref name="sim_packet" ref="0xb78e37a8"/>
+        <typename><typedef-ref name="sim_packet_t" ref="0xb78e3990"/></typename>
+      </type-tag>
+    </typedef>
+    <typedef name="int8_t" ref="0xb7fbd8f8" loc="36:/usr/include/stdint.h">
+      <type-int cname="signed char" size="I:1" alignment="I:1">
+        <typename><typedef-ref name="int8_t" ref="0xb7fbd8f8"/></typename>
+      </type-int>
+    </typedef>
+    <typedef name="suseconds_t" ref="0xb7c66f28" loc="48:/usr/include/i386-linux-gnu/sys/select.h">
+      <type-int cname="long" size="I:4" alignment="I:4">
+        <typename><typedef-ref name="suseconds_t" ref="0xb7c66f28"/></typename>
+      </type-int>
+    </typedef>
+    <typedef name="sigset_t" ref="0xb7c660e0" loc="37:/usr/include/i386-linux-gnu/sys/select.h">
+      <type-tag size="I:128" alignment="I:4"><struct-ref ref="0xb7c67c78"/>
+        <typename><typedef-ref name="sigset_t" ref="0xb7c660e0"/></typename>
+      </type-tag>
+    </typedef>
+    <typedef name="sim_log_output_t" ref="0xb7a7c010" loc="54:/opt/tinyos-main-2.1.2/tos/lib/tossim/sim_log.c">
+      <type-tag size="I:8" alignment="I:4"><struct-ref name="sim_log_output" ref="0xb7a7dab8"/>
+        <typename><typedef-ref name="sim_log_output_t" ref="0xb7a7c010"/></typename>
+      </type-tag>
+    </typedef>
+    <typedef name="u_short" ref="0xb7c6f500" loc="34:/usr/include/i386-linux-gnu/sys/types.h">
+      <type-int cname="unsigned short" unsigned="" size="I:2" alignment="I:2">
+        <typename><typedef-ref name="u_short" ref="0xb7c6f500"/></typename>
+      </type-int>
+    </typedef>
+    <typedef name="tossim_header_t" ref="0xb78d70c8" loc="12:/opt/tinyos-main-2.1.2/tos/lib/tossim/TossimRadioMsg.h">
+      <type-tag size="I:7" alignment="I:1"><nx_struct-ref name="tossim_header" ref="0xb78d8638"/>
+        <typename><typedef-ref name="tossim_header_t" ref="0xb78d70c8"/></typename>
+      </type-tag>
+    </typedef>
+    <typedef name="ptrdiff_t" ref="0xb7fc5250" loc="147:/usr/lib/gcc/i686-linux-gnu/4.8/include/stddef.h">
+      <type-int cname="int" size="I:4" alignment="I:4">
+        <typename><typedef-ref name="ptrdiff_t" ref="0xb7fc5250"/></typename>
+      </type-int>
+    </typedef>
+    <typedef name="blkcnt_t" ref="0xb7c5eee0" loc="235:/usr/include/i386-linux-gnu/sys/types.h">
+      <type-int cname="long" size="I:4" alignment="I:4">
+        <typename><typedef-ref name="blkcnt_t" ref="0xb7c5eee0"/></typename>
+      </type-int>
+    </typedef>
+    <typedef name="uint32_t" ref="0xb7dac6b0" loc="51:/usr/include/stdint.h">
+      <type-int cname="unsigned int" unsigned="" size="I:4" alignment="I:4">
+        <typename><typedef-ref name="uint32_t" ref="0xb7dac6b0"/></typename>
+      </type-int>
+    </typedef>
+    <typedef name="nxle_uint64_t" ref="0xb7cc0968" loc="448:/usr/lib/ncc/nesc_nx.h">
+      <type-int cname="unsigned long long" unsigned="" size="I:8" alignment="I:1" network="nxle_uint64_t">
+        <typename><typedef-ref name="nxle_uint64_t" ref="0xb7cc0968"/></typename>
+      </type-int>
+    </typedef>
+    <typedef name="nx_uint8_t" ref="0xb7cc5728" loc="435:/usr/lib/ncc/nesc_nx.h">
+      <type-int cname="unsigned char" unsigned="" size="I:1" alignment="I:1" network="nx_uint8_t">
+        <typename><typedef-ref name="nx_uint8_t" ref="0xb7cc5728"/></typename>
+      </type-int>
+    </typedef>
+    <typedef name="uintptr_t" ref="0xb7da8568" loc="128:/usr/include/stdint.h">
+      <type-int cname="unsigned int" unsigned="" size="I:4" alignment="I:4">
+        <typename><typedef-ref name="uintptr_t" ref="0xb7da8568"/></typename>
+      </type-int>
+    </typedef>
+    <typedef name="caddr_t" ref="0xb7c6cd68" loc="116:/usr/include/i386-linux-gnu/sys/types.h">
+      <type-pointer size="I:4" alignment="I:4">
+        <type-int cname="char" size="I:1" alignment="I:1"></type-int>
+        <typename><typedef-ref name="caddr_t" ref="0xb7c6cd68"/></typename>
+      </type-pointer>
+    </typedef>
+    <typedef name="__u_long" ref="0xb7c92a58" loc="33:/usr/include/i386-linux-gnu/bits/types.h">
+      <type-int cname="unsigned long" unsigned="" size="I:4" alignment="I:4">
+        <typename><typedef-ref name="__u_long" ref="0xb7c92a58"/></typename>
+      </type-int>
+    </typedef>
+    <typedef name="uint_fast64_t" ref="0xb7da8110" loc="112:/usr/include/stdint.h">
+      <type-int cname="unsigned long long" unsigned="" size="I:8" alignment="I:8">
+        <typename><typedef-ref name="uint_fast64_t" ref="0xb7da8110"/></typename>
+      </type-int>
+    </typedef>
+    <typedef name="__uint16_t" ref="0xb7c90358" loc="39:/usr/include/i386-linux-gnu/bits/types.h">
+      <type-int cname="unsigned short" unsigned="" size="I:2" alignment="I:2">
+        <typename><typedef-ref name="__uint16_t" ref="0xb7c90358"/></typename>
+      </type-int>
+    </typedef>
+    <typedef name="u_char" ref="0xb7c6f2b0" loc="33:/usr/include/i386-linux-gnu/sys/types.h">
+      <type-int cname="unsigned char" unsigned="" size="I:1" alignment="I:1">
+        <typename><typedef-ref name="u_char" ref="0xb7c6f2b0"/></typename>
+      </type-int>
+    </typedef>
+    <typedef name="int_fast16_t" ref="0xb7da9290" loc="96:/usr/include/stdint.h">
+      <type-int cname="int" size="I:4" alignment="I:4">
+        <typename><typedef-ref name="int_fast16_t" ref="0xb7da9290"/></typename>
+      </type-int>
+    </typedef>
+    <typedef name="fpos_t" ref="0xb7adf068" loc="110:/usr/include/stdio.h">
+      <type-tag size="I:12" alignment="I:4"><struct-ref ref="0xb7af8d28"/>
+        <typename><typedef-ref name="fpos_t" ref="0xb7adf068"/></typename>
+      </type-tag>
+    </typedef>
+    <typedef name="div_t" ref="0xb7c80128" loc="101:/usr/include/stdlib.h">
+      <type-tag size="I:8" alignment="I:4"><struct-ref ref="0xb7c82eb8"/>
+        <typename><typedef-ref name="div_t" ref="0xb7c80128"/></typename>
+      </type-tag>
+    </typedef>
+    <typedef name="sim_gain_noise_t" ref="0xb79a85d0" loc="6:/opt/tinyos-main-2.1.2/tos/lib/tossim/sim_gain.c">
+      <type-tag size="I:16" alignment="I:4"><struct-ref name="sim_gain_noise" ref="0xb79a8148"/>
+        <typename><typedef-ref name="sim_gain_noise_t" ref="0xb79a85d0"/></typename>
+      </type-tag>
+    </typedef>
+    <typedef name="size_t" ref="0xb7fc5488" loc="212:/usr/lib/gcc/i686-linux-gnu/4.8/include/stddef.h">
+      <type-int cname="unsigned int" unsigned="" size="I:4" alignment="I:4">
+        <typename><typedef-ref name="size_t" ref="0xb7fc5488"/></typename>
+      </type-int>
+    </typedef>
+    <typedef name="__uint8_t" ref="0xb7c92eb0" loc="37:/usr/include/i386-linux-gnu/bits/types.h">
+      <type-int cname="unsigned char" unsigned="" size="I:1" alignment="I:1">
+        <typename><typedef-ref name="__uint8_t" ref="0xb7c92eb0"/></typename>
+      </type-int>
+    </typedef>
+    <typedef name="__sigset_t" ref="0xb7c67e40" loc="30:/usr/include/i386-linux-gnu/bits/sigset.h">
+      <type-tag size="I:128" alignment="I:4"><struct-ref ref="0xb7c67c78"/>
+        <typename><typedef-ref name="__sigset_t" ref="0xb7c67e40"/></typename>
+      </type-tag>
+    </typedef>
+    <typedef name="__loff_t" ref="0xb7c88738" loc="181:/usr/include/i386-linux-gnu/bits/types.h">
+      <type-int cname="long long" size="I:8" alignment="I:8">
+        <typename><typedef-ref name="__loff_t" ref="0xb7c88738"/></typename>
+      </type-int>
+    </typedef>
+    <typedef name="__ino64_t" ref="0xb7c8edd8" loc="128:/usr/include/i386-linux-gnu/bits/types.h">
+      <type-int cname="unsigned long long" unsigned="" size="I:8" alignment="I:8">
+        <typename><typedef-ref name="__ino64_t" ref="0xb7c8edd8"/></typename>
+      </type-int>
+    </typedef>
+    <typedef name="nx_am_id_t" ref="0xb78dbdc0" loc="6:/opt/tinyos-main-2.1.2/tos/types/AM.h">
+      <documentation loc="34:/opt/tinyos-main-2.1.2/tos/lib/tossim/platform_message.h">
+        <short>&#10; Defining the platform-independently named packet structures to be the&#10; tossim structures.</short>
+        <long>&#10; Defining the platform-independently named packet structures to be the&#10; tossim structures.&#10;&#10; @author Philip Levis&#10; @date   Dec 2 2005&#10; Revision:  $Revision: 1.5 $&#10;</long>
+      </documentation>
+      <type-int cname="unsigned char" unsigned="" size="I:1" alignment="I:1" network="nx_uint8_t">
+        <typename><typedef-ref name="nx_am_id_t" ref="0xb78dbdc0"/></typename>
+      </type-int>
+    </typedef>
+    <typedef name="gain_entry_t" ref="0xb79af400" loc="57:/opt/tinyos-main-2.1.2/tos/lib/tossim/sim_gain.h">
+      <documentation loc="32:/opt/tinyos-main-2.1.2/tos/lib/tossim/sim_gain.h">
+        <short>&#10; The C functions that allow TOSSIM-side code to access the SimMoteP&#10; component.</short>
+        <long>&#10; The C functions that allow TOSSIM-side code to access the SimMoteP&#10; component.&#10;&#10; @author Philip Levis&#10; @date   Nov 22 2005&#10;</long>
+      </documentation>
+      <type-tag size="I:16" alignment="I:4"><struct-ref name="gain_entry" ref="0xb79b0d60"/>
+        <typename><typedef-ref name="gain_entry_t" ref="0xb79af400"/></typename>
+      </type-tag>
+    </typedef>
+    <typedef name="message_header_t" ref="0xb78d0db8" loc="53:/opt/tinyos-main-2.1.2/tos/lib/tossim/platform_message.h">
+      <type-tag size="I:7" alignment="I:1"><union-ref name="message_header" ref="0xb78d07e8"/>
+        <typename><typedef-ref name="message_header_t" ref="0xb78d0db8"/></typename>
+      </type-tag>
+    </typedef>
+    <typedef name="nx_int32_t" ref="0xb7cc6e50" loc="433:/usr/lib/ncc/nesc_nx.h">
+      <type-int cname="int" size="I:4" alignment="I:1" network="nx_int32_t">
+        <typename><typedef-ref name="nx_int32_t" ref="0xb7cc6e50"/></typename>
+      </type-int>
+    </typedef>
+    <typedef name="am_addr_t" ref="0xb78d9b00" loc="12:/opt/tinyos-main-2.1.2/tos/types/AM.h">
+      <type-int cname="unsigned short" unsigned="" size="I:2" alignment="I:2">
+        <typename><typedef-ref name="am_addr_t" ref="0xb78d9b00"/></typename>
+      </type-int>
+    </typedef>
+    <typedef name="uint_least16_t" ref="0xb7dab8c0" loc="77:/usr/include/stdint.h">
+      <type-int cname="unsigned short" unsigned="" size="I:2" alignment="I:2">
+        <typename><typedef-ref name="uint_least16_t" ref="0xb7dab8c0"/></typename>
+      </type-int>
+    </typedef>
+    <typedef name="__io_close_fn" ref="0xb7aeb6e0" loc="353:/usr/include/libio.h">
+      <type-function size="I:1" alignment="I:1">
+        <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+        <function-parameters>
+          <type-pointer size="I:4" alignment="I:4">
+            <type-void size="I:1" alignment="I:1"></type-void>
+          </type-pointer>
+        </function-parameters>
+        <typename><typedef-ref name="__io_close_fn" ref="0xb7aeb6e0"/></typename>
+      </type-function>
+    </typedef>
+    <typedef name="uint8_t" ref="0xb7dac250" loc="48:/usr/include/stdint.h">
+      <type-int cname="unsigned char" unsigned="" size="I:1" alignment="I:1">
+        <typename><typedef-ref name="uint8_t" ref="0xb7dac250"/></typename>
+      </type-int>
+    </typedef>
+    <typedef name="time_t" ref="0xb7c6b560" loc="75:/usr/include/time.h">
+      <type-int cname="long" size="I:4" alignment="I:4">
+        <typename><typedef-ref name="time_t" ref="0xb7c6b560"/></typename>
+      </type-int>
+    </typedef>
+    <typedef name="nxle_int8_t" ref="0xb7cc3918" loc="441:/usr/lib/ncc/nesc_nx.h">
+      <type-int cname="signed char" size="I:1" alignment="I:1" network="nxle_int8_t">
+        <typename><typedef-ref name="nxle_int8_t" ref="0xb7cc3918"/></typename>
+      </type-int>
+    </typedef>
+    <typedef name="lldiv_t" ref="0xb7c80d20" loc="121:/usr/include/stdlib.h">
+      <type-tag size="I:16" alignment="I:4"><struct-ref ref="0xb7c80af8"/>
+        <typename><typedef-ref name="lldiv_t" ref="0xb7c80d20"/></typename>
+      </type-tag>
+    </typedef>
+    <typedef name="_IO_FILE" ref="0xb7af0998" loc="310:/usr/include/libio.h">
+      <type-tag size="I:148" alignment="I:4"><struct-ref name="_IO_FILE" ref="0xb7afb770"/>
+        <typename><typedef-ref name="_IO_FILE" ref="0xb7af0998"/></typename>
+      </type-tag>
+    </typedef>
+    <typedef name="pthread_attr_t" ref="0xb7c5cf20" loc="69:/usr/include/i386-linux-gnu/bits/pthreadtypes.h">
+      <type-tag size="I:36" alignment="I:4"><union-ref name="pthread_attr_t" ref="0xb7c5c8a8"/>
+        <typename><typedef-ref name="pthread_attr_t" ref="0xb7c5cf20"/></typename>
+      </type-tag>
+    </typedef>
+    <typedef name="__io_seek_fn" ref="0xb7aeb178" loc="350:/usr/include/libio.h">
+      <type-function size="I:1" alignment="I:1">
+        <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+        <function-parameters>
+          <type-pointer size="I:4" alignment="I:4">
+            <type-void size="I:1" alignment="I:1"></type-void>
+          </type-pointer>
+          <type-pointer size="I:4" alignment="I:4">
+            <type-int cname="long long" size="I:8" alignment="I:8">
+              <typename><typedef-ref name="__off64_t" ref="0xb7c8d740"/></typename>
+            </type-int>
+          </type-pointer>
+          <type-int cname="int" size="I:4" alignment="I:4"></type-int>
+        </function-parameters>
+        <typename><typedef-ref name="__io_seek_fn" ref="0xb7aeb178"/></typename>
+      </type-function>
+    </typedef>
+    <typedef name="pid_t" ref="0xb7c6c460" loc="98:/usr/include/i386-linux-gnu/sys/types.h">
+      <type-int cname="int" size="I:4" alignment="I:4">
+        <typename><typedef-ref name="pid_t" ref="0xb7c6c460"/></typename>
+      </type-int>
+    </typedef>
+    <typedef name="timer_t" ref="0xb7c6baa8" loc="103:/usr/include/time.h">
+      <type-pointer size="I:4" alignment="I:4">
+        <type-void size="I:1" alignment="I:1"></type-void>
+        <typename><typedef-ref name="timer_t" ref="0xb7c6baa8"/></typename>
+      </type-pointer>
+    </typedef>
+    <typedef name="pthread_rwlockattr_t" ref="0xb7c51010" loc="228:/usr/include/i386-linux-gnu/bits/pthreadtypes.h">
+      <type-tag size="I:8" alignment="I:4"><union-ref ref="0xb7c53d28"/>
+        <typename><typedef-ref name="pthread_rwlockattr_t" ref="0xb7c51010"/></typename>
+      </type-tag>
+    </typedef>
+    <typedef name="__uint64_t" ref="0xb7c90ca8" loc="47:/usr/include/i386-linux-gnu/bits/types.h">
+      <type-int cname="unsigned long long" unsigned="" size="I:8" alignment="I:8">
+        <typename><typedef-ref name="__uint64_t" ref="0xb7c90ca8"/></typename>
+      </type-int>
+    </typedef>
+    <typedef name="__dev_t" ref="0xb7c8e498" loc="124:/usr/include/i386-linux-gnu/bits/types.h">
+      <type-int cname="unsigned long long" unsigned="" size="I:8" alignment="I:8">
+        <typename><typedef-ref name="__dev_t" ref="0xb7c8e498"/></typename>
+      </type-int>
+    </typedef>
+    <typedef name="nxle_int32_t" ref="0xb7cc2258" loc="443:/usr/lib/ncc/nesc_nx.h">
+      <type-int cname="int" size="I:4" alignment="I:1" network="nxle_int32_t">
+        <typename><typedef-ref name="nxle_int32_t" ref="0xb7cc2258"/></typename>
+      </type-int>
+    </typedef>
+    <typedef name="va_list" ref="0xb7ae0dd0" loc="79:/usr/include/stdio.h">
+      <type-pointer size="I:4" alignment="I:4">
+        <type-tag size="V:" alignment="V:"><struct-ref ref="0xb7fcff48"/></type-tag>
+        <typename><typedef-ref name="va_list" ref="0xb7ae0dd0"/></typename>
+      </type-pointer>
+    </typedef>
+    <typedef name="__off_t" ref="0xb7c8d4c0" loc="131:/usr/include/i386-linux-gnu/bits/types.h">
+      <type-int cname="long" size="I:4" alignment="I:4">
+        <typename><typedef-ref name="__off_t" ref="0xb7c8d4c0"/></typename>
+      </type-int>
+    </typedef>
+    <typedef name="int_fast8_t" ref="0xb7da9068" loc="90:/usr/include/stdint.h">
+      <type-int cname="signed char" size="I:1" alignment="I:1">
+        <typename><typedef-ref name="int_fast8_t" ref="0xb7da9068"/></typename>
+      </type-int>
+    </typedef>
+    <typedef name="__blkcnt_t" ref="0xb7c8ace0" loc="158:/usr/include/i386-linux-gnu/bits/types.h">
+      <type-int cname="long" size="I:4" alignment="I:4">
+        <typename><typedef-ref name="__blkcnt_t" ref="0xb7c8ace0"/></typename>
+      </type-int>
+    </typedef>
+    <typedef name="tossim_metadata_t" ref="0xb78d63e8" loc="22:/opt/tinyos-main-2.1.2/tos/lib/tossim/TossimRadioMsg.h">
+      <type-tag size="I:4" alignment="I:1"><nx_struct-ref name="tossim_metadata" ref="0xb78d78a0"/>
+        <typename><typedef-ref name="tossim_metadata_t" ref="0xb78d63e8"/></typename>
+      </type-tag>
+    </typedef>
+    <typedef name="__syscall_ulong_t" ref="0xb7c884a8" loc="177:/usr/include/i386-linux-gnu/bits/types.h">
+      <type-int cname="unsigned long" unsigned="" size="I:4" alignment="I:4">
+        <typename><typedef-ref name="__syscall_ulong_t" ref="0xb7c884a8"/></typename>
+      </type-int>
+    </typedef>
+    <typedef name="am_id_t" ref="0xb78d9648" loc="10:/opt/tinyos-main-2.1.2/tos/types/AM.h">
+      <type-int cname="unsigned char" unsigned="" size="I:1" alignment="I:1">
+        <typename><typedef-ref name="am_id_t" ref="0xb78d9648"/></typename>
+      </type-int>
+    </typedef>
+    <typedef name="intmax_t" ref="0xb7da87c8" loc="138:/usr/include/stdint.h">
+      <type-int cname="long long" size="I:8" alignment="I:8">
+        <typename><typedef-ref name="intmax_t" ref="0xb7da87c8"/></typename>
+      </type-int>
+    </typedef>
+    <typedef name="serial_metadata_t" ref="0xb78d05d8" loc="138:/opt/tinyos-main-2.1.2/tos/lib/serial/Serial.h">
+      <type-tag size="I:1" alignment="I:1"><nx_struct-ref name="serial_metadata" ref="0xb78d0228"/>
+        <typename><typedef-ref name="serial_metadata_t" ref="0xb78d05d8"/></typename>
+      </type-tag>
+    </typedef>
+    <typedef name="__fsblkcnt_t" ref="0xb7c892a8" loc="162:/usr/include/i386-linux-gnu/bits/types.h">
+      <type-int cname="unsigned long" unsigned="" size="I:4" alignment="I:4">
+        <typename><typedef-ref name="__fsblkcnt_t" ref="0xb7c892a8"/></typename>
+      </type-int>
+    </typedef>
+    <typedef name="uint16_t" ref="0xb7dac490" loc="49:/usr/include/stdint.h">
+      <type-int cname="unsigned short" unsigned="" size="I:2" alignment="I:2">
+        <typename><typedef-ref name="uint16_t" ref="0xb7dac490"/></typename>
+      </type-int>
+    </typedef>
+    <typedef name="_G_fpos_t" ref="0xb7af7010" loc="25:/usr/include/_G_config.h">
+      <type-tag size="I:12" alignment="I:4"><struct-ref ref="0xb7af8d28"/>
+        <typename><typedef-ref name="_G_fpos_t" ref="0xb7af7010"/></typename>
+      </type-tag>
+    </typedef>
+    <typedef name="u_int8_t" ref="0xb7c68608" loc="200:/usr/include/i386-linux-gnu/sys/types.h">
+      <type-int cname="unsigned char" unsigned="" size="I:1" alignment="I:1">
+        <typename><typedef-ref name="u_int8_t" ref="0xb7c68608"/></typename>
+      </type-int>
+    </typedef>
+    <typedef name="nx_am_group_t" ref="0xb78d9178" loc="7:/opt/tinyos-main-2.1.2/tos/types/AM.h">
+      <type-int cname="unsigned char" unsigned="" size="I:1" alignment="I:1" network="nx_uint8_t">
+        <typename><typedef-ref name="nx_am_group_t" ref="0xb78d9178"/></typename>
+      </type-int>
+    </typedef>
+    <typedef name="__timer_t" ref="0xb7c8a808" loc="150:/usr/include/i386-linux-gnu/bits/types.h">
+      <type-pointer size="I:4" alignment="I:4">
+        <type-void size="I:1" alignment="I:1"></type-void>
+        <typename><typedef-ref name="__timer_t" ref="0xb7c8a808"/></typename>
+      </type-pointer>
+    </typedef>
+    <typedef name="message_metadata_t" ref="0xb78cea50" loc="61:/opt/tinyos-main-2.1.2/tos/lib/tossim/platform_message.h">
+      <type-tag size="I:4" alignment="I:1"><union-ref name="message_metadata" ref="0xb78ce630"/>
+        <typename><typedef-ref name="message_metadata_t" ref="0xb78cea50"/></typename>
+      </type-tag>
+    </typedef>
+    <typedef name="__io_write_fn" ref="0xb7aed800" loc="341:/usr/include/libio.h">
+      <type-function size="I:1" alignment="I:1">
+        <type-int cname="int" size="I:4" alignment="I:4">
+          <typename><typedef-ref name="__ssize_t" ref="0xb7c89f28"/></typename>
+        </type-int>
+        <function-parameters>
+          <type-pointer size="I:4" alignment="I:4">
+            <type-void size="I:1" alignment="I:1"></type-void>
+          </type-pointer>
+          <type-pointer size="I:4" alignment="I:4">
+            <type-qualified const="">
+              <type-int cname="char" size="I:1" alignment="I:1"></type-int>
+            </type-qualified>
+          </type-pointer>
+          <type-int cname="unsigned int" unsigned="" size="I:4" alignment="I:4">
+            <typename><typedef-ref name="size_t" ref="0xb7fc5488"/></typename>
+          </type-int>
+        </function-parameters>
+        <typename><typedef-ref name="__io_write_fn" ref="0xb7aed800"/></typename>
+      </type-function>
+    </typedef>
+    <typedef name="fd_mask" ref="0xb7c64cc8" loc="82:/usr/include/i386-linux-gnu/sys/select.h">
+      <type-int cname="long" size="I:4" alignment="I:4">
+        <typename><typedef-ref name="fd_mask" ref="0xb7c64cc8"/></typename>
+      </type-int>
+    </typedef>
+    <typedef name="nx_uint32_t" ref="0xb7cc3030" loc="437:/usr/lib/ncc/nesc_nx.h">
+      <type-int cname="unsigned int" unsigned="" size="I:4" alignment="I:1" network="nx_uint32_t">
+        <typename><typedef-ref name="nx_uint32_t" ref="0xb7cc3030"/></typename>
+      </type-int>
+    </typedef>
+    <typedef name="hashtable_t" ref="0xb7a84ef8" loc="10:/opt/tinyos-main-2.1.2/tos/lib/tossim/hashtable.h">
+      <documentation loc="32:/opt/tinyos-main-2.1.2/tos/lib/tossim/sim_log.h">
+        <short>&#10; The TOSSIM logging system.</short>
+        <long>&#10; The TOSSIM logging system. Unlike in TinyOS 1.x, this logging&#10; system supports an arbitrary number of channels, denoted by&#10; a string identifier. A channel can be connected to any number&#10; of outputs, and a debug statement can be associated with any&#10; number of channels.&#10;&#10; @author Philip Levis&#10; @date   Nov 22 2005&#10;</long>
+      </documentation>
+      <type-tag size="V:" alignment="V:"><struct-ref name="hashtable" ref="0xb7a84c90"/>
+        <typename><typedef-ref name="hashtable_t" ref="0xb7a84ef8"/></typename>
+      </type-tag>
+    </typedef>
+    <typedef name="dev_t" ref="0xb7c6d6f8" loc="60:/usr/include/i386-linux-gnu/sys/types.h">
+      <type-int cname="unsigned long long" unsigned="" size="I:8" alignment="I:8">
+        <typename><typedef-ref name="dev_t" ref="0xb7c6d6f8"/></typename>
+      </type-int>
+    </typedef>
+    <typedef name="__u_quad_t" ref="0xb7c8e1c0" loc="56:/usr/include/i386-linux-gnu/bits/types.h">
+      <type-int cname="unsigned long long" unsigned="" size="I:8" alignment="I:8">
+        <typename><typedef-ref name="__u_quad_t" ref="0xb7c8e1c0"/></typename>
+      </type-int>
+    </typedef>
+    <typedef name="u_int32_t" ref="0xb7c68ca8" loc="202:/usr/include/i386-linux-gnu/sys/types.h">
+      <type-int cname="unsigned int" unsigned="" size="I:4" alignment="I:4">
+        <typename><typedef-ref name="u_int32_t" ref="0xb7c68ca8"/></typename>
+      </type-int>
+    </typedef>
+    <typedef name="fsfilcnt_t" ref="0xb7c5c420" loc="243:/usr/include/i386-linux-gnu/sys/types.h">
+      <type-int cname="unsigned long" unsigned="" size="I:4" alignment="I:4">
+        <typename><typedef-ref name="fsfilcnt_t" ref="0xb7c5c420"/></typename>
+      </type-int>
+    </typedef>
+    <typedef name="uint_fast8_t" ref="0xb7da99a8" loc="103:/usr/include/stdint.h">
+      <type-int cname="unsigned char" unsigned="" size="I:1" alignment="I:1">
+        <typename><typedef-ref name="uint_fast8_t" ref="0xb7da99a8"/></typename>
+      </type-int>
+    </typedef>
+    <typedef name="idtype_t" ref="0xb7c92010" loc="55:/usr/include/i386-linux-gnu/bits/waitflags.h">
+      <type-tag size="I:4" alignment="I:4"><enum-ref ref="0xb7c939f8"/>
+        <typename><typedef-ref name="idtype_t" ref="0xb7c92010"/></typename>
+      </type-tag>
+    </typedef>
+    <typedef name="__rlim64_t" ref="0xb7c8c5c0" loc="137:/usr/include/i386-linux-gnu/bits/types.h">
+      <type-int cname="unsigned long long" unsigned="" size="I:8" alignment="I:8">
+        <typename><typedef-ref name="__rlim64_t" ref="0xb7c8c5c0"/></typename>
+      </type-int>
+    </typedef>
+    <typedef name="__key_t" ref="0xb7c8a368" loc="144:/usr/include/i386-linux-gnu/bits/types.h">
+      <type-int cname="int" size="I:4" alignment="I:4">
+        <typename><typedef-ref name="__key_t" ref="0xb7c8a368"/></typename>
+      </type-int>
+    </typedef>
+    <typedef name="__useconds_t" ref="0xb7c8cc90" loc="140:/usr/include/i386-linux-gnu/bits/types.h">
+      <type-int cname="unsigned int" unsigned="" size="I:4" alignment="I:4">
+        <typename><typedef-ref name="__useconds_t" ref="0xb7c8cc90"/></typename>
+      </type-int>
+    </typedef>
+    <typedef name="__io_read_fn" ref="0xb7aeee08" loc="333:/usr/include/libio.h">
+      <type-function size="I:1" alignment="I:1">
+        <type-int cname="int" size="I:4" alignment="I:4">
+          <typename><typedef-ref name="__ssize_t" ref="0xb7c89f28"/></typename>
+        </type-int>
+        <function-parameters>
+          <type-pointer size="I:4" alignment="I:4">
+            <type-void size="I:1" alignment="I:1"></type-void>
+          </type-pointer>
+          <type-pointer size="I:4" alignment="I:4">
+            <type-int cname="char" size="I:1" alignment="I:1"></type-int>
+          </type-pointer>
+          <type-int cname="unsigned int" unsigned="" size="I:4" alignment="I:4">
+            <typename><typedef-ref name="size_t" ref="0xb7fc5488"/></typename>
+          </type-int>
+        </function-parameters>
+        <typename><typedef-ref name="__io_read_fn" ref="0xb7aeee08"/></typename>
+      </type-function>
+    </typedef>
+    <typedef name="nx_int16_t" ref="0xb7cc69f8" loc="432:/usr/lib/ncc/nesc_nx.h">
+      <type-int cname="short" size="I:2" alignment="I:1" network="nx_int16_t">
+        <typename><typedef-ref name="nx_int16_t" ref="0xb7cc69f8"/></typename>
+      </type-int>
+    </typedef>
+    <typedef name="__gwchar_t" ref="0xb7da8e40" loc="34:/usr/include/inttypes.h">
+      <type-int cname="long" size="I:4" alignment="I:4">
+        <typename><typedef-ref name="__gwchar_t" ref="0xb7da8e40"/></typename>
+      </type-int>
+    </typedef>
+    <typedef name="register_t" ref="0xb7c67360" loc="205:/usr/include/i386-linux-gnu/sys/types.h">
+      <type-int cname="int" size="I:4" alignment="I:4">
+        <typename><typedef-ref name="register_t" ref="0xb7c67360"/></typename>
+      </type-int>
+    </typedef>
+    <typedef name="pthread_barrierattr_t" ref="0xb7c500c8" loc="249:/usr/include/i386-linux-gnu/bits/pthreadtypes.h">
+      <type-tag size="I:4" alignment="I:4"><union-ref ref="0xb7c51e40"/>
+        <typename><typedef-ref name="pthread_barrierattr_t" ref="0xb7c500c8"/></typename>
+      </type-tag>
+    </typedef>
+    <typedef name="ssize_t" ref="0xb7c6c8c8" loc="109:/usr/include/i386-linux-gnu/sys/types.h">
+      <type-int cname="int" size="I:4" alignment="I:4">
+        <typename><typedef-ref name="ssize_t" ref="0xb7c6c8c8"/></typename>
+      </type-int>
+    </typedef>
+    <typedef name="__quad_t" ref="0xb7c90f18" loc="55:/usr/include/i386-linux-gnu/bits/types.h">
+      <type-int cname="long long" size="I:8" alignment="I:8">
+        <typename><typedef-ref name="__quad_t" ref="0xb7c90f18"/></typename>
+      </type-int>
+    </typedef>
+    <typedef name="int32_t" ref="0xb7fbdd78" loc="38:/usr/include/stdint.h">
+      <type-int cname="int" size="I:4" alignment="I:4">
+        <typename><typedef-ref name="int32_t" ref="0xb7fbdd78"/></typename>
+      </type-int>
+    </typedef>
+    <typedef name="uint64_t" ref="0xb7dac920" loc="58:/usr/include/stdint.h">
+      <type-int cname="unsigned long long" unsigned="" size="I:8" alignment="I:8">
+        <typename><typedef-ref name="uint64_t" ref="0xb7dac920"/></typename>
+      </type-int>
+    </typedef>
+    <typedef name="u_long" ref="0xb7c6f968" loc="36:/usr/include/i386-linux-gnu/sys/types.h">
+      <type-int cname="unsigned long" unsigned="" size="I:4" alignment="I:4">
+        <typename><typedef-ref name="u_long" ref="0xb7c6f968"/></typename>
+      </type-int>
+    </typedef>
+    <typedef name="_LIB_VERSION_TYPE" ref="0xb7b182c0" loc="354:/usr/include/math.h">
+      <type-tag size="I:4" alignment="I:4"><enum-ref ref="0xb7b19838"/>
+        <typename><typedef-ref name="_LIB_VERSION_TYPE" ref="0xb7b182c0"/></typename>
+      </type-tag>
+    </typedef>
+    <typedef name="nxle_int64_t" ref="0xb7cc26d8" loc="444:/usr/lib/ncc/nesc_nx.h">
+      <type-int cname="long long" size="I:8" alignment="I:1" network="nxle_int64_t">
+        <typename><typedef-ref name="nxle_int64_t" ref="0xb7cc26d8"/></typename>
+      </type-int>
+    </typedef>
+    <typedef name="nxle_int16_t" ref="0xb7cc3d98" loc="442:/usr/lib/ncc/nesc_nx.h">
+      <type-int cname="short" size="I:2" alignment="I:1" network="nxle_int16_t">
+        <typename><typedef-ref name="nxle_int16_t" ref="0xb7cc3d98"/></typename>
+      </type-int>
+    </typedef>
+    <typedef name="pthread_t" ref="0xb7c5c6a8" loc="60:/usr/include/i386-linux-gnu/bits/pthreadtypes.h">
+      <type-int cname="unsigned long" unsigned="" size="I:4" alignment="I:4">
+        <typename><typedef-ref name="pthread_t" ref="0xb7c5c6a8"/></typename>
+      </type-int>
+    </typedef>
+    <typedef name="__blksize_t" ref="0xb7c8aa70" loc="153:/usr/include/i386-linux-gnu/bits/types.h">
+      <type-int cname="long" size="I:4" alignment="I:4">
+        <typename><typedef-ref name="__blksize_t" ref="0xb7c8aa70"/></typename>
+      </type-int>
+    </typedef>
+    <typedef name="imaxdiv_t" ref="0xb7da55d8" loc="284:/usr/include/inttypes.h">
+      <type-tag size="I:16" alignment="I:4"><struct-ref ref="0xb7da53b0"/>
+        <typename><typedef-ref name="imaxdiv_t" ref="0xb7da55d8"/></typename>
+      </type-tag>
+    </typedef>
+    <typedef name="__nlink_t" ref="0xb7c8d290" loc="130:/usr/include/i386-linux-gnu/bits/types.h">
+      <type-int cname="unsigned int" unsigned="" size="I:4" alignment="I:4">
+        <typename><typedef-ref name="__nlink_t" ref="0xb7c8d290"/></typename>
+      </type-int>
+    </typedef>
+    <typedef name="__id_t" ref="0xb7c8c7e8" loc="138:/usr/include/i386-linux-gnu/bits/types.h">
+      <type-int cname="unsigned int" unsigned="" size="I:4" alignment="I:4">
+        <typename><typedef-ref name="__id_t" ref="0xb7c8c7e8"/></typename>
+      </type-int>
+    </typedef>
+    <typedef name="uint_least32_t" ref="0xb7dabb18" loc="78:/usr/include/stdint.h">
+      <type-int cname="unsigned int" unsigned="" size="I:4" alignment="I:4">
+        <typename><typedef-ref name="uint_least32_t" ref="0xb7dabb18"/></typename>
+      </type-int>
+    </typedef>
+    <typedef name="__mbstate_t" ref="0xb7af88b0" loc="94:/usr/include/wchar.h">
+      <type-tag size="I:8" alignment="I:4"><struct-ref ref="0xb7af8688"/>
+        <typename><typedef-ref name="__mbstate_t" ref="0xb7af88b0"/></typename>
+      </type-tag>
+    </typedef>
+    <typedef name="message_footer_t" ref="0xb78ce408" loc="57:/opt/tinyos-main-2.1.2/tos/lib/tossim/platform_message.h">
+      <type-tag size="I:2" alignment="I:1"><union-ref name="message_footer" ref="0xb78ce010"/>
+        <typename><typedef-ref name="message_footer_t" ref="0xb78ce408"/></typename>
+      </type-tag>
+    </typedef>
+    <typedef name="__WAIT_STATUS" ref="0xb7c82b40" loc="71:/usr/include/stdlib.h">
+      <type-tag size="I:4" alignment="I:4"><union-ref ref="0xb7c82800"/>
+        <typename><typedef-ref name="__WAIT_STATUS" ref="0xb7c82b40"/></typename>
+      </type-tag>
+    </typedef>
+    <typedef name="__blkcnt64_t" ref="0xb7c89010" loc="159:/usr/include/i386-linux-gnu/bits/types.h">
+      <type-int cname="long long" size="I:8" alignment="I:8">
+        <typename><typedef-ref name="__blkcnt64_t" ref="0xb7c89010"/></typename>
+      </type-int>
+    </typedef>
+    <typedef name="fsblkcnt_t" ref="0xb7c5c190" loc="239:/usr/include/i386-linux-gnu/sys/types.h">
+      <type-int cname="unsigned long" unsigned="" size="I:4" alignment="I:4">
+        <typename><typedef-ref name="fsblkcnt_t" ref="0xb7c5c190"/></typename>
+      </type-int>
+    </typedef>
+    <typedef name="off_t" ref="0xb7c6c238" loc="86:/usr/include/i386-linux-gnu/sys/types.h">
+      <type-int cname="long" size="I:4" alignment="I:4">
+        <typename><typedef-ref name="off_t" ref="0xb7c6c238"/></typename>
+      </type-int>
+    </typedef>
+    <typedef name="__u_short" ref="0xb7c92608" loc="31:/usr/include/i386-linux-gnu/bits/types.h">
+      <type-int cname="unsigned short" unsigned="" size="I:2" alignment="I:2">
+        <typename><typedef-ref name="__u_short" ref="0xb7c92608"/></typename>
+      </type-int>
+    </typedef>
+    <typedef name="nx_int64_t" ref="0xb7cc52d0" loc="434:/usr/lib/ncc/nesc_nx.h">
+      <type-int cname="long long" size="I:8" alignment="I:1" network="nx_int64_t">
+        <typename><typedef-ref name="nx_int64_t" ref="0xb7cc52d0"/></typename>
+      </type-int>
+    </typedef>
+    <typedef name="quad_t" ref="0xb7c6fba8" loc="37:/usr/include/i386-linux-gnu/sys/types.h">
+      <type-int cname="long long" size="I:8" alignment="I:8">
+        <typename><typedef-ref name="quad_t" ref="0xb7c6fba8"/></typename>
+      </type-int>
+    </typedef>
+    <typedef name="__suseconds_t" ref="0xb7c8cf00" loc="141:/usr/include/i386-linux-gnu/bits/types.h">
+      <type-int cname="long" size="I:4" alignment="I:4">
+        <typename><typedef-ref name="__suseconds_t" ref="0xb7c8cf00"/></typename>
+      </type-int>
+    </typedef>
+    <typedef name="pthread_barrier_t" ref="0xb7c51988" loc="243:/usr/include/i386-linux-gnu/bits/pthreadtypes.h">
+      <type-tag size="I:20" alignment="I:4"><union-ref ref="0xb7c51760"/>
+        <typename><typedef-ref name="pthread_barrier_t" ref="0xb7c51988"/></typename>
+      </type-tag>
+    </typedef>
+    <typedef name="__int8_t" ref="0xb7c92c88" loc="36:/usr/include/i386-linux-gnu/bits/types.h">
+      <type-int cname="signed char" size="I:1" alignment="I:1">
+        <typename><typedef-ref name="__int8_t" ref="0xb7c92c88"/></typename>
+      </type-int>
+    </typedef>
+    <typedef name="_G_fpos64_t" ref="0xb7af76b8" loc="30:/usr/include/_G_config.h">
+      <type-tag size="I:16" alignment="I:4"><struct-ref ref="0xb7af7490"/>
+        <typename><typedef-ref name="_G_fpos64_t" ref="0xb7af76b8"/></typename>
+      </type-tag>
+    </typedef>
+    <typedef name="__clockid_t" ref="0xb7c8a5b0" loc="147:/usr/include/i386-linux-gnu/bits/types.h">
+      <type-int cname="int" size="I:4" alignment="I:4">
+        <typename><typedef-ref name="__clockid_t" ref="0xb7c8a5b0"/></typename>
+      </type-int>
+    </typedef>
+    <typedef name="uint_fast16_t" ref="0xb7da9bf8" loc="109:/usr/include/stdint.h">
+      <type-int cname="unsigned int" unsigned="" size="I:4" alignment="I:4">
+        <typename><typedef-ref name="uint_fast16_t" ref="0xb7da9bf8"/></typename>
+      </type-int>
+    </typedef>
+    <typedef name="uintmax_t" ref="0xb7da8a60" loc="140:/usr/include/stdint.h">
+      <type-int cname="unsigned long long" unsigned="" size="I:8" alignment="I:8">
+        <typename><typedef-ref name="uintmax_t" ref="0xb7da8a60"/></typename>
+      </type-int>
+    </typedef>
+    <typedef name="__clock_t" ref="0xb7c8c0c8" loc="135:/usr/include/i386-linux-gnu/bits/types.h">
+      <type-int cname="long" size="I:4" alignment="I:4">
+        <typename><typedef-ref name="__clock_t" ref="0xb7c8c0c8"/></typename>
+      </type-int>
+    </typedef>
+    <typedef name="nx_am_addr_t" ref="0xb78d9410" loc="8:/opt/tinyos-main-2.1.2/tos/types/AM.h">
+      <type-int cname="unsigned short" unsigned="" size="I:2" alignment="I:1" network="nx_uint16_t">
+        <typename><typedef-ref name="nx_am_addr_t" ref="0xb78d9410"/></typename>
+      </type-int>
+    </typedef>
+    <typedef name="nx_uint16_t" ref="0xb7cc5ba0" loc="436:/usr/lib/ncc/nesc_nx.h">
+      <type-int cname="unsigned short" unsigned="" size="I:2" alignment="I:1" network="nx_uint16_t">
+        <typename><typedef-ref name="nx_uint16_t" ref="0xb7cc5ba0"/></typename>
+      </type-int>
+    </typedef>
+    <typedef name="__rlim_t" ref="0xb7c8c328" loc="136:/usr/include/i386-linux-gnu/bits/types.h">
+      <type-int cname="unsigned long" unsigned="" size="I:4" alignment="I:4">
+        <typename><typedef-ref name="__rlim_t" ref="0xb7c8c328"/></typename>
+      </type-int>
+    </typedef>
+    <typedef name="u_quad_t" ref="0xb7c6fe10" loc="38:/usr/include/i386-linux-gnu/sys/types.h">
+      <type-int cname="unsigned long long" unsigned="" size="I:8" alignment="I:8">
+        <typename><typedef-ref name="u_quad_t" ref="0xb7c6fe10"/></typename>
+      </type-int>
+    </typedef>
+    <typedef name="int_fast32_t" ref="0xb7da94b8" loc="97:/usr/include/stdint.h">
+      <type-int cname="int" size="I:4" alignment="I:4">
+        <typename><typedef-ref name="int_fast32_t" ref="0xb7da94b8"/></typename>
+      </type-int>
+    </typedef>
+    <typedef name="int_least16_t" ref="0xb7dacdf8" loc="66:/usr/include/stdint.h">
+      <type-int cname="short" size="I:2" alignment="I:2">
+        <typename><typedef-ref name="int_least16_t" ref="0xb7dacdf8"/></typename>
+      </type-int>
+    </typedef>
+    <typedef name="ldiv_t" ref="0xb7c806f0" loc="109:/usr/include/stdlib.h">
+      <type-tag size="I:8" alignment="I:4"><struct-ref ref="0xb7c804c8"/>
+        <typename><typedef-ref name="ldiv_t" ref="0xb7c806f0"/></typename>
+      </type-tag>
+    </typedef>
+    <typedef name="u_int64_t" ref="0xb7c67010" loc="203:/usr/include/i386-linux-gnu/sys/types.h">
+      <type-int cname="unsigned long long" unsigned="" size="I:8" alignment="I:8">
+        <typename><typedef-ref name="u_int64_t" ref="0xb7c67010"/></typename>
+      </type-int>
+    </typedef>
+    <typedef name="u_int16_t" ref="0xb7c68958" loc="201:/usr/include/i386-linux-gnu/sys/types.h">
+      <type-int cname="unsigned short" unsigned="" size="I:2" alignment="I:2">
+        <typename><typedef-ref name="u_int16_t" ref="0xb7c68958"/></typename>
+      </type-int>
+    </typedef>
+    <typedef name="uint_least64_t" ref="0xb7dabdc0" loc="83:/usr/include/stdint.h">
+      <type-int cname="unsigned long long" unsigned="" size="I:8" alignment="I:8">
+        <typename><typedef-ref name="uint_least64_t" ref="0xb7dabdc0"/></typename>
+      </type-int>
+    </typedef>
+    <typedef name="__int32_t" ref="0xb7c90580" loc="40:/usr/include/i386-linux-gnu/bits/types.h">
+      <type-int cname="int" size="I:4" alignment="I:4">
+        <typename><typedef-ref name="__int32_t" ref="0xb7c90580"/></typename>
+      </type-int>
+    </typedef>
+    <typedef name="pthread_rwlock_t" ref="0xb7c53858" loc="222:/usr/include/i386-linux-gnu/bits/pthreadtypes.h">
+      <type-tag size="I:32" alignment="I:4"><union-ref ref="0xb7c535d0"/>
+        <typename><typedef-ref name="pthread_rwlock_t" ref="0xb7c53858"/></typename>
+      </type-tag>
+    </typedef>
+    <typedef name="double_t" ref="0xb7c0ba90" loc="37:/usr/include/i386-linux-gnu/bits/mathdef.h">
+      <type-float cname="long double" size="I:12" alignment="I:4">
+        <typename><typedef-ref name="double_t" ref="0xb7c0ba90"/></typename>
+      </type-float>
+    </typedef>
+    <typedef name="__fd_mask" ref="0xb7c64170" loc="54:/usr/include/i386-linux-gnu/sys/select.h">
+      <type-int cname="long" size="I:4" alignment="I:4">
+        <typename><typedef-ref name="__fd_mask" ref="0xb7c64170"/></typename>
+      </type-int>
+    </typedef>
+    <typedef name="bool" ref="0xb7a9cd38" loc="65:/opt/tinyos-main-2.1.2/tos/lib/tossim/tos.h">
+      <type-int cname="unsigned char" unsigned="" size="I:1" alignment="I:1">
+        <typename><typedef-ref name="bool" ref="0xb7a9cd38"/></typename>
+      </type-int>
+    </typedef>
+    <typedef name="__fsblkcnt64_t" ref="0xb7c89568" loc="163:/usr/include/i386-linux-gnu/bits/types.h">
+      <type-int cname="unsigned long long" unsigned="" size="I:8" alignment="I:8">
+        <typename><typedef-ref name="__fsblkcnt64_t" ref="0xb7c89568"/></typename>
+      </type-int>
+    </typedef>
+    <typedef name="sim_noise_hash_t" ref="0xb79f7538" loc="71:/opt/tinyos-main-2.1.2/tos/lib/tossim/sim_noise.h">
+      <documentation loc="32:/opt/tinyos-main-2.1.2/tos/lib/tossim/sim_noise.h">
+        <short>&#10; Implementation of all of the SNIST primitives and utility&#10; functions.</short>
+        <long>&#10; Implementation of all of the SNIST primitives and utility&#10; functions.&#10;&#10; @author Hyungjune Lee&#10; @date   Oct 13 2006&#10;</long>
+      </documentation>
+      <type-tag size="I:480" alignment="I:4"><struct-ref name="sim_noise_hash_t" ref="0xb79f88e8"/>
+        <typename><typedef-ref name="sim_noise_hash_t" ref="0xb79f7538"/></typename>
+      </type-tag>
+    </typedef>
+    <typedef name="__FILE" ref="0xb7afbc50" loc="64:/usr/include/stdio.h">
+      <type-tag size="I:148" alignment="I:4"><struct-ref name="_IO_FILE" ref="0xb7afb770"/>
+        <typename><typedef-ref name="__FILE" ref="0xb7afbc50"/></typename>
+      </type-tag>
+    </typedef>
+    <typedef name="__gnuc_va_list" ref="0xb7af7a10" loc="40:/usr/lib/gcc/i686-linux-gnu/4.8/include/stdarg.h">
+      <type-pointer size="I:4" alignment="I:4">
+        <type-tag size="V:" alignment="V:"><struct-ref ref="0xb7fcff48"/></type-tag>
+        <typename><typedef-ref name="__gnuc_va_list" ref="0xb7af7a10"/></typename>
+      </type-pointer>
+    </typedef>
+    <typedef name="nxle_uint8_t" ref="0xb7cc2b58" loc="445:/usr/lib/ncc/nesc_nx.h">
+      <type-int cname="unsigned char" unsigned="" size="I:1" alignment="I:1" network="nxle_uint8_t">
+        <typename><typedef-ref name="nxle_uint8_t" ref="0xb7cc2b58"/></typename>
+      </type-int>
+    </typedef>
+    <typedef name="__off64_t" ref="0xb7c8d740" loc="132:/usr/include/i386-linux-gnu/bits/types.h">
+      <type-int cname="long long" size="I:8" alignment="I:8">
+        <typename><typedef-ref name="__off64_t" ref="0xb7c8d740"/></typename>
+      </type-int>
+    </typedef>
+    <typedef name="__fsfilcnt64_t" ref="0xb7c89ac0" loc="167:/usr/include/i386-linux-gnu/bits/types.h">
+      <type-int cname="unsigned long long" unsigned="" size="I:8" alignment="I:8">
+        <typename><typedef-ref name="__fsfilcnt64_t" ref="0xb7c89ac0"/></typename>
+      </type-int>
+    </typedef>
+    <typedef name="int64_t" ref="0xb7dac010" loc="43:/usr/include/stdint.h">
+      <type-int cname="long long" size="I:8" alignment="I:8">
+        <typename><typedef-ref name="int64_t" ref="0xb7dac010"/></typename>
+      </type-int>
+    </typedef>
+    <typedef name="int16_t" ref="0xb7fbdb88" loc="37:/usr/include/stdint.h">
+      <type-int cname="short" size="I:2" alignment="I:2">
+        <typename><typedef-ref name="int16_t" ref="0xb7fbdb88"/></typename>
+      </type-int>
+    </typedef>
+    <typedef name="ulong" ref="0xb7c6be38" loc="150:/usr/include/i386-linux-gnu/sys/types.h">
+      <type-int cname="unsigned long" unsigned="" size="I:4" alignment="I:4">
+        <typename><typedef-ref name="ulong" ref="0xb7c6be38"/></typename>
+      </type-int>
+    </typedef>
+    <typedef name="int_fast64_t" ref="0xb7da9730" loc="99:/usr/include/stdint.h">
+      <type-int cname="long long" size="I:8" alignment="I:8">
+        <typename><typedef-ref name="int_fast64_t" ref="0xb7da9730"/></typename>
+      </type-int>
+    </typedef>
+    <typedef name="uid_t" ref="0xb7c6c010" loc="80:/usr/include/i386-linux-gnu/sys/types.h">
+      <type-int cname="unsigned int" unsigned="" size="I:4" alignment="I:4">
+        <typename><typedef-ref name="uid_t" ref="0xb7c6c010"/></typename>
+      </type-int>
+    </typedef>
+    <typedef name="__syscall_slong_t" ref="0xb7c881e0" loc="175:/usr/include/i386-linux-gnu/bits/types.h">
+      <type-int cname="long" size="I:4" alignment="I:4">
+        <typename><typedef-ref name="__syscall_slong_t" ref="0xb7c881e0"/></typename>
+      </type-int>
+    </typedef>
+    <typedef name="nx_uint64_t" ref="0xb7cc34a8" loc="438:/usr/lib/ncc/nesc_nx.h">
+      <type-int cname="unsigned long long" unsigned="" size="I:8" alignment="I:1" network="nx_uint64_t">
+        <typename><typedef-ref name="nx_uint64_t" ref="0xb7cc34a8"/></typename>
+      </type-int>
+    </typedef>
+    <typedef name="loff_t" ref="0xb7c6d2a8" loc="44:/usr/include/i386-linux-gnu/sys/types.h">
+      <type-int cname="long long" size="I:8" alignment="I:8">
+        <typename><typedef-ref name="loff_t" ref="0xb7c6d2a8"/></typename>
+      </type-int>
+    </typedef>
+    <typedef name="message_t" ref="0xb78cda30" loc="19:/opt/tinyos-main-2.1.2/tos/types/message.h">
+      <type-tag size="I:41" alignment="I:1"><nx_struct-ref name="message_t" ref="0xb78cec30"/>
+        <typename><typedef-ref name="message_t" ref="0xb78cda30"/></typename>
+      </type-tag>
+    </typedef>
+    <typedef name="__socklen_t" ref="0xb7c860d8" loc="189:/usr/include/i386-linux-gnu/bits/types.h">
+      <type-int cname="unsigned int" unsigned="" size="I:4" alignment="I:4">
+        <typename><typedef-ref name="__socklen_t" ref="0xb7c860d8"/></typename>
+      </type-int>
+    </typedef>
+    <typedef name="node_t" ref="0xb7a3d168" loc="65:/opt/tinyos-main-2.1.2/tos/lib/tossim/heap.c">
+      <type-tag size="I:12" alignment="I:4"><struct-ref name="node" ref="0xb7a3ecb0"/>
+        <typename><typedef-ref name="node_t" ref="0xb7a3d168"/></typename>
+      </type-tag>
+    </typedef>
+    <typedef name="__uid_t" ref="0xb7c8e6c8" loc="125:/usr/include/i386-linux-gnu/bits/types.h">
+      <type-int cname="unsigned int" unsigned="" size="I:4" alignment="I:4">
+        <typename><typedef-ref name="__uid_t" ref="0xb7c8e6c8"/></typename>
+      </type-int>
+    </typedef>
+    <typedef name="nx_int8_t" ref="0xb7cc65a0" loc="431:/usr/lib/ncc/nesc_nx.h">
+      <type-int cname="signed char" size="I:1" alignment="I:1" network="nx_int8_t">
+        <typename><typedef-ref name="nx_int8_t" ref="0xb7cc65a0"/></typename>
+      </type-int>
+    </typedef>
+    <typedef name="sim_noise_node_t" ref="0xb79f5b50" loc="83:/opt/tinyos-main-2.1.2/tos/lib/tossim/sim_noise.h">
+      <type-tag size="I:68" alignment="I:4"><struct-ref name="sim_noise_node_t" ref="0xb79f7820"/>
+        <typename><typedef-ref name="sim_noise_node_t" ref="0xb79f5b50"/></typename>
+      </type-tag>
+    </typedef>
+    <typedef name="id_t" ref="0xb7c6c678" loc="104:/usr/include/i386-linux-gnu/sys/types.h">
+      <type-int cname="unsigned int" unsigned="" size="I:4" alignment="I:4">
+        <typename><typedef-ref name="id_t" ref="0xb7c6c678"/></typename>
+      </type-int>
+    </typedef>
+    <typedef name="pthread_mutex_t" ref="0xb7c581c8" loc="128:/usr/include/i386-linux-gnu/bits/pthreadtypes.h">
+      <type-tag size="I:24" alignment="I:4"><union-ref ref="0xb7c59ef8"/>
+        <typename><typedef-ref name="pthread_mutex_t" ref="0xb7c581c8"/></typename>
+      </type-tag>
+    </typedef>
+    <typedef name="__itimer_which_t" ref="0xb79fe1e0" loc="120:/usr/include/i386-linux-gnu/sys/time.h">
+      <type-int cname="int" size="I:4" alignment="I:4">
+        <typename><typedef-ref name="__itimer_which_t" ref="0xb79fe1e0"/></typename>
+      </type-int>
+    </typedef>
+    <typedef name="pthread_cond_t" ref="0xb7c55010" loc="154:/usr/include/i386-linux-gnu/bits/pthreadtypes.h">
+      <type-tag size="I:48" alignment="I:4"><union-ref ref="0xb7c57d28"/>
+        <typename><typedef-ref name="pthread_cond_t" ref="0xb7c55010"/></typename>
+      </type-tag>
+    </typedef>
+    <typedef name="pthread_key_t" ref="0xb7c55930" loc="164:/usr/include/i386-linux-gnu/bits/pthreadtypes.h">
+      <type-int cname="unsigned int" unsigned="" size="I:4" alignment="I:4">
+        <typename><typedef-ref name="pthread_key_t" ref="0xb7c55930"/></typename>
+      </type-int>
+    </typedef>
+    <typedef name="ino_t" ref="0xb7c6d4d0" loc="48:/usr/include/i386-linux-gnu/sys/types.h">
+      <type-int cname="unsigned long" unsigned="" size="I:4" alignment="I:4">
+        <typename><typedef-ref name="ino_t" ref="0xb7c6d4d0"/></typename>
+      </type-int>
+    </typedef>
+    <typedef name="daddr_t" ref="0xb7c6cb18" loc="115:/usr/include/i386-linux-gnu/sys/types.h">
+      <type-int cname="int" size="I:4" alignment="I:4">
+        <typename><typedef-ref name="daddr_t" ref="0xb7c6cb18"/></typename>
+      </type-int>
+    </typedef>
+    <typedef name="__timezone_ptr_t" ref="0xb7a03238" loc="61:/usr/include/i386-linux-gnu/sys/time.h">
+      <documentation loc="32:/opt/tinyos-main-2.1.2/tos/lib/tossim/sim_mote.h">
+        <short>&#10; The C functions that allow TOSSIM-side code to access the SimMoteP&#10; component.</short>
+        <long>&#10; The C functions that allow TOSSIM-side code to access the SimMoteP&#10; component.&#10;&#10; @author Philip Levis&#10; @date   Nov 22 2005&#10;</long>
+      </documentation>
+      <type-qualified __restrict="">
+          <typename><typedef-ref name="__timezone_ptr_t" ref="0xb7a03238"/></typename>
+        <type-pointer size="I:4" alignment="I:4">
+          <type-tag size="I:8" alignment="I:4"><struct-ref name="timezone" ref="0xb7a04bb0"/></type-tag>
+        </type-pointer>
+      </type-qualified>
+    </typedef>
+    <typedef name="nxle_uint32_t" ref="0xb7cc04c0" loc="447:/usr/lib/ncc/nesc_nx.h">
+      <type-int cname="unsigned int" unsigned="" size="I:4" alignment="I:1" network="nxle_uint32_t">
+        <typename><typedef-ref name="nxle_uint32_t" ref="0xb7cc04c0"/></typename>
+      </type-int>
+    </typedef>
+    <typedef name="key_t" ref="0xb7c6b010" loc="122:/usr/include/i386-linux-gnu/sys/types.h">
+      <type-int cname="int" size="I:4" alignment="I:4">
+        <typename><typedef-ref name="key_t" ref="0xb7c6b010"/></typename>
+      </type-int>
+    </typedef>
+    <typedef name="pthread_mutexattr_t" ref="0xb7c58890" loc="134:/usr/include/i386-linux-gnu/bits/pthreadtypes.h">
+      <type-tag size="I:4" alignment="I:4"><union-ref ref="0xb7c58668"/>
+        <typename><typedef-ref name="pthread_mutexattr_t" ref="0xb7c58890"/></typename>
+      </type-tag>
+    </typedef>
+    <typedef name="__pthread_slist_t" ref="0xb7c5a670" loc="84:/usr/include/i386-linux-gnu/bits/pthreadtypes.h">
+      <type-tag size="I:4" alignment="I:4"><struct-ref name="__pthread_internal_slist" ref="0xb7c5a1c0"/>
+        <typename><typedef-ref name="__pthread_slist_t" ref="0xb7c5a670"/></typename>
+      </type-tag>
+    </typedef>
+    <typedef name="uart_id_t" ref="0xb78d6678" loc="83:/opt/tinyos-main-2.1.2/tos/lib/serial/Serial.h">
+      <documentation loc="71:/opt/tinyos-main-2.1.2/tos/lib/serial/Serial.h">
+        <short>&#10; </short>
+        <long>&#10; @author Phil Buonadonna&#10; @author Lewis Girod&#10; @author Ben Greenstein&#10; @author Philip Levis&#10; @date   August 7 2005&#10;</long>
+      </documentation>
+      <type-int cname="unsigned char" unsigned="" size="I:1" alignment="I:1">
+        <typename><typedef-ref name="uart_id_t" ref="0xb78d6678"/></typename>
+      </type-int>
+    </typedef>
+  </typedefs>
+</nesc>
