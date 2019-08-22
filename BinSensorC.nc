@@ -18,7 +18,7 @@ generic module BinSensorC() {
 	}
 
 	event void Timer0.fired() {
-		uint8_t trash = 1 + ( call Random.rand16() %MAX_TRASH);
+		uint8_t trash = 1 + ( call Random.rand16() % MAX_TRASH);
 		signal Read.readDone( SUCCESS, trash );
 		setTimer();
 	}

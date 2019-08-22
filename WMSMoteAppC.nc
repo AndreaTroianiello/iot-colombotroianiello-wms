@@ -6,7 +6,7 @@ implementation {
   components new BinSensorAppC() as Sensor;
 
   Mote.Random -> RandomC;
-	RandomC <- MainC.SoftwareInit;
+  RandomC <- MainC.SoftwareInit;
 
   Mote.Boot -> MainC.Boot;
 
