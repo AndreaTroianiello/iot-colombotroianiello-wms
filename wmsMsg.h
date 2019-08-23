@@ -17,20 +17,11 @@ typedef nx_struct truck_msg{
 typedef nx_struct move_msg{
 	nx_uint8_t msg_type;
 	nx_uint16_t node_id;
-} move_msg_t;
-
-typedef nx_struct binres_msg{
-	nx_uint8_t msg_type;
-	nx_uint16_t node_id;
 	nx_uint16_t node_x;
 	nx_uint16_t node_y;
-} binres_msg_t;
-
-typedef nx_struct move_act_msg{
-	nx_uint8_t msg_type;
-	nx_uint16_t node_id;
 	nx_uint8_t trash;
-} move_act_msg_t;
+} move_msg_t;
+
 
 
 
@@ -39,10 +30,11 @@ typedef nx_struct move_act_msg{
 #define TRUCK 2
 #define MOVE 3
 #define BINRES 4
-#define MOVEACT 5;
+#define MVTRASH 5;
 
 enum{
-	AM_BIN_CHANNEL = 6
+	AM_BIN_CHANNEL = 6,
+	AM_TRUCK_CHANNEL = 7,
 };
 
 #endif

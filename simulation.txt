@@ -1,6 +1,14 @@
+DEBUG (0): Bin booted.
+DEBUG (0): Bin location is (807, 1089)
+DEBUG (0): Truck initialized
 DEBUG (1): Bin booted.
 DEBUG (1): Bin location is (1614, 178)
-DEBUG (1): Truck initialized
+DEBUG (1): Started reading from sensor 1
+DEBUG (0): Radio on!
+
+
+
+
 DEBUG (1): Radio on!
 
 
@@ -14,9 +22,38 @@ DEBUG (2): Radio on!
 
 
 
-DEBUG (2): There was an attempt to add trash to the bin at time 0:0:3.734375010
-DEBUG (2): There was an attempt to add trash to the bin at time 0:0:6.078125010
-DEBUG (2): There was an attempt to add trash to the bin at time 0:0:6.957031260
+DEBUG (3): Bin booted.
+DEBUG (3): Bin location is (1692, 356)
+DEBUG (3): Started reading from sensor 3
+DEBUG (3): Radio on!
+
+
+
+
+DEBUG (4): Bin booted.
+DEBUG (4): Bin location is (499, 1909)
+DEBUG (4): Started reading from sensor 4
+DEBUG (4): Radio on!
+
+
+
+
+DEBUG (5): Bin booted.
+DEBUG (5): Bin location is (1306, 998)
+DEBUG (5): Started reading from sensor 5
+DEBUG (5): Radio on!
+
+
+
+
+DEBUG (6): Bin booted.
+DEBUG (6): Bin location is (113, 87)
+DEBUG (6): Started reading from sensor 6
+DEBUG (6): Radio on!
+
+
+
+
 DEBUG (7): Bin booted.
 DEBUG (7): Bin location is (1384, 1177)
 DEBUG (7): Started reading from sensor 7
@@ -25,28 +62,646 @@ DEBUG (7): Radio on!
 
 
 
-DEBUG (7): There was an attempt to add trash to the bin at time 0:0:7.878906260
-DEBUG (2): There was an attempt to add trash to the bin at time 0:0:9.886718760
-DEBUG (7): There was an attempt to add trash to the bin at time 0:0:10.710937510
-DEBUG (7): There was an attempt to add trash to the bin at time 0:0:11.785156260
-DEBUG (7): There was an attempt to add trash to the bin at time 0:0:11.980468760
-DEBUG (7): There was an attempt to add trash to the bin at time 0:0:12.175781260
-DEBUG (2): There was an attempt to add trash to the bin at time 0:0:12.621093760
-DEBUG (7): There was an attempt to add trash to the bin at time 0:0:13.250000010
-DEBUG (7): There was an attempt to add trash to the bin at time 0:0:13.542968760
-DEBUG (2): There was an attempt to add trash to the bin at time 0:0:15.257812510
-DEBUG (2): There was an attempt to add trash to the bin at time 0:0:15.453125010
-DEBUG (7): There was an attempt to add trash to the bin at time 0:0:16.472656260
-DEBUG (2): There was an attempt to add trash to the bin at time 0:0:17.210937510
-DEBUG (2): There was an attempt to add trash to the bin at time 0:0:17.796875010
-DEBUG (7): There was an attempt to add trash to the bin at time 0:0:17.839843760
-DEBUG (2): There was an attempt to add trash to the bin at time 0:0:18.871093760
-DEBUG (2): There was an attempt to add trash to the bin at time 0:0:18.968750010
-DEBUG (7): There was an attempt to add trash to the bin at time 0:0:19.011718760
-DEBUG (7): There was an attempt to add trash to the bin at time 0:0:19.109375010
-DEBUG (7): There was an attempt to add trash to the bin at time 0:0:20.574218760
-DEBUG (2): There was an attempt to add trash to the bin at time 0:0:21.605468760
-DEBUG (7): There was an attempt to add trash to the bin at time 0:0:23.015625010
+DEBUG (1): There was an attempt to add trash to the bin at time 0:0:13.671875010
+DEBUG (1): ADDED 9 units
+DEBUG (1): TRASH LEVEL: 9
+DEBUG (1): STATUS: 0
+DEBUG (1): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (4): There was an attempt to add trash to the bin at time 0:0:14.742187510
+DEBUG (4): ADDED 3 units
+DEBUG (4): TRASH LEVEL: 3
+DEBUG (4): STATUS: 0
+DEBUG (4): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (7): There was an attempt to add trash to the bin at time 0:0:15.789062510
+DEBUG (7): ADDED 6 units
+DEBUG (7): TRASH LEVEL: 6
+DEBUG (7): STATUS: 0
+DEBUG (7): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (4): There was an attempt to add trash to the bin at time 0:0:19.625000010
+DEBUG (4): ADDED 8 units
+DEBUG (4): TRASH LEVEL: 11
+DEBUG (4): STATUS: 0
+DEBUG (4): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (1): There was an attempt to add trash to the bin at time 0:0:25.390625010
+DEBUG (1): ADDED 1 units
+DEBUG (1): TRASH LEVEL: 10
+DEBUG (1): STATUS: 0
+DEBUG (1): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (2): There was an attempt to add trash to the bin at time 0:0:28.343750010
+DEBUG (2): ADDED 4 units
+DEBUG (2): TRASH LEVEL: 4
+DEBUG (2): STATUS: 0
+DEBUG (2): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (5): There was an attempt to add trash to the bin at time 0:0:29.414062510
+DEBUG (5): ADDED 7 units
+DEBUG (5): TRASH LEVEL: 7
+DEBUG (5): STATUS: 0
+DEBUG (5): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (3): There was an attempt to add trash to the bin at time 0:0:30.343750010
+DEBUG (3): ADDED 8 units
+DEBUG (3): TRASH LEVEL: 8
+DEBUG (3): STATUS: 0
+DEBUG (3): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (6): There was an attempt to add trash to the bin at time 0:0:30.414062510
+DEBUG (6): ADDED 2 units
+DEBUG (6): TRASH LEVEL: 2
+DEBUG (6): STATUS: 0
+DEBUG (6): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (1): There was an attempt to add trash to the bin at time 0:0:36.132812510
+DEBUG (1): ADDED 8 units
+DEBUG (1): TRASH LEVEL: 18
+DEBUG (1): STATUS: 0
+DEBUG (1): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (4): There was an attempt to add trash to the bin at time 0:0:38.179687510
+DEBUG (4): ADDED 4 units
+DEBUG (4): TRASH LEVEL: 15
+DEBUG (4): STATUS: 0
+DEBUG (4): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (7): There was an attempt to add trash to the bin at time 0:0:44.109375010
+DEBUG (7): ADDED 10 units
+DEBUG (7): TRASH LEVEL: 16
+DEBUG (7): STATUS: 0
+DEBUG (7): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (5): There was an attempt to add trash to the bin at time 0:0:46.992187510
+DEBUG (5): ADDED 10 units
+DEBUG (5): TRASH LEVEL: 17
+DEBUG (5): STATUS: 0
+DEBUG (5): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (5): There was an attempt to add trash to the bin at time 0:0:47.968750010
+DEBUG (5): ADDED 3 units
+DEBUG (5): TRASH LEVEL: 20
+DEBUG (5): STATUS: 0
+DEBUG (5): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (2): There was an attempt to add trash to the bin at time 0:0:51.781250010
+DEBUG (2): ADDED 3 units
+DEBUG (2): TRASH LEVEL: 7
+DEBUG (2): STATUS: 0
+DEBUG (2): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (3): There was an attempt to add trash to the bin at time 0:0:52.804687510
+DEBUG (3): ADDED 5 units
+DEBUG (3): TRASH LEVEL: 13
+DEBUG (3): STATUS: 0
+DEBUG (3): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (7): There was an attempt to add trash to the bin at time 0:0:54.851562510
+DEBUG (7): ADDED 10 units
+DEBUG (7): TRASH LEVEL: 26
+DEBUG (7): STATUS: 0
+DEBUG (7): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (1): There was an attempt to add trash to the bin at time 0:0:55.664062510
+DEBUG (1): ADDED 4 units
+DEBUG (1): TRASH LEVEL: 22
+DEBUG (1): STATUS: 0
+DEBUG (1): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (4): There was an attempt to add trash to the bin at time 0:0:56.734375010
+DEBUG (4): ADDED 10 units
+DEBUG (4): TRASH LEVEL: 25
+DEBUG (4): STATUS: 0
+DEBUG (4): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (7): There was an attempt to add trash to the bin at time 0:0:56.804687510
+DEBUG (7): ADDED 6 units
+DEBUG (7): TRASH LEVEL: 32
+DEBUG (7): STATUS: 0
+DEBUG (7): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (7): There was an attempt to add trash to the bin at time 0:0:58.757812510
+DEBUG (7): ADDED 9 units
+DEBUG (7): TRASH LEVEL: 41
+DEBUG (7): STATUS: 0
+DEBUG (7): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (6): There was an attempt to add trash to the bin at time 0:0:59.710937510
+DEBUG (6): ADDED 8 units
+DEBUG (6): TRASH LEVEL: 10
+DEBUG (6): STATUS: 0
+DEBUG (6): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (2): There was an attempt to add trash to the bin at time 0:1:0.570312510
+DEBUG (2): ADDED 7 units
+DEBUG (2): TRASH LEVEL: 14
+DEBUG (2): STATUS: 0
+DEBUG (2): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (5): There was an attempt to add trash to the bin at time 0:1:0.664062510
+DEBUG (5): ADDED 2 units
+DEBUG (5): TRASH LEVEL: 22
+DEBUG (5): STATUS: 0
+DEBUG (5): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (5): There was an attempt to add trash to the bin at time 0:1:9.453125010
+DEBUG (5): ADDED 8 units
+DEBUG (5): TRASH LEVEL: 30
+DEBUG (5): STATUS: 0
+DEBUG (5): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (7): There was an attempt to add trash to the bin at time 0:1:9.500000010
+DEBUG (7): ADDED 5 units
+DEBUG (7): TRASH LEVEL: 46
+DEBUG (7): STATUS: 0
+DEBUG (7): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (7): There was an attempt to add trash to the bin at time 0:1:12.429687510
+DEBUG (7): ADDED 7 units
+DEBUG (7): TRASH LEVEL: 53
+DEBUG (7): STATUS: 0
+DEBUG (7): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (3): There was an attempt to add trash to the bin at time 0:1:13.312500010
+DEBUG (3): ADDED 5 units
+DEBUG (3): TRASH LEVEL: 18
+DEBUG (3): STATUS: 0
+DEBUG (3): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (4): There was an attempt to add trash to the bin at time 0:1:16.265625010
+DEBUG (4): ADDED 2 units
+DEBUG (4): TRASH LEVEL: 27
+DEBUG (4): STATUS: 0
+DEBUG (4): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (1): There was an attempt to add trash to the bin at time 0:1:18.125000010
+DEBUG (1): ADDED 2 units
+DEBUG (1): TRASH LEVEL: 24
+DEBUG (1): STATUS: 0
+DEBUG (1): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (3): There was an attempt to add trash to the bin at time 0:1:22.101562510
+DEBUG (3): ADDED 8 units
+DEBUG (3): TRASH LEVEL: 26
+DEBUG (3): STATUS: 0
+DEBUG (3): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (6): There was an attempt to add trash to the bin at time 0:1:28.031250010
+DEBUG (6): ADDED 1 units
+DEBUG (6): TRASH LEVEL: 11
+DEBUG (6): STATUS: 0
+DEBUG (6): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (2): There was an attempt to add trash to the bin at time 0:1:29.867187510
+DEBUG (2): ADDED 6 units
+DEBUG (2): TRASH LEVEL: 20
+DEBUG (2): STATUS: 0
+DEBUG (2): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (4): There was an attempt to add trash to the bin at time 0:1:30.914062510
+DEBUG (4): ADDED 7 units
+DEBUG (4): TRASH LEVEL: 34
+DEBUG (4): STATUS: 0
+DEBUG (4): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (5): There was an attempt to add trash to the bin at time 0:1:31.914062510
+DEBUG (5): ADDED 1 units
+DEBUG (5): TRASH LEVEL: 31
+DEBUG (5): STATUS: 0
+DEBUG (5): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (4): There was an attempt to add trash to the bin at time 0:1:32.867187510
+DEBUG (4): ADDED 2 units
+DEBUG (4): TRASH LEVEL: 36
+DEBUG (4): STATUS: 0
+DEBUG (4): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (5): There was an attempt to add trash to the bin at time 0:1:34.843750010
+DEBUG (5): ADDED 4 units
+DEBUG (5): TRASH LEVEL: 35
+DEBUG (5): STATUS: 0
+DEBUG (5): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (1): There was an attempt to add trash to the bin at time 0:1:35.703125010
+DEBUG (1): ADDED 5 units
+DEBUG (1): TRASH LEVEL: 29
+DEBUG (1): STATUS: 0
+DEBUG (1): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (3): There was an attempt to add trash to the bin at time 0:1:37.726562510
+DEBUG (3): ADDED 3 units
+DEBUG (3): TRASH LEVEL: 29
+DEBUG (3): STATUS: 0
+DEBUG (3): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (7): There was an attempt to add trash to the bin at time 0:1:41.726562510
+DEBUG (7): ADDED 5 units
+DEBUG (7): TRASH LEVEL: 58
+DEBUG (7): STATUS: 0
+DEBUG (7): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (3): There was an attempt to add trash to the bin at time 0:1:43.585937510
+DEBUG (3): ADDED 3 units
+DEBUG (3): TRASH LEVEL: 32
+DEBUG (3): STATUS: 0
+DEBUG (3): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (4): There was an attempt to add trash to the bin at time 0:1:45.562500010
+DEBUG (4): ADDED 10 units
+DEBUG (4): TRASH LEVEL: 46
+DEBUG (4): STATUS: 0
+DEBUG (4): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (6): There was an attempt to add trash to the bin at time 0:1:49.515625010
+DEBUG (6): ADDED 4 units
+DEBUG (6): TRASH LEVEL: 15
+DEBUG (6): STATUS: 0
+DEBUG (6): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (1): There was an attempt to add trash to the bin at time 0:1:52.304687510
+DEBUG (1): ADDED 4 units
+DEBUG (1): TRASH LEVEL: 33
+DEBUG (1): STATUS: 0
+DEBUG (1): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (5): There was an attempt to add trash to the bin at time 0:1:53.398437510
+DEBUG (5): ADDED 7 units
+DEBUG (5): TRASH LEVEL: 42
+DEBUG (5): STATUS: 0
+DEBUG (5): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (7): There was an attempt to add trash to the bin at time 0:1:55.398437510
+DEBUG (7): ADDED 5 units
+DEBUG (7): TRASH LEVEL: 63
+DEBUG (7): STATUS: 0
+DEBUG (7): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (2): There was an attempt to add trash to the bin at time 0:1:57.210937510
+DEBUG (2): ADDED 7 units
+DEBUG (2): TRASH LEVEL: 27
+DEBUG (2): STATUS: 0
+DEBUG (2): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (3): There was an attempt to add trash to the bin at time 0:2:0.187500010
+DEBUG (3): ADDED 7 units
+DEBUG (3): TRASH LEVEL: 39
+DEBUG (3): STATUS: 0
+DEBUG (3): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (1): There was an attempt to add trash to the bin at time 0:2:4.023437510
+DEBUG (1): ADDED 5 units
+DEBUG (1): TRASH LEVEL: 38
+DEBUG (1): STATUS: 0
+DEBUG (1): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (5): There was an attempt to add trash to the bin at time 0:2:4.140625010
+DEBUG (5): ADDED 7 units
+DEBUG (5): TRASH LEVEL: 49
+DEBUG (5): STATUS: 0
+DEBUG (5): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (7): There was an attempt to add trash to the bin at time 0:2:7.117187510
+DEBUG (7): ADDED 10 units
+DEBUG (7): TRASH LEVEL: 73
+DEBUG (7): STATUS: 0
+DEBUG (7): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (7): There was an attempt to add trash to the bin at time 0:2:8.093750010
+DEBUG (7): ADDED 6 units
+DEBUG (7): TRASH LEVEL: 79
+DEBUG (7): STATUS: 0
+DEBUG (7): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (4): There was an attempt to add trash to the bin at time 0:2:9.000000010
+DEBUG (4): ADDED 5 units
+DEBUG (4): TRASH LEVEL: 51
+DEBUG (4): STATUS: 0
+DEBUG (4): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (5): There was an attempt to add trash to the bin at time 0:2:9.023437510
+DEBUG (5): ADDED 9 units
+DEBUG (5): TRASH LEVEL: 58
+DEBUG (5): STATUS: 0
+DEBUG (5): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (6): There was an attempt to add trash to the bin at time 0:2:15.882812510
+DEBUG (6): ADDED 3 units
+DEBUG (6): TRASH LEVEL: 18
+DEBUG (6): STATUS: 0
+DEBUG (6): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (6): There was an attempt to add trash to the bin at time 0:2:17.835937510
+DEBUG (6): ADDED 5 units
+DEBUG (6): TRASH LEVEL: 23
+DEBUG (6): STATUS: 0
+DEBUG (6): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (1): There was an attempt to add trash to the bin at time 0:2:22.578125010
+DEBUG (1): ADDED 5 units
+DEBUG (1): TRASH LEVEL: 43
+DEBUG (1): STATUS: 0
+DEBUG (1): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (3): There was an attempt to add trash to the bin at time 0:2:22.648437510
+DEBUG (3): ADDED 3 units
+DEBUG (3): TRASH LEVEL: 42
+DEBUG (3): STATUS: 0
+DEBUG (3): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (7): There was an attempt to add trash to the bin at time 0:2:22.742187510
+DEBUG (7): ADDED 3 units
+DEBUG (7): TRASH LEVEL: 82
+DEBUG (7): STATUS: 0
+DEBUG (7): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (2): There was an attempt to add trash to the bin at time 0:2:23.578125010
+DEBUG (2): ADDED 9 units
+DEBUG (2): TRASH LEVEL: 36
+DEBUG (2): STATUS: 0
+DEBUG (2): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (5): There was an attempt to add trash to the bin at time 0:2:24.648437510
+DEBUG (5): ADDED 2 units
+DEBUG (5): TRASH LEVEL: 60
+DEBUG (5): STATUS: 0
+DEBUG (5): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (2): There was an attempt to add trash to the bin at time 0:2:25.531250010
+DEBUG (2): ADDED 5 units
+DEBUG (2): TRASH LEVEL: 41
+DEBUG (2): STATUS: 0
+DEBUG (2): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (4): There was an attempt to add trash to the bin at time 0:2:26.578125010
+DEBUG (4): ADDED 9 units
+DEBUG (4): TRASH LEVEL: 60
+DEBUG (4): STATUS: 0
+DEBUG (4): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (1): There was an attempt to add trash to the bin at time 0:2:29.414062510
+DEBUG (1): ADDED 2 units
+DEBUG (1): TRASH LEVEL: 45
+DEBUG (1): STATUS: 0
+DEBUG (1): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (5): There was an attempt to add trash to the bin at time 0:2:32.460937510
+DEBUG (5): ADDED 4 units
+DEBUG (5): TRASH LEVEL: 64
+DEBUG (5): STATUS: 0
+DEBUG (5): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (6): There was an attempt to add trash to the bin at time 0:2:35.414062510
+DEBUG (6): ADDED 5 units
+DEBUG (6): TRASH LEVEL: 28
+DEBUG (6): STATUS: 0
+DEBUG (6): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (4): There was an attempt to add trash to the bin at time 0:2:42.203125010
+DEBUG (4): ADDED 8 units
+DEBUG (4): TRASH LEVEL: 68
+DEBUG (4): STATUS: 0
+DEBUG (4): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (2): There was an attempt to add trash to the bin at time 0:2:43.109375010
+DEBUG (2): ADDED 2 units
+DEBUG (2): TRASH LEVEL: 43
+DEBUG (2): STATUS: 0
+DEBUG (2): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (3): There was an attempt to add trash to the bin at time 0:2:44.132812510
+DEBUG (3): ADDED 3 units
+DEBUG (3): TRASH LEVEL: 45
+DEBUG (3): STATUS: 0
+DEBUG (3): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (1): There was an attempt to add trash to the bin at time 0:2:45.039062510
+DEBUG (1): ADDED 4 units
+DEBUG (1): TRASH LEVEL: 49
+DEBUG (1): STATUS: 0
+DEBUG (1): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (4): There was an attempt to add trash to the bin at time 0:2:47.085937510
+DEBUG (4): ADDED 6 units
+DEBUG (4): TRASH LEVEL: 74
+DEBUG (4): STATUS: 0
+DEBUG (4): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (7): There was an attempt to add trash to the bin at time 0:2:47.156250010
 DEBUG (7): ADDED 10 units
 DEBUG (7): TRASH LEVEL: 92
 DEBUG (7): STATUS: 1
@@ -55,23 +710,550 @@ DEBUG (7): TRASH OUTSIDE: 0
 
 
 
-DEBUG (2): There was an attempt to add trash to the bin at time 0:0:23.363281260
-DEBUG (7): There was an attempt to add trash to the bin at time 0:0:24.578125010
-DEBUG (2): There was an attempt to add trash to the bin at time 0:0:24.925781260
-DEBUG (7): There was an attempt to add trash to the bin at time 0:0:24.968750010
-DEBUG (7): There was an attempt to add trash to the bin at time 0:0:25.847656260
-DEBUG (7): There was an attempt to add trash to the bin at time 0:0:26.042968760
-DEBUG (7): There was an attempt to add trash to the bin at time 0:0:26.628906260
+DEBUG (2): There was an attempt to add trash to the bin at time 0:2:48.968750010
+DEBUG (2): ADDED 7 units
+DEBUG (2): TRASH LEVEL: 50
+DEBUG (2): STATUS: 0
+DEBUG (2): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (5): There was an attempt to add trash to the bin at time 0:2:51.015625010
+DEBUG (5): ADDED 2 units
+DEBUG (5): TRASH LEVEL: 66
+DEBUG (5): STATUS: 0
+DEBUG (5): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (5): There was an attempt to add trash to the bin at time 0:2:51.992187510
+DEBUG (5): ADDED 1 units
+DEBUG (5): TRASH LEVEL: 67
+DEBUG (5): STATUS: 0
+DEBUG (5): TRASH OUTSIDE: 0
+
+
+
+
 DEBUG (7): Sending alert message to the truck
-DEBUG (1): Distance to bin is 1025 m
-DEBUG (1): Received ALERT message from 7
-DEBUG (1): Started traveling to (1384,1177)
+DEBUG (0): Distance to bin is 583 m
+DEBUG (0): Received ALERT message from 7
+DEBUG (0): Started traveling to (1384,1177)
 
 
 DEBUG (7): Truck received the message and acknowledged
 
 
-DEBUG (2): There was an attempt to add trash to the bin at time 0:0:27.464843760
+DEBUG (1): There was an attempt to add trash to the bin at time 0:2:52.851562510
+DEBUG (1): ADDED 6 units
+DEBUG (1): TRASH LEVEL: 55
+DEBUG (1): STATUS: 0
+DEBUG (1): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (7): Sending alert message to the truck
+DEBUG (7): Truck received the message and acknowledged
+
+
+DEBUG (3): There was an attempt to add trash to the bin at time 0:2:57.804687510
+DEBUG (3): ADDED 3 units
+DEBUG (3): TRASH LEVEL: 48
+DEBUG (3): STATUS: 0
+DEBUG (3): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (3): There was an attempt to add trash to the bin at time 0:2:58.781250010
+DEBUG (3): ADDED 8 units
+DEBUG (3): TRASH LEVEL: 56
+DEBUG (3): STATUS: 0
+DEBUG (3): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (6): There was an attempt to add trash to the bin at time 0:2:58.851562510
+DEBUG (6): ADDED 4 units
+DEBUG (6): TRASH LEVEL: 32
+DEBUG (6): STATUS: 0
+DEBUG (6): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (1): There was an attempt to add trash to the bin at time 0:2:59.687500010
+DEBUG (1): ADDED 8 units
+DEBUG (1): TRASH LEVEL: 63
+DEBUG (1): STATUS: 0
+DEBUG (1): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (2): There was an attempt to add trash to the bin at time 0:2:59.710937510
+DEBUG (2): ADDED 8 units
+DEBUG (2): TRASH LEVEL: 58
+DEBUG (2): STATUS: 0
+DEBUG (2): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (1): There was an attempt to add trash to the bin at time 0:3:0.664062510
+DEBUG (1): ADDED 4 units
+DEBUG (1): TRASH LEVEL: 67
+DEBUG (1): STATUS: 0
+DEBUG (1): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (2): There was an attempt to add trash to the bin at time 0:3:0.687500010
+DEBUG (2): ADDED 4 units
+DEBUG (2): TRASH LEVEL: 62
+DEBUG (2): STATUS: 0
+DEBUG (2): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (7): Sending alert message to the truck
+DEBUG (7): Truck received the message and acknowledged
+
+
+DEBUG (7): There was an attempt to add trash to the bin at time 0:3:2.781250010
+DEBUG (7): ADDED 4 units
+DEBUG (7): TRASH LEVEL: 96
+DEBUG (7): STATUS: 1
+DEBUG (7): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (7): There was an attempt to add trash to the bin at time 0:3:6.687500010
+DEBUG (7): ADDED 5 units
+DEBUG (7): TRASH LEVEL: 100
+DEBUG (7): STATUS: 2
+DEBUG (7): TRASH OUTSIDE: 1
+
+
+
+
+DEBUG (7): Sending alert message to the truck
+DEBUG (6): idk
+DEBUG (5): idk
+DEBUG (1): idk
+DEBUG (7): idk
+DEBUG (7): Truck received the message and acknowledged
+
+
+DEBUG (7): SENDING 1 to NEIGH 0 DEBUG (4): There was an attempt to add trash to the bin at time 0:3:10.523437510
+DEBUG (4): ADDED 6 units
+DEBUG (4): TRASH LEVEL: 80
+DEBUG (4): STATUS: 0
+DEBUG (4): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (4): There was an attempt to add trash to the bin at time 0:3:11.500000010
+DEBUG (4): ADDED 1 units
+DEBUG (4): TRASH LEVEL: 81
+DEBUG (4): STATUS: 0
+DEBUG (4): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (7): Sending alert message to the truck
+DEBUG (7): Truck received the message and acknowledged
+
+
+DEBUG (5): There was an attempt to add trash to the bin at time 0:3:13.476562510
+DEBUG (5): ADDED 7 units
+DEBUG (5): TRASH LEVEL: 74
+DEBUG (5): STATUS: 0
+DEBUG (5): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (3): There was an attempt to add trash to the bin at time 0:3:14.406250010
+DEBUG (3): ADDED 5 units
+DEBUG (3): TRASH LEVEL: 61
+DEBUG (3): STATUS: 0
+DEBUG (3): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (7): There was an attempt to add trash to the bin at time 0:3:15.476562510
+DEBUG (7): ADDED 5 units
+DEBUG (7): TRASH LEVEL: 100
+DEBUG (7): STATUS: 2
+DEBUG (7): TRASH OUTSIDE: 6
+
+
+
+
+DEBUG (7): Sending alert message to the truck
+DEBUG (7): Truck received the message and acknowledged
+
+
+DEBUG (7): There was an attempt to add trash to the bin at time 0:3:17.429687510
+DEBUG (7): ADDED 3 units
+DEBUG (7): TRASH LEVEL: 100
+DEBUG (7): STATUS: 2
+DEBUG (7): TRASH OUTSIDE: 9
+
+
+
+
+DEBUG (7): Sending alert message to the truck
+DEBUG (7): Truck received the message and acknowledged
+
+
+DEBUG (7): There was an attempt to add trash to the bin at time 0:3:23.289062510
+DEBUG (7): ADDED 1 units
+DEBUG (7): TRASH LEVEL: 100
+DEBUG (7): STATUS: 2
+DEBUG (7): TRASH OUTSIDE: 10
+
+
+
+
+DEBUG (6): There was an attempt to add trash to the bin at time 0:3:25.218750010
+DEBUG (6): ADDED 3 units
+DEBUG (6): TRASH LEVEL: 35
+DEBUG (6): STATUS: 0
+DEBUG (6): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (7): Sending alert message to the truck
+DEBUG (7): Truck received the message and acknowledged
+
+
+DEBUG (2): There was an attempt to add trash to the bin at time 0:3:27.054687510
+DEBUG (2): ADDED 7 units
+DEBUG (2): TRASH LEVEL: 69
+DEBUG (2): STATUS: 0
+DEBUG (2): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (3): There was an attempt to add trash to the bin at time 0:3:27.101562510
+DEBUG (3): ADDED 5 units
+DEBUG (3): TRASH LEVEL: 66
+DEBUG (3): STATUS: 0
+DEBUG (3): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (5): There was an attempt to add trash to the bin at time 0:3:27.148437510
+DEBUG (5): ADDED 7 units
+DEBUG (5): TRASH LEVEL: 81
+DEBUG (5): STATUS: 0
+DEBUG (5): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (1): There was an attempt to add trash to the bin at time 0:3:28.007812510
+DEBUG (1): ADDED 8 units
+DEBUG (1): TRASH LEVEL: 75
+DEBUG (1): STATUS: 0
+DEBUG (1): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (7): Sending alert message to the truck
+DEBUG (7): Truck received the message and acknowledged
+
+
+DEBUG (6): There was an attempt to add trash to the bin at time 0:3:33.031250010
+DEBUG (6): ADDED 4 units
+DEBUG (6): TRASH LEVEL: 39
+DEBUG (6): STATUS: 0
+DEBUG (6): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (4): There was an attempt to add trash to the bin at time 0:3:34.937500010
+DEBUG (4): ADDED 6 units
+DEBUG (4): TRASH LEVEL: 87
+DEBUG (4): STATUS: 1
+DEBUG (4): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (7): Sending alert message to the truck
+DEBUG (7): Truck received the message and acknowledged
+
+
+DEBUG (4): There was an attempt to add trash to the bin at time 0:3:36.890625010
+DEBUG (4): ADDED 10 units
+DEBUG (4): TRASH LEVEL: 97
+DEBUG (4): STATUS: 1
+DEBUG (4): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (4): Sending alert message to the truck
+DEBUG (4): Truck received the message and acknowledged
+
+
+DEBUG (7): Sending alert message to the truck
+DEBUG (7): Truck received the message and acknowledged
+
+
+DEBUG (3): There was an attempt to add trash to the bin at time 0:3:42.726562510
+DEBUG (3): ADDED 7 units
+DEBUG (3): TRASH LEVEL: 73
+DEBUG (3): STATUS: 0
+DEBUG (3): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (2): There was an attempt to add trash to the bin at time 0:3:44.632812510
+DEBUG (2): ADDED 4 units
+DEBUG (2): TRASH LEVEL: 73
+DEBUG (2): STATUS: 0
+DEBUG (2): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (4): Sending alert message to the truck
+DEBUG (4): Truck received the message and acknowledged
+
+
+DEBUG (7): Sending alert message to the truck
+DEBUG (7): Truck received the message and acknowledged
+
+
+DEBUG (5): There was an attempt to add trash to the bin at time 0:3:47.656250010
+DEBUG (5): ADDED 2 units
+DEBUG (5): TRASH LEVEL: 83
+DEBUG (5): STATUS: 0
+DEBUG (5): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (6): There was an attempt to add trash to the bin at time 0:3:48.656250010
+DEBUG (6): ADDED 2 units
+DEBUG (6): TRASH LEVEL: 41
+DEBUG (6): STATUS: 0
+DEBUG (6): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (7): There was an attempt to add trash to the bin at time 0:3:48.679687510
+DEBUG (7): ADDED 5 units
+DEBUG (7): TRASH LEVEL: 100
+DEBUG (7): STATUS: 2
+DEBUG (7): TRASH OUTSIDE: 15
+
+
+
+
+DEBUG (0): Reached destination (1384,1177)
+DEBUG (0): Bin 7 emptied
+
+
+DEBUG (7): Truck arrived at time 0:3:48.990066502
+DEBUG (7): BIN EMPTIED, new level: 0
+
+
+DEBUG (0): Truck received the message and acknowledged
+
+
+DEBUG (4): Sending alert message to the truck
+DEBUG (0): Distance to bin is 1148 m
+DEBUG (0): Received ALERT message from 4
+DEBUG (0): Started traveling to (499,1909)
+
+
+DEBUG (4): Truck received the message and acknowledged
+
+
+DEBUG (1): There was an attempt to add trash to the bin at time 0:3:52.421875010
+DEBUG (1): ADDED 5 units
+DEBUG (1): TRASH LEVEL: 80
+DEBUG (1): STATUS: 0
+DEBUG (1): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (3): There was an attempt to add trash to the bin at time 0:3:52.492187510
+DEBUG (3): ADDED 6 units
+DEBUG (3): TRASH LEVEL: 79
+DEBUG (3): STATUS: 0
+DEBUG (3): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (4): Sending alert message to the truck
+DEBUG (4): Truck received the message and acknowledged
+
+
+DEBUG (4): Sending alert message to the truck
+DEBUG (4): Truck received the message and acknowledged
+
+
+DEBUG (5): There was an attempt to add trash to the bin at time 0:3:59.375000010
+DEBUG (5): ADDED 3 units
+DEBUG (5): TRASH LEVEL: 86
+DEBUG (5): STATUS: 1
+DEBUG (5): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (2): There was an attempt to add trash to the bin at time 0:4:0.257812510
+DEBUG (2): ADDED 4 units
+DEBUG (2): TRASH LEVEL: 77
+DEBUG (2): STATUS: 0
+DEBUG (2): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (4): Sending alert message to the truck
+DEBUG (4): Truck received the message and acknowledged
+
+
+DEBUG (5): Sending alert message to the truck
+DEBUG (5): Truck received the message and acknowledged
+
+
+DEBUG (4): There was an attempt to add trash to the bin at time 0:4:6.187500010
+DEBUG (4): ADDED 5 units
+DEBUG (4): TRASH LEVEL: 100
+DEBUG (4): STATUS: 2
+DEBUG (4): TRASH OUTSIDE: 2
+
+
+
+
+DEBUG (5): idk
+DEBUG (2): idk
+DEBUG (3): idk
+DEBUG (4): idk
+DEBUG (4): idk
+DEBUG (4): SENDING 2 to NEIGH 0DEBUG (4): Sending alert message to the truck
+DEBUG (4): Truck received the message and acknowledged
+
+
+DEBUG (5): Sending alert message to the truck
+DEBUG (5): Truck received the message and acknowledged
+
+
+DEBUG (3): There was an attempt to add trash to the bin at time 0:4:12.023437510
+DEBUG (3): ADDED 3 units
+DEBUG (3): TRASH LEVEL: 82
+DEBUG (3): STATUS: 0
+DEBUG (3): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (7): There was an attempt to add trash to the bin at time 0:4:12.117187510
+DEBUG (7): ADDED 10 units
+DEBUG (7): TRASH LEVEL: 10
+DEBUG (7): STATUS: 0
+DEBUG (7): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (4): Sending alert message to the truck
+DEBUG (4): Truck received the message and acknowledged
+
+
+DEBUG (5): Sending alert message to the truck
+DEBUG (5): Truck received the message and acknowledged
+
+
+DEBUG (6): There was an attempt to add trash to the bin at time 0:4:14.046875010
+DEBUG (6): ADDED 1 units
+DEBUG (6): TRASH LEVEL: 42
+DEBUG (6): STATUS: 0
+DEBUG (6): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (4): Sending alert message to the truck
+DEBUG (4): Truck received the message and acknowledged
+
+
+DEBUG (5): There was an attempt to add trash to the bin at time 0:4:18.906250010
+DEBUG (5): ADDED 1 units
+DEBUG (5): TRASH LEVEL: 87
+DEBUG (5): STATUS: 1
+DEBUG (5): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (5): Sending alert message to the truck
+DEBUG (5): Truck received the message and acknowledged
+
+
+DEBUG (1): There was an attempt to add trash to the bin at time 0:4:19.765625010
+DEBUG (1): ADDED 1 units
+DEBUG (1): TRASH LEVEL: 81
+DEBUG (1): STATUS: 0
+DEBUG (1): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (3): There was an attempt to add trash to the bin at time 0:4:20.812500010
+DEBUG (3): ADDED 2 units
+DEBUG (3): TRASH LEVEL: 84
+DEBUG (3): STATUS: 0
+DEBUG (3): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (3): There was an attempt to add trash to the bin at time 0:4:23.742187510
+DEBUG (3): ADDED 6 units
+DEBUG (3): TRASH LEVEL: 90
+DEBUG (3): STATUS: 1
+DEBUG (3): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (4): Sending alert message to the truck
+DEBUG (4): Truck received the message and acknowledged
+
+
+DEBUG (5): Sending alert message to the truck
+DEBUG (5): Truck received the message and acknowledged
+
+
+DEBUG (2): There was an attempt to add trash to the bin at time 0:4:25.648437510
 DEBUG (2): ADDED 9 units
 DEBUG (2): TRASH LEVEL: 86
 DEBUG (2): STATUS: 1
@@ -80,409 +1262,51 @@ DEBUG (2): TRASH OUTSIDE: 0
 
 
 
-DEBUG (2): There was an attempt to add trash to the bin at time 0:0:28.148437510
-DEBUG (7): There was an attempt to add trash to the bin at time 0:0:29.167968760
-DEBUG (2): There was an attempt to add trash to the bin at time 0:0:30.003906260
-DEBUG (7): Sending alert message to the truck
-DEBUG (7): Truck received the message and acknowledged
-
-
-DEBUG (2): Sending alert message to the truck
-DEBUG (2): Truck received the message and acknowledged
-
-
-DEBUG (7): There was an attempt to add trash to the bin at time 0:0:31.511718760
-DEBUG (2): There was an attempt to add trash to the bin at time 0:0:32.835937510
-DEBUG (7): There was an attempt to add trash to the bin at time 0:0:32.878906260
-DEBUG (2): There was an attempt to add trash to the bin at time 0:0:34.593750010
-DEBUG (7): Sending alert message to the truck
-DEBUG (7): Truck received the message and acknowledged
-
-
-DEBUG (2): Sending alert message to the truck
-DEBUG (2): Truck received the message and acknowledged
-
-
-DEBUG (2): There was an attempt to add trash to the bin at time 0:0:35.375000010
-DEBUG (7): There was an attempt to add trash to the bin at time 0:0:35.808593760
-DEBUG (2): There was an attempt to add trash to the bin at time 0:0:36.546875010
-DEBUG (1): Reached destination (1384,1177)
-DEBUG (1): Bin 7 emptied
-
-
-DEBUG (7): Truck arrived at time 0:0:36.948364241
-DEBUG (7): BIN EMPTIED, new level: 0
-
-
-DEBUG (1): Truck received the message and acknowledged
-
-
-DEBUG (7): There was an attempt to add trash to the bin at time 0:0:37.371093760
-DEBUG (7): There was an attempt to add trash to the bin at time 0:0:37.468750010
-DEBUG (2): There was an attempt to add trash to the bin at time 0:0:38.597656260
-DEBUG (7): There was an attempt to add trash to the bin at time 0:0:38.738281260
-DEBUG (2): There was an attempt to add trash to the bin at time 0:0:38.988281260
-DEBUG (2): Sending alert message to the truck
-DEBUG (1): Distance to bin is 967 m
-DEBUG (1): Received ALERT message from 2
-DEBUG (1): Started traveling to (421,1267)
-
-
-DEBUG (2): Truck received the message and acknowledged
-
-
-DEBUG (7): There was an attempt to add trash to the bin at time 0:0:39.714843760
-DEBUG (2): There was an attempt to add trash to the bin at time 0:0:41.429687510
-DEBUG (2): There was an attempt to add trash to the bin at time 0:0:41.625000010
-DEBUG (7): There was an attempt to add trash to the bin at time 0:0:41.960937510
-DEBUG (2): Sending alert message to the truck
-DEBUG (2): Truck received the message and acknowledged
-
-
-DEBUG (2): There was an attempt to add trash to the bin at time 0:0:43.675781260
-DEBUG (2): There was an attempt to add trash to the bin at time 0:0:44.066406260
-DEBUG (7): There was an attempt to add trash to the bin at time 0:0:44.304687510
-DEBUG (2): There was an attempt to add trash to the bin at time 0:0:44.847656260
-DEBUG (2): Sending alert message to the truck
-DEBUG (2): Truck received the message and acknowledged
-
-
-DEBUG (7): There was an attempt to add trash to the bin at time 0:0:47.234375010
-DEBUG (2): There was an attempt to add trash to the bin at time 0:0:47.289062510
-DEBUG (2): There was an attempt to add trash to the bin at time 0:0:48.558593760
-DEBUG (1): Reached destination (421,1267)
-DEBUG (1): Bin 2 emptied
-
-
-DEBUG (2): Truck arrived at time 0:0:48.633834834
-DEBUG (2): BIN EMPTIED, new level: 0
-
-
-DEBUG (1): Truck received the message and acknowledged
-
-
-DEBUG (7): There was an attempt to add trash to the bin at time 0:0:49.187500010
-DEBUG (7): There was an attempt to add trash to the bin at time 0:0:49.675781260
-DEBUG (2): There was an attempt to add trash to the bin at time 0:0:50.609375010
-DEBUG (2): There was an attempt to add trash to the bin at time 0:0:51.195312510
-DEBUG (2): There was an attempt to add trash to the bin at time 0:0:51.585937510
-DEBUG (7): There was an attempt to add trash to the bin at time 0:0:52.019531260
-DEBUG (2): There was an attempt to add trash to the bin at time 0:0:53.832031260
-DEBUG (7): There was an attempt to add trash to the bin at time 0:0:54.070312510
-DEBUG (7): There was an attempt to add trash to the bin at time 0:0:55.242187510
-DEBUG (2): There was an attempt to add trash to the bin at time 0:0:55.785156260
-DEBUG (2): There was an attempt to add trash to the bin at time 0:0:57.542968760
-DEBUG (7): There was an attempt to add trash to the bin at time 0:0:57.878906260
-DEBUG (7): There was an attempt to add trash to the bin at time 0:0:58.171875010
-DEBUG (7): There was an attempt to add trash to the bin at time 0:0:58.660156260
-DEBUG (2): There was an attempt to add trash to the bin at time 0:0:59.593750010
-DEBUG (7): There was an attempt to add trash to the bin at time 0:1:1.589843760
-DEBUG (7): ADDED 5 units
-DEBUG (7): TRASH LEVEL: 87
-DEBUG (7): STATUS: 1
+DEBUG (7): There was an attempt to add trash to the bin at time 0:4:25.789062510
+DEBUG (7): ADDED 3 units
+DEBUG (7): TRASH LEVEL: 13
+DEBUG (7): STATUS: 0
 DEBUG (7): TRASH OUTSIDE: 0
 
 
 
 
-DEBUG (2): There was an attempt to add trash to the bin at time 0:1:2.523437510
-DEBUG (7): There was an attempt to add trash to the bin at time 0:1:2.664062510
-DEBUG (7): There was an attempt to add trash to the bin at time 0:1:3.152343760
-DEBUG (7): There was an attempt to add trash to the bin at time 0:1:4.031250010
-DEBUG (2): There was an attempt to add trash to the bin at time 0:1:4.867187510
-DEBUG (7): There was an attempt to add trash to the bin at time 0:1:5.300781260
-DEBUG (7): Sending alert message to the truck
-DEBUG (1): Distance to bin is 967 m
-DEBUG (1): Received ALERT message from 7
-DEBUG (1): Started traveling to (1384,1177)
+DEBUG (3): Sending alert message to the truck
+DEBUG (3): Truck received the message and acknowledged
 
 
-DEBUG (7): Truck received the message and acknowledged
-
-
-DEBUG (2): There was an attempt to add trash to the bin at time 0:1:6.429687510
-DEBUG (2): There was an attempt to add trash to the bin at time 0:1:7.796875010
-DEBUG (7): There was an attempt to add trash to the bin at time 0:1:8.230468760
-DEBUG (7): Sending alert message to the truck
-DEBUG (7): Truck received the message and acknowledged
-
-
-DEBUG (2): There was an attempt to add trash to the bin at time 0:1:9.945312510
-DEBUG (7): There was an attempt to add trash to the bin at time 0:1:11.160156260
-DEBUG (7): There was an attempt to add trash to the bin at time 0:1:11.746093760
-DEBUG (2): There was an attempt to add trash to the bin at time 0:1:11.898437510
-DEBUG (7): There was an attempt to add trash to the bin at time 0:1:12.429687510
-DEBUG (2): There was an attempt to add trash to the bin at time 0:1:12.484375010
-DEBUG (7): There was an attempt to add trash to the bin at time 0:1:12.917968760
-DEBUG (2): There was an attempt to add trash to the bin at time 0:1:13.167968760
-DEBUG (7): Sending alert message to the truck
-DEBUG (7): Truck received the message and acknowledged
-
-
-DEBUG (2): There was an attempt to add trash to the bin at time 0:1:14.242187510
-DEBUG (7): There was an attempt to add trash to the bin at time 0:1:14.675781260
-DEBUG (1): Reached destination (1384,1177)
-DEBUG (1): Bin 7 emptied
-
-
-DEBUG (7): Truck arrived at time 0:1:14.959106423
-DEBUG (7): BIN EMPTIED, new level: 0
-
-
-DEBUG (1): Truck received the message and acknowledged
-
-
-DEBUG (2): There was an attempt to add trash to the bin at time 0:1:15.218750010
-DEBUG (7): There was an attempt to add trash to the bin at time 0:1:15.945312510
-DEBUG (7): There was an attempt to add trash to the bin at time 0:1:16.628906260
-DEBUG (7): There was an attempt to add trash to the bin at time 0:1:17.703125010
-DEBUG (2): There was an attempt to add trash to the bin at time 0:1:17.757812510
-DEBUG (2): There was an attempt to add trash to the bin at time 0:1:18.832031260
-DEBUG (2): ADDED 10 units
-DEBUG (2): TRASH LEVEL: 90
-DEBUG (2): STATUS: 1
-DEBUG (2): TRASH OUTSIDE: 0
+DEBUG (4): There was an attempt to add trash to the bin at time 0:4:28.648437510
+DEBUG (4): ADDED 9 units
+DEBUG (4): TRASH LEVEL: 100
+DEBUG (4): STATUS: 2
+DEBUG (4): TRASH OUTSIDE: 11
 
 
 
 
-DEBUG (7): There was an attempt to add trash to the bin at time 0:1:18.875000010
-DEBUG (2): There was an attempt to add trash to the bin at time 0:1:18.929687510
-DEBUG (7): There was an attempt to add trash to the bin at time 0:1:19.167968760
-DEBUG (7): There was an attempt to add trash to the bin at time 0:1:20.632812510
-DEBUG (2): There was an attempt to add trash to the bin at time 0:1:21.859375010
-DEBUG (2): Sending alert message to the truck
-DEBUG (1): Distance to bin is 967 m
-DEBUG (1): Received ALERT message from 2
-DEBUG (1): Started traveling to (421,1267)
+DEBUG (4): Sending alert message to the truck
+DEBUG (4): Truck received the message and acknowledged
 
 
-DEBUG (2): Truck received the message and acknowledged
+DEBUG (5): Sending alert message to the truck
+DEBUG (5): Truck received the message and acknowledged
 
 
-DEBUG (7): There was an attempt to add trash to the bin at time 0:1:23.367187510
-DEBUG (2): There was an attempt to add trash to the bin at time 0:1:23.421875010
-DEBUG (7): There was an attempt to add trash to the bin at time 0:1:24.832031260
-DEBUG (7): There was an attempt to add trash to the bin at time 0:1:25.320312510
-DEBUG (2): There was an attempt to add trash to the bin at time 0:1:26.351562510
+DEBUG (1): There was an attempt to add trash to the bin at time 0:4:29.531250010
+DEBUG (1): ADDED 8 units
+DEBUG (1): TRASH LEVEL: 89
+DEBUG (1): STATUS: 1
+DEBUG (1): TRASH OUTSIDE: 0
+
+
+
+
 DEBUG (2): Sending alert message to the truck
 DEBUG (2): Truck received the message and acknowledged
 
 
-DEBUG (2): There was an attempt to add trash to the bin at time 0:1:26.937500010
-DEBUG (7): There was an attempt to add trash to the bin at time 0:1:27.859375010
-DEBUG (7): There was an attempt to add trash to the bin at time 0:1:28.250000010
-DEBUG (2): There was an attempt to add trash to the bin at time 0:1:29.867187510
-DEBUG (2): Sending alert message to the truck
-DEBUG (2): Truck received the message and acknowledged
-
-
-DEBUG (7): There was an attempt to add trash to the bin at time 0:1:31.082031260
-DEBUG (7): There was an attempt to add trash to the bin at time 0:1:31.765625010
-DEBUG (1): Reached destination (421,1267)
-DEBUG (1): Bin 2 emptied
-
-
-DEBUG (2): Truck arrived at time 0:1:32.195312490
-DEBUG (2): BIN EMPTIED, new level: 0
-
-
-DEBUG (1): Truck received the message and acknowledged
-
-
-DEBUG (2): There was an attempt to add trash to the bin at time 0:1:32.308593760
-DEBUG (7): There was an attempt to add trash to the bin at time 0:1:32.839843760
-DEBUG (2): There was an attempt to add trash to the bin at time 0:1:33.968750010
-DEBUG (2): There was an attempt to add trash to the bin at time 0:1:34.652343760
-DEBUG (7): There was an attempt to add trash to the bin at time 0:1:35.574218760
-DEBUG (2): There was an attempt to add trash to the bin at time 0:1:37.484375010
-DEBUG (7): There was an attempt to add trash to the bin at time 0:1:37.527343760
-DEBUG (2): There was an attempt to add trash to the bin at time 0:1:40.121093760
-DEBUG (7): There was an attempt to add trash to the bin at time 0:1:40.457031260
-DEBUG (7): ADDED 8 units
-DEBUG (7): TRASH LEVEL: 89
-DEBUG (7): STATUS: 1
-DEBUG (7): TRASH OUTSIDE: 0
-
-
-
-
-DEBUG (2): There was an attempt to add trash to the bin at time 0:1:41.976562510
-DEBUG (7): There was an attempt to add trash to the bin at time 0:1:42.800781260
-DEBUG (2): There was an attempt to add trash to the bin at time 0:1:43.343750010
-DEBUG (7): There was an attempt to add trash to the bin at time 0:1:43.386718760
-DEBUG (7): There was an attempt to add trash to the bin at time 0:1:44.363281260
-DEBUG (7): Sending alert message to the truck
-DEBUG (1): Distance to bin is 967 m
-DEBUG (1): Received ALERT message from 7
-DEBUG (1): Started traveling to (1384,1177)
-
-
-DEBUG (7): Truck received the message and acknowledged
-
-
-DEBUG (2): There was an attempt to add trash to the bin at time 0:1:45.101562510
-DEBUG (7): There was an attempt to add trash to the bin at time 0:1:45.437500010
-DEBUG (7): There was an attempt to add trash to the bin at time 0:1:47.097656260
-DEBUG (2): There was an attempt to add trash to the bin at time 0:1:47.738281260
-DEBUG (7): Sending alert message to the truck
-DEBUG (7): Truck received the message and acknowledged
-
-
-DEBUG (7): There was an attempt to add trash to the bin at time 0:1:48.953125010
-DEBUG (2): There was an attempt to add trash to the bin at time 0:1:50.179687510
-DEBUG (7): There was an attempt to add trash to the bin at time 0:1:51.296875010
-DEBUG (2): There was an attempt to add trash to the bin at time 0:1:52.035156260
-DEBUG (2): There was an attempt to add trash to the bin at time 0:1:52.132812510
-DEBUG (7): Sending alert message to the truck
-DEBUG (7): Truck received the message and acknowledged
-
-
-DEBUG (2): There was an attempt to add trash to the bin at time 0:1:52.230468760
-DEBUG (2): There was an attempt to add trash to the bin at time 0:1:52.523437510
-DEBUG (2): ADDED 8 units
-DEBUG (2): TRASH LEVEL: 85
-DEBUG (2): STATUS: 1
-DEBUG (2): TRASH OUTSIDE: 0
-
-
-
-
-DEBUG (7): There was an attempt to add trash to the bin at time 0:1:53.250000010
-DEBUG (2): There was an attempt to add trash to the bin at time 0:1:53.695312510
-DEBUG (1): Reached destination (1384,1177)
-DEBUG (1): Bin 7 emptied
-
-
-DEBUG (7): Truck arrived at time 0:1:53.818862930
-DEBUG (7): BIN EMPTIED, new level: 0
-
-
-DEBUG (1): Truck received the message and acknowledged
-
-
-DEBUG (7): There was an attempt to add trash to the bin at time 0:1:55.691406260
-DEBUG (2): Sending alert message to the truck
-DEBUG (1): Distance to bin is 967 m
-DEBUG (1): Received ALERT message from 2
-DEBUG (1): Started traveling to (421,1267)
-
-
-DEBUG (2): Truck received the message and acknowledged
-
-
-DEBUG (2): There was an attempt to add trash to the bin at time 0:1:56.625000010
-DEBUG (7): There was an attempt to add trash to the bin at time 0:1:58.425781260
-DEBUG (2): There was an attempt to add trash to the bin at time 0:1:58.480468760
-DEBUG (2): Sending alert message to the truck
-DEBUG (2): Truck received the message and acknowledged
-
-
-DEBUG (7): There was an attempt to add trash to the bin at time 0:2:0.769531260
-DEBUG (2): There was an attempt to add trash to the bin at time 0:2:0.921875010
-DEBUG (7): There was an attempt to add trash to the bin at time 0:2:1.843750010
-DEBUG (2): There was an attempt to add trash to the bin at time 0:2:3.460937510
-DEBUG (2): Sending alert message to the truck
-DEBUG (2): Truck received the message and acknowledged
-
-
-DEBUG (7): There was an attempt to add trash to the bin at time 0:2:4.578125010
-DEBUG (2): There was an attempt to add trash to the bin at time 0:2:5.609375010
-DEBUG (2): There was an attempt to add trash to the bin at time 0:2:5.804687510
-DEBUG (7): There was an attempt to add trash to the bin at time 0:2:5.847656260
-DEBUG (1): Reached destination (421,1267)
-DEBUG (1): Bin 2 emptied
-
-
-DEBUG (2): Truck arrived at time 0:2:5.885955788
-DEBUG (2): BIN EMPTIED, new level: 0
-
-
-DEBUG (1): Truck received the message and acknowledged
-
-
-DEBUG (7): There was an attempt to add trash to the bin at time 0:2:6.433593760
-DEBUG (7): There was an attempt to add trash to the bin at time 0:2:7.605468760
-DEBUG (2): There was an attempt to add trash to the bin at time 0:2:8.246093760
-DEBUG (7): There was an attempt to add trash to the bin at time 0:2:10.242187510
-DEBUG (2): There was an attempt to add trash to the bin at time 0:2:10.394531260
-DEBUG (2): There was an attempt to add trash to the bin at time 0:2:10.687500010
-DEBUG (7): There was an attempt to add trash to the bin at time 0:2:12.781250010
-DEBUG (2): There was an attempt to add trash to the bin at time 0:2:12.835937510
-DEBUG (2): There was an attempt to add trash to the bin at time 0:2:13.324218760
-DEBUG (2): There was an attempt to add trash to the bin at time 0:2:14.398437510
-DEBUG (7): There was an attempt to add trash to the bin at time 0:2:15.125000010
-DEBUG (2): There was an attempt to add trash to the bin at time 0:2:15.960937510
-DEBUG (7): There was an attempt to add trash to the bin at time 0:2:17.078125010
-DEBUG (7): There was an attempt to add trash to the bin at time 0:2:17.371093760
-DEBUG (2): There was an attempt to add trash to the bin at time 0:2:17.425781260
-DEBUG (7): There was an attempt to add trash to the bin at time 0:2:17.859375010
-DEBUG (2): There was an attempt to add trash to the bin at time 0:2:19.671875010
-DEBUG (7): There was an attempt to add trash to the bin at time 0:2:19.910156260
-DEBUG (7): There was an attempt to add trash to the bin at time 0:2:21.179687510
-DEBUG (7): There was an attempt to add trash to the bin at time 0:2:21.472656260
-DEBUG (7): ADDED 8 units
-DEBUG (7): TRASH LEVEL: 90
-DEBUG (7): STATUS: 1
-DEBUG (7): TRASH OUTSIDE: 0
-
-
-
-
-DEBUG (2): There was an attempt to add trash to the bin at time 0:2:22.015625010
-DEBUG (2): There was an attempt to add trash to the bin at time 0:2:22.308593760
-DEBUG (7): There was an attempt to add trash to the bin at time 0:2:23.328125010
-DEBUG (7): There was an attempt to add trash to the bin at time 0:2:23.523437510
-DEBUG (2): There was an attempt to add trash to the bin at time 0:2:24.750000010
-DEBUG (7): There was an attempt to add trash to the bin at time 0:2:25.281250010
-DEBUG (7): Sending alert message to the truck
-DEBUG (1): Distance to bin is 967 m
-DEBUG (1): Received ALERT message from 7
-DEBUG (1): Started traveling to (1384,1177)
-
-
-DEBUG (7): Truck received the message and acknowledged
-
-
-DEBUG (2): There was an attempt to add trash to the bin at time 0:2:26.703125010
-DEBUG (7): There was an attempt to add trash to the bin at time 0:2:28.113281260
-DEBUG (2): There was an attempt to add trash to the bin at time 0:2:28.949218760
-DEBUG (7): Sending alert message to the truck
-DEBUG (7): Truck received the message and acknowledged
-
-
-DEBUG (2): There was an attempt to add trash to the bin at time 0:2:30.609375010
-DEBUG (7): There was an attempt to add trash to the bin at time 0:2:30.847656260
-DEBUG (7): There was an attempt to add trash to the bin at time 0:2:30.945312510
-DEBUG (7): There was an attempt to add trash to the bin at time 0:2:31.238281260
-DEBUG (7): There was an attempt to add trash to the bin at time 0:2:32.605468760
-DEBUG (7): There was an attempt to add trash to the bin at time 0:2:32.996093760
-DEBUG (7): Sending alert message to the truck
-DEBUG (7): Truck received the message and acknowledged
-
-
-DEBUG (2): There was an attempt to add trash to the bin at time 0:2:33.441406260
-DEBUG (7): There was an attempt to add trash to the bin at time 0:2:33.582031260
-DEBUG (1): Reached destination (1384,1177)
-DEBUG (1): Bin 7 emptied
-
-
-DEBUG (7): Truck arrived at time 0:2:34.832153321
-DEBUG (7): BIN EMPTIED, new level: 0
-
-
-DEBUG (1): Truck received the message and acknowledged
-
-
-DEBUG (7): There was an attempt to add trash to the bin at time 0:2:35.339843760
-DEBUG (2): There was an attempt to add trash to the bin at time 0:2:35.882812510
-DEBUG (7): There was an attempt to add trash to the bin at time 0:2:36.609375010
-DEBUG (7): There was an attempt to add trash to the bin at time 0:2:37.683593760
-DEBUG (2): There was an attempt to add trash to the bin at time 0:2:38.031250010
-DEBUG (2): There was an attempt to add trash to the bin at time 0:2:38.812500010
-DEBUG (7): There was an attempt to add trash to the bin at time 0:2:40.515625010
-DEBUG (2): There was an attempt to add trash to the bin at time 0:2:40.863281260
-DEBUG (2): ADDED 4 units
+DEBUG (2): There was an attempt to add trash to the bin at time 0:4:32.484375010
+DEBUG (2): ADDED 2 units
 DEBUG (2): TRASH LEVEL: 88
 DEBUG (2): STATUS: 1
 DEBUG (2): TRASH OUTSIDE: 0
@@ -490,287 +1314,1440 @@ DEBUG (2): TRASH OUTSIDE: 0
 
 
 
-DEBUG (7): There was an attempt to add trash to the bin at time 0:2:42.175781260
-DEBUG (2): There was an attempt to add trash to the bin at time 0:2:43.402343760
-DEBUG (2): There was an attempt to add trash to the bin at time 0:2:44.476562510
-DEBUG (7): There was an attempt to add trash to the bin at time 0:2:44.714843760
-DEBUG (2): Sending alert message to the truck
-DEBUG (1): Distance to bin is 967 m
-DEBUG (1): Received ALERT message from 2
-DEBUG (1): Started traveling to (421,1267)
+DEBUG (3): Sending alert message to the truck
+DEBUG (3): Truck received the message and acknowledged
 
 
-DEBUG (2): Truck received the message and acknowledged
+DEBUG (4): Sending alert message to the truck
+DEBUG (4): Truck received the message and acknowledged
 
 
-DEBUG (7): There was an attempt to add trash to the bin at time 0:2:44.812500010
-DEBUG (7): There was an attempt to add trash to the bin at time 0:2:45.496093760
-DEBUG (7): There was an attempt to add trash to the bin at time 0:2:46.277343760
-DEBUG (7): There was an attempt to add trash to the bin at time 0:2:46.863281260
-DEBUG (2): There was an attempt to add trash to the bin at time 0:2:47.113281260
-DEBUG (7): There was an attempt to add trash to the bin at time 0:2:48.035156260
-DEBUG (2): There was an attempt to add trash to the bin at time 0:2:48.187500010
+DEBUG (5): Sending alert message to the truck
+DEBUG (5): Truck received the message and acknowledged
+
+
+DEBUG (1): Sending alert message to the truck
+DEBUG (1): Truck received the message and acknowledged
+
+
 DEBUG (2): Sending alert message to the truck
 DEBUG (2): Truck received the message and acknowledged
 
 
-DEBUG (2): There was an attempt to add trash to the bin at time 0:2:48.871093760
-DEBUG (2): There was an attempt to add trash to the bin at time 0:2:49.945312510
-DEBUG (7): There was an attempt to add trash to the bin at time 0:2:50.769531260
+DEBUG (0): Reached destination (499,1909)
+DEBUG (0): Bin 4 emptied
+
+
+DEBUG (4): Truck arrived at time 0:4:37.711853012
+DEBUG (4): BIN EMPTIED, new level: 0
+
+
+DEBUG (0): Truck received the message and acknowledged
+
+
+DEBUG (3): Sending alert message to the truck
+DEBUG (0): Distance to bin is 1958 m
+DEBUG (0): Received ALERT message from 3
+DEBUG (0): Started traveling to (1692,356)
+
+
+DEBUG (3): Truck received the message and acknowledged
+
+
+DEBUG (5): Sending alert message to the truck
+DEBUG (5): Truck received the message and acknowledged
+
+
+DEBUG (1): Sending alert message to the truck
+DEBUG (1): Truck received the message and acknowledged
+
+
+DEBUG (2): Sending alert message to the truck
+DEBUG (2): Truck received the message and acknowledged
+
+
+DEBUG (3): Sending alert message to the truck
+DEBUG (3): Truck received the message and acknowledged
+
+
+DEBUG (5): Sending alert message to the truck
+DEBUG (5): Truck received the message and acknowledged
+
+
+DEBUG (6): There was an attempt to add trash to the bin at time 0:4:43.343750010
+DEBUG (6): ADDED 3 units
+DEBUG (6): TRASH LEVEL: 45
+DEBUG (6): STATUS: 0
+DEBUG (6): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (1): Sending alert message to the truck
+DEBUG (1): Truck received the message and acknowledged
+
+
+DEBUG (2): Sending alert message to the truck
+DEBUG (2): Truck received the message and acknowledged
+
+
+DEBUG (3): Sending alert message to the truck
+DEBUG (3): Truck received the message and acknowledged
+
+
+DEBUG (5): There was an attempt to add trash to the bin at time 0:4:48.203125010
+DEBUG (5): ADDED 6 units
+DEBUG (5): TRASH LEVEL: 93
+DEBUG (5): STATUS: 1
+DEBUG (5): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (5): Sending alert message to the truck
+DEBUG (5): Truck received the message and acknowledged
+
+
+DEBUG (1): Sending alert message to the truck
+DEBUG (1): Truck received the message and acknowledged
+
+
+DEBUG (2): Sending alert message to the truck
+DEBUG (2): Truck received the message and acknowledged
+
+
+DEBUG (1): There was an attempt to add trash to the bin at time 0:4:51.015625010
+DEBUG (1): ADDED 1 units
+DEBUG (1): TRASH LEVEL: 90
+DEBUG (1): STATUS: 1
+DEBUG (1): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (2): There was an attempt to add trash to the bin at time 0:4:51.039062510
+DEBUG (2): ADDED 4 units
+DEBUG (2): TRASH LEVEL: 92
+DEBUG (2): STATUS: 1
+DEBUG (2): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (3): There was an attempt to add trash to the bin at time 0:4:51.085937510
+DEBUG (3): ADDED 6 units
+DEBUG (3): TRASH LEVEL: 96
+DEBUG (3): STATUS: 1
+DEBUG (3): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (4): There was an attempt to add trash to the bin at time 0:4:52.085937510
+DEBUG (4): ADDED 5 units
+DEBUG (4): TRASH LEVEL: 5
+DEBUG (4): STATUS: 0
+DEBUG (4): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (3): Sending alert message to the truck
+DEBUG (3): Truck received the message and acknowledged
+
+
+DEBUG (5): Sending alert message to the truck
+DEBUG (5): Truck received the message and acknowledged
+
+
+DEBUG (1): Sending alert message to the truck
+DEBUG (1): Truck received the message and acknowledged
+
+
+DEBUG (2): Sending alert message to the truck
+DEBUG (2): Truck received the message and acknowledged
+
+
+DEBUG (4): There was an attempt to add trash to the bin at time 0:4:55.015625010
+DEBUG (4): ADDED 9 units
+DEBUG (4): TRASH LEVEL: 14
+DEBUG (4): STATUS: 0
+DEBUG (4): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (7): There was an attempt to add trash to the bin at time 0:4:55.085937510
+DEBUG (7): ADDED 7 units
+DEBUG (7): TRASH LEVEL: 20
+DEBUG (7): STATUS: 0
+DEBUG (7): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (3): There was an attempt to add trash to the bin at time 0:4:55.968750010
+DEBUG (3): ADDED 8 units
+DEBUG (3): TRASH LEVEL: 100
+DEBUG (3): STATUS: 2
+DEBUG (3): TRASH OUTSIDE: 4
+
+
+
+
+DEBUG (5): idk
+DEBUG (2): idk
+DEBUG (4): idk
+DEBUG (3): Received from neighbout: trash = 2
+
+
+DEBUG (3): idk
+DEBUG (3): Sending alert message to the truck
+DEBUG (3): SENDING 4 to NEIGH 0DEBUG (3): Truck received the message and acknowledged
+
+
+DEBUG (5): Sending alert message to the truck
+DEBUG (5): Truck did not acknowledge the message
+
+
+DEBUG (6): There was an attempt to add trash to the bin at time 0:4:57.992187510
+DEBUG (6): ADDED 4 units
+DEBUG (6): TRASH LEVEL: 49
+DEBUG (6): STATUS: 0
+DEBUG (6): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (1): Sending alert message to the truck
+DEBUG (1): Truck received the message and acknowledged
+
+
+DEBUG (2): Sending alert message to the truck
+DEBUG (2): Truck received the message and acknowledged
+
+
+DEBUG (1): There was an attempt to add trash to the bin at time 0:5:1.757812510
+DEBUG (1): ADDED 4 units
+DEBUG (1): TRASH LEVEL: 94
+DEBUG (1): STATUS: 1
+DEBUG (1): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (3): Sending alert message to the truck
+DEBUG (3): Truck received the message and acknowledged
+
+
+DEBUG (5): Sending alert message to the truck
+DEBUG (5): Truck received the message and acknowledged
+
+
+DEBUG (1): Sending alert message to the truck
+DEBUG (1): Truck received the message and acknowledged
+
+
+DEBUG (6): There was an attempt to add trash to the bin at time 0:5:3.851562510
+DEBUG (6): ADDED 4 units
+DEBUG (6): TRASH LEVEL: 53
+DEBUG (6): STATUS: 0
+DEBUG (6): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (2): Sending alert message to the truck
+DEBUG (2): Truck received the message and acknowledged
+
+
+DEBUG (3): Sending alert message to the truck
+DEBUG (3): Truck received the message and acknowledged
+
+
+DEBUG (5): Sending alert message to the truck
+DEBUG (5): Truck received the message and acknowledged
+
+
+DEBUG (1): Sending alert message to the truck
+DEBUG (1): Truck received the message and acknowledged
+
+
+DEBUG (1): There was an attempt to add trash to the bin at time 0:5:9.570312510
+DEBUG (1): ADDED 8 units
+DEBUG (1): TRASH LEVEL: 100
+DEBUG (1): STATUS: 2
+DEBUG (1): TRASH OUTSIDE: 2
+
+
+
+
+DEBUG (7): idk
+DEBUG (6): idk
+DEBUG (2): idk
+DEBUG (1): idk
+DEBUG (1): Received from neighbout: trash = 1
+
+
+DEBUG (1): idk
+DEBUG (2): Sending alert message to the truck
+DEBUG (2): Truck received the message and acknowledged
+
+
+DEBUG (3): There was an attempt to add trash to the bin at time 0:5:10.617187510
+DEBUG (3): ADDED 10 units
+DEBUG (3): TRASH LEVEL: 100
+DEBUG (3): STATUS: 2
+DEBUG (3): TRASH OUTSIDE: 14
+
+
+
+
+DEBUG (5): There was an attempt to add trash to the bin at time 0:5:10.664062510
+DEBUG (5): ADDED 1 units
+DEBUG (5): TRASH LEVEL: 94
+DEBUG (5): STATUS: 1
+DEBUG (5): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (7): There was an attempt to add trash to the bin at time 0:5:10.710937510
+DEBUG (7): ADDED 6 units
+DEBUG (7): TRASH LEVEL: 26
+DEBUG (7): STATUS: 0
+DEBUG (7): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (1): SENDING 2 to NEIGH 0DEBUG (7): There was an attempt to add trash to the bin at time 0:5:11.687500010
 DEBUG (7): ADDED 8 units
-DEBUG (7): TRASH LEVEL: 85
-DEBUG (7): STATUS: 1
+DEBUG (7): TRASH LEVEL: 34
+DEBUG (7): STATUS: 0
 DEBUG (7): TRASH OUTSIDE: 0
 
 
 
 
-DEBUG (2): There was an attempt to add trash to the bin at time 0:2:51.800781260
+DEBUG (3): Sending alert message to the truck
+DEBUG (3): Truck received the message and acknowledged
+
+
+DEBUG (5): Sending alert message to the truck
+DEBUG (5): Truck received the message and acknowledged
+
+
+DEBUG (1): Sending alert message to the truck
+DEBUG (1): Truck received the message and acknowledged
+
+
+DEBUG (4): There was an attempt to add trash to the bin at time 0:5:13.570312510
+DEBUG (4): ADDED 10 units
+DEBUG (4): TRASH LEVEL: 24
+DEBUG (4): STATUS: 0
+DEBUG (4): TRASH OUTSIDE: 0
+
+
+
+
 DEBUG (2): Sending alert message to the truck
 DEBUG (2): Truck received the message and acknowledged
 
 
-DEBUG (2): There was an attempt to add trash to the bin at time 0:2:53.363281260
-DEBUG (2): There was an attempt to add trash to the bin at time 0:2:53.656250010
-DEBUG (7): There was an attempt to add trash to the bin at time 0:2:53.699218760
-DEBUG (2): There was an attempt to add trash to the bin at time 0:2:54.144531260
-DEBUG (1): Reached destination (421,1267)
-DEBUG (1): Bin 2 emptied
+DEBUG (3): Sending alert message to the truck
+DEBUG (3): Truck received the message and acknowledged
 
 
-DEBUG (2): Truck arrived at time 0:2:54.229354832
-DEBUG (2): BIN EMPTIED, new level: 0
+DEBUG (5): Sending alert message to the truck
+DEBUG (5): Truck received the message and acknowledged
+
+
+DEBUG (1): Sending alert message to the truck
+DEBUG (1): Truck received the message and acknowledged
+
+
+DEBUG (2): There was an attempt to add trash to the bin at time 0:5:19.359375010
+DEBUG (2): ADDED 2 units
+DEBUG (2): TRASH LEVEL: 94
+DEBUG (2): STATUS: 1
+DEBUG (2): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (2): Sending alert message to the truck
+DEBUG (2): Truck received the message and acknowledged
+
+
+DEBUG (3): Sending alert message to the truck
+DEBUG (3): Truck received the message and acknowledged
+
+
+DEBUG (5): Sending alert message to the truck
+DEBUG (5): Truck received the message and acknowledged
+
+
+DEBUG (1): Sending alert message to the truck
+DEBUG (1): Truck received the message and acknowledged
+
+
+DEBUG (2): Sending alert message to the truck
+DEBUG (2): Truck received the message and acknowledged
+
+
+DEBUG (7): There was an attempt to add trash to the bin at time 0:5:24.382812510
+DEBUG (7): ADDED 4 units
+DEBUG (7): TRASH LEVEL: 38
+DEBUG (7): STATUS: 0
+DEBUG (7): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (3): Sending alert message to the truck
+DEBUG (3): Truck received the message and acknowledged
+
+
+DEBUG (5): Sending alert message to the truck
+DEBUG (5): Truck received the message and acknowledged
+
+
+DEBUG (1): Sending alert message to the truck
+DEBUG (1): Truck received the message and acknowledged
+
+
+DEBUG (1): There was an attempt to add trash to the bin at time 0:5:29.101562510
+DEBUG (1): ADDED 3 units
+DEBUG (1): TRASH LEVEL: 100
+DEBUG (1): STATUS: 2
+DEBUG (1): TRASH OUTSIDE: 5
+
+
+
+
+DEBUG (2): Sending alert message to the truck
+DEBUG (2): Truck received the message and acknowledged
+
+
+DEBUG (6): There was an attempt to add trash to the bin at time 0:5:29.242187510
+DEBUG (6): ADDED 8 units
+DEBUG (6): TRASH LEVEL: 61
+DEBUG (6): STATUS: 0
+DEBUG (6): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (3): Sending alert message to the truck
+DEBUG (3): Truck received the message and acknowledged
+
+
+DEBUG (5): Sending alert message to the truck
+DEBUG (5): Truck received the message and acknowledged
+
+
+DEBUG (1): Sending alert message to the truck
+DEBUG (1): Truck received the message and acknowledged
+
+
+DEBUG (3): There was an attempt to add trash to the bin at time 0:5:33.078125010
+DEBUG (3): ADDED 9 units
+DEBUG (3): TRASH LEVEL: 100
+DEBUG (3): STATUS: 2
+DEBUG (3): TRASH OUTSIDE: 23
+
+
+
+
+DEBUG (2): Sending alert message to the truck
+DEBUG (2): Truck received the message and acknowledged
+
+
+DEBUG (3): There was an attempt to add trash to the bin at time 0:5:34.054687510
+DEBUG (3): ADDED 8 units
+DEBUG (3): TRASH LEVEL: 100
+DEBUG (3): STATUS: 2
+DEBUG (3): TRASH OUTSIDE: 31
+
+
+
+
+DEBUG (7): There was an attempt to add trash to the bin at time 0:5:34.148437510
+DEBUG (7): ADDED 5 units
+DEBUG (7): TRASH LEVEL: 43
+DEBUG (7): STATUS: 0
+DEBUG (7): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (5): There was an attempt to add trash to the bin at time 0:5:36.054687510
+DEBUG (5): ADDED 1 units
+DEBUG (5): TRASH LEVEL: 95
+DEBUG (5): STATUS: 1
+DEBUG (5): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (2): There was an attempt to add trash to the bin at time 0:5:36.937500010
+DEBUG (2): ADDED 1 units
+DEBUG (2): TRASH LEVEL: 95
+DEBUG (2): STATUS: 1
+DEBUG (2): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (3): Sending alert message to the truck
+DEBUG (3): Truck received the message and acknowledged
+
+
+DEBUG (5): Sending alert message to the truck
+DEBUG (5): Truck received the message and acknowledged
+
+
+DEBUG (1): Sending alert message to the truck
+DEBUG (1): Truck received the message and acknowledged
+
+
+DEBUG (4): There was an attempt to add trash to the bin at time 0:5:37.984375010
+DEBUG (4): ADDED 8 units
+DEBUG (4): TRASH LEVEL: 32
+DEBUG (4): STATUS: 0
+DEBUG (4): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (2): Sending alert message to the truck
+DEBUG (2): Truck received the message and acknowledged
+
+
+DEBUG (6): There was an attempt to add trash to the bin at time 0:5:40.960937510
+DEBUG (6): ADDED 10 units
+DEBUG (6): TRASH LEVEL: 71
+DEBUG (6): STATUS: 0
+DEBUG (6): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (0): Reached destination (1692,356)
+DEBUG (0): Bin 3 emptied
+
+
+DEBUG (3): Truck arrived at time 0:5:41.611419661
+DEBUG (3): BIN EMPTIED, new level: 0
+
+
+DEBUG (0): Truck received the message and acknowledged
+
+
+DEBUG (5): Sending alert message to the truck
+DEBUG (0): Distance to bin is 749 m
+DEBUG (0): Received ALERT message from 5
+DEBUG (0): Started traveling to (1306,998)
+
+
+DEBUG (5): Truck received the message and acknowledged
+
+
+DEBUG (1): Sending alert message to the truck
+DEBUG (1): Truck received the message and acknowledged
+
+
+DEBUG (2): Sending alert message to the truck
+DEBUG (2): Truck received the message and acknowledged
+
+
+DEBUG (5): There was an attempt to add trash to the bin at time 0:5:43.867187510
+DEBUG (5): ADDED 2 units
+DEBUG (5): TRASH LEVEL: 97
+DEBUG (5): STATUS: 1
+DEBUG (5): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (2): There was an attempt to add trash to the bin at time 0:5:44.750000010
+DEBUG (2): ADDED 1 units
+DEBUG (2): TRASH LEVEL: 96
+DEBUG (2): STATUS: 1
+DEBUG (2): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (5): Sending alert message to the truck
+DEBUG (5): Truck received the message and acknowledged
+
+
+DEBUG (1): Sending alert message to the truck
+DEBUG (1): Truck received the message and acknowledged
+
+
+DEBUG (2): Sending alert message to the truck
+DEBUG (2): Truck received the message and acknowledged
+
+
+DEBUG (4): There was an attempt to add trash to the bin at time 0:5:49.703125010
+DEBUG (4): ADDED 10 units
+DEBUG (4): TRASH LEVEL: 42
+DEBUG (4): STATUS: 0
+DEBUG (4): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (0): Reached destination (1306,998)
+DEBUG (0): Bin 5 emptied
+
+
+DEBUG (5): Truck arrived at time 0:5:51.069610584
+DEBUG (5): BIN EMPTIED, new level: 0
+
+
+DEBUG (0): Truck received the message and acknowledged
+
+
+DEBUG (1): There was an attempt to add trash to the bin at time 0:5:52.539062510
+DEBUG (1): ADDED 4 units
+DEBUG (1): TRASH LEVEL: 100
+DEBUG (1): STATUS: 2
+DEBUG (1): TRASH OUTSIDE: 9
+
+
+
+
+DEBUG (1): Sending alert message to the truck
+DEBUG (0): Distance to bin is 875 m
+DEBUG (0): Received ALERT message from 1
+DEBUG (0): Started traveling to (1614,178)
 
 
 DEBUG (1): Truck received the message and acknowledged
 
 
-DEBUG (7): Sending alert message to the truck
-DEBUG (1): Distance to bin is 967 m
-DEBUG (1): Received ALERT message from 7
-DEBUG (1): Started traveling to (1384,1177)
+DEBUG (2): Sending alert message to the truck
+DEBUG (2): Truck received the message and acknowledged
 
 
-DEBUG (7): Truck received the message and acknowledged
-
-
-DEBUG (7): There was an attempt to add trash to the bin at time 0:2:56.433593760
-DEBUG (2): There was an attempt to add trash to the bin at time 0:2:56.781250010
-DEBUG (2): There was an attempt to add trash to the bin at time 0:2:57.074218760
-DEBUG (7): There was an attempt to add trash to the bin at time 0:2:57.703125010
-DEBUG (2): There was an attempt to add trash to the bin at time 0:2:57.855468760
-DEBUG (7): Sending alert message to the truck
-DEBUG (7): Truck received the message and acknowledged
-
-
-DEBUG (2): There was an attempt to add trash to the bin at time 0:2:58.636718760
-DEBUG (2): There was an attempt to add trash to the bin at time 0:2:59.710937510
-DEBUG (2): There was an attempt to add trash to the bin at time 0:2:59.906250010
-DEBUG (7): There was an attempt to add trash to the bin at time 0:3:0.144531260
-DEBUG (2): There was an attempt to add trash to the bin at time 0:3:0.394531260
-DEBUG (2): There was an attempt to add trash to the bin at time 0:3:1.078125010
-DEBUG (7): There was an attempt to add trash to the bin at time 0:3:2.488281260
-DEBUG (7): Sending alert message to the truck
-DEBUG (7): Truck received the message and acknowledged
-
-
-DEBUG (2): There was an attempt to add trash to the bin at time 0:3:2.542968760
-DEBUG (2): There was an attempt to add trash to the bin at time 0:3:2.738281260
-DEBUG (1): Reached destination (1384,1177)
-DEBUG (1): Bin 7 emptied
-
-
-DEBUG (7): Truck arrived at time 0:3:4.135101300
-DEBUG (7): BIN EMPTIED, new level: 0
-
-
-DEBUG (1): Truck received the message and acknowledged
-
-
-DEBUG (7): There was an attempt to add trash to the bin at time 0:3:4.246093760
-DEBUG (7): There was an attempt to add trash to the bin at time 0:3:4.734375010
-DEBUG (2): There was an attempt to add trash to the bin at time 0:3:5.375000010
-DEBUG (7): There was an attempt to add trash to the bin at time 0:3:5.906250010
-DEBUG (7): There was an attempt to add trash to the bin at time 0:3:8.250000010
-DEBUG (2): There was an attempt to add trash to the bin at time 0:3:8.304687510
-DEBUG (2): There was an attempt to add trash to the bin at time 0:3:9.085937510
-DEBUG (2): There was an attempt to add trash to the bin at time 0:3:9.378906260
-DEBUG (7): There was an attempt to add trash to the bin at time 0:3:10.105468760
-DEBUG (2): There was an attempt to add trash to the bin at time 0:3:11.039062510
-DEBUG (7): There was an attempt to add trash to the bin at time 0:3:12.449218760
-DEBUG (7): There was an attempt to add trash to the bin at time 0:3:13.425781260
-DEBUG (2): There was an attempt to add trash to the bin at time 0:3:13.480468760
+DEBUG (2): There was an attempt to add trash to the bin at time 0:5:56.468750010
 DEBUG (2): ADDED 9 units
-DEBUG (2): TRASH LEVEL: 85
-DEBUG (2): STATUS: 1
-DEBUG (2): TRASH OUTSIDE: 0
+DEBUG (2): TRASH LEVEL: 100
+DEBUG (2): STATUS: 2
+DEBUG (2): TRASH OUTSIDE: 5
 
 
 
 
-DEBUG (2): There was an attempt to add trash to the bin at time 0:3:14.359375010
-DEBUG (7): There was an attempt to add trash to the bin at time 0:3:15.671875010
-DEBUG (2): There was an attempt to add trash to the bin at time 0:3:15.824218760
-DEBUG (2): There was an attempt to add trash to the bin at time 0:3:17.289062510
-DEBUG (2): Sending alert message to the truck
-DEBUG (1): Distance to bin is 967 m
-DEBUG (1): Received ALERT message from 2
-DEBUG (1): Started traveling to (421,1267)
+DEBUG (6): idk
+DEBUG (4): idk
+DEBUG (1): idk
+DEBUG (3): idk
+DEBUG (2): Received from neighbout: trash = 4
 
 
-DEBUG (2): Truck received the message and acknowledged
+DEBUG (2): idk
+DEBUG (2): Received from neighbout: trash = 2
 
 
-DEBUG (2): There was an attempt to add trash to the bin at time 0:3:18.167968760
-DEBUG (7): There was an attempt to add trash to the bin at time 0:3:18.308593760
-DEBUG (2): There was an attempt to add trash to the bin at time 0:3:18.949218760
-DEBUG (7): There was an attempt to add trash to the bin at time 0:3:20.359375010
-DEBUG (2): There was an attempt to add trash to the bin at time 0:3:20.511718760
-DEBUG (2): Sending alert message to the truck
-DEBUG (2): Truck received the message and acknowledged
+DEBUG (2): idk
+DEBUG (2): idk
+DEBUG (6): There was an attempt to add trash to the bin at time 0:5:56.585937510
+DEBUG (6): ADDED 7 units
+DEBUG (6): TRASH LEVEL: 78
+DEBUG (6): STATUS: 0
+DEBUG (6): TRASH OUTSIDE: 0
 
 
-DEBUG (2): There was an attempt to add trash to the bin at time 0:3:22.074218760
-DEBUG (7): There was an attempt to add trash to the bin at time 0:3:22.703125010
-DEBUG (7): There was an attempt to add trash to the bin at time 0:3:22.898437510
-DEBUG (2): There was an attempt to add trash to the bin at time 0:3:23.636718760
-DEBUG (2): There was an attempt to add trash to the bin at time 0:3:24.027343760
-DEBUG (2): Sending alert message to the truck
-DEBUG (2): Truck received the message and acknowledged
 
 
-DEBUG (7): There was an attempt to add trash to the bin at time 0:3:25.242187510
-DEBUG (7): There was an attempt to add trash to the bin at time 0:3:25.535156260
-DEBUG (7): ADDED 9 units
-DEBUG (7): TRASH LEVEL: 87
-DEBUG (7): STATUS: 1
+DEBUG (7): There was an attempt to add trash to the bin at time 0:5:56.609375010
+DEBUG (7): ADDED 4 units
+DEBUG (7): TRASH LEVEL: 47
+DEBUG (7): STATUS: 0
 DEBUG (7): TRASH OUTSIDE: 0
 
 
 
 
-DEBUG (2): There was an attempt to add trash to the bin at time 0:3:25.589843760
-DEBUG (1): Reached destination (421,1267)
-DEBUG (1): Bin 2 emptied
+DEBUG (1): Sending alert message to the truck
+DEBUG (1): Truck received the message and acknowledged
 
 
-DEBUG (2): Truck arrived at time 0:3:26.837921155
+DEBUG (3): There was an attempt to add trash to the bin at time 0:5:57.492187510
+DEBUG (3): ADDED 4 units
+DEBUG (3): TRASH LEVEL: 4
+DEBUG (3): STATUS: 0
+DEBUG (3): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (2): Sending alert message to the truck
+DEBUG (2): SENDING 5 to NEIGH 0DEBUG (2): Truck received the message and acknowledged
+
+
+DEBUG (1): Sending alert message to the truck
+DEBUG (1): Truck received the message and acknowledged
+
+
+DEBUG (2): Sending alert message to the truck
+DEBUG (2): Truck received the message and acknowledged
+
+
+DEBUG (5): There was an attempt to add trash to the bin at time 0:6:3.398437510
+DEBUG (5): ADDED 9 units
+DEBUG (5): TRASH LEVEL: 9
+DEBUG (5): STATUS: 0
+DEBUG (5): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (1): Sending alert message to the truck
+DEBUG (1): Truck received the message and acknowledged
+
+
+DEBUG (2): Sending alert message to the truck
+DEBUG (2): Truck received the message and acknowledged
+
+
+DEBUG (4): There was an attempt to add trash to the bin at time 0:6:11.187500010
+DEBUG (4): ADDED 2 units
+DEBUG (4): TRASH LEVEL: 44
+DEBUG (4): STATUS: 0
+DEBUG (4): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (1): Sending alert message to the truck
+DEBUG (1): Truck received the message and acknowledged
+
+
+DEBUG (2): Sending alert message to the truck
+DEBUG (2): Truck received the message and acknowledged
+
+
+DEBUG (0): Reached destination (1614,178)
+DEBUG (0): Bin 1 emptied
+
+
+DEBUG (1): Truck arrived at time 0:6:14.007827726
+DEBUG (1): BIN EMPTIED, new level: 0
+
+
+DEBUG (0): Truck received the message and acknowledged
+
+
+DEBUG (2): There was an attempt to add trash to the bin at time 0:6:16.976562510
+DEBUG (2): ADDED 6 units
+DEBUG (2): TRASH LEVEL: 100
+DEBUG (2): STATUS: 2
+DEBUG (2): TRASH OUTSIDE: 11
+
+
+
+
+DEBUG (2): Sending alert message to the truck
+DEBUG (0): Distance to bin is 1615 m
+DEBUG (0): Received ALERT message from 2
+DEBUG (0): Started traveling to (421,1267)
+
+
+DEBUG (2): Truck received the message and acknowledged
+
+
+DEBUG (1): There was an attempt to add trash to the bin at time 0:6:18.906250010
+DEBUG (1): ADDED 5 units
+DEBUG (1): TRASH LEVEL: 5
+DEBUG (1): STATUS: 0
+DEBUG (1): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (3): There was an attempt to add trash to the bin at time 0:6:18.976562510
+DEBUG (3): ADDED 2 units
+DEBUG (3): TRASH LEVEL: 6
+DEBUG (3): STATUS: 0
+DEBUG (3): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (5): There was an attempt to add trash to the bin at time 0:6:20.000000010
+DEBUG (5): ADDED 1 units
+DEBUG (5): TRASH LEVEL: 10
+DEBUG (5): STATUS: 0
+DEBUG (5): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (7): There was an attempt to add trash to the bin at time 0:6:20.046875010
+DEBUG (7): ADDED 6 units
+DEBUG (7): TRASH LEVEL: 53
+DEBUG (7): STATUS: 0
+DEBUG (7): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (2): There was an attempt to add trash to the bin at time 0:6:20.882812510
+DEBUG (2): ADDED 6 units
+DEBUG (2): TRASH LEVEL: 100
+DEBUG (2): STATUS: 2
+DEBUG (2): TRASH OUTSIDE: 17
+
+
+
+
+DEBUG (2): Sending alert message to the truck
+DEBUG (2): Truck did not acknowledge the message
+
+
+DEBUG (6): There was an attempt to add trash to the bin at time 0:6:25.882812510
+DEBUG (6): ADDED 6 units
+DEBUG (6): TRASH LEVEL: 84
+DEBUG (6): STATUS: 0
+DEBUG (6): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (2): Sending alert message to the truck
+DEBUG (2): Truck received the message and acknowledged
+
+
+DEBUG (3): There was an attempt to add trash to the bin at time 0:6:31.671875010
+DEBUG (3): ADDED 6 units
+DEBUG (3): TRASH LEVEL: 12
+DEBUG (3): STATUS: 0
+DEBUG (3): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (5): There was an attempt to add trash to the bin at time 0:6:31.718750010
+DEBUG (5): ADDED 8 units
+DEBUG (5): TRASH LEVEL: 18
+DEBUG (5): STATUS: 0
+DEBUG (5): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (2): Sending alert message to the truck
+DEBUG (2): Truck received the message and acknowledged
+
+
+DEBUG (2): Sending alert message to the truck
+DEBUG (2): Truck received the message and acknowledged
+
+
+DEBUG (4): There was an attempt to add trash to the bin at time 0:6:37.554687510
+DEBUG (4): ADDED 2 units
+DEBUG (4): TRASH LEVEL: 46
+DEBUG (4): STATUS: 0
+DEBUG (4): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (5): There was an attempt to add trash to the bin at time 0:6:38.554687510
+DEBUG (5): ADDED 5 units
+DEBUG (5): TRASH LEVEL: 23
+DEBUG (5): STATUS: 0
+DEBUG (5): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (2): Sending alert message to the truck
+DEBUG (2): Truck received the message and acknowledged
+
+
+DEBUG (4): There was an attempt to add trash to the bin at time 0:6:43.414062510
+DEBUG (4): ADDED 2 units
+DEBUG (4): TRASH LEVEL: 48
+DEBUG (4): STATUS: 0
+DEBUG (4): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (1): There was an attempt to add trash to the bin at time 0:6:44.296875010
+DEBUG (1): ADDED 9 units
+DEBUG (1): TRASH LEVEL: 14
+DEBUG (1): STATUS: 0
+DEBUG (1): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (2): There was an attempt to add trash to the bin at time 0:6:45.296875010
+DEBUG (2): ADDED 3 units
+DEBUG (2): TRASH LEVEL: 100
+DEBUG (2): STATUS: 2
+DEBUG (2): TRASH OUTSIDE: 20
+
+
+
+
+DEBUG (2): There was an attempt to add trash to the bin at time 0:6:47.250000010
+DEBUG (2): ADDED 9 units
+DEBUG (2): TRASH LEVEL: 100
+DEBUG (2): STATUS: 2
+DEBUG (2): TRASH OUTSIDE: 29
+
+
+
+
+DEBUG (2): Sending alert message to the truck
+DEBUG (2): Truck received the message and acknowledged
+
+
+DEBUG (0): Reached destination (421,1267)
+DEBUG (0): Bin 2 emptied
+
+
+DEBUG (2): Truck arrived at time 0:6:47.679717996
 DEBUG (2): BIN EMPTIED, new level: 0
 
 
-DEBUG (1): Truck received the message and acknowledged
+DEBUG (0): Truck received the message and acknowledged
 
 
-DEBUG (2): There was an attempt to add trash to the bin at time 0:3:27.640625010
-DEBUG (7): There was an attempt to add trash to the bin at time 0:3:27.976562510
-DEBUG (2): There was an attempt to add trash to the bin at time 0:3:28.031250010
-DEBUG (2): There was an attempt to add trash to the bin at time 0:3:28.812500010
-DEBUG (7): There was an attempt to add trash to the bin at time 0:3:29.343750010
-DEBUG (7): Sending alert message to the truck
-DEBUG (1): Distance to bin is 967 m
-DEBUG (1): Received ALERT message from 7
-DEBUG (1): Started traveling to (1384,1177)
+DEBUG (4): There was an attempt to add trash to the bin at time 0:6:49.273437510
+DEBUG (4): ADDED 1 units
+DEBUG (4): TRASH LEVEL: 49
+DEBUG (4): STATUS: 0
+DEBUG (4): TRASH OUTSIDE: 0
 
 
-DEBUG (7): Truck received the message and acknowledged
 
 
-DEBUG (2): There was an attempt to add trash to the bin at time 0:3:30.570312510
-DEBUG (7): There was an attempt to add trash to the bin at time 0:3:30.613281260
-DEBUG (7): There was an attempt to add trash to the bin at time 0:3:31.785156260
-DEBUG (2): There was an attempt to add trash to the bin at time 0:3:31.839843760
-DEBUG (7): There was an attempt to add trash to the bin at time 0:3:32.957031260
-DEBUG (7): Sending alert message to the truck
-DEBUG (7): Truck received the message and acknowledged
+DEBUG (7): There was an attempt to add trash to the bin at time 0:6:49.343750010
+DEBUG (7): ADDED 9 units
+DEBUG (7): TRASH LEVEL: 62
+DEBUG (7): STATUS: 0
+DEBUG (7): TRASH OUTSIDE: 0
 
 
-DEBUG (7): There was an attempt to add trash to the bin at time 0:3:33.542968760
-DEBUG (2): There was an attempt to add trash to the bin at time 0:3:34.085937510
-DEBUG (2): There was an attempt to add trash to the bin at time 0:3:34.867187510
-DEBUG (7): There was an attempt to add trash to the bin at time 0:3:35.593750010
-DEBUG (2): There was an attempt to add trash to the bin at time 0:3:36.527343760
-DEBUG (7): There was an attempt to add trash to the bin at time 0:3:36.960937510
-DEBUG (7): Sending alert message to the truck
-DEBUG (7): Truck received the message and acknowledged
 
 
-DEBUG (2): There was an attempt to add trash to the bin at time 0:3:37.601562510
-DEBUG (2): There was an attempt to add trash to the bin at time 0:3:38.285156260
-DEBUG (1): Reached destination (1384,1177)
-DEBUG (1): Bin 7 emptied
+DEBUG (3): There was an attempt to add trash to the bin at time 0:6:51.203125010
+DEBUG (3): ADDED 7 units
+DEBUG (3): TRASH LEVEL: 19
+DEBUG (3): STATUS: 0
+DEBUG (3): TRASH OUTSIDE: 0
 
 
-DEBUG (7): Truck arrived at time 0:3:38.889419575
-DEBUG (7): BIN EMPTIED, new level: 0
 
 
-DEBUG (1): Truck received the message and acknowledged
+DEBUG (6): There was an attempt to add trash to the bin at time 0:6:52.250000010
+DEBUG (6): ADDED 3 units
+DEBUG (6): TRASH LEVEL: 87
+DEBUG (6): STATUS: 1
+DEBUG (6): TRASH OUTSIDE: 0
 
 
-DEBUG (7): There was an attempt to add trash to the bin at time 0:3:39.695312510
-DEBUG (2): There was an attempt to add trash to the bin at time 0:3:40.335937510
-DEBUG (7): There was an attempt to add trash to the bin at time 0:3:41.062500010
-DEBUG (7): There was an attempt to add trash to the bin at time 0:3:43.210937510
-DEBUG (2): There was an attempt to add trash to the bin at time 0:3:43.265625010
-DEBUG (7): There was an attempt to add trash to the bin at time 0:3:43.796875010
-DEBUG (7): There was an attempt to add trash to the bin at time 0:3:44.089843760
-DEBUG (7): There was an attempt to add trash to the bin at time 0:3:45.164062510
-DEBUG (2): There was an attempt to add trash to the bin at time 0:3:45.218750010
-DEBUG (2): There was an attempt to add trash to the bin at time 0:3:45.609375010
-DEBUG (2): ADDED 10 units
-DEBUG (2): TRASH LEVEL: 91
-DEBUG (2): STATUS: 1
+
+
+DEBUG (6): Sending alert message to the truck
+DEBUG (0): Distance to bin is 1219 m
+DEBUG (0): Received ALERT message from 6
+DEBUG (0): Started traveling to (113,87)
+
+
+DEBUG (6): Truck received the message and acknowledged
+
+
+DEBUG (1): There was an attempt to add trash to the bin at time 0:6:58.945312510
+DEBUG (1): ADDED 3 units
+DEBUG (1): TRASH LEVEL: 17
+DEBUG (1): STATUS: 0
+DEBUG (1): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (1): There was an attempt to add trash to the bin at time 0:7:1.875000010
+DEBUG (1): ADDED 9 units
+DEBUG (1): TRASH LEVEL: 26
+DEBUG (1): STATUS: 0
+DEBUG (1): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (6): Sending alert message to the truck
+DEBUG (6): Truck received the message and acknowledged
+
+
+DEBUG (4): There was an attempt to add trash to the bin at time 0:7:5.875000010
+DEBUG (4): ADDED 3 units
+DEBUG (4): TRASH LEVEL: 52
+DEBUG (4): STATUS: 0
+DEBUG (4): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (5): There was an attempt to add trash to the bin at time 0:7:6.875000010
+DEBUG (5): ADDED 6 units
+DEBUG (5): TRASH LEVEL: 29
+DEBUG (5): STATUS: 0
+DEBUG (5): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (6): Sending alert message to the truck
+DEBUG (6): Truck received the message and acknowledged
+
+
+DEBUG (2): There was an attempt to add trash to the bin at time 0:7:7.757812510
+DEBUG (2): ADDED 9 units
+DEBUG (2): TRASH LEVEL: 9
+DEBUG (2): STATUS: 0
 DEBUG (2): TRASH OUTSIDE: 0
 
 
 
 
-DEBUG (7): There was an attempt to add trash to the bin at time 0:3:47.703125010
-DEBUG (2): There was an attempt to add trash to the bin at time 0:3:47.953125010
-DEBUG (7): There was an attempt to add trash to the bin at time 0:3:48.875000010
-DEBUG (2): There was an attempt to add trash to the bin at time 0:3:49.125000010
-DEBUG (2): Sending alert message to the truck
-DEBUG (1): Distance to bin is 967 m
-DEBUG (1): Received ALERT message from 2
-DEBUG (1): Started traveling to (421,1267)
+DEBUG (7): There was an attempt to add trash to the bin at time 0:7:8.875000010
+DEBUG (7): ADDED 1 units
+DEBUG (7): TRASH LEVEL: 63
+DEBUG (7): STATUS: 0
+DEBUG (7): TRASH OUTSIDE: 0
 
 
-DEBUG (2): Truck received the message and acknowledged
 
 
-DEBUG (7): There was an attempt to add trash to the bin at time 0:3:50.242187510
-DEBUG (7): There was an attempt to add trash to the bin at time 0:3:51.414062510
-DEBUG (2): There was an attempt to add trash to the bin at time 0:3:51.859375010
-DEBUG (2): There was an attempt to add trash to the bin at time 0:3:53.226562510
-DEBUG (2): Sending alert message to the truck
-DEBUG (2): Truck received the message and acknowledged
+DEBUG (3): There was an attempt to add trash to the bin at time 0:7:10.734375010
+DEBUG (3): ADDED 6 units
+DEBUG (3): TRASH LEVEL: 25
+DEBUG (3): STATUS: 0
+DEBUG (3): TRASH OUTSIDE: 0
 
 
-DEBUG (2): There was an attempt to add trash to the bin at time 0:3:53.910156260
-DEBUG (2): There was an attempt to add trash to the bin at time 0:3:54.203125010
-DEBUG (7): There was an attempt to add trash to the bin at time 0:3:54.343750010
-DEBUG (7): There was an attempt to add trash to the bin at time 0:3:55.906250010
-DEBUG (2): There was an attempt to add trash to the bin at time 0:3:56.253906260
-DEBUG (7): There was an attempt to add trash to the bin at time 0:3:56.980468760
-DEBUG (2): Sending alert message to the truck
-DEBUG (2): Truck received the message and acknowledged
 
 
-DEBUG (2): There was an attempt to add trash to the bin at time 0:3:57.718750010
-DEBUG (2): There was an attempt to add trash to the bin at time 0:3:58.695312510
-DEBUG (1): Reached destination (421,1267)
-DEBUG (1): Bin 2 emptied
+DEBUG (5): There was an attempt to add trash to the bin at time 0:7:10.781250010
+DEBUG (5): ADDED 7 units
+DEBUG (5): TRASH LEVEL: 36
+DEBUG (5): STATUS: 0
+DEBUG (5): TRASH OUTSIDE: 0
 
 
-DEBUG (2): Truck arrived at time 0:3:58.978424051
-DEBUG (2): BIN EMPTIED, new level: 0
 
 
-DEBUG (1): Truck received the message and acknowledged
+DEBUG (2): There was an attempt to add trash to the bin at time 0:7:11.664062510
+DEBUG (2): ADDED 3 units
+DEBUG (2): TRASH LEVEL: 12
+DEBUG (2): STATUS: 0
+DEBUG (2): TRASH OUTSIDE: 0
 
 
-DEBUG (7): There was an attempt to add trash to the bin at time 0:3:59.324218760
+
+
+DEBUG (6): Sending alert message to the truck
+DEBUG (6): Truck received the message and acknowledged
+
+
+DEBUG (7): There was an attempt to add trash to the bin at time 0:7:13.757812510
 DEBUG (7): ADDED 3 units
+DEBUG (7): TRASH LEVEL: 66
+DEBUG (7): STATUS: 0
+DEBUG (7): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (6): Sending alert message to the truck
+DEBUG (6): Truck received the message and acknowledged
+
+
+DEBUG (3): There was an attempt to add trash to the bin at time 0:7:18.546875010
+DEBUG (3): ADDED 5 units
+DEBUG (3): TRASH LEVEL: 30
+DEBUG (3): STATUS: 0
+DEBUG (3): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (6): There was an attempt to add trash to the bin at time 0:7:18.617187510
+DEBUG (6): ADDED 2 units
+DEBUG (6): TRASH LEVEL: 89
+DEBUG (6): STATUS: 1
+DEBUG (6): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (2): There was an attempt to add trash to the bin at time 0:7:19.476562510
+DEBUG (2): ADDED 3 units
+DEBUG (2): TRASH LEVEL: 15
+DEBUG (2): STATUS: 0
+DEBUG (2): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (6): Sending alert message to the truck
+DEBUG (6): Truck received the message and acknowledged
+
+
+DEBUG (1): There was an attempt to add trash to the bin at time 0:7:26.289062510
+DEBUG (1): ADDED 6 units
+DEBUG (1): TRASH LEVEL: 32
+DEBUG (1): STATUS: 0
+DEBUG (1): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (4): There was an attempt to add trash to the bin at time 0:7:26.382812510
+DEBUG (4): ADDED 4 units
+DEBUG (4): TRASH LEVEL: 56
+DEBUG (4): STATUS: 0
+DEBUG (4): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (6): Sending alert message to the truck
+DEBUG (6): Truck received the message and acknowledged
+
+
+DEBUG (6): Sending alert message to the truck
+DEBUG (6): Truck received the message and acknowledged
+
+
+DEBUG (4): There was an attempt to add trash to the bin at time 0:7:33.218750010
+DEBUG (4): ADDED 7 units
+DEBUG (4): TRASH LEVEL: 63
+DEBUG (4): STATUS: 0
+DEBUG (4): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (3): There was an attempt to add trash to the bin at time 0:7:36.125000010
+DEBUG (3): ADDED 9 units
+DEBUG (3): TRASH LEVEL: 39
+DEBUG (3): STATUS: 0
+DEBUG (3): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (5): There was an attempt to add trash to the bin at time 0:7:36.171875010
+DEBUG (5): ADDED 2 units
+DEBUG (5): TRASH LEVEL: 38
+DEBUG (5): STATUS: 0
+DEBUG (5): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (6): Sending alert message to the truck
+DEBUG (6): Truck received the message and acknowledged
+
+
+DEBUG (7): There was an attempt to add trash to the bin at time 0:7:37.195312510
+DEBUG (7): ADDED 10 units
+DEBUG (7): TRASH LEVEL: 76
+DEBUG (7): STATUS: 0
+DEBUG (7): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (1): There was an attempt to add trash to the bin at time 0:7:38.007812510
+DEBUG (1): ADDED 3 units
+DEBUG (1): TRASH LEVEL: 35
+DEBUG (1): STATUS: 0
+DEBUG (1): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (3): There was an attempt to add trash to the bin at time 0:7:39.054687510
+DEBUG (3): ADDED 2 units
+DEBUG (3): TRASH LEVEL: 41
+DEBUG (3): STATUS: 0
+DEBUG (3): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (6): Sending alert message to the truck
+DEBUG (6): Truck received the message and acknowledged
+
+
+DEBUG (2): There was an attempt to add trash to the bin at time 0:7:43.890625010
+DEBUG (2): ADDED 2 units
+DEBUG (2): TRASH LEVEL: 17
+DEBUG (2): STATUS: 0
+DEBUG (2): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (6): There was an attempt to add trash to the bin at time 0:7:45.960937510
+DEBUG (6): ADDED 4 units
+DEBUG (6): TRASH LEVEL: 93
+DEBUG (6): STATUS: 1
+DEBUG (6): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (6): Sending alert message to the truck
+DEBUG (6): Truck received the message and acknowledged
+
+
+DEBUG (4): There was an attempt to add trash to the bin at time 0:7:46.890625010
+DEBUG (4): ADDED 2 units
+DEBUG (4): TRASH LEVEL: 65
+DEBUG (4): STATUS: 0
+DEBUG (4): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (3): There was an attempt to add trash to the bin at time 0:7:50.773437510
+DEBUG (3): ADDED 8 units
+DEBUG (3): TRASH LEVEL: 49
+DEBUG (3): STATUS: 0
+DEBUG (3): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (4): There was an attempt to add trash to the bin at time 0:7:50.796875010
+DEBUG (4): ADDED 10 units
+DEBUG (4): TRASH LEVEL: 75
+DEBUG (4): STATUS: 0
+DEBUG (4): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (6): There was an attempt to add trash to the bin at time 0:7:50.843750010
+DEBUG (6): ADDED 4 units
+DEBUG (6): TRASH LEVEL: 97
+DEBUG (6): STATUS: 1
+DEBUG (6): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (6): Sending alert message to the truck
+DEBUG (6): Truck received the message and acknowledged
+
+
+DEBUG (0): Reached destination (113,87)
+DEBUG (0): Bin 6 emptied
+
+
+DEBUG (6): Truck arrived at time 0:7:52.181655896
+DEBUG (6): BIN EMPTIED, new level: 0
+
+
+DEBUG (0): Truck received the message and acknowledged
+
+
+DEBUG (6): There was an attempt to add trash to the bin at time 0:7:52.796875010
+DEBUG (6): ADDED 1 units
+DEBUG (6): TRASH LEVEL: 1
+DEBUG (6): STATUS: 0
+DEBUG (6): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (2): There was an attempt to add trash to the bin at time 0:7:56.585937510
+DEBUG (2): ADDED 4 units
+DEBUG (2): TRASH LEVEL: 21
+DEBUG (2): STATUS: 0
+DEBUG (2): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (7): There was an attempt to add trash to the bin at time 0:7:57.703125010
+DEBUG (7): ADDED 5 units
+DEBUG (7): TRASH LEVEL: 81
+DEBUG (7): STATUS: 0
+DEBUG (7): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (1): There was an attempt to add trash to the bin at time 0:8:1.445312510
+DEBUG (1): ADDED 10 units
+DEBUG (1): TRASH LEVEL: 45
+DEBUG (1): STATUS: 0
+DEBUG (1): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (5): There was an attempt to add trash to the bin at time 0:8:1.562500010
+DEBUG (5): ADDED 2 units
+DEBUG (5): TRASH LEVEL: 40
+DEBUG (5): STATUS: 0
+DEBUG (5): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (4): There was an attempt to add trash to the bin at time 0:8:7.398437510
+DEBUG (4): ADDED 1 units
+DEBUG (4): TRASH LEVEL: 76
+DEBUG (4): STATUS: 0
+DEBUG (4): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (7): There was an attempt to add trash to the bin at time 0:8:9.421875010
+DEBUG (7): ADDED 3 units
+DEBUG (7): TRASH LEVEL: 84
+DEBUG (7): STATUS: 0
+DEBUG (7): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (1): There was an attempt to add trash to the bin at time 0:8:11.210937510
+DEBUG (1): ADDED 1 units
+DEBUG (1): TRASH LEVEL: 46
+DEBUG (1): STATUS: 0
+DEBUG (1): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (6): There was an attempt to add trash to the bin at time 0:8:15.257812510
+DEBUG (6): ADDED 5 units
+DEBUG (6): TRASH LEVEL: 6
+DEBUG (6): STATUS: 0
+DEBUG (6): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (3): There was an attempt to add trash to the bin at time 0:8:16.164062510
+DEBUG (3): ADDED 1 units
+DEBUG (3): TRASH LEVEL: 50
+DEBUG (3): STATUS: 0
+DEBUG (3): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (2): There was an attempt to add trash to the bin at time 0:8:17.093750010
+DEBUG (2): ADDED 1 units
+DEBUG (2): TRASH LEVEL: 22
+DEBUG (2): STATUS: 0
+DEBUG (2): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (6): There was an attempt to add trash to the bin at time 0:8:19.164062510
+DEBUG (6): ADDED 8 units
+DEBUG (6): TRASH LEVEL: 14
+DEBUG (6): STATUS: 0
+DEBUG (6): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (3): There was an attempt to add trash to the bin at time 0:8:22.023437510
+DEBUG (3): ADDED 7 units
+DEBUG (3): TRASH LEVEL: 57
+DEBUG (3): STATUS: 0
+DEBUG (3): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (2): There was an attempt to add trash to the bin at time 0:8:22.953125010
+DEBUG (2): ADDED 7 units
+DEBUG (2): TRASH LEVEL: 29
+DEBUG (2): STATUS: 0
+DEBUG (2): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (1): There was an attempt to add trash to the bin at time 0:8:24.882812510
+DEBUG (1): ADDED 9 units
+DEBUG (1): TRASH LEVEL: 55
+DEBUG (1): STATUS: 0
+DEBUG (1): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (4): There was an attempt to add trash to the bin at time 0:8:25.953125010
+DEBUG (4): ADDED 8 units
+DEBUG (4): TRASH LEVEL: 84
+DEBUG (4): STATUS: 0
+DEBUG (4): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (2): There was an attempt to add trash to the bin at time 0:8:26.859375010
+DEBUG (2): ADDED 1 units
+DEBUG (2): TRASH LEVEL: 30
+DEBUG (2): STATUS: 0
+DEBUG (2): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (5): There was an attempt to add trash to the bin at time 0:8:26.953125010
+DEBUG (5): ADDED 7 units
+DEBUG (5): TRASH LEVEL: 47
+DEBUG (5): STATUS: 0
+DEBUG (5): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (3): There was an attempt to add trash to the bin at time 0:8:28.859375010
+DEBUG (3): ADDED 6 units
+DEBUG (3): TRASH LEVEL: 63
+DEBUG (3): STATUS: 0
+DEBUG (3): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (5): There was an attempt to add trash to the bin at time 0:8:34.765625010
+DEBUG (5): ADDED 1 units
+DEBUG (5): TRASH LEVEL: 48
+DEBUG (5): STATUS: 0
+DEBUG (5): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (7): There was an attempt to add trash to the bin at time 0:8:35.789062510
+DEBUG (7): ADDED 2 units
 DEBUG (7): TRASH LEVEL: 86
 DEBUG (7): STATUS: 1
 DEBUG (7): TRASH OUTSIDE: 0
@@ -778,58 +2755,1278 @@ DEBUG (7): TRASH OUTSIDE: 0
 
 
 
-DEBUG (2): There was an attempt to add trash to the bin at time 0:3:59.378906260
-DEBUG (2): There was an attempt to add trash to the bin at time 0:3:59.671875010
-DEBUG (2): There was an attempt to add trash to the bin at time 0:4:1.234375010
-DEBUG (2): There was an attempt to add trash to the bin at time 0:4:1.429687510
-DEBUG (7): There was an attempt to add trash to the bin at time 0:4:1.472656260
-DEBUG (7): There was an attempt to add trash to the bin at time 0:4:2.351562510
-DEBUG (2): There was an attempt to add trash to the bin at time 0:4:3.187500010
+DEBUG (1): There was an attempt to add trash to the bin at time 0:8:37.578125010
+DEBUG (1): ADDED 1 units
+DEBUG (1): TRASH LEVEL: 56
+DEBUG (1): STATUS: 0
+DEBUG (1): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (3): There was an attempt to add trash to the bin at time 0:8:38.625000010
+DEBUG (3): ADDED 6 units
+DEBUG (3): TRASH LEVEL: 69
+DEBUG (3): STATUS: 0
+DEBUG (3): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (7): There was an attempt to add trash to the bin at time 0:8:38.718750010
+DEBUG (7): ADDED 6 units
+DEBUG (7): TRASH LEVEL: 92
+DEBUG (7): STATUS: 1
+DEBUG (7): TRASH OUTSIDE: 0
+
+
+
+
 DEBUG (7): Sending alert message to the truck
-DEBUG (1): Distance to bin is 967 m
-DEBUG (1): Received ALERT message from 7
-DEBUG (1): Started traveling to (1384,1177)
+DEBUG (0): Distance to bin is 1674 m
+DEBUG (0): Received ALERT message from 7
+DEBUG (0): Started traveling to (1384,1177)
 
 
 DEBUG (7): Truck received the message and acknowledged
 
 
-DEBUG (7): There was an attempt to add trash to the bin at time 0:4:4.011718760
-DEBUG (7): There was an attempt to add trash to the bin at time 0:4:5.671875010
-DEBUG (2): There was an attempt to add trash to the bin at time 0:4:5.726562510
-DEBUG (2): There was an attempt to add trash to the bin at time 0:4:6.019531260
-DEBUG (2): There was an attempt to add trash to the bin at time 0:4:6.410156260
-DEBUG (2): There was an attempt to add trash to the bin at time 0:4:6.507812510
+DEBUG (3): There was an attempt to add trash to the bin at time 0:8:41.554687510
+DEBUG (3): ADDED 8 units
+DEBUG (3): TRASH LEVEL: 77
+DEBUG (3): STATUS: 0
+DEBUG (3): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (6): There was an attempt to add trash to the bin at time 0:8:41.625000010
+DEBUG (6): ADDED 10 units
+DEBUG (6): TRASH LEVEL: 24
+DEBUG (6): STATUS: 0
+DEBUG (6): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (7): There was an attempt to add trash to the bin at time 0:8:43.601562510
+DEBUG (7): ADDED 10 units
+DEBUG (7): TRASH LEVEL: 100
+DEBUG (7): STATUS: 2
+DEBUG (7): TRASH OUTSIDE: 2
+
+
+
+
+DEBUG (6): idk
+DEBUG (5): idk
+DEBUG (1): idk
+DEBUG (7): idk
+DEBUG (7): Sending alert message to the truck
+DEBUG (7): SENDING 2 to NEIGH 0DEBUG (7): Truck received the message and acknowledged
+
+
+DEBUG (4): There was an attempt to add trash to the bin at time 0:8:48.414062510
+DEBUG (4): ADDED 5 units
+DEBUG (4): TRASH LEVEL: 89
+DEBUG (4): STATUS: 1
+DEBUG (4): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (2): There was an attempt to add trash to the bin at time 0:8:49.320312510
+DEBUG (2): ADDED 6 units
+DEBUG (2): TRASH LEVEL: 36
+DEBUG (2): STATUS: 0
+DEBUG (2): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (5): There was an attempt to add trash to the bin at time 0:8:50.390625010
+DEBUG (5): ADDED 5 units
+DEBUG (5): TRASH LEVEL: 53
+DEBUG (5): STATUS: 0
+DEBUG (5): TRASH OUTSIDE: 0
+
+
+
+
 DEBUG (7): Sending alert message to the truck
 DEBUG (7): Truck received the message and acknowledged
 
 
-DEBUG (2): There was an attempt to add trash to the bin at time 0:4:7.289062510
-DEBUG (7): There was an attempt to add trash to the bin at time 0:4:7.625000010
-DEBUG (2): There was an attempt to add trash to the bin at time 0:4:8.558593760
-DEBUG (2): There was an attempt to add trash to the bin at time 0:4:9.925781260
-DEBUG (7): There was an attempt to add trash to the bin at time 0:4:10.359375010
-DEBUG (7): There was an attempt to add trash to the bin at time 0:4:11.042968760
+DEBUG (4): Sending alert message to the truck
+DEBUG (4): Truck received the message and acknowledged
+
+
+DEBUG (6): There was an attempt to add trash to the bin at time 0:8:53.343750010
+DEBUG (6): ADDED 9 units
+DEBUG (6): TRASH LEVEL: 33
+DEBUG (6): STATUS: 0
+DEBUG (6): TRASH OUTSIDE: 0
+
+
+
+
 DEBUG (7): Sending alert message to the truck
 DEBUG (7): Truck received the message and acknowledged
 
 
-DEBUG (2): There was an attempt to add trash to the bin at time 0:4:12.171875010
-DEBUG (7): There was an attempt to add trash to the bin at time 0:4:12.214843760
-DEBUG (1): Reached destination (1384,1177)
-DEBUG (1): Bin 7 emptied
+DEBUG (4): Sending alert message to the truck
+DEBUG (4): Truck received the message and acknowledged
 
 
-DEBUG (7): Truck arrived at time 0:4:12.687972992
+DEBUG (7): Sending alert message to the truck
+DEBUG (7): Truck received the message and acknowledged
+
+
+DEBUG (1): There was an attempt to add trash to the bin at time 0:9:2.968750010
+DEBUG (1): ADDED 9 units
+DEBUG (1): TRASH LEVEL: 65
+DEBUG (1): STATUS: 0
+DEBUG (1): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (4): There was an attempt to add trash to the bin at time 0:9:3.062500010
+DEBUG (4): ADDED 6 units
+DEBUG (4): TRASH LEVEL: 95
+DEBUG (4): STATUS: 1
+DEBUG (4): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (4): Sending alert message to the truck
+DEBUG (4): Truck received the message and acknowledged
+
+
+DEBUG (7): Sending alert message to the truck
+DEBUG (7): Truck received the message and acknowledged
+
+
+DEBUG (1): There was an attempt to add trash to the bin at time 0:9:6.875000010
+DEBUG (1): ADDED 3 units
+DEBUG (1): TRASH LEVEL: 68
+DEBUG (1): STATUS: 0
+DEBUG (1): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (4): Sending alert message to the truck
+DEBUG (4): Truck received the message and acknowledged
+
+
+DEBUG (2): There was an attempt to add trash to the bin at time 0:9:8.851562510
+DEBUG (2): ADDED 3 units
+DEBUG (2): TRASH LEVEL: 39
+DEBUG (2): STATUS: 0
+DEBUG (2): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (6): There was an attempt to add trash to the bin at time 0:9:9.945312510
+DEBUG (6): ADDED 10 units
+DEBUG (6): TRASH LEVEL: 43
+DEBUG (6): STATUS: 0
+DEBUG (6): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (7): Sending alert message to the truck
+DEBUG (7): Truck received the message and acknowledged
+
+
+DEBUG (3): There was an attempt to add trash to the bin at time 0:9:10.851562510
+DEBUG (3): ADDED 1 units
+DEBUG (3): TRASH LEVEL: 78
+DEBUG (3): STATUS: 0
+DEBUG (3): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (6): There was an attempt to add trash to the bin at time 0:9:10.921875010
+DEBUG (6): ADDED 6 units
+DEBUG (6): TRASH LEVEL: 49
+DEBUG (6): STATUS: 0
+DEBUG (6): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (4): Sending alert message to the truck
+DEBUG (4): Truck received the message and acknowledged
+
+
+DEBUG (7): There was an attempt to add trash to the bin at time 0:9:12.898437510
+DEBUG (7): ADDED 5 units
+DEBUG (7): TRASH LEVEL: 100
+DEBUG (7): STATUS: 2
+DEBUG (7): TRASH OUTSIDE: 7
+
+
+
+
+DEBUG (5): There was an attempt to add trash to the bin at time 0:9:13.828125010
+DEBUG (5): ADDED 9 units
+DEBUG (5): TRASH LEVEL: 62
+DEBUG (5): STATUS: 0
+DEBUG (5): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (7): Sending alert message to the truck
+DEBUG (7): Truck received the message and acknowledged
+
+
+DEBUG (0): Reached destination (1384,1177)
+DEBUG (0): Bin 7 emptied
+
+
+DEBUG (7): Truck arrived at time 0:9:16.165847763
 DEBUG (7): BIN EMPTIED, new level: 0
+
+
+DEBUG (0): Truck received the message and acknowledged
+
+
+DEBUG (3): There was an attempt to add trash to the bin at time 0:9:16.710937510
+DEBUG (3): ADDED 8 units
+DEBUG (3): TRASH LEVEL: 86
+DEBUG (3): STATUS: 1
+DEBUG (3): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (4): Sending alert message to the truck
+DEBUG (0): Distance to bin is 1148 m
+DEBUG (0): Received ALERT message from 4
+DEBUG (0): Started traveling to (499,1909)
+
+
+DEBUG (4): Truck received the message and acknowledged
+
+
+DEBUG (1): There was an attempt to add trash to the bin at time 0:9:19.570312510
+DEBUG (1): ADDED 6 units
+DEBUG (1): TRASH LEVEL: 74
+DEBUG (1): STATUS: 0
+DEBUG (1): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (5): There was an attempt to add trash to the bin at time 0:9:19.687500010
+DEBUG (5): ADDED 6 units
+DEBUG (5): TRASH LEVEL: 68
+DEBUG (5): STATUS: 0
+DEBUG (5): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (3): Sending alert message to the truck
+DEBUG (3): Truck received the message and acknowledged
+
+
+DEBUG (4): Sending alert message to the truck
+DEBUG (4): Truck received the message and acknowledged
+
+
+DEBUG (7): There was an attempt to add trash to the bin at time 0:9:23.640625010
+DEBUG (7): ADDED 5 units
+DEBUG (7): TRASH LEVEL: 5
+DEBUG (7): STATUS: 0
+DEBUG (7): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (2): There was an attempt to add trash to the bin at time 0:9:26.429687510
+DEBUG (2): ADDED 6 units
+DEBUG (2): TRASH LEVEL: 45
+DEBUG (2): STATUS: 0
+DEBUG (2): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (3): Sending alert message to the truck
+DEBUG (3): Truck did not acknowledge the message
+
+
+DEBUG (4): Sending alert message to the truck
+DEBUG (4): Truck received the message and acknowledged
+
+
+DEBUG (7): There was an attempt to add trash to the bin at time 0:9:28.523437510
+DEBUG (7): ADDED 6 units
+DEBUG (7): TRASH LEVEL: 11
+DEBUG (7): STATUS: 0
+DEBUG (7): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (1): There was an attempt to add trash to the bin at time 0:9:29.335937510
+DEBUG (1): ADDED 7 units
+DEBUG (1): TRASH LEVEL: 81
+DEBUG (1): STATUS: 0
+DEBUG (1): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (3): Sending alert message to the truck
+DEBUG (3): Truck received the message and acknowledged
+
+
+DEBUG (5): There was an attempt to add trash to the bin at time 0:9:31.406250010
+DEBUG (5): ADDED 9 units
+DEBUG (5): TRASH LEVEL: 77
+DEBUG (5): STATUS: 0
+DEBUG (5): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (4): There was an attempt to add trash to the bin at time 0:9:32.359375010
+DEBUG (4): ADDED 9 units
+DEBUG (4): TRASH LEVEL: 100
+DEBUG (4): STATUS: 2
+DEBUG (4): TRASH OUTSIDE: 4
+
+
+
+
+DEBUG (4): Sending alert message to the truck
+DEBUG (5): idk
+DEBUG (3): idk
+DEBUG (2): idk
+DEBUG (4): Received from neighbout: trash = 5
+
+
+DEBUG (4): idk
+DEBUG (4): Truck received the message and acknowledged
+
+
+DEBUG (4): idk
+DEBUG (6): There was an attempt to add trash to the bin at time 0:9:33.382812510
+DEBUG (6): ADDED 3 units
+DEBUG (6): TRASH LEVEL: 52
+DEBUG (6): STATUS: 0
+DEBUG (6): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (4): SENDING 4 to NEIGH 0DEBUG (6): There was an attempt to add trash to the bin at time 0:9:35.335937510
+DEBUG (6): ADDED 9 units
+DEBUG (6): TRASH LEVEL: 61
+DEBUG (6): STATUS: 0
+DEBUG (6): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (3): Sending alert message to the truck
+DEBUG (3): Truck did not acknowledge the message
+
+
+DEBUG (4): Sending alert message to the truck
+DEBUG (4): Truck received the message and acknowledged
+
+
+DEBUG (7): There was an attempt to add trash to the bin at time 0:9:37.312500010
+DEBUG (7): ADDED 10 units
+DEBUG (7): TRASH LEVEL: 21
+DEBUG (7): STATUS: 0
+DEBUG (7): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (3): Sending alert message to the truck
+DEBUG (3): Truck received the message and acknowledged
+
+
+DEBUG (3): There was an attempt to add trash to the bin at time 0:9:42.101562510
+DEBUG (3): ADDED 1 units
+DEBUG (3): TRASH LEVEL: 87
+DEBUG (3): STATUS: 1
+DEBUG (3): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (4): Sending alert message to the truck
+DEBUG (4): Truck received the message and acknowledged
+
+
+DEBUG (3): Sending alert message to the truck
+DEBUG (3): Truck received the message and acknowledged
+
+
+DEBUG (2): There was an attempt to add trash to the bin at time 0:9:46.937500010
+DEBUG (2): ADDED 8 units
+DEBUG (2): TRASH LEVEL: 53
+DEBUG (2): STATUS: 0
+DEBUG (2): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (4): Sending alert message to the truck
+DEBUG (4): Truck received the message and acknowledged
+
+
+DEBUG (7): There was an attempt to add trash to the bin at time 0:9:50.007812510
+DEBUG (7): ADDED 10 units
+DEBUG (7): TRASH LEVEL: 31
+DEBUG (7): STATUS: 0
+DEBUG (7): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (3): Sending alert message to the truck
+DEBUG (3): Truck received the message and acknowledged
+
+
+DEBUG (4): Sending alert message to the truck
+DEBUG (4): Truck received the message and acknowledged
+
+
+DEBUG (3): There was an attempt to add trash to the bin at time 0:9:54.796875010
+DEBUG (3): ADDED 5 units
+DEBUG (3): TRASH LEVEL: 92
+DEBUG (3): STATUS: 1
+DEBUG (3): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (3): Sending alert message to the truck
+DEBUG (3): Truck received the message and acknowledged
+
+
+DEBUG (4): Sending alert message to the truck
+DEBUG (4): Truck received the message and acknowledged
+
+
+DEBUG (1): There was an attempt to add trash to the bin at time 0:9:58.632812510
+DEBUG (1): ADDED 1 units
+DEBUG (1): TRASH LEVEL: 82
+DEBUG (1): STATUS: 0
+DEBUG (1): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (3): Sending alert message to the truck
+DEBUG (3): Truck received the message and acknowledged
+
+
+DEBUG (5): There was an attempt to add trash to the bin at time 0:10:0.703125010
+DEBUG (5): ADDED 1 units
+DEBUG (5): TRASH LEVEL: 78
+DEBUG (5): STATUS: 0
+DEBUG (5): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (4): There was an attempt to add trash to the bin at time 0:10:1.656250010
+DEBUG (4): ADDED 1 units
+DEBUG (4): TRASH LEVEL: 100
+DEBUG (4): STATUS: 2
+DEBUG (4): TRASH OUTSIDE: 5
+
+
+
+
+DEBUG (4): Sending alert message to the truck
+DEBUG (4): Truck received the message and acknowledged
+
+
+DEBUG (5): There was an attempt to add trash to the bin at time 0:10:1.679687510
+DEBUG (5): ADDED 1 units
+DEBUG (5): TRASH LEVEL: 79
+DEBUG (5): STATUS: 0
+DEBUG (5): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (6): There was an attempt to add trash to the bin at time 0:10:3.656250010
+DEBUG (6): ADDED 1 units
+DEBUG (6): TRASH LEVEL: 62
+DEBUG (6): STATUS: 0
+DEBUG (6): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (4): There was an attempt to add trash to the bin at time 0:10:4.585937510
+DEBUG (4): ADDED 9 units
+DEBUG (4): TRASH LEVEL: 100
+DEBUG (4): STATUS: 2
+DEBUG (4): TRASH OUTSIDE: 14
+
+
+
+
+DEBUG (3): Sending alert message to the truck
+DEBUG (3): Truck received the message and acknowledged
+
+
+DEBUG (0): Reached destination (499,1909)
+DEBUG (0): Bin 4 emptied
+
+
+DEBUG (4): Truck arrived at time 0:10:5.829193116
+DEBUG (4): BIN EMPTIED, new level: 0
+
+
+DEBUG (0): Truck received the message and acknowledged
+
+
+DEBUG (3): Sending alert message to the truck
+DEBUG (0): Distance to bin is 1958 m
+DEBUG (0): Received ALERT message from 3
+DEBUG (0): Started traveling to (1692,356)
+
+
+DEBUG (3): Truck received the message and acknowledged
+
+
+DEBUG (4): There was an attempt to add trash to the bin at time 0:10:10.445312510
+DEBUG (4): ADDED 7 units
+DEBUG (4): TRASH LEVEL: 7
+DEBUG (4): STATUS: 0
+DEBUG (4): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (3): Sending alert message to the truck
+DEBUG (3): Truck received the message and acknowledged
+
+
+DEBUG (2): There was an attempt to add trash to the bin at time 0:10:16.234375010
+DEBUG (2): ADDED 1 units
+DEBUG (2): TRASH LEVEL: 54
+DEBUG (2): STATUS: 0
+DEBUG (2): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (5): There was an attempt to add trash to the bin at time 0:10:16.328125010
+DEBUG (5): ADDED 3 units
+DEBUG (5): TRASH LEVEL: 82
+DEBUG (5): STATUS: 0
+DEBUG (5): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (7): There was an attempt to add trash to the bin at time 0:10:19.304687510
+DEBUG (7): ADDED 6 units
+DEBUG (7): TRASH LEVEL: 37
+DEBUG (7): STATUS: 0
+DEBUG (7): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (3): Sending alert message to the truck
+DEBUG (3): Truck received the message and acknowledged
+
+
+DEBUG (4): There was an attempt to add trash to the bin at time 0:10:22.164062510
+DEBUG (4): ADDED 3 units
+DEBUG (4): TRASH LEVEL: 10
+DEBUG (4): STATUS: 0
+DEBUG (4): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (1): There was an attempt to add trash to the bin at time 0:10:24.023437510
+DEBUG (1): ADDED 4 units
+DEBUG (1): TRASH LEVEL: 86
+DEBUG (1): STATUS: 1
+DEBUG (1): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (3): There was an attempt to add trash to the bin at time 0:10:24.093750010
+DEBUG (3): ADDED 3 units
+DEBUG (3): TRASH LEVEL: 95
+DEBUG (3): STATUS: 1
+DEBUG (3): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (3): Sending alert message to the truck
+DEBUG (3): Truck received the message and acknowledged
+
+
+DEBUG (5): There was an attempt to add trash to the bin at time 0:10:27.070312510
+DEBUG (5): ADDED 1 units
+DEBUG (5): TRASH LEVEL: 83
+DEBUG (5): STATUS: 0
+DEBUG (5): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (1): Sending alert message to the truck
+DEBUG (1): Truck received the message and acknowledged
+
+
+DEBUG (1): There was an attempt to add trash to the bin at time 0:10:29.882812510
+DEBUG (1): ADDED 9 units
+DEBUG (1): TRASH LEVEL: 95
+DEBUG (1): STATUS: 1
+DEBUG (1): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (3): Sending alert message to the truck
+DEBUG (3): Truck received the message and acknowledged
+
+
+DEBUG (6): There was an attempt to add trash to the bin at time 0:10:31.976562510
+DEBUG (6): ADDED 6 units
+DEBUG (6): TRASH LEVEL: 68
+DEBUG (6): STATUS: 0
+DEBUG (6): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (1): Sending alert message to the truck
+DEBUG (1): Truck received the message and acknowledged
+
+
+DEBUG (3): Sending alert message to the truck
+DEBUG (3): Truck received the message and acknowledged
+
+
+DEBUG (1): Sending alert message to the truck
+DEBUG (1): Truck received the message and acknowledged
+
+
+DEBUG (3): There was an attempt to add trash to the bin at time 0:10:38.742187510
+DEBUG (3): ADDED 3 units
+DEBUG (3): TRASH LEVEL: 98
+DEBUG (3): STATUS: 1
+DEBUG (3): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (2): There was an attempt to add trash to the bin at time 0:10:39.671875010
+DEBUG (2): ADDED 6 units
+DEBUG (2): TRASH LEVEL: 60
+DEBUG (2): STATUS: 0
+DEBUG (2): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (3): Sending alert message to the truck
+DEBUG (3): Truck received the message and acknowledged
+
+
+DEBUG (5): There was an attempt to add trash to the bin at time 0:10:40.742187510
+DEBUG (5): ADDED 6 units
+DEBUG (5): TRASH LEVEL: 89
+DEBUG (5): STATUS: 1
+DEBUG (5): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (6): There was an attempt to add trash to the bin at time 0:10:41.742187510
+DEBUG (6): ADDED 8 units
+DEBUG (6): TRASH LEVEL: 76
+DEBUG (6): STATUS: 0
+DEBUG (6): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (1): Sending alert message to the truck
+DEBUG (1): Truck received the message and acknowledged
+
+
+DEBUG (4): There was an attempt to add trash to the bin at time 0:10:43.648437510
+DEBUG (4): ADDED 5 units
+DEBUG (4): TRASH LEVEL: 15
+DEBUG (4): STATUS: 0
+DEBUG (4): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (1): There was an attempt to add trash to the bin at time 0:10:44.531250010
+DEBUG (1): ADDED 6 units
+DEBUG (1): TRASH LEVEL: 100
+DEBUG (1): STATUS: 2
+DEBUG (1): TRASH OUTSIDE: 1
+
+
+
+
+DEBUG (7): idk
+DEBUG (6): idk
+DEBUG (2): idk
+DEBUG (1): Received from neighbout: trash = 5
+
+
+DEBUG (1): idk
+DEBUG (1): idk
+DEBUG (1): Received from neighbout: trash = 2
+
+
+DEBUG (1): idk
+DEBUG (3): Sending alert message to the truck
+DEBUG (3): Truck received the message and acknowledged
+
+
+DEBUG (5): Sending alert message to the truck
+DEBUG (5): Truck received the message and acknowledged
+
+
+DEBUG (1): SENDING 1 to NEIGH 0DEBUG (3): There was an attempt to add trash to the bin at time 0:10:46.554687510
+DEBUG (3): ADDED 10 units
+DEBUG (3): TRASH LEVEL: 100
+DEBUG (3): STATUS: 2
+DEBUG (3): TRASH OUTSIDE: 8
+
+
+
+
+DEBUG (5): idk
+DEBUG (2): idk
+DEBUG (4): idk
+DEBUG (3): Received from neighbout: trash = 5
+
+
+DEBUG (3): idk
+DEBUG (3): Received from neighbout: trash = 4
+
+
+DEBUG (3): idk
+DEBUG (1): Sending alert message to the truck
+DEBUG (1): Truck received the message and acknowledged
+
+
+DEBUG (3): SENDING 8 to NEIGH 0DEBUG (7): There was an attempt to add trash to the bin at time 0:10:48.601562510
+DEBUG (7): ADDED 4 units
+DEBUG (7): TRASH LEVEL: 41
+DEBUG (7): STATUS: 0
+DEBUG (7): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (3): There was an attempt to add trash to the bin at time 0:10:49.484375010
+DEBUG (3): ADDED 4 units
+DEBUG (3): TRASH LEVEL: 100
+DEBUG (3): STATUS: 2
+DEBUG (3): TRASH OUTSIDE: 12
+
+
+
+
+DEBUG (3): Sending alert message to the truck
+DEBUG (3): Truck did not acknowledge the message
+
+
+DEBUG (5): Sending alert message to the truck
+DEBUG (5): Truck received the message and acknowledged
+
+
+DEBUG (1): Sending alert message to the truck
+DEBUG (1): Truck received the message and acknowledged
+
+
+DEBUG (3): There was an attempt to add trash to the bin at time 0:10:53.390625010
+DEBUG (3): ADDED 1 units
+DEBUG (3): TRASH LEVEL: 100
+DEBUG (3): STATUS: 2
+DEBUG (3): TRASH OUTSIDE: 13
+
+
+
+
+DEBUG (3): Sending alert message to the truck
+DEBUG (3): Truck received the message and acknowledged
+
+
+DEBUG (4): There was an attempt to add trash to the bin at time 0:10:54.390625010
+DEBUG (4): ADDED 8 units
+DEBUG (4): TRASH LEVEL: 23
+DEBUG (4): STATUS: 0
+DEBUG (4): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (7): There was an attempt to add trash to the bin at time 0:10:54.460937510
+DEBUG (7): ADDED 7 units
+DEBUG (7): TRASH LEVEL: 48
+DEBUG (7): STATUS: 0
+DEBUG (7): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (2): There was an attempt to add trash to the bin at time 0:10:55.296875010
+DEBUG (2): ADDED 5 units
+DEBUG (2): TRASH LEVEL: 65
+DEBUG (2): STATUS: 0
+DEBUG (2): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (5): Sending alert message to the truck
+DEBUG (5): Truck received the message and acknowledged
+
+
+DEBUG (3): There was an attempt to add trash to the bin at time 0:10:56.320312510
+DEBUG (3): ADDED 4 units
+DEBUG (3): TRASH LEVEL: 100
+DEBUG (3): STATUS: 2
+DEBUG (3): TRASH OUTSIDE: 17
+
+
+
+
+DEBUG (1): Sending alert message to the truck
+DEBUG (1): Truck received the message and acknowledged
+
+
+DEBUG (3): Sending alert message to the truck
+DEBUG (3): Truck received the message and acknowledged
+
+
+DEBUG (5): Sending alert message to the truck
+DEBUG (5): Truck received the message and acknowledged
+
+
+DEBUG (7): There was an attempt to add trash to the bin at time 0:11:1.296875010
+DEBUG (7): ADDED 5 units
+DEBUG (7): TRASH LEVEL: 53
+DEBUG (7): STATUS: 0
+DEBUG (7): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (1): Sending alert message to the truck
+DEBUG (1): Truck received the message and acknowledged
+
+
+DEBUG (5): There was an attempt to add trash to the bin at time 0:11:3.203125010
+DEBUG (5): ADDED 3 units
+DEBUG (5): TRASH LEVEL: 92
+DEBUG (5): STATUS: 1
+DEBUG (5): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (3): Sending alert message to the truck
+DEBUG (3): Truck received the message and acknowledged
+
+
+DEBUG (5): Sending alert message to the truck
+DEBUG (5): Truck received the message and acknowledged
+
+
+DEBUG (7): There was an attempt to add trash to the bin at time 0:11:6.179687510
+DEBUG (7): ADDED 7 units
+DEBUG (7): TRASH LEVEL: 60
+DEBUG (7): STATUS: 0
+DEBUG (7): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (1): Sending alert message to the truck
+DEBUG (1): Truck received the message and acknowledged
+
+
+DEBUG (6): There was an attempt to add trash to the bin at time 0:11:8.109375010
+DEBUG (6): ADDED 6 units
+DEBUG (6): TRASH LEVEL: 82
+DEBUG (6): STATUS: 0
+DEBUG (6): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (2): There was an attempt to add trash to the bin at time 0:11:8.968750010
+DEBUG (2): ADDED 4 units
+DEBUG (2): TRASH LEVEL: 69
+DEBUG (2): STATUS: 0
+DEBUG (2): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (3): Sending alert message to the truck
+DEBUG (3): Truck received the message and acknowledged
+
+
+DEBUG (5): Sending alert message to the truck
+DEBUG (5): Truck received the message and acknowledged
+
+
+DEBUG (1): Sending alert message to the truck
+DEBUG (1): Truck received the message and acknowledged
+
+
+DEBUG (0): Reached destination (1692,356)
+DEBUG (0): Bin 3 emptied
+
+
+DEBUG (0): Truck did not acknowledge the message
+
+
+DEBUG (1): There was an attempt to add trash to the bin at time 0:11:13.828125010
+DEBUG (1): ADDED 10 units
+DEBUG (1): TRASH LEVEL: 100
+DEBUG (1): STATUS: 2
+DEBUG (1): TRASH OUTSIDE: 11
+
+
+
+
+DEBUG (3): Sending alert message to the truck
+DEBUG (0): Distance to bin is 0 m
+DEBUG (0): Received ALERT message from 3
+DEBUG (0): Started traveling to (1692,356)
+
+
+DEBUG (0): Reached destination (1692,356)
+DEBUG (0): Bin 3 emptied
+
+
+DEBUG (3): Truck received the message and acknowledged
+
+
+DEBUG (3): Truck arrived at time 0:11:13.916366522
+DEBUG (3): BIN EMPTIED, new level: 0
+
+
+DEBUG (0): Truck received the message and acknowledged
+
+
+DEBUG (5): Sending alert message to the truck
+DEBUG (0): Distance to bin is 749 m
+DEBUG (0): Received ALERT message from 5
+DEBUG (0): Started traveling to (1306,998)
+
+
+DEBUG (5): Truck received the message and acknowledged
+
+
+DEBUG (1): Sending alert message to the truck
+DEBUG (1): Truck received the message and acknowledged
+
+
+DEBUG (4): There was an attempt to add trash to the bin at time 0:11:17.828125010
+DEBUG (4): ADDED 7 units
+DEBUG (4): TRASH LEVEL: 30
+DEBUG (4): STATUS: 0
+DEBUG (4): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (3): There was an attempt to add trash to the bin at time 0:11:19.757812510
+DEBUG (3): ADDED 4 units
+DEBUG (3): TRASH LEVEL: 4
+DEBUG (3): STATUS: 0
+DEBUG (3): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (5): Sending alert message to the truck
+DEBUG (5): Truck received the message and acknowledged
+
+
+DEBUG (1): There was an attempt to add trash to the bin at time 0:11:21.640625010
+DEBUG (1): ADDED 10 units
+DEBUG (1): TRASH LEVEL: 100
+DEBUG (1): STATUS: 2
+DEBUG (1): TRASH OUTSIDE: 21
+
+
+
+
+DEBUG (1): Sending alert message to the truck
+DEBUG (1): Truck received the message and acknowledged
+
+
+DEBUG (7): There was an attempt to add trash to the bin at time 0:11:23.757812510
+DEBUG (7): ADDED 7 units
+DEBUG (7): TRASH LEVEL: 67
+DEBUG (7): STATUS: 0
+DEBUG (7): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (0): Reached destination (1306,998)
+DEBUG (0): Bin 5 emptied
+
+
+DEBUG (0): Truck did not acknowledge the message
+
+
+DEBUG (5): Sending alert message to the truck
+DEBUG (0): Distance to bin is 0 m
+DEBUG (0): Received ALERT message from 5
+DEBUG (0): Started traveling to (1306,998)
+
+
+DEBUG (0): Reached destination (1306,998)
+DEBUG (0): Bin 5 emptied
+
+
+DEBUG (5): Truck received the message and acknowledged
+
+
+DEBUG (5): Truck arrived at time 0:11:24.699844338
+DEBUG (5): BIN EMPTIED, new level: 0
+
+
+DEBUG (0): Truck received the message and acknowledged
+
+
+DEBUG (1): There was an attempt to add trash to the bin at time 0:11:25.546875010
+DEBUG (1): ADDED 10 units
+DEBUG (1): TRASH LEVEL: 100
+DEBUG (1): STATUS: 2
+DEBUG (1): TRASH OUTSIDE: 31
+
+
+
+
+DEBUG (1): Sending alert message to the truck
+DEBUG (0): Distance to bin is 875 m
+DEBUG (0): Received ALERT message from 1
+DEBUG (0): Started traveling to (1614,178)
 
 
 DEBUG (1): Truck received the message and acknowledged
 
 
-DEBUG (7): There was an attempt to add trash to the bin at time 0:4:12.800781260
-DEBUG (2): There was an attempt to add trash to the bin at time 0:4:13.636718760
-DEBUG (2): ADDED 6 units
+DEBUG (5): There was an attempt to add trash to the bin at time 0:11:28.593750010
+DEBUG (5): ADDED 4 units
+DEBUG (5): TRASH LEVEL: 4
+DEBUG (5): STATUS: 0
+DEBUG (5): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (2): There was an attempt to add trash to the bin at time 0:11:30.453125010
+DEBUG (2): ADDED 1 units
+DEBUG (2): TRASH LEVEL: 70
+DEBUG (2): STATUS: 0
+DEBUG (2): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (6): There was an attempt to add trash to the bin at time 0:11:30.570312510
+DEBUG (6): ADDED 10 units
+DEBUG (6): TRASH LEVEL: 92
+DEBUG (6): STATUS: 1
+DEBUG (6): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (1): Sending alert message to the truck
+DEBUG (1): Truck received the message and acknowledged
+
+
+DEBUG (4): There was an attempt to add trash to the bin at time 0:11:33.453125010
+DEBUG (4): ADDED 5 units
+DEBUG (4): TRASH LEVEL: 35
+DEBUG (4): STATUS: 0
+DEBUG (4): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (6): Sending alert message to the truck
+DEBUG (6): Truck did not acknowledge the message
+
+
+DEBUG (7): There was an attempt to add trash to the bin at time 0:11:36.453125010
+DEBUG (7): ADDED 8 units
+DEBUG (7): TRASH LEVEL: 75
+DEBUG (7): STATUS: 0
+DEBUG (7): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (1): Sending alert message to the truck
+DEBUG (1): Truck received the message and acknowledged
+
+
+DEBUG (6): Sending alert message to the truck
+DEBUG (6): Truck received the message and acknowledged
+
+
+DEBUG (1): Sending alert message to the truck
+DEBUG (1): Truck received the message and acknowledged
+
+
+DEBUG (7): There was an attempt to add trash to the bin at time 0:11:43.289062510
+DEBUG (7): ADDED 4 units
+DEBUG (7): TRASH LEVEL: 79
+DEBUG (7): STATUS: 0
+DEBUG (7): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (6): Sending alert message to the truck
+DEBUG (6): Truck received the message and acknowledged
+
+
+DEBUG (1): Sending alert message to the truck
+DEBUG (1): Truck received the message and acknowledged
+
+
+DEBUG (0): Reached destination (1614,178)
+DEBUG (0): Bin 1 emptied
+
+
+DEBUG (1): Truck arrived at time 0:11:48.965255713
+DEBUG (1): BIN EMPTIED, new level: 0
+
+
+DEBUG (0): Truck received the message and acknowledged
+
+
+DEBUG (3): There was an attempt to add trash to the bin at time 0:11:49.054687510
+DEBUG (3): ADDED 2 units
+DEBUG (3): TRASH LEVEL: 6
+DEBUG (3): STATUS: 0
+DEBUG (3): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (1): There was an attempt to add trash to the bin at time 0:11:49.960937510
+DEBUG (1): ADDED 7 units
+DEBUG (1): TRASH LEVEL: 7
+DEBUG (1): STATUS: 0
+DEBUG (1): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (2): There was an attempt to add trash to the bin at time 0:11:49.984375010
+DEBUG (2): ADDED 5 units
+DEBUG (2): TRASH LEVEL: 75
+DEBUG (2): STATUS: 0
+DEBUG (2): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (6): Sending alert message to the truck
+DEBUG (0): Distance to bin is 1503 m
+DEBUG (0): Received ALERT message from 6
+DEBUG (0): Started traveling to (113,87)
+
+
+DEBUG (6): Truck received the message and acknowledged
+
+
+DEBUG (7): There was an attempt to add trash to the bin at time 0:11:54.031250010
+DEBUG (7): ADDED 4 units
+DEBUG (7): TRASH LEVEL: 83
+DEBUG (7): STATUS: 0
+DEBUG (7): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (6): Sending alert message to the truck
+DEBUG (6): Truck received the message and acknowledged
+
+
+DEBUG (2): There was an attempt to add trash to the bin at time 0:11:55.843750010
+DEBUG (2): ADDED 7 units
+DEBUG (2): TRASH LEVEL: 82
+DEBUG (2): STATUS: 0
+DEBUG (2): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (5): There was an attempt to add trash to the bin at time 0:11:55.937500010
+DEBUG (5): ADDED 10 units
+DEBUG (5): TRASH LEVEL: 14
+DEBUG (5): STATUS: 0
+DEBUG (5): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (4): There was an attempt to add trash to the bin at time 0:11:59.820312510
+DEBUG (4): ADDED 9 units
+DEBUG (4): TRASH LEVEL: 44
+DEBUG (4): STATUS: 0
+DEBUG (4): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (6): There was an attempt to add trash to the bin at time 0:11:59.867187510
+DEBUG (6): ADDED 5 units
+DEBUG (6): TRASH LEVEL: 97
+DEBUG (6): STATUS: 1
+DEBUG (6): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (6): Sending alert message to the truck
+DEBUG (6): Truck received the message and acknowledged
+
+
+DEBUG (2): There was an attempt to add trash to the bin at time 0:12:2.679687510
+DEBUG (2): ADDED 8 units
 DEBUG (2): TRASH LEVEL: 90
 DEBUG (2): STATUS: 1
 DEBUG (2): TRASH OUTSIDE: 0
@@ -837,35 +4034,3013 @@ DEBUG (2): TRASH OUTSIDE: 0
 
 
 
-DEBUG (7): There was an attempt to add trash to the bin at time 0:4:13.679687510
-DEBUG (2): There was an attempt to add trash to the bin at time 0:4:14.515625010
-DEBUG (7): There was an attempt to add trash to the bin at time 0:4:15.730468760
-DEBUG (2): There was an attempt to add trash to the bin at time 0:4:15.980468760
+DEBUG (6): Sending alert message to the truck
+DEBUG (6): Truck received the message and acknowledged
+
+
+DEBUG (7): There was an attempt to add trash to the bin at time 0:12:5.750000010
+DEBUG (7): ADDED 9 units
+DEBUG (7): TRASH LEVEL: 92
+DEBUG (7): STATUS: 1
+DEBUG (7): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (1): There was an attempt to add trash to the bin at time 0:12:6.562500010
+DEBUG (1): ADDED 4 units
+DEBUG (1): TRASH LEVEL: 11
+DEBUG (1): STATUS: 0
+DEBUG (1): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (2): Sending alert message to the truck
+DEBUG (2): Truck received the message and acknowledged
+
+
+DEBUG (1): There was an attempt to add trash to the bin at time 0:12:8.515625010
+DEBUG (1): ADDED 2 units
+DEBUG (1): TRASH LEVEL: 13
+DEBUG (1): STATUS: 0
+DEBUG (1): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (7): There was an attempt to add trash to the bin at time 0:12:8.679687510
+DEBUG (7): ADDED 3 units
+DEBUG (7): TRASH LEVEL: 95
+DEBUG (7): STATUS: 1
+DEBUG (7): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (0): Reached destination (113,87)
+DEBUG (0): Bin 6 emptied
+
+
+DEBUG (6): Truck arrived at time 0:12:8.891723639
+DEBUG (6): BIN EMPTIED, new level: 0
+
+
+DEBUG (0): Truck received the message and acknowledged
+
+
+DEBUG (7): Sending alert message to the truck
+DEBUG (0): Distance to bin is 1674 m
+DEBUG (0): Received ALERT message from 7
+DEBUG (0): Started traveling to (1384,1177)
+
+
+DEBUG (7): Truck received the message and acknowledged
+
+
+DEBUG (2): Sending alert message to the truck
+DEBUG (2): Truck received the message and acknowledged
+
+
+DEBUG (6): There was an attempt to add trash to the bin at time 0:12:12.562500010
+DEBUG (6): ADDED 3 units
+DEBUG (6): TRASH LEVEL: 3
+DEBUG (6): STATUS: 0
+DEBUG (6): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (2): There was an attempt to add trash to the bin at time 0:12:13.421875010
+DEBUG (2): ADDED 2 units
+DEBUG (2): TRASH LEVEL: 92
+DEBUG (2): STATUS: 1
+DEBUG (2): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (3): There was an attempt to add trash to the bin at time 0:12:15.421875010
+DEBUG (3): ADDED 10 units
+DEBUG (3): TRASH LEVEL: 16
+DEBUG (3): STATUS: 0
+DEBUG (3): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (7): Sending alert message to the truck
+DEBUG (7): Truck received the message and acknowledged
+
+
+DEBUG (5): There was an attempt to add trash to the bin at time 0:12:16.445312510
+DEBUG (5): ADDED 8 units
+DEBUG (5): TRASH LEVEL: 22
+DEBUG (5): STATUS: 0
+DEBUG (5): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (2): Sending alert message to the truck
+DEBUG (2): Truck received the message and acknowledged
+
+
+DEBUG (5): There was an attempt to add trash to the bin at time 0:12:20.351562510
+DEBUG (5): ADDED 6 units
+DEBUG (5): TRASH LEVEL: 28
+DEBUG (5): STATUS: 0
+DEBUG (5): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (7): Sending alert message to the truck
+DEBUG (7): Truck received the message and acknowledged
+
+
+DEBUG (3): There was an attempt to add trash to the bin at time 0:12:21.281250010
+DEBUG (3): ADDED 5 units
+DEBUG (3): TRASH LEVEL: 21
+DEBUG (3): STATUS: 0
+DEBUG (3): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (2): Sending alert message to the truck
+DEBUG (2): Truck received the message and acknowledged
+
+
+DEBUG (2): There was an attempt to add trash to the bin at time 0:12:23.187500010
+DEBUG (2): ADDED 3 units
+DEBUG (2): TRASH LEVEL: 95
+DEBUG (2): STATUS: 1
+DEBUG (2): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (7): There was an attempt to add trash to the bin at time 0:12:23.328125010
+DEBUG (7): ADDED 8 units
+DEBUG (7): TRASH LEVEL: 100
+DEBUG (7): STATUS: 2
+DEBUG (7): TRASH OUTSIDE: 3
+
+
+
+
+DEBUG (6): idk
+DEBUG (1): idk
+DEBUG (5): idk
+DEBUG (7): idk
+DEBUG (7): idk
+DEBUG (4): There was an attempt to add trash to the bin at time 0:12:24.234375010
+DEBUG (4): ADDED 5 units
+DEBUG (4): TRASH LEVEL: 49
+DEBUG (4): STATUS: 0
+DEBUG (4): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (7): Sending alert message to the truck
+DEBUG (7): SENDING 3 to NEIGH 0DEBUG (7): Truck received the message and acknowledged
+
+
+DEBUG (2): Sending alert message to the truck
+DEBUG (2): Truck received the message and acknowledged
+
+
+DEBUG (7): Sending alert message to the truck
+DEBUG (7): Truck did not acknowledge the message
+
+
+DEBUG (2): Sending alert message to the truck
+DEBUG (2): Truck received the message and acknowledged
+
+
+DEBUG (1): There was an attempt to add trash to the bin at time 0:12:34.882812510
+DEBUG (1): ADDED 2 units
+DEBUG (1): TRASH LEVEL: 15
+DEBUG (1): STATUS: 0
+DEBUG (1): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (7): Sending alert message to the truck
+DEBUG (7): Truck received the message and acknowledged
+
+
+DEBUG (2): Sending alert message to the truck
+DEBUG (2): Truck received the message and acknowledged
+
+
+DEBUG (6): There was an attempt to add trash to the bin at time 0:12:36.976562510
+DEBUG (6): ADDED 9 units
+DEBUG (6): TRASH LEVEL: 12
+DEBUG (6): STATUS: 0
+DEBUG (6): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (7): Sending alert message to the truck
+DEBUG (7): Truck received the message and acknowledged
+
+
+DEBUG (5): There was an attempt to add trash to the bin at time 0:12:40.859375010
+DEBUG (5): ADDED 6 units
+DEBUG (5): TRASH LEVEL: 34
+DEBUG (5): STATUS: 0
+DEBUG (5): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (2): Sending alert message to the truck
+DEBUG (2): Truck received the message and acknowledged
+
+
+DEBUG (3): There was an attempt to add trash to the bin at time 0:12:41.789062510
+DEBUG (3): ADDED 3 units
+DEBUG (3): TRASH LEVEL: 24
+DEBUG (3): STATUS: 0
+DEBUG (3): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (7): Sending alert message to the truck
+DEBUG (7): Truck received the message and acknowledged
+
+
+DEBUG (0): Reached destination (1384,1177)
+DEBUG (0): Bin 7 emptied
+
+
+DEBUG (7): Truck arrived at time 0:12:46.115646361
+DEBUG (7): BIN EMPTIED, new level: 0
+
+
+DEBUG (0): Truck received the message and acknowledged
+
+
+DEBUG (2): Sending alert message to the truck
+DEBUG (0): Distance to bin is 967 m
+DEBUG (0): Received ALERT message from 2
+DEBUG (0): Started traveling to (421,1267)
+
+
+DEBUG (2): Truck received the message and acknowledged
+
+
+DEBUG (4): There was an attempt to add trash to the bin at time 0:12:46.695312510
+DEBUG (4): ADDED 2 units
+DEBUG (4): TRASH LEVEL: 51
+DEBUG (4): STATUS: 0
+DEBUG (4): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (5): There was an attempt to add trash to the bin at time 0:12:46.718750010
+DEBUG (5): ADDED 3 units
+DEBUG (5): TRASH LEVEL: 37
+DEBUG (5): STATUS: 0
+DEBUG (5): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (6): There was an attempt to add trash to the bin at time 0:12:46.742187510
+DEBUG (6): ADDED 2 units
+DEBUG (6): TRASH LEVEL: 14
+DEBUG (6): STATUS: 0
+DEBUG (6): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (2): There was an attempt to add trash to the bin at time 0:12:48.578125010
+DEBUG (2): ADDED 6 units
+DEBUG (2): TRASH LEVEL: 100
+DEBUG (2): STATUS: 2
+DEBUG (2): TRASH OUTSIDE: 1
+
+
+
+
+DEBUG (3): idk
+DEBUG (1): idk
+DEBUG (6): idk
+DEBUG (4): idk
+DEBUG (2): Received from neighbout: trash = 4
+
+
+DEBUG (2): idk
+DEBUG (2): Received from neighbout: trash = 1
+
+
+DEBUG (2): idk
+DEBUG (5): There was an attempt to add trash to the bin at time 0:12:48.671875010
+DEBUG (5): ADDED 9 units
+DEBUG (5): TRASH LEVEL: 46
+DEBUG (5): STATUS: 0
+DEBUG (5): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (2): SENDING 1 to NEIGH 0DEBUG (7): There was an attempt to add trash to the bin at time 0:12:50.671875010
+DEBUG (7): ADDED 4 units
+DEBUG (7): TRASH LEVEL: 4
+DEBUG (7): STATUS: 0
+DEBUG (7): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (2): Sending alert message to the truck
+DEBUG (2): Truck received the message and acknowledged
+
+
+DEBUG (3): There was an attempt to add trash to the bin at time 0:12:51.554687510
+DEBUG (3): ADDED 7 units
+DEBUG (3): TRASH LEVEL: 31
+DEBUG (3): STATUS: 0
+DEBUG (3): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (6): There was an attempt to add trash to the bin at time 0:12:52.601562510
+DEBUG (6): ADDED 8 units
+DEBUG (6): TRASH LEVEL: 22
+DEBUG (6): STATUS: 0
+DEBUG (6): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (2): Sending alert message to the truck
+DEBUG (2): Truck received the message and acknowledged
+
+
+DEBUG (1): There was an attempt to add trash to the bin at time 0:12:57.343750010
+DEBUG (1): ADDED 1 units
+DEBUG (1): TRASH LEVEL: 16
+DEBUG (1): STATUS: 0
+DEBUG (1): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (2): There was an attempt to add trash to the bin at time 0:12:59.320312510
+DEBUG (2): ADDED 10 units
+DEBUG (2): TRASH LEVEL: 100
+DEBUG (2): STATUS: 2
+DEBUG (2): TRASH OUTSIDE: 11
+
+
+
+
+DEBUG (2): There was an attempt to add trash to the bin at time 0:13:0.296875010
+DEBUG (2): ADDED 5 units
+DEBUG (2): TRASH LEVEL: 100
+DEBUG (2): STATUS: 2
+DEBUG (2): TRASH OUTSIDE: 16
+
+
+
+
+DEBUG (2): Sending alert message to the truck
+DEBUG (2): Truck received the message and acknowledged
+
+
+DEBUG (4): There was an attempt to add trash to the bin at time 0:13:4.273437510
+DEBUG (4): ADDED 5 units
+DEBUG (4): TRASH LEVEL: 56
+DEBUG (4): STATUS: 0
+DEBUG (4): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (7): There was an attempt to add trash to the bin at time 0:13:5.320312510
+DEBUG (7): ADDED 2 units
+DEBUG (7): TRASH LEVEL: 6
+DEBUG (7): STATUS: 0
+DEBUG (7): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (2): Sending alert message to the truck
+DEBUG (2): Truck received the message and acknowledged
+
+
+DEBUG (7): There was an attempt to add trash to the bin at time 0:13:10.203125010
+DEBUG (7): ADDED 1 units
+DEBUG (7): TRASH LEVEL: 7
+DEBUG (7): STATUS: 0
+DEBUG (7): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (2): Sending alert message to the truck
+DEBUG (2): Truck received the message and acknowledged
+
+
+DEBUG (6): There was an attempt to add trash to the bin at time 0:13:11.156250010
+DEBUG (6): ADDED 2 units
+DEBUG (6): TRASH LEVEL: 24
+DEBUG (6): STATUS: 0
+DEBUG (6): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (3): There was an attempt to add trash to the bin at time 0:13:14.015625010
+DEBUG (3): ADDED 2 units
+DEBUG (3): TRASH LEVEL: 33
+DEBUG (3): STATUS: 0
+DEBUG (3): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (2): Sending alert message to the truck
+DEBUG (2): Truck received the message and acknowledged
+
+
+DEBUG (0): Reached destination (421,1267)
+DEBUG (0): Bin 2 emptied
+
+
+DEBUG (2): Truck arrived at time 0:13:17.076415992
+DEBUG (2): BIN EMPTIED, new level: 0
+
+
+DEBUG (0): Truck received the message and acknowledged
+
+
+DEBUG (5): There was an attempt to add trash to the bin at time 0:13:17.968750010
+DEBUG (5): ADDED 10 units
+DEBUG (5): TRASH LEVEL: 56
+DEBUG (5): STATUS: 0
+DEBUG (5): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (1): There was an attempt to add trash to the bin at time 0:13:18.828125010
+DEBUG (1): ADDED 5 units
+DEBUG (1): TRASH LEVEL: 21
+DEBUG (1): STATUS: 0
+DEBUG (1): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (5): There was an attempt to add trash to the bin at time 0:13:18.945312510
+DEBUG (5): ADDED 6 units
+DEBUG (5): TRASH LEVEL: 62
+DEBUG (5): STATUS: 0
+DEBUG (5): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (4): There was an attempt to add trash to the bin at time 0:13:25.757812510
+DEBUG (4): ADDED 10 units
+DEBUG (4): TRASH LEVEL: 66
+DEBUG (4): STATUS: 0
+DEBUG (4): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (3): There was an attempt to add trash to the bin at time 0:13:27.687500010
+DEBUG (3): ADDED 7 units
+DEBUG (3): TRASH LEVEL: 40
+DEBUG (3): STATUS: 0
+DEBUG (3): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (1): There was an attempt to add trash to the bin at time 0:13:29.570312510
+DEBUG (1): ADDED 1 units
+DEBUG (1): TRASH LEVEL: 22
+DEBUG (1): STATUS: 0
+DEBUG (1): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (2): There was an attempt to add trash to the bin at time 0:13:29.593750010
+DEBUG (2): ADDED 5 units
+DEBUG (2): TRASH LEVEL: 5
+DEBUG (2): STATUS: 0
+DEBUG (2): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (5): There was an attempt to add trash to the bin at time 0:13:31.640625010
+DEBUG (5): ADDED 5 units
+DEBUG (5): TRASH LEVEL: 67
+DEBUG (5): STATUS: 0
+DEBUG (5): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (7): There was an attempt to add trash to the bin at time 0:13:35.593750010
+DEBUG (7): ADDED 8 units
+DEBUG (7): TRASH LEVEL: 15
+DEBUG (7): STATUS: 0
+DEBUG (7): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (4): There was an attempt to add trash to the bin at time 0:13:36.500000010
+DEBUG (4): ADDED 9 units
+DEBUG (4): TRASH LEVEL: 75
+DEBUG (4): STATUS: 0
+DEBUG (4): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (6): There was an attempt to add trash to the bin at time 0:13:38.500000010
+DEBUG (6): ADDED 1 units
+DEBUG (6): TRASH LEVEL: 25
+DEBUG (6): STATUS: 0
+DEBUG (6): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (7): There was an attempt to add trash to the bin at time 0:13:39.500000010
+DEBUG (7): ADDED 8 units
+DEBUG (7): TRASH LEVEL: 23
+DEBUG (7): STATUS: 0
+DEBUG (7): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (1): There was an attempt to add trash to the bin at time 0:13:40.312500010
+DEBUG (1): ADDED 10 units
+DEBUG (1): TRASH LEVEL: 32
+DEBUG (1): STATUS: 0
+DEBUG (1): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (2): There was an attempt to add trash to the bin at time 0:13:45.218750010
+DEBUG (2): ADDED 6 units
+DEBUG (2): TRASH LEVEL: 11
+DEBUG (2): STATUS: 0
+DEBUG (2): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (3): There was an attempt to add trash to the bin at time 0:13:50.148437510
+DEBUG (3): ADDED 4 units
+DEBUG (3): TRASH LEVEL: 44
+DEBUG (3): STATUS: 0
+DEBUG (3): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (3): There was an attempt to add trash to the bin at time 0:13:53.078125010
+DEBUG (3): ADDED 4 units
+DEBUG (3): TRASH LEVEL: 48
+DEBUG (3): STATUS: 0
+DEBUG (3): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (5): There was an attempt to add trash to the bin at time 0:13:57.031250010
+DEBUG (5): ADDED 7 units
+DEBUG (5): TRASH LEVEL: 74
+DEBUG (5): STATUS: 0
+DEBUG (5): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (1): There was an attempt to add trash to the bin at time 0:13:59.843750010
+DEBUG (1): ADDED 9 units
+DEBUG (1): TRASH LEVEL: 41
+DEBUG (1): STATUS: 0
+DEBUG (1): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (4): There was an attempt to add trash to the bin at time 0:14:1.890625010
+DEBUG (4): ADDED 9 units
+DEBUG (4): TRASH LEVEL: 84
+DEBUG (4): STATUS: 0
+DEBUG (4): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (6): There was an attempt to add trash to the bin at time 0:14:1.937500010
+DEBUG (6): ADDED 2 units
+DEBUG (6): TRASH LEVEL: 27
+DEBUG (6): STATUS: 0
+DEBUG (6): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (3): There was an attempt to add trash to the bin at time 0:14:5.773437510
+DEBUG (3): ADDED 7 units
+DEBUG (3): TRASH LEVEL: 55
+DEBUG (3): STATUS: 0
+DEBUG (3): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (4): There was an attempt to add trash to the bin at time 0:14:5.796875010
+DEBUG (4): ADDED 6 units
+DEBUG (4): TRASH LEVEL: 90
+DEBUG (4): STATUS: 1
+DEBUG (4): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (7): There was an attempt to add trash to the bin at time 0:14:7.820312510
+DEBUG (7): ADDED 3 units
+DEBUG (7): TRASH LEVEL: 26
+DEBUG (7): STATUS: 0
+DEBUG (7): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (4): Sending alert message to the truck
+DEBUG (0): Distance to bin is 646 m
+DEBUG (0): Received ALERT message from 4
+DEBUG (0): Started traveling to (499,1909)
+
+
+DEBUG (4): Truck did not acknowledge the message
+
+
+DEBUG (5): There was an attempt to add trash to the bin at time 0:14:10.703125010
+DEBUG (5): ADDED 1 units
+DEBUG (5): TRASH LEVEL: 75
+DEBUG (5): STATUS: 0
+DEBUG (5): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (2): There was an attempt to add trash to the bin at time 0:14:14.515625010
+DEBUG (2): ADDED 8 units
+DEBUG (2): TRASH LEVEL: 19
+DEBUG (2): STATUS: 0
+DEBUG (2): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (4): There was an attempt to add trash to the bin at time 0:14:14.585937510
+DEBUG (4): ADDED 3 units
+DEBUG (4): TRASH LEVEL: 93
+DEBUG (4): STATUS: 1
+DEBUG (4): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (5): There was an attempt to add trash to the bin at time 0:14:14.609375010
+DEBUG (5): ADDED 10 units
+DEBUG (5): TRASH LEVEL: 85
+DEBUG (5): STATUS: 1
+DEBUG (5): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (7): There was an attempt to add trash to the bin at time 0:14:14.656250010
+DEBUG (7): ADDED 4 units
+DEBUG (7): TRASH LEVEL: 30
+DEBUG (7): STATUS: 0
+DEBUG (7): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (4): Sending alert message to the truck
+DEBUG (4): Truck received the message and acknowledged
+
+
+DEBUG (6): There was an attempt to add trash to the bin at time 0:14:15.609375010
+DEBUG (6): ADDED 6 units
+DEBUG (6): TRASH LEVEL: 33
+DEBUG (6): STATUS: 0
+DEBUG (6): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (5): There was an attempt to add trash to the bin at time 0:14:18.515625010
+DEBUG (5): ADDED 8 units
+DEBUG (5): TRASH LEVEL: 93
+DEBUG (5): STATUS: 1
+DEBUG (5): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (1): There was an attempt to add trash to the bin at time 0:14:19.375000010
+DEBUG (1): ADDED 1 units
+DEBUG (1): TRASH LEVEL: 42
+DEBUG (1): STATUS: 0
+DEBUG (1): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (5): Sending alert message to the truck
+DEBUG (5): Truck received the message and acknowledged
+
+
+DEBUG (2): There was an attempt to add trash to the bin at time 0:14:20.375000010
+DEBUG (2): ADDED 2 units
+DEBUG (2): TRASH LEVEL: 21
+DEBUG (2): STATUS: 0
+DEBUG (2): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (4): Sending alert message to the truck
+DEBUG (4): Truck received the message and acknowledged
+
+
+DEBUG (3): There was an attempt to add trash to the bin at time 0:14:22.375000010
+DEBUG (3): ADDED 9 units
+DEBUG (3): TRASH LEVEL: 64
+DEBUG (3): STATUS: 0
+DEBUG (3): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (5): Sending alert message to the truck
+DEBUG (5): Truck received the message and acknowledged
+
+
+DEBUG (4): Sending alert message to the truck
+DEBUG (4): Truck received the message and acknowledged
+
+
+DEBUG (7): There was an attempt to add trash to the bin at time 0:14:25.398437510
+DEBUG (7): ADDED 6 units
+DEBUG (7): TRASH LEVEL: 36
+DEBUG (7): STATUS: 0
+DEBUG (7): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (4): There was an attempt to add trash to the bin at time 0:14:28.257812510
+DEBUG (4): ADDED 9 units
+DEBUG (4): TRASH LEVEL: 100
+DEBUG (4): STATUS: 2
+DEBUG (4): TRASH OUTSIDE: 2
+
+
+
+
+DEBUG (5): idk
+DEBUG (2): idk
+DEBUG (3): idk
+DEBUG (4): Received from neighbout: trash = 1
+
+
+DEBUG (4): idk
+DEBUG (4): Received from neighbout: trash = 8
+
+
+DEBUG (4): idk
+DEBUG (5): Sending alert message to the truck
+DEBUG (5): Truck received the message and acknowledged
+
+
+DEBUG (4): Sending alert message to the truck
+DEBUG (4): SENDING 2 to NEIGH 0DEBUG (4): Truck received the message and acknowledged
+
+
+DEBUG (5): Sending alert message to the truck
+DEBUG (5): Truck received the message and acknowledged
+
+
+DEBUG (4): Sending alert message to the truck
+DEBUG (4): Truck received the message and acknowledged
+
+
+DEBUG (3): There was an attempt to add trash to the bin at time 0:14:37.023437510
+DEBUG (3): ADDED 10 units
+DEBUG (3): TRASH LEVEL: 74
+DEBUG (3): STATUS: 0
+DEBUG (3): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (5): Sending alert message to the truck
+DEBUG (5): Truck received the message and acknowledged
+
+
+DEBUG (4): Sending alert message to the truck
+DEBUG (4): Truck received the message and acknowledged
+
+
+DEBUG (6): There was an attempt to add trash to the bin at time 0:14:41.976562510
+DEBUG (6): ADDED 6 units
+DEBUG (6): TRASH LEVEL: 39
+DEBUG (6): STATUS: 0
+DEBUG (6): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (5): Sending alert message to the truck
+DEBUG (5): Truck received the message and acknowledged
+
+
+DEBUG (4): Sending alert message to the truck
+DEBUG (4): Truck received the message and acknowledged
+
+
+DEBUG (5): There was an attempt to add trash to the bin at time 0:14:44.882812510
+DEBUG (5): ADDED 8 units
+DEBUG (5): TRASH LEVEL: 100
+DEBUG (5): STATUS: 2
+DEBUG (5): TRASH OUTSIDE: 1
+
+
+
+
+DEBUG (7): idk
+DEBUG (6): idk
+DEBUG (4): idk
+DEBUG (3): idk
+DEBUG (5): idk
+DEBUG (5): Received from neighbout: trash = 3
+
+
+DEBUG (5): idk
+DEBUG (5): Received from neighbout: trash = 8
+
+
+DEBUG (5): idk
+DEBUG (5): SENDING 1 to NEIGH 0DEBUG (4): There was an attempt to add trash to the bin at time 0:14:47.789062510
+DEBUG (4): ADDED 2 units
+DEBUG (4): TRASH LEVEL: 100
+DEBUG (4): STATUS: 2
+DEBUG (4): TRASH OUTSIDE: 4
+
+
+
+
+DEBUG (1): There was an attempt to add trash to the bin at time 0:14:48.671875010
+DEBUG (1): ADDED 4 units
+DEBUG (1): TRASH LEVEL: 46
+DEBUG (1): STATUS: 0
+DEBUG (1): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (5): Sending alert message to the truck
+DEBUG (5): Truck received the message and acknowledged
+
+
+DEBUG (2): There was an attempt to add trash to the bin at time 0:14:49.671875010
+DEBUG (2): ADDED 6 units
+DEBUG (2): TRASH LEVEL: 27
+DEBUG (2): STATUS: 0
+DEBUG (2): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (4): Sending alert message to the truck
+DEBUG (4): Truck received the message and acknowledged
+
+
+DEBUG (7): There was an attempt to add trash to the bin at time 0:14:52.742187510
+DEBUG (7): ADDED 6 units
+DEBUG (7): TRASH LEVEL: 42
+DEBUG (7): STATUS: 0
+DEBUG (7): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (5): Sending alert message to the truck
+DEBUG (5): Truck received the message and acknowledged
+
+
+DEBUG (4): Sending alert message to the truck
+DEBUG (4): Truck received the message and acknowledged
+
+
+DEBUG (3): There was an attempt to add trash to the bin at time 0:14:55.578125010
+DEBUG (3): ADDED 2 units
+DEBUG (3): TRASH LEVEL: 76
+DEBUG (3): STATUS: 0
+DEBUG (3): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (5): There was an attempt to add trash to the bin at time 0:14:55.625000010
+DEBUG (5): ADDED 5 units
+DEBUG (5): TRASH LEVEL: 100
+DEBUG (5): STATUS: 2
+DEBUG (5): TRASH OUTSIDE: 6
+
+
+
+
+DEBUG (5): Sending alert message to the truck
+DEBUG (5): Truck received the message and acknowledged
+
+
+DEBUG (4): Sending alert message to the truck
+DEBUG (4): Truck received the message and acknowledged
+
+
+DEBUG (1): There was an attempt to add trash to the bin at time 0:15:0.390625010
+DEBUG (1): ADDED 2 units
+DEBUG (1): TRASH LEVEL: 48
+DEBUG (1): STATUS: 0
+DEBUG (1): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (6): There was an attempt to add trash to the bin at time 0:15:0.531250010
+DEBUG (6): ADDED 3 units
+DEBUG (6): TRASH LEVEL: 42
+DEBUG (6): STATUS: 0
+DEBUG (6): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (1): There was an attempt to add trash to the bin at time 0:15:2.343750010
+DEBUG (1): ADDED 10 units
+DEBUG (1): TRASH LEVEL: 58
+DEBUG (1): STATUS: 0
+DEBUG (1): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (5): There was an attempt to add trash to the bin at time 0:15:2.460937510
+DEBUG (5): ADDED 8 units
+DEBUG (5): TRASH LEVEL: 100
+DEBUG (5): STATUS: 2
+DEBUG (5): TRASH OUTSIDE: 14
+
+
+
+
+DEBUG (5): Sending alert message to the truck
+DEBUG (5): Truck received the message and acknowledged
+
+
+DEBUG (4): Sending alert message to the truck
+DEBUG (4): Truck received the message and acknowledged
+
+
+DEBUG (4): There was an attempt to add trash to the bin at time 0:15:6.343750010
+DEBUG (4): ADDED 1 units
+DEBUG (4): TRASH LEVEL: 100
+DEBUG (4): STATUS: 2
+DEBUG (4): TRASH OUTSIDE: 5
+
+
+
+
+DEBUG (5): Sending alert message to the truck
+DEBUG (5): Truck received the message and acknowledged
+
+
+DEBUG (4): Sending alert message to the truck
+DEBUG (4): Truck received the message and acknowledged
+
+
+DEBUG (4): There was an attempt to add trash to the bin at time 0:15:11.226562510
+DEBUG (4): ADDED 5 units
+DEBUG (4): TRASH LEVEL: 100
+DEBUG (4): STATUS: 2
+DEBUG (4): TRASH OUTSIDE: 10
+
+
+
+
+DEBUG (7): There was an attempt to add trash to the bin at time 0:15:12.273437510
+DEBUG (7): ADDED 3 units
+DEBUG (7): TRASH LEVEL: 45
+DEBUG (7): STATUS: 0
+DEBUG (7): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (5): Sending alert message to the truck
+DEBUG (5): Truck received the message and acknowledged
+
+
+DEBUG (0): Reached destination (499,1909)
+DEBUG (0): Bin 4 emptied
+
+
+DEBUG (4): Truck arrived at time 0:15:13.777908334
+DEBUG (4): BIN EMPTIED, new level: 0
+
+
+DEBUG (0): Truck received the message and acknowledged
+
+
+DEBUG (2): There was an attempt to add trash to the bin at time 0:15:14.085937510
+DEBUG (2): ADDED 10 units
+DEBUG (2): TRASH LEVEL: 37
+DEBUG (2): STATUS: 0
+DEBUG (2): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (1): There was an attempt to add trash to the bin at time 0:15:16.992187510
+DEBUG (1): ADDED 7 units
+DEBUG (1): TRASH LEVEL: 65
+DEBUG (1): STATUS: 0
+DEBUG (1): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (4): There was an attempt to add trash to the bin at time 0:15:17.085937510
+DEBUG (4): ADDED 7 units
+DEBUG (4): TRASH LEVEL: 7
+DEBUG (4): STATUS: 0
+DEBUG (4): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (5): Sending alert message to the truck
+DEBUG (0): Distance to bin is 1217 m
+DEBUG (0): Received ALERT message from 5
+DEBUG (0): Started traveling to (1306,998)
+
+
+DEBUG (5): Truck received the message and acknowledged
+
+
+DEBUG (5): There was an attempt to add trash to the bin at time 0:15:22.968750010
+DEBUG (5): ADDED 3 units
+DEBUG (5): TRASH LEVEL: 100
+DEBUG (5): STATUS: 2
+DEBUG (5): TRASH OUTSIDE: 17
+
+
+
+
+DEBUG (5): Sending alert message to the truck
+DEBUG (5): Truck received the message and acknowledged
+
+
+DEBUG (3): There was an attempt to add trash to the bin at time 0:15:23.898437510
+DEBUG (3): ADDED 3 units
+DEBUG (3): TRASH LEVEL: 79
+DEBUG (3): STATUS: 0
+DEBUG (3): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (6): There was an attempt to add trash to the bin at time 0:15:23.968750010
+DEBUG (6): ADDED 5 units
+DEBUG (6): TRASH LEVEL: 47
+DEBUG (6): STATUS: 0
+DEBUG (6): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (5): Sending alert message to the truck
+DEBUG (5): Truck received the message and acknowledged
+
+
+DEBUG (2): There was an attempt to add trash to the bin at time 0:15:30.687500010
+DEBUG (2): ADDED 7 units
+DEBUG (2): TRASH LEVEL: 44
+DEBUG (2): STATUS: 0
+DEBUG (2): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (5): Sending alert message to the truck
+DEBUG (5): Truck received the message and acknowledged
+
+
+DEBUG (4): There was an attempt to add trash to the bin at time 0:15:35.640625010
+DEBUG (4): ADDED 9 units
+DEBUG (4): TRASH LEVEL: 16
+DEBUG (4): STATUS: 0
+DEBUG (4): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (2): There was an attempt to add trash to the bin at time 0:15:37.523437510
+DEBUG (2): ADDED 4 units
+DEBUG (2): TRASH LEVEL: 48
+DEBUG (2): STATUS: 0
+DEBUG (2): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (3): There was an attempt to add trash to the bin at time 0:15:37.570312510
+DEBUG (3): ADDED 1 units
+DEBUG (3): TRASH LEVEL: 80
+DEBUG (3): STATUS: 0
+DEBUG (3): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (5): Sending alert message to the truck
+DEBUG (5): Truck received the message and acknowledged
+
+
+DEBUG (1): There was an attempt to add trash to the bin at time 0:15:40.429687510
+DEBUG (1): ADDED 3 units
+DEBUG (1): TRASH LEVEL: 68
+DEBUG (1): STATUS: 0
+DEBUG (1): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (4): There was an attempt to add trash to the bin at time 0:15:40.523437510
+DEBUG (4): ADDED 1 units
+DEBUG (4): TRASH LEVEL: 17
+DEBUG (4): STATUS: 0
+DEBUG (4): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (7): There was an attempt to add trash to the bin at time 0:15:41.570312510
+DEBUG (7): ADDED 8 units
+DEBUG (7): TRASH LEVEL: 53
+DEBUG (7): STATUS: 0
+DEBUG (7): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (5): Sending alert message to the truck
+DEBUG (5): Truck received the message and acknowledged
+
+
+DEBUG (5): Sending alert message to the truck
+DEBUG (5): Truck received the message and acknowledged
+
+
+DEBUG (5): There was an attempt to add trash to the bin at time 0:15:49.335937510
+DEBUG (5): ADDED 7 units
+DEBUG (5): TRASH LEVEL: 100
+DEBUG (5): STATUS: 2
+DEBUG (5): TRASH OUTSIDE: 24
+
+
+
+
+DEBUG (6): There was an attempt to add trash to the bin at time 0:15:50.335937510
+DEBUG (6): ADDED 9 units
+DEBUG (6): TRASH LEVEL: 56
+DEBUG (6): STATUS: 0
+DEBUG (6): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (5): Sending alert message to the truck
+DEBUG (5): Truck received the message and acknowledged
+
+
+DEBUG (5): There was an attempt to add trash to the bin at time 0:15:55.195312510
+DEBUG (5): ADDED 4 units
+DEBUG (5): TRASH LEVEL: 100
+DEBUG (5): STATUS: 2
+DEBUG (5): TRASH OUTSIDE: 28
+
+
+
+
+DEBUG (6): There was an attempt to add trash to the bin at time 0:15:56.195312510
+DEBUG (6): ADDED 4 units
+DEBUG (6): TRASH LEVEL: 60
+DEBUG (6): STATUS: 0
+DEBUG (6): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (5): Sending alert message to the truck
+DEBUG (5): Truck received the message and acknowledged
+
+
+DEBUG (3): There was an attempt to add trash to the bin at time 0:16:1.984375010
+DEBUG (3): ADDED 10 units
+DEBUG (3): TRASH LEVEL: 90
+DEBUG (3): STATUS: 1
+DEBUG (3): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (5): Sending alert message to the truck
+DEBUG (5): Truck received the message and acknowledged
+
+
+DEBUG (1): There was an attempt to add trash to the bin at time 0:16:2.890625010
+DEBUG (1): ADDED 5 units
+DEBUG (1): TRASH LEVEL: 73
+DEBUG (1): STATUS: 0
+DEBUG (1): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (5): There was an attempt to add trash to the bin at time 0:16:3.007812510
+DEBUG (5): ADDED 4 units
+DEBUG (5): TRASH LEVEL: 100
+DEBUG (5): STATUS: 2
+DEBUG (5): TRASH OUTSIDE: 32
+
+
+
+
+DEBUG (6): There was an attempt to add trash to the bin at time 0:16:3.031250010
+DEBUG (6): ADDED 3 units
+DEBUG (6): TRASH LEVEL: 63
+DEBUG (6): STATUS: 0
+DEBUG (6): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (7): There was an attempt to add trash to the bin at time 0:16:5.007812510
+DEBUG (7): ADDED 2 units
+DEBUG (7): TRASH LEVEL: 55
+DEBUG (7): STATUS: 0
+DEBUG (7): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (1): There was an attempt to add trash to the bin at time 0:16:5.820312510
+DEBUG (1): ADDED 1 units
+DEBUG (1): TRASH LEVEL: 74
+DEBUG (1): STATUS: 0
+DEBUG (1): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (2): There was an attempt to add trash to the bin at time 0:16:5.843750010
+DEBUG (2): ADDED 1 units
+DEBUG (2): TRASH LEVEL: 49
+DEBUG (2): STATUS: 0
+DEBUG (2): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (3): Sending alert message to the truck
+DEBUG (3): Truck received the message and acknowledged
+
+
+DEBUG (5): There was an attempt to add trash to the bin at time 0:16:6.914062510
+DEBUG (5): ADDED 10 units
+DEBUG (5): TRASH LEVEL: 100
+DEBUG (5): STATUS: 2
+DEBUG (5): TRASH OUTSIDE: 42
+
+
+
+
+DEBUG (5): Sending alert message to the truck
+DEBUG (5): Truck received the message and acknowledged
+
+
+DEBUG (4): There was an attempt to add trash to the bin at time 0:16:7.867187510
+DEBUG (4): ADDED 8 units
+DEBUG (4): TRASH LEVEL: 25
+DEBUG (4): STATUS: 0
+DEBUG (4): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (3): There was an attempt to add trash to the bin at time 0:16:9.796875010
+DEBUG (3): ADDED 7 units
+DEBUG (3): TRASH LEVEL: 97
+DEBUG (3): STATUS: 1
+DEBUG (3): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (7): There was an attempt to add trash to the bin at time 0:16:10.867187510
+DEBUG (7): ADDED 8 units
+DEBUG (7): TRASH LEVEL: 63
+DEBUG (7): STATUS: 0
+DEBUG (7): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (3): Sending alert message to the truck
+DEBUG (3): Truck received the message and acknowledged
+
+
+DEBUG (5): Sending alert message to the truck
+DEBUG (5): Truck received the message and acknowledged
+
+
+DEBUG (0): Reached destination (1306,998)
+DEBUG (0): Bin 5 emptied
+
+
+DEBUG (5): Truck arrived at time 0:16:12.940292377
+DEBUG (5): BIN EMPTIED, new level: 0
+
+
+DEBUG (0): Truck received the message and acknowledged
+
+
+DEBUG (3): There was an attempt to add trash to the bin at time 0:16:14.679687510
+DEBUG (3): ADDED 1 units
+DEBUG (3): TRASH LEVEL: 98
+DEBUG (3): STATUS: 1
+DEBUG (3): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (3): Sending alert message to the truck
+DEBUG (0): Distance to bin is 749 m
+DEBUG (0): Received ALERT message from 3
+DEBUG (0): Started traveling to (1692,356)
+
+
+DEBUG (3): Truck received the message and acknowledged
+
+
+DEBUG (4): There was an attempt to add trash to the bin at time 0:16:17.632812510
+DEBUG (4): ADDED 6 units
+DEBUG (4): TRASH LEVEL: 31
+DEBUG (4): STATUS: 0
+DEBUG (4): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (1): There was an attempt to add trash to the bin at time 0:16:20.468750010
+DEBUG (1): ADDED 10 units
+DEBUG (1): TRASH LEVEL: 84
+DEBUG (1): STATUS: 0
+DEBUG (1): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (7): There was an attempt to add trash to the bin at time 0:16:20.632812510
+DEBUG (7): ADDED 4 units
+DEBUG (7): TRASH LEVEL: 67
+DEBUG (7): STATUS: 0
+DEBUG (7): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (3): Sending alert message to the truck
+DEBUG (3): Truck received the message and acknowledged
+
+
+DEBUG (6): There was an attempt to add trash to the bin at time 0:16:25.492187510
+DEBUG (6): ADDED 4 units
+DEBUG (6): TRASH LEVEL: 67
+DEBUG (6): STATUS: 0
+DEBUG (6): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (0): Reached destination (1692,356)
+DEBUG (0): Bin 3 emptied
+
+
+DEBUG (3): Truck arrived at time 0:16:25.794647191
+DEBUG (3): BIN EMPTIED, new level: 0
+
+
+DEBUG (0): Truck received the message and acknowledged
+
+
+DEBUG (4): There was an attempt to add trash to the bin at time 0:16:26.421875010
+DEBUG (4): ADDED 2 units
+DEBUG (4): TRASH LEVEL: 33
+DEBUG (4): STATUS: 0
+DEBUG (4): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (5): There was an attempt to add trash to the bin at time 0:16:27.421875010
+DEBUG (5): ADDED 9 units
+DEBUG (5): TRASH LEVEL: 9
+DEBUG (5): STATUS: 0
+DEBUG (5): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (5): There was an attempt to add trash to the bin at time 0:16:28.398437510
+DEBUG (5): ADDED 5 units
+DEBUG (5): TRASH LEVEL: 14
+DEBUG (5): STATUS: 0
+DEBUG (5): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (7): There was an attempt to add trash to the bin at time 0:16:31.375000010
+DEBUG (7): ADDED 3 units
+DEBUG (7): TRASH LEVEL: 70
+DEBUG (7): STATUS: 0
+DEBUG (7): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (2): There was an attempt to add trash to the bin at time 0:16:32.210937510
+DEBUG (2): ADDED 4 units
+DEBUG (2): TRASH LEVEL: 53
+DEBUG (2): STATUS: 0
+DEBUG (2): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (3): There was an attempt to add trash to the bin at time 0:16:40.070312510
+DEBUG (3): ADDED 2 units
+DEBUG (3): TRASH LEVEL: 2
+DEBUG (3): STATUS: 0
+DEBUG (3): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (1): There was an attempt to add trash to the bin at time 0:16:41.953125010
+DEBUG (1): ADDED 9 units
+DEBUG (1): TRASH LEVEL: 93
+DEBUG (1): STATUS: 1
+DEBUG (1): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (5): There was an attempt to add trash to the bin at time 0:16:43.046875010
+DEBUG (5): ADDED 7 units
+DEBUG (5): TRASH LEVEL: 21
+DEBUG (5): STATUS: 0
+DEBUG (5): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (1): Sending alert message to the truck
+DEBUG (0): Distance to bin is 194 m
+DEBUG (0): Received ALERT message from 1
+DEBUG (0): Started traveling to (1614,178)
+
+
+DEBUG (1): Truck received the message and acknowledged
+
+
+DEBUG (4): There was an attempt to add trash to the bin at time 0:16:46.929687510
+DEBUG (4): ADDED 1 units
+DEBUG (4): TRASH LEVEL: 34
+DEBUG (4): STATUS: 0
+DEBUG (4): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (7): There was an attempt to add trash to the bin at time 0:16:47.976562510
+DEBUG (7): ADDED 2 units
+DEBUG (7): TRASH LEVEL: 72
+DEBUG (7): STATUS: 0
+DEBUG (7): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (2): There was an attempt to add trash to the bin at time 0:16:50.765625010
+DEBUG (2): ADDED 10 units
+DEBUG (2): TRASH LEVEL: 63
+DEBUG (2): STATUS: 0
+DEBUG (2): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (1): Sending alert message to the truck
+DEBUG (1): Truck received the message and acknowledged
+
+
+DEBUG (6): There was an attempt to add trash to the bin at time 0:16:52.835937510
+DEBUG (6): ADDED 8 units
+DEBUG (6): TRASH LEVEL: 75
+DEBUG (6): STATUS: 0
+DEBUG (6): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (1): There was an attempt to add trash to the bin at time 0:16:54.648437510
+DEBUG (1): ADDED 5 units
+DEBUG (1): TRASH LEVEL: 98
+DEBUG (1): STATUS: 1
+DEBUG (1): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (1): Sending alert message to the truck
+DEBUG (1): Truck received the message and acknowledged
+
+
+DEBUG (3): There was an attempt to add trash to the bin at time 0:16:59.601562510
+DEBUG (3): ADDED 7 units
+DEBUG (3): TRASH LEVEL: 9
+DEBUG (3): STATUS: 0
+DEBUG (3): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (1): Sending alert message to the truck
+DEBUG (1): Truck received the message and acknowledged
+
+
+DEBUG (5): There was an attempt to add trash to the bin at time 0:17:2.578125010
+DEBUG (5): ADDED 6 units
+DEBUG (5): TRASH LEVEL: 27
+DEBUG (5): STATUS: 0
+DEBUG (5): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (2): There was an attempt to add trash to the bin at time 0:17:4.437500010
+DEBUG (2): ADDED 9 units
+DEBUG (2): TRASH LEVEL: 72
+DEBUG (2): STATUS: 0
+DEBUG (2): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (0): Reached destination (1614,178)
+DEBUG (0): Bin 1 emptied
+
+
+DEBUG (1): Truck arrived at time 0:17:5.785186786
+DEBUG (1): BIN EMPTIED, new level: 0
+
+
+DEBUG (0): Truck received the message and acknowledged
+
+
+DEBUG (1): There was an attempt to add trash to the bin at time 0:17:6.367187510
+DEBUG (1): ADDED 4 units
+DEBUG (1): TRASH LEVEL: 4
+DEBUG (1): STATUS: 0
+DEBUG (1): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (6): There was an attempt to add trash to the bin at time 0:17:6.507812510
+DEBUG (6): ADDED 3 units
+DEBUG (6): TRASH LEVEL: 78
+DEBUG (6): STATUS: 0
+DEBUG (6): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (7): There was an attempt to add trash to the bin at time 0:17:6.531250010
+DEBUG (7): ADDED 6 units
+DEBUG (7): TRASH LEVEL: 78
+DEBUG (7): STATUS: 0
+DEBUG (7): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (4): There was an attempt to add trash to the bin at time 0:17:7.437500010
+DEBUG (4): ADDED 8 units
+DEBUG (4): TRASH LEVEL: 42
+DEBUG (4): STATUS: 0
+DEBUG (4): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (6): There was an attempt to add trash to the bin at time 0:17:7.484375010
+DEBUG (6): ADDED 4 units
+DEBUG (6): TRASH LEVEL: 82
+DEBUG (6): STATUS: 0
+DEBUG (6): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (1): There was an attempt to add trash to the bin at time 0:17:9.296875010
+DEBUG (1): ADDED 4 units
+DEBUG (1): TRASH LEVEL: 8
+DEBUG (1): STATUS: 0
+DEBUG (1): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (2): There was an attempt to add trash to the bin at time 0:17:22.015625010
+DEBUG (2): ADDED 7 units
+DEBUG (2): TRASH LEVEL: 79
+DEBUG (2): STATUS: 0
+DEBUG (2): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (5): There was an attempt to add trash to the bin at time 0:17:26.015625010
+DEBUG (5): ADDED 6 units
+DEBUG (5): TRASH LEVEL: 33
+DEBUG (5): STATUS: 0
+DEBUG (5): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (6): There was an attempt to add trash to the bin at time 0:17:27.015625010
+DEBUG (6): ADDED 4 units
+DEBUG (6): TRASH LEVEL: 86
+DEBUG (6): STATUS: 1
+DEBUG (6): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (3): There was an attempt to add trash to the bin at time 0:17:27.921875010
+DEBUG (3): ADDED 2 units
+DEBUG (3): TRASH LEVEL: 11
+DEBUG (3): STATUS: 0
+DEBUG (3): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (4): There was an attempt to add trash to the bin at time 0:17:27.945312510
+DEBUG (4): ADDED 3 units
+DEBUG (4): TRASH LEVEL: 45
+DEBUG (4): STATUS: 0
+DEBUG (4): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (1): There was an attempt to add trash to the bin at time 0:17:29.804687510
+DEBUG (1): ADDED 9 units
+DEBUG (1): TRASH LEVEL: 17
+DEBUG (1): STATUS: 0
+DEBUG (1): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (7): There was an attempt to add trash to the bin at time 0:17:29.968750010
+DEBUG (7): ADDED 4 units
+DEBUG (7): TRASH LEVEL: 82
+DEBUG (7): STATUS: 0
+DEBUG (7): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (6): Sending alert message to the truck
+DEBUG (0): Distance to bin is 1503 m
+DEBUG (0): Received ALERT message from 6
+DEBUG (0): Started traveling to (113,87)
+
+
+DEBUG (6): Truck received the message and acknowledged
+
+
+DEBUG (6): Sending alert message to the truck
+DEBUG (6): Truck received the message and acknowledged
+
+
+DEBUG (6): Sending alert message to the truck
+DEBUG (6): Truck received the message and acknowledged
+
+
+DEBUG (3): There was an attempt to add trash to the bin at time 0:17:44.523437510
+DEBUG (3): ADDED 6 units
+DEBUG (3): TRASH LEVEL: 17
+DEBUG (3): STATUS: 0
+DEBUG (3): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (6): There was an attempt to add trash to the bin at time 0:17:46.546875010
+DEBUG (6): ADDED 5 units
+DEBUG (6): TRASH LEVEL: 91
+DEBUG (6): STATUS: 1
+DEBUG (6): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (6): Sending alert message to the truck
+DEBUG (6): Truck received the message and acknowledged
+
+
+DEBUG (2): There was an attempt to add trash to the bin at time 0:17:48.382812510
+DEBUG (2): ADDED 7 units
+DEBUG (2): TRASH LEVEL: 86
+DEBUG (2): STATUS: 1
+DEBUG (2): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (7): There was an attempt to add trash to the bin at time 0:17:49.500000010
+DEBUG (7): ADDED 3 units
+DEBUG (7): TRASH LEVEL: 85
+DEBUG (7): STATUS: 1
+DEBUG (7): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (0): Reached destination (113,87)
+DEBUG (0): Bin 6 emptied
+
+
+DEBUG (6): Truck arrived at time 0:17:50.687149045
+DEBUG (6): BIN EMPTIED, new level: 0
+
+
+DEBUG (0): Truck received the message and acknowledged
+
+
+DEBUG (2): Sending alert message to the truck
+DEBUG (0): Distance to bin is 1219 m
+DEBUG (0): Received ALERT message from 2
+DEBUG (0): Started traveling to (421,1267)
+
+
+DEBUG (2): Truck received the message and acknowledged
+
+
+DEBUG (4): There was an attempt to add trash to the bin at time 0:17:53.335937510
+DEBUG (4): ADDED 5 units
+DEBUG (4): TRASH LEVEL: 50
+DEBUG (4): STATUS: 0
+DEBUG (4): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (1): There was an attempt to add trash to the bin at time 0:17:54.218750010
+DEBUG (1): ADDED 7 units
+DEBUG (1): TRASH LEVEL: 24
+DEBUG (1): STATUS: 0
+DEBUG (1): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (7): Sending alert message to the truck
+DEBUG (7): Truck received the message and acknowledged
+
+
+DEBUG (5): There was an attempt to add trash to the bin at time 0:17:55.312500010
+DEBUG (5): ADDED 1 units
+DEBUG (5): TRASH LEVEL: 34
+DEBUG (5): STATUS: 0
+DEBUG (5): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (2): Sending alert message to the truck
+DEBUG (2): Truck received the message and acknowledged
+
+
+DEBUG (7): Sending alert message to the truck
+DEBUG (7): Truck received the message and acknowledged
+
+
+DEBUG (1): There was an attempt to add trash to the bin at time 0:18:2.031250010
+DEBUG (1): ADDED 4 units
+DEBUG (1): TRASH LEVEL: 28
+DEBUG (1): STATUS: 0
+DEBUG (1): TRASH OUTSIDE: 0
+
+
+
+
 DEBUG (2): Sending alert message to the truck
 DEBUG (2): Truck did not acknowledge the message
 
 
-DEBUG (7): There was an attempt to add trash to the bin at time 0:4:17.781250010
-DEBUG (2): There was an attempt to add trash to the bin at time 0:4:18.910156260
-DEBUG (7): There was an attempt to add trash to the bin at time 0:4:19.539062510
-DEBUG (2): There was an attempt to add trash to the bin at time 0:4:20.277343760
-DEBUG (2): Sending alert message to the truck
-DEBUG (1): Distance to bin is 967 m
-DEBUG (1): Received ALERT message from 2
-DEBUG (1): Started traveling to (421,1267)
+DEBUG (7): Sending alert message to the truck
+DEBUG (7): Truck received the message and acknowledged
 
 
-DEBUG (2): Truck received the message and acknowledged
-
-
-DEBUG (7): There was an attempt to add trash to the bin at time 0:4:22.468750010
-DEBUG (2): There was an attempt to add trash to the bin at time 0:4:22.816406260
-DEBUG (2): There was an attempt to add trash to the bin at time 0:4:23.695312510
-DEBUG (2): There was an attempt to add trash to the bin at time 0:4:24.183593760
-DEBUG (7): There was an attempt to add trash to the bin at time 0:4:24.519531260
 DEBUG (2): Sending alert message to the truck
 DEBUG (2): Truck received the message and acknowledged
 
 
-DEBUG (2): There was an attempt to add trash to the bin at time 0:4:25.453125010
-DEBUG (7): There was an attempt to add trash to the bin at time 0:4:25.789062510
+DEBUG (3): There was an attempt to add trash to the bin at time 0:18:8.937500010
+DEBUG (3): ADDED 1 units
+DEBUG (3): TRASH LEVEL: 18
+DEBUG (3): STATUS: 0
+DEBUG (3): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (7): Sending alert message to the truck
+DEBUG (7): Truck received the message and acknowledged
+
+
+DEBUG (2): There was an attempt to add trash to the bin at time 0:18:12.796875010
+DEBUG (2): ADDED 3 units
+DEBUG (2): TRASH LEVEL: 89
+DEBUG (2): STATUS: 1
+DEBUG (2): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (2): Sending alert message to the truck
+DEBUG (2): Truck received the message and acknowledged
+
+
+DEBUG (7): There was an attempt to add trash to the bin at time 0:18:13.914062510
+DEBUG (7): ADDED 6 units
+DEBUG (7): TRASH LEVEL: 91
+DEBUG (7): STATUS: 1
+DEBUG (7): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (7): Sending alert message to the truck
+DEBUG (7): Truck received the message and acknowledged
+
+
+DEBUG (6): There was an attempt to add trash to the bin at time 0:18:15.843750010
+DEBUG (6): ADDED 9 units
+DEBUG (6): TRASH LEVEL: 9
+DEBUG (6): STATUS: 0
+DEBUG (6): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (4): There was an attempt to add trash to the bin at time 0:18:16.773437510
+DEBUG (4): ADDED 6 units
+DEBUG (4): TRASH LEVEL: 56
+DEBUG (4): STATUS: 0
+DEBUG (4): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (5): There was an attempt to add trash to the bin at time 0:18:16.796875010
+DEBUG (5): ADDED 7 units
+DEBUG (5): TRASH LEVEL: 41
+DEBUG (5): STATUS: 0
+DEBUG (5): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (2): Sending alert message to the truck
+DEBUG (2): Truck received the message and acknowledged
+
+
+DEBUG (7): Sending alert message to the truck
+DEBUG (7): Truck received the message and acknowledged
+
+
+DEBUG (4): There was an attempt to add trash to the bin at time 0:18:21.656250010
+DEBUG (4): ADDED 6 units
+DEBUG (4): TRASH LEVEL: 62
+DEBUG (4): STATUS: 0
+DEBUG (4): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (2): Sending alert message to the truck
+DEBUG (2): Truck received the message and acknowledged
+
+
+DEBUG (7): Sending alert message to the truck
+DEBUG (7): Truck received the message and acknowledged
+
+
+DEBUG (1): There was an attempt to add trash to the bin at time 0:18:25.468750010
+DEBUG (1): ADDED 6 units
+DEBUG (1): TRASH LEVEL: 34
+DEBUG (1): STATUS: 0
+DEBUG (1): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (4): There was an attempt to add trash to the bin at time 0:18:26.539062510
+DEBUG (4): ADDED 8 units
+DEBUG (4): TRASH LEVEL: 70
+DEBUG (4): STATUS: 0
+DEBUG (4): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (6): There was an attempt to add trash to the bin at time 0:18:26.585937510
+DEBUG (6): ADDED 3 units
+DEBUG (6): TRASH LEVEL: 12
+DEBUG (6): STATUS: 0
+DEBUG (6): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (2): Sending alert message to the truck
+DEBUG (2): Truck received the message and acknowledged
+
+
+DEBUG (3): There was an attempt to add trash to the bin at time 0:18:28.468750010
+DEBUG (3): ADDED 10 units
+DEBUG (3): TRASH LEVEL: 28
+DEBUG (3): STATUS: 0
+DEBUG (3): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (7): Sending alert message to the truck
+DEBUG (7): Truck received the message and acknowledged
+
+
+DEBUG (1): There was an attempt to add trash to the bin at time 0:18:31.328125010
+DEBUG (1): ADDED 1 units
+DEBUG (1): TRASH LEVEL: 35
+DEBUG (1): STATUS: 0
+DEBUG (1): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (2): There was an attempt to add trash to the bin at time 0:18:31.351562510
+DEBUG (2): ADDED 5 units
+DEBUG (2): TRASH LEVEL: 94
+DEBUG (2): STATUS: 1
+DEBUG (2): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (3): There was an attempt to add trash to the bin at time 0:18:31.398437510
+DEBUG (3): ADDED 7 units
+DEBUG (3): TRASH LEVEL: 35
+DEBUG (3): STATUS: 0
+DEBUG (3): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (2): There was an attempt to add trash to the bin at time 0:18:32.328125010
+DEBUG (2): ADDED 1 units
+DEBUG (2): TRASH LEVEL: 95
+DEBUG (2): STATUS: 1
+DEBUG (2): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (2): Sending alert message to the truck
+DEBUG (2): Truck received the message and acknowledged
+
+
+DEBUG (2): There was an attempt to add trash to the bin at time 0:18:33.304687510
+DEBUG (2): ADDED 9 units
+DEBUG (2): TRASH LEVEL: 100
+DEBUG (2): STATUS: 2
+DEBUG (2): TRASH OUTSIDE: 4
+
+
+
+
+DEBUG (6): idk
+DEBUG (1): idk
+DEBUG (4): idk
+DEBUG (3): idk
+DEBUG (7): Sending alert message to the truck
+DEBUG (7): Truck did not acknowledge the message
+
+
+DEBUG (2): SENDING 4 to NEIGH 0DEBUG (5): There was an attempt to add trash to the bin at time 0:18:35.351562510
+DEBUG (5): ADDED 10 units
+DEBUG (5): TRASH LEVEL: 51
+DEBUG (5): STATUS: 0
+DEBUG (5): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (2): There was an attempt to add trash to the bin at time 0:18:36.234375010
+DEBUG (2): ADDED 8 units
+DEBUG (2): TRASH LEVEL: 100
+DEBUG (2): STATUS: 2
+DEBUG (2): TRASH OUTSIDE: 12
+
+
+
+
+DEBUG (2): Sending alert message to the truck
+DEBUG (2): Truck received the message and acknowledged
+
+
+DEBUG (3): There was an attempt to add trash to the bin at time 0:18:37.257812510
+DEBUG (3): ADDED 6 units
+DEBUG (3): TRASH LEVEL: 41
+DEBUG (3): STATUS: 0
+DEBUG (3): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (7): Sending alert message to the truck
+DEBUG (7): Truck received the message and acknowledged
+
+
+DEBUG (7): There was an attempt to add trash to the bin at time 0:18:41.257812510
+DEBUG (7): ADDED 2 units
+DEBUG (7): TRASH LEVEL: 93
+DEBUG (7): STATUS: 1
+DEBUG (7): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (2): Sending alert message to the truck
+DEBUG (2): Truck received the message and acknowledged
+
+
+DEBUG (7): Sending alert message to the truck
+DEBUG (7): Truck received the message and acknowledged
+
+
+DEBUG (2): Sending alert message to the truck
+DEBUG (2): Truck received the message and acknowledged
+
+
+DEBUG (4): There was an attempt to add trash to the bin at time 0:18:47.046875010
+DEBUG (4): ADDED 1 units
+DEBUG (4): TRASH LEVEL: 71
+DEBUG (4): STATUS: 0
+DEBUG (4): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (6): There was an attempt to add trash to the bin at time 0:18:47.093750010
+DEBUG (6): ADDED 1 units
+DEBUG (6): TRASH LEVEL: 13
+DEBUG (6): STATUS: 0
+DEBUG (6): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (2): There was an attempt to add trash to the bin at time 0:18:47.953125010
+DEBUG (2): ADDED 6 units
+DEBUG (2): TRASH LEVEL: 100
+DEBUG (2): STATUS: 2
+DEBUG (2): TRASH OUTSIDE: 18
+
+
+
+
+DEBUG (7): Sending alert message to the truck
+DEBUG (7): Truck received the message and acknowledged
+
+
+DEBUG (0): Reached destination (421,1267)
+DEBUG (0): Bin 2 emptied
+
+
+DEBUG (2): Truck arrived at time 0:18:48.319122328
+DEBUG (2): BIN EMPTIED, new level: 0
+
+
+DEBUG (0): Truck received the message and acknowledged
+
+
+DEBUG (1): There was an attempt to add trash to the bin at time 0:18:48.906250010
+DEBUG (1): ADDED 3 units
+DEBUG (1): TRASH LEVEL: 38
+DEBUG (1): STATUS: 0
+DEBUG (1): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (3): There was an attempt to add trash to the bin at time 0:18:50.929687510
+DEBUG (3): ADDED 4 units
+DEBUG (3): TRASH LEVEL: 45
+DEBUG (3): STATUS: 0
+DEBUG (3): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (7): Sending alert message to the truck
+DEBUG (0): Distance to bin is 967 m
+DEBUG (0): Received ALERT message from 7
+DEBUG (0): Started traveling to (1384,1177)
+
+
+DEBUG (7): Truck received the message and acknowledged
+
+
+DEBUG (5): There was an attempt to add trash to the bin at time 0:18:56.835937510
+DEBUG (5): ADDED 9 units
+DEBUG (5): TRASH LEVEL: 60
+DEBUG (5): STATUS: 0
+DEBUG (5): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (4): There was an attempt to add trash to the bin at time 0:18:57.789062510
+DEBUG (4): ADDED 6 units
+DEBUG (4): TRASH LEVEL: 77
+DEBUG (4): STATUS: 0
+DEBUG (4): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (7): Sending alert message to the truck
+DEBUG (7): Truck received the message and acknowledged
+
+
+DEBUG (6): There was an attempt to add trash to the bin at time 0:18:58.812500010
+DEBUG (6): ADDED 1 units
+DEBUG (6): TRASH LEVEL: 14
+DEBUG (6): STATUS: 0
+DEBUG (6): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (6): There was an attempt to add trash to the bin at time 0:19:0.765625010
+DEBUG (6): ADDED 8 units
+DEBUG (6): TRASH LEVEL: 22
+DEBUG (6): STATUS: 0
+DEBUG (6): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (7): Sending alert message to the truck
+DEBUG (7): Truck received the message and acknowledged
+
+
+DEBUG (7): There was an attempt to add trash to the bin at time 0:19:4.695312510
+DEBUG (7): ADDED 4 units
+DEBUG (7): TRASH LEVEL: 97
+DEBUG (7): STATUS: 1
+DEBUG (7): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (1): There was an attempt to add trash to the bin at time 0:19:5.507812510
+DEBUG (1): ADDED 4 units
+DEBUG (1): TRASH LEVEL: 42
+DEBUG (1): STATUS: 0
+DEBUG (1): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (6): There was an attempt to add trash to the bin at time 0:19:6.625000010
+DEBUG (6): ADDED 7 units
+DEBUG (6): TRASH LEVEL: 29
+DEBUG (6): STATUS: 0
+DEBUG (6): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (7): Sending alert message to the truck
+DEBUG (7): Truck received the message and acknowledged
+
+
+DEBUG (1): There was an attempt to add trash to the bin at time 0:19:8.437500010
+DEBUG (1): ADDED 3 units
+DEBUG (1): TRASH LEVEL: 45
+DEBUG (1): STATUS: 0
+DEBUG (1): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (5): There was an attempt to add trash to the bin at time 0:19:9.531250010
+DEBUG (5): ADDED 6 units
+DEBUG (5): TRASH LEVEL: 66
+DEBUG (5): STATUS: 0
+DEBUG (5): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (5): There was an attempt to add trash to the bin at time 0:19:12.460937510
+DEBUG (5): ADDED 8 units
+DEBUG (5): TRASH LEVEL: 74
+DEBUG (5): STATUS: 0
+DEBUG (5): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (7): Sending alert message to the truck
+DEBUG (7): Truck did not acknowledge the message
+
+
+DEBUG (7): There was an attempt to add trash to the bin at time 0:19:15.437500010
+DEBUG (7): ADDED 6 units
+DEBUG (7): TRASH LEVEL: 100
+DEBUG (7): STATUS: 2
+DEBUG (7): TRASH OUTSIDE: 3
+
+
+
+
+DEBUG (1): idk
+DEBUG (6): idk
+DEBUG (5): idk
+DEBUG (7): idk
+DEBUG (5): There was an attempt to add trash to the bin at time 0:19:16.367187510
+DEBUG (5): ADDED 8 units
+DEBUG (5): TRASH LEVEL: 82
+DEBUG (5): STATUS: 0
+DEBUG (5): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (2): There was an attempt to add trash to the bin at time 0:19:17.250000010
+DEBUG (2): ADDED 4 units
+DEBUG (2): TRASH LEVEL: 4
+DEBUG (2): STATUS: 0
+DEBUG (2): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (3): There was an attempt to add trash to the bin at time 0:19:17.296875010
+DEBUG (3): ADDED 5 units
+DEBUG (3): TRASH LEVEL: 50
+DEBUG (3): STATUS: 0
+DEBUG (3): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (7): Sending alert message to the truck
+DEBUG (7): SENDING 3 to NEIGH 0DEBUG (7): Truck received the message and acknowledged
+
+
+DEBUG (7): Sending alert message to the truck
+DEBUG (7): Truck received the message and acknowledged
+
+
+DEBUG (1): There was an attempt to add trash to the bin at time 0:19:23.085937510
+DEBUG (1): ADDED 2 units
+DEBUG (1): TRASH LEVEL: 47
+DEBUG (1): STATUS: 0
+DEBUG (1): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (6): There was an attempt to add trash to the bin at time 0:19:23.226562510
+DEBUG (6): ADDED 4 units
+DEBUG (6): TRASH LEVEL: 33
+DEBUG (6): STATUS: 0
+DEBUG (6): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (0): Reached destination (1384,1177)
+DEBUG (0): Bin 7 emptied
+
+
+DEBUG (7): Truck arrived at time 0:19:23.423721298
+DEBUG (7): BIN EMPTIED, new level: 0
+
+
+DEBUG (0): Truck did not acknowledge the message
+
+
+DEBUG (4): There was an attempt to add trash to the bin at time 0:19:26.109375010
+DEBUG (4): ADDED 5 units
+DEBUG (4): TRASH LEVEL: 82
+DEBUG (4): STATUS: 0
+DEBUG (4): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (5): There was an attempt to add trash to the bin at time 0:19:29.062500010
+DEBUG (5): ADDED 8 units
+DEBUG (5): TRASH LEVEL: 90
+DEBUG (5): STATUS: 1
+DEBUG (5): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (1): There was an attempt to add trash to the bin at time 0:19:29.921875010
+DEBUG (1): ADDED 3 units
+DEBUG (1): TRASH LEVEL: 50
+DEBUG (1): STATUS: 0
+DEBUG (1): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (3): There was an attempt to add trash to the bin at time 0:19:30.968750010
+DEBUG (3): ADDED 1 units
+DEBUG (3): TRASH LEVEL: 51
+DEBUG (3): STATUS: 0
+DEBUG (3): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (6): There was an attempt to add trash to the bin at time 0:19:31.039062510
+DEBUG (6): ADDED 5 units
+DEBUG (6): TRASH LEVEL: 38
+DEBUG (6): STATUS: 0
+DEBUG (6): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (4): There was an attempt to add trash to the bin at time 0:19:32.945312510
+DEBUG (4): ADDED 5 units
+DEBUG (4): TRASH LEVEL: 87
+DEBUG (4): STATUS: 1
+DEBUG (4): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (5): Sending alert message to the truck
+DEBUG (0): Distance to bin is 195 m
+DEBUG (0): Received ALERT message from 5
+DEBUG (0): Started traveling to (1306,998)
+
+
+DEBUG (5): Truck received the message and acknowledged
+
+
+DEBUG (5): There was an attempt to add trash to the bin at time 0:19:34.921875010
+DEBUG (5): ADDED 1 units
+DEBUG (5): TRASH LEVEL: 91
+DEBUG (5): STATUS: 1
+DEBUG (5): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (2): There was an attempt to add trash to the bin at time 0:19:35.804687510
+DEBUG (2): ADDED 4 units
+DEBUG (2): TRASH LEVEL: 8
+DEBUG (2): STATUS: 0
+DEBUG (2): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (1): There was an attempt to add trash to the bin at time 0:19:36.757812510
+DEBUG (1): ADDED 4 units
+DEBUG (1): TRASH LEVEL: 54
+DEBUG (1): STATUS: 0
+DEBUG (1): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (4): Sending alert message to the truck
+DEBUG (4): Truck received the message and acknowledged
+
+
+DEBUG (5): Sending alert message to the truck
+DEBUG (5): Truck received the message and acknowledged
+
+
+DEBUG (4): There was an attempt to add trash to the bin at time 0:19:40.757812510
+DEBUG (4): ADDED 8 units
+DEBUG (4): TRASH LEVEL: 95
+DEBUG (4): STATUS: 1
+DEBUG (4): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (4): There was an attempt to add trash to the bin at time 0:19:42.710937510
+DEBUG (4): ADDED 5 units
+DEBUG (4): TRASH LEVEL: 100
+DEBUG (4): STATUS: 2
+DEBUG (4): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (4): Sending alert message to the truck
+DEBUG (5): idk
+DEBUG (3): idk
+DEBUG (2): idk
+DEBUG (4): Received from neighbout: trash = 4
+
+
+DEBUG (4): idk
+DEBUG (4): Received from neighbout: trash = 8
+
+
+DEBUG (4): idk
+DEBUG (4): Truck received the message and acknowledged
+
+
+DEBUG (7): There was an attempt to add trash to the bin at time 0:19:42.781250010
+DEBUG (7): ADDED 4 units
+DEBUG (7): TRASH LEVEL: 4
+DEBUG (7): STATUS: 0
+DEBUG (7): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (5): Sending alert message to the truck
+DEBUG (5): Truck received the message and acknowledged
+
+
+DEBUG (4): SENDING 0 to NEIGH 0DEBUG (4): Sending alert message to the truck
+DEBUG (4): Truck received the message and acknowledged
+
+
+DEBUG (4): There was an attempt to add trash to the bin at time 0:19:48.570312510
+DEBUG (4): ADDED 8 units
+DEBUG (4): TRASH LEVEL: 100
+DEBUG (4): STATUS: 2
+DEBUG (4): TRASH OUTSIDE: 8
+
+
+
+
+DEBUG (5): Sending alert message to the truck
+DEBUG (5): Truck received the message and acknowledged
+
+
+DEBUG (1): There was an attempt to add trash to the bin at time 0:19:51.406250010
+DEBUG (1): ADDED 2 units
+DEBUG (1): TRASH LEVEL: 56
+DEBUG (1): STATUS: 0
+DEBUG (1): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (4): Sending alert message to the truck
+DEBUG (4): Truck received the message and acknowledged
+
+
+DEBUG (0): Reached destination (1306,998)
+DEBUG (0): Bin 5 emptied
+
+
+DEBUG (5): Truck arrived at time 0:19:52.997344964
+DEBUG (5): BIN EMPTIED, new level: 0
+
+
+DEBUG (0): Truck received the message and acknowledged
+
+
+DEBUG (7): There was an attempt to add trash to the bin at time 0:19:55.476562510
+DEBUG (7): ADDED 5 units
+DEBUG (7): TRASH LEVEL: 9
+DEBUG (7): STATUS: 0
+DEBUG (7): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (6): There was an attempt to add trash to the bin at time 0:19:56.429687510
+DEBUG (6): ADDED 6 units
+DEBUG (6): TRASH LEVEL: 44
+DEBUG (6): STATUS: 0
+DEBUG (6): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (4): Sending alert message to the truck
+DEBUG (4): Truck did not acknowledge the message
+
+
+DEBUG (1): There was an attempt to add trash to the bin at time 0:19:59.218750010
+DEBUG (1): ADDED 4 units
+DEBUG (1): TRASH LEVEL: 60
+DEBUG (1): STATUS: 0
+DEBUG (1): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (3): There was an attempt to add trash to the bin at time 0:19:59.289062510
+DEBUG (3): ADDED 7 units
+DEBUG (3): TRASH LEVEL: 58
+DEBUG (3): STATUS: 0
+DEBUG (3): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (4): There was an attempt to add trash to the bin at time 0:19:59.312500010
+DEBUG (4): ADDED 5 units
+DEBUG (4): TRASH LEVEL: 100
+DEBUG (4): STATUS: 2
+DEBUG (4): TRASH OUTSIDE: 13
+
+
+
+
+DEBUG (2): There was an attempt to add trash to the bin at time 0:20:0.218750010
+DEBUG (2): ADDED 3 units
+DEBUG (2): TRASH LEVEL: 11
+DEBUG (2): STATUS: 0
+DEBUG (2): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (4): There was an attempt to add trash to the bin at time 0:20:0.289062510
+DEBUG (4): ADDED 5 units
+DEBUG (4): TRASH LEVEL: 100
+DEBUG (4): STATUS: 2
+DEBUG (4): TRASH OUTSIDE: 18
+
+
+
+
+DEBUG (7): There was an attempt to add trash to the bin at time 0:20:1.335937510
+DEBUG (7): ADDED 4 units
+DEBUG (7): TRASH LEVEL: 13
+DEBUG (7): STATUS: 0
+DEBUG (7): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (4): Sending alert message to the truck
+DEBUG (0): Distance to bin is 1217 m
+DEBUG (0): Received ALERT message from 4
+DEBUG (0): Started traveling to (499,1909)
+
+
+DEBUG (4): Truck received the message and acknowledged
+
+
+DEBUG (5): There was an attempt to add trash to the bin at time 0:20:2.265625010
+DEBUG (5): ADDED 9 units
+DEBUG (5): TRASH LEVEL: 9
+DEBUG (5): STATUS: 0
+DEBUG (5): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (4): There was an attempt to add trash to the bin at time 0:20:7.125000010
+DEBUG (4): ADDED 2 units
+DEBUG (4): TRASH LEVEL: 100
+DEBUG (4): STATUS: 2
+DEBUG (4): TRASH OUTSIDE: 20
+
+
+
+
+DEBUG (4): Sending alert message to the truck
+DEBUG (4): Truck received the message and acknowledged
+
+
+DEBUG (4): There was an attempt to add trash to the bin at time 0:20:10.054687510
+DEBUG (4): ADDED 5 units
+DEBUG (4): TRASH LEVEL: 100
+DEBUG (4): STATUS: 2
+DEBUG (4): TRASH OUTSIDE: 25
+
+
+
+
+DEBUG (5): There was an attempt to add trash to the bin at time 0:20:11.054687510
+DEBUG (5): ADDED 2 units
+DEBUG (5): TRASH LEVEL: 11
+DEBUG (5): STATUS: 0
+DEBUG (5): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (4): Sending alert message to the truck
+DEBUG (4): Truck received the message and acknowledged
+
+
+DEBUG (7): There was an attempt to add trash to the bin at time 0:20:13.054687510
+DEBUG (7): ADDED 2 units
+DEBUG (7): TRASH LEVEL: 15
+DEBUG (7): STATUS: 0
+DEBUG (7): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (3): There was an attempt to add trash to the bin at time 0:20:13.937500010
+DEBUG (3): ADDED 8 units
+DEBUG (3): TRASH LEVEL: 66
+DEBUG (3): STATUS: 0
+DEBUG (3): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (3): There was an attempt to add trash to the bin at time 0:20:16.867187510
+DEBUG (3): ADDED 10 units
+DEBUG (3): TRASH LEVEL: 76
+DEBUG (3): STATUS: 0
+DEBUG (3): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (4): Sending alert message to the truck
+DEBUG (4): Truck received the message and acknowledged
+
+
+DEBUG (6): There was an attempt to add trash to the bin at time 0:20:16.937500010
+DEBUG (6): ADDED 6 units
+DEBUG (6): TRASH LEVEL: 50
+DEBUG (6): STATUS: 0
+DEBUG (6): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (4): There was an attempt to add trash to the bin at time 0:20:20.796875010
+DEBUG (4): ADDED 3 units
+DEBUG (4): TRASH LEVEL: 100
+DEBUG (4): STATUS: 2
+DEBUG (4): TRASH OUTSIDE: 28
+
+
+
+
+DEBUG (4): Sending alert message to the truck
+DEBUG (4): Truck received the message and acknowledged
+
+
+DEBUG (3): There was an attempt to add trash to the bin at time 0:20:22.726562510
+DEBUG (3): ADDED 1 units
+DEBUG (3): TRASH LEVEL: 77
+DEBUG (3): STATUS: 0
+DEBUG (3): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (1): There was an attempt to add trash to the bin at time 0:20:23.632812510
+DEBUG (1): ADDED 5 units
+DEBUG (1): TRASH LEVEL: 65
+DEBUG (1): STATUS: 0
+DEBUG (1): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (2): There was an attempt to add trash to the bin at time 0:20:25.609375010
+DEBUG (2): ADDED 8 units
+DEBUG (2): TRASH LEVEL: 19
+DEBUG (2): STATUS: 0
+DEBUG (2): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (1): There was an attempt to add trash to the bin at time 0:20:26.562500010
+DEBUG (1): ADDED 1 units
+DEBUG (1): TRASH LEVEL: 66
+DEBUG (1): STATUS: 0
+DEBUG (1): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (4): Sending alert message to the truck
+DEBUG (4): Truck did not acknowledge the message
+
+
+DEBUG (4): There was an attempt to add trash to the bin at time 0:20:29.585937510
+DEBUG (4): ADDED 3 units
+DEBUG (4): TRASH LEVEL: 100
+DEBUG (4): STATUS: 2
+DEBUG (4): TRASH OUTSIDE: 31
+
+
+
+
+DEBUG (4): Sending alert message to the truck
+DEBUG (4): Truck received the message and acknowledged
+
+
+DEBUG (5): There was an attempt to add trash to the bin at time 0:20:31.562500010
+DEBUG (5): ADDED 4 units
+DEBUG (5): TRASH LEVEL: 15
+DEBUG (5): STATUS: 0
+DEBUG (5): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (5): There was an attempt to add trash to the bin at time 0:20:32.539062510
+DEBUG (5): ADDED 3 units
+DEBUG (5): TRASH LEVEL: 18
+DEBUG (5): STATUS: 0
+DEBUG (5): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (6): There was an attempt to add trash to the bin at time 0:20:32.562500010
+DEBUG (6): ADDED 9 units
+DEBUG (6): TRASH LEVEL: 59
+DEBUG (6): STATUS: 0
+DEBUG (6): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (4): Sending alert message to the truck
+DEBUG (4): Truck received the message and acknowledged
+
+
+DEBUG (7): There was an attempt to add trash to the bin at time 0:20:39.421875010
+DEBUG (7): ADDED 2 units
+DEBUG (7): TRASH LEVEL: 17
+DEBUG (7): STATUS: 0
+DEBUG (7): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (4): Sending alert message to the truck
+DEBUG (4): Truck received the message and acknowledged
+
+
+DEBUG (4): There was an attempt to add trash to the bin at time 0:20:42.281250010
+DEBUG (4): ADDED 1 units
+DEBUG (4): TRASH LEVEL: 100
+DEBUG (4): STATUS: 2
+DEBUG (4): TRASH OUTSIDE: 32
+
+
+
+
+DEBUG (4): Sending alert message to the truck
+DEBUG (4): Truck received the message and acknowledged
+
+
+DEBUG (5): There was an attempt to add trash to the bin at time 0:20:46.210937510
+DEBUG (5): ADDED 7 units
+DEBUG (5): TRASH LEVEL: 25
+DEBUG (5): STATUS: 0
+DEBUG (5): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (2): There was an attempt to add trash to the bin at time 0:20:47.093750010
+DEBUG (2): ADDED 3 units
+DEBUG (2): TRASH LEVEL: 22
+DEBUG (2): STATUS: 0
+DEBUG (2): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (1): There was an attempt to add trash to the bin at time 0:20:49.023437510
+DEBUG (1): ADDED 8 units
+DEBUG (1): TRASH LEVEL: 74
+DEBUG (1): STATUS: 0
+DEBUG (1): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (2): There was an attempt to add trash to the bin at time 0:20:49.046875010
+DEBUG (2): ADDED 2 units
+DEBUG (2): TRASH LEVEL: 24
+DEBUG (2): STATUS: 0
+DEBUG (2): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (3): There was an attempt to add trash to the bin at time 0:20:51.046875010
+DEBUG (3): ADDED 6 units
+DEBUG (3): TRASH LEVEL: 83
+DEBUG (3): STATUS: 0
+DEBUG (3): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (4): Sending alert message to the truck
+DEBUG (4): Truck received the message and acknowledged
+
+
+DEBUG (4): There was an attempt to add trash to the bin at time 0:20:52.046875010
+DEBUG (4): ADDED 7 units
+DEBUG (4): TRASH LEVEL: 100
+DEBUG (4): STATUS: 2
+DEBUG (4): TRASH OUTSIDE: 39
+
+
+
+
+DEBUG (4): There was an attempt to add trash to the bin at time 0:20:54.976562510
+DEBUG (4): ADDED 10 units
+DEBUG (4): TRASH LEVEL: 100
+DEBUG (4): STATUS: 2
+DEBUG (4): TRASH OUTSIDE: 49
+
+
+
+
+DEBUG (4): Sending alert message to the truck
+DEBUG (4): Truck received the message and acknowledged
+
+
+DEBUG (3): There was an attempt to add trash to the bin at time 0:20:56.906250010
+DEBUG (3): ADDED 3 units
+DEBUG (3): TRASH LEVEL: 86
+DEBUG (3): STATUS: 1
+DEBUG (3): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (0): Reached destination (499,1909)
+DEBUG (0): Bin 4 emptied
+
+
+DEBUG (4): Truck arrived at time 0:20:57.104919404
+DEBUG (4): BIN EMPTIED, new level: 0
+
+
+DEBUG (0): Truck received the message and acknowledged
+
+
+DEBUG (1): There was an attempt to add trash to the bin at time 0:20:59.765625010
+DEBUG (1): ADDED 7 units
+DEBUG (1): TRASH LEVEL: 81
+DEBUG (1): STATUS: 0
+DEBUG (1): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (5): There was an attempt to add trash to the bin at time 0:21:0.859375010
+DEBUG (5): ADDED 10 units
+DEBUG (5): TRASH LEVEL: 35
+DEBUG (5): STATUS: 0
+DEBUG (5): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (6): There was an attempt to add trash to the bin at time 0:21:0.882812510
+DEBUG (6): ADDED 2 units
+DEBUG (6): TRASH LEVEL: 61
+DEBUG (6): STATUS: 0
+DEBUG (6): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (3): Sending alert message to the truck
+DEBUG (0): Distance to bin is 1958 m
+DEBUG (0): Received ALERT message from 3
+DEBUG (0): Started traveling to (1692,356)
+
+
+DEBUG (3): Truck received the message and acknowledged
+
+
+DEBUG (7): There was an attempt to add trash to the bin at time 0:21:4.812500010
+DEBUG (7): ADDED 10 units
+DEBUG (7): TRASH LEVEL: 27
+DEBUG (7): STATUS: 0
+DEBUG (7): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (3): Sending alert message to the truck
+DEBUG (3): Truck received the message and acknowledged
+
+
+DEBUG (4): There was an attempt to add trash to the bin at time 0:21:6.695312510
+DEBUG (4): ADDED 10 units
+DEBUG (4): TRASH LEVEL: 10
+DEBUG (4): STATUS: 0
+DEBUG (4): TRASH OUTSIDE: 0
+
+
+
+
+DEBUG (1): There was an attempt to add trash to the bin at time 0:21:9.531250010
+DEBUG (1): ADDED 9 units
+DEBUG (1): TRASH LEVEL: 90
+DEBUG (1): STATUS: 1
+DEBUG (1): TRASH OUTSIDE: 0
+
+
+
+

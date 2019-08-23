@@ -10,8 +10,11 @@ implementation {
   components new BinSensorAppC() as Sensor;
   components new TimerMilliC() as TruckTimer;
   components new TimerMilliC() as AlertTimer;
-  components new AMSenderC(AM_BIN_CHANNEL) as TS;
-  components new AMReceiverC(AM_BIN_CHANNEL) as TR;
+  components new TimerMilliC() as MoveTrashTimer;  
+  components new AMSenderC(AM_TRUCK_CHANNEL) as TS;
+  components new AMReceiverC(AM_TRUCK_CHANNEL) as TR;
+  components new AMSenderC(AM_BIN_CHANNEL) as BS;
+  components new AMReceiverC(AM_BIN_CHANNEL) as BR;
   components ActiveMessageC;
 
   Mote.Boot -> MainC.Boot;
@@ -27,6 +30,14 @@ implementation {
   Mote.TSChannel -> TS;
   Mote.TRChannel -> TR;
 
+  //BIN CHANNEL
+  Mote.BAMPacket -> BS;
+  Mote.BPacket -> BS;
+  Mote.BSChannel -> BS;
+  Mote.BRChannel -> BR;
+
+
+
   Mote.Random -> RandomC;
   RandomC <- MainC.SoftwareInit;
 
@@ -34,6 +45,7 @@ implementation {
 
   Mote.TruckTimer -> TruckTimer;
   Mote.AlertTimer -> AlertTimer;
+  Mote.MoveTrashTimer -> MoveTrashTimer;
 
 }
 

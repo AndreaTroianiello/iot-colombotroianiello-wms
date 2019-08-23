@@ -8,6 +8,7 @@ module WMSMoteC {
        	interface Random;
         interface Timer<TMilli> as TruckTimer;
         interface Timer<TMilli> as AlertTimer;
+        interface Timer<TMilli> as MoveTrashTimer;
         
         interface SplitControl;    	
         //TRUCK Channel
@@ -15,6 +16,12 @@ module WMSMoteC {
 	    interface Packet as TPacket;
 	    interface AMSend as TSChannel;
         interface Receive as TRChannel;
+
+        //TRUCK Channel
+        interface AMPacket as BAMPacket; 
+	    interface Packet as BPacket;
+	    interface AMSend as BSChannel;
+        interface Receive as BRChannel;
 
         interface PacketAcknowledgements;
     }
@@ -24,7 +31,7 @@ module WMSMoteC {
     const uint16_t MAX_X = 2000;
     const uint16_t MAX_Y = 2000;
     const uint8_t ALPHA_BIN = 1;
-    const uint8_t ALPHA_TRUCK = 10;
+    const uint8_t ALPHA_TRUCK = 100;
 
     // Bin related constants
     const uint8_t CRITICAL = 85;
@@ -33,8 +40,10 @@ module WMSMoteC {
     // Global variables
     uint16_t x,y;
     bool bin;
-    message_t packet;
+    message_t bpacket;
+    message_t tpacket;
     uint16_t distance;
+    uint16_t min_distance;
     uint16_t node_d;
 
     // Bin related variables
@@ -57,6 +66,7 @@ module WMSMoteC {
     task void sendAlert();
     task void emptyTrash();
     task void signalArrival();
+    task void askToNeighbours();
 
 
     event void Boot.booted() {
@@ -64,7 +74,7 @@ module WMSMoteC {
         call SplitControl.start();
         init();
 
-        if(TOS_NODE_ID >1){
+        if(TOS_NODE_ID >0){
             initBin(); 
             call Read.read();
             dbg("init","Started reading from sensor %i\n", TOS_NODE_ID);
@@ -127,7 +137,7 @@ module WMSMoteC {
             if(trash_level >= CRITICAL) {
             	bin_mode = 1;
                 if(!alerting){
-                	call AlertTimer.startPeriodic(4000);
+                	call AlertTimer.startPeriodic(5000);
                     alerting=TRUE;
                 }
             }
@@ -137,7 +147,7 @@ module WMSMoteC {
                 bin_mode = 2;
                 extra_trash = trash_level - FULL;
                 trash_level = FULL;
-                //post askToNeighbours();
+                post askToNeighbours();
             }
         }else if(bin_mode==2){
             extra_trash += data;
@@ -152,15 +162,15 @@ module WMSMoteC {
     
 
     task void sendAlert(){
-        alert_msg_t* msg = (alert_msg_t*)(call TPacket.getPayload(&packet, sizeof(alert_msg_t)));
+        alert_msg_t* msg = (alert_msg_t*)(call TPacket.getPayload(&tpacket, sizeof(alert_msg_t)));
         msg->msg_type = ALERT;
         msg->node_id = TOS_NODE_ID;
         msg->node_x = x;
         msg->node_y = y;
 
-        call PacketAcknowledgements.requestAck(&packet);
+        call PacketAcknowledgements.requestAck(&tpacket);
 
-        if(call TSChannel.send(1,&packet,sizeof(alert_msg_t)) == SUCCESS){
+        if(call TSChannel.send(0,&tpacket,sizeof(alert_msg_t)) == SUCCESS){
             dbg("radio","Sending alert message to the truck\n");
         }
     }
@@ -175,23 +185,27 @@ module WMSMoteC {
     }
 
     task void signalArrival(){
-        truck_msg_t* msg = (truck_msg_t*) (call TPacket.getPayload(&packet,sizeof(truck_msg_t)));
+        truck_msg_t* msg = (truck_msg_t*) (call TPacket.getPayload(&tpacket,sizeof(truck_msg_t)));
         msg->msg_type=TRUCK;
         msg->success=1;
 
-        call PacketAcknowledgements.requestAck(&packet);
-        call TSChannel.send(node_d,&packet,sizeof(truck_msg_t));
+        call PacketAcknowledgements.requestAck(&tpacket);
+        call TSChannel.send(node_d,&tpacket,sizeof(truck_msg_t));
         moving=FALSE;
         dbg("truck","Reached destination (%i,%i)\n",x,y);
         dbg("truck","Bin %i emptied\n\n\n",node_d);
     }
 
-    task void sendTrash(){
-        // COMPUTE DISTANCES
-        // CHOOSE THE CLOSER ONE
-        // SEND TRASH
-        extra_trash = 0;
-        redirecting = FALSE;
+    task void askToNeighbours(){
+        move_msg_t* msg = (move_msg_t*) (call BPacket.getPayload(&bpacket,sizeof(move_msg_t)));
+        msg->msg_type=MOVE;
+        msg->node_id = TOS_NODE_ID;
+        call PacketAcknowledgements.noAck(&bpacket);
+        if(call BSChannel.send(AM_BROADCAST_ADDR,&bpacket,sizeof(move_msg_t)) == SUCCESS){
+            call MoveTrashTimer.startOneShot(2000);
+            min_distance= 0;
+            redirecting = TRUE;
+        }
     }
 
 
@@ -207,8 +221,19 @@ module WMSMoteC {
         }
     }
 
+    event void MoveTrashTimer.fired(){
+        move_msg_t* resp = (move_msg_t*) (call BPacket.getPayload(&bpacket,sizeof(move_msg_t)));
+        resp->msg_type=MVTRASH;
+        resp->node_id = TOS_NODE_ID;
+        resp->trash = extra_trash;
+        call PacketAcknowledgements.requestAck(&bpacket);
+        call BSChannel.send(node_d, &bpacket, sizeof(move_msg_t));
+        redirecting=FALSE;
+        dbg("bin","SENDING %i to NEIGH %i", extra_trash, node_d);
+    }
+
     event void TSChannel.sendDone(message_t* buf,error_t err) {
-        if(&packet ==buf && err == SUCCESS){
+        if(&tpacket == buf && err == SUCCESS){
             if (call PacketAcknowledgements.wasAcked(buf)) {
                 dbg("radio","Truck received the message and acknowledged\n\n\n");
             }else{
@@ -221,22 +246,64 @@ module WMSMoteC {
     }
  
     event message_t* TRChannel.receive(message_t* buf,void* payload, uint8_t len) {
-        if(bin == FALSE){
-            if(moving == FALSE){
-                alert_msg_t* msg = (alert_msg_t*)payload;
-                moving=TRUE;
-                computeDistance(msg->node_x,msg->node_y);
-                dbg("truck","Distance to bin is %i m\n",distance);
-                node_d = msg->node_id;
-                call TruckTimer.startOneShot(computeTravelTime());
-                x = msg->node_x;
-                y = msg->node_y;
-                dbg("truck","Received ALERT message from %i\n",node_d);
-                dbg("truck","Started traveling to (%i,%i)\n\n\n",x,y);
+            if(bin == FALSE){
+                if(moving == FALSE){
+                    alert_msg_t* msg = (alert_msg_t*)payload;
+                    moving=TRUE;
+                    computeDistance(msg->node_x,msg->node_y);
+                    dbg("truck","Distance to bin is %i m\n",distance);
+                    node_d = msg->node_id;
+                    call TruckTimer.startOneShot(computeTravelTime());
+                    x = msg->node_x;
+                    y = msg->node_y;
+                    dbg("truck","Received ALERT message from %i\n",node_d);
+                    dbg("truck","Started traveling to (%i,%i)\n\n\n",x,y);
+                }
+            }else{
+                post emptyTrash();
             }
-        }else{
-            post emptyTrash();
+        return buf;
+    }
+
+    event void BSChannel.sendDone(message_t* buf,error_t err) {
+        if(buf == &bpacket){
+            move_msg_t* msg = (move_msg_t*) buf;
+            if(msg->msg_type == 5){
+                if(call PacketAcknowledgements.wasAcked(&bpacket)){
+
+                }else{
+                    call MoveTrashTimer.startOneShot(2000);
+                }
+            }
         }
+    }
+ 
+    event message_t* BRChannel.receive(message_t* buf,void* payload, uint8_t len) {
+        if(bin){
+             move_msg_t* msg = (move_msg_t*) payload;
+                if(msg->msg_type == MOVE){
+                    if(bin_mode == 0){
+                        move_msg_t* resp = (move_msg_t*) (call BPacket.getPayload(&bpacket,sizeof(move_msg_t)));
+                        resp->node_id = TOS_NODE_ID;
+                        resp->node_x = x;
+                        resp->node_y = y;
+                        call BSChannel.send(msg->node_id, &bpacket, sizeof(move_msg_t));
+                    }
+                }else if(msg->msg_type == BINRES){
+                    if(redirecting == TRUE){
+                        computeDistance(msg->node_x,msg->node_y);
+                        if((min_distance > 0 && distance < min_distance) || min_distance == 0){
+                            min_distance = distance;
+                            node_d = msg->node_id;
+                            dbg("bin","Node %i has distance %i",min_distance, node_d);
+                        }
+                    }
+                } else if(msg->msg_type == 5){
+                    dbg("bin","Received from neighbout: trash = %i\n\n\n",msg->trash);
+                }
+            dbg("bin","idk\n");
+        }
+           
         return buf;
     }
 
