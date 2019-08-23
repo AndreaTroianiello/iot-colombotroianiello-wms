@@ -11,3 +11,7 @@
 6. nodo riceve truck e invia ack
 7. nodo svuota il cestino
 8. truck acquisisce coordinate del nodo
+
+
+1. MANCA CONTROLLO SE NESSUNO RISPONDE
+2. se l'ack viene perso con il move trash

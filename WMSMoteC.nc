@@ -151,7 +151,7 @@ module WMSMoteC {
             }
         }else if(bin_mode==2){
             extra_trash += data;
-            //post askToNeighbours();
+            post askToNeighbours();
         }
         dbg("bin", "ADDED %i units\n",data);
         dbg("bin","TRASH LEVEL: %i\n", trash_level);
@@ -204,6 +204,7 @@ module WMSMoteC {
         if(call BSChannel.send(AM_BROADCAST_ADDR,&bpacket,sizeof(move_msg_t)) == SUCCESS){
             call MoveTrashTimer.startOneShot(2000);
             min_distance= 0;
+            node_d=0;
             redirecting = TRUE;
         }
     }
@@ -222,14 +223,17 @@ module WMSMoteC {
     }
 
     event void MoveTrashTimer.fired(){
-        move_msg_t* resp = (move_msg_t*) (call BPacket.getPayload(&bpacket,sizeof(move_msg_t)));
-        resp->msg_type=MVTRASH;
-        resp->node_id = TOS_NODE_ID;
-        resp->trash = extra_trash;
-        call PacketAcknowledgements.requestAck(&bpacket);
-        call BSChannel.send(node_d, &bpacket, sizeof(move_msg_t));
-        redirecting=FALSE;
-        dbg("bin","SENDING %i to NEIGH %i", extra_trash, node_d);
+        if(node_d > 0){
+            move_msg_t* resp = (move_msg_t*) (call BPacket.getPayload(&bpacket,sizeof(move_msg_t)));
+            resp->msg_type=MVTRASH;
+            resp->node_id = TOS_NODE_ID;
+            resp->trash = extra_trash;
+            call PacketAcknowledgements.requestAck(&bpacket);
+            call BSChannel.send(node_d, &bpacket, sizeof(move_msg_t));
+            redirecting=FALSE;
+            dbg("bin","SENDING %i to NEIGH %i\n", extra_trash, node_d);
+            dbg("bin","distance %i\n", min_distance);
+        }
     }
 
     event void TSChannel.sendDone(message_t* buf,error_t err) {
@@ -279,29 +283,34 @@ module WMSMoteC {
     }
  
     event message_t* BRChannel.receive(message_t* buf,void* payload, uint8_t len) {
-        if(bin){
+        if(bin == TRUE){
              move_msg_t* msg = (move_msg_t*) payload;
                 if(msg->msg_type == MOVE){
                     if(bin_mode == 0){
                         move_msg_t* resp = (move_msg_t*) (call BPacket.getPayload(&bpacket,sizeof(move_msg_t)));
+                        resp->msg_type=BINRES;
                         resp->node_id = TOS_NODE_ID;
                         resp->node_x = x;
                         resp->node_y = y;
                         call BSChannel.send(msg->node_id, &bpacket, sizeof(move_msg_t));
+                        dbg("bin","my coordinates are (%i,%i)\n",x,y);
                     }
                 }else if(msg->msg_type == BINRES){
                     if(redirecting == TRUE){
                         computeDistance(msg->node_x,msg->node_y);
+                        dbg("bin","SOMEONE ANSWERED\n");
                         if((min_distance > 0 && distance < min_distance) || min_distance == 0){
                             min_distance = distance;
                             node_d = msg->node_id;
-                            dbg("bin","Node %i has distance %i",min_distance, node_d);
+                            dbg("bin","Node %i has distance %i\n",node_d,min_distance);
                         }
+                        dbg("bin","Node %i has distance %i\n",msg->node_id,distance);
+
                     }
                 } else if(msg->msg_type == 5){
                     dbg("bin","Received from neighbout: trash = %i\n\n\n",msg->trash);
+                    
                 }
-            dbg("bin","idk\n");
         }
            
         return buf;

@@ -845,14 +845,27 @@ DEBUG (7): TRASH OUTSIDE: 1
 
 
 DEBUG (7): Sending alert message to the truck
-DEBUG (6): idk
-DEBUG (5): idk
-DEBUG (1): idk
-DEBUG (7): idk
+DEBUG (6): my coordinates are (113,87)
+DEBUG (5): my coordinates are (1306,998)
+DEBUG (1): my coordinates are (1614,178)
+DEBUG (7): SOMEONE ANSWERED
+DEBUG (7): Node 6 has distance 1674
+DEBUG (7): Node 6 has distance 1674
 DEBUG (7): Truck received the message and acknowledged
 
 
-DEBUG (7): SENDING 1 to NEIGH 0 DEBUG (4): There was an attempt to add trash to the bin at time 0:3:10.523437510
+DEBUG (7): SOMEONE ANSWERED
+DEBUG (7): Node 1 has distance 1025
+DEBUG (7): Node 1 has distance 1025
+DEBUG (7): SOMEONE ANSWERED
+DEBUG (7): Node 5 has distance 195
+DEBUG (7): Node 5 has distance 195
+DEBUG (7): SENDING 1 to NEIGH 5
+DEBUG (7): distance 195
+DEBUG (5): Received from neighbout: trash = 1
+
+
+DEBUG (4): There was an attempt to add trash to the bin at time 0:3:10.523437510
 DEBUG (4): ADDED 6 units
 DEBUG (4): TRASH LEVEL: 80
 DEBUG (4): STATUS: 0
@@ -1076,7 +1089,7 @@ DEBUG (0): Reached destination (1384,1177)
 DEBUG (0): Bin 7 emptied
 
 
-DEBUG (7): Truck arrived at time 0:3:48.990066502
+DEBUG (7): Truck arrived at time 0:3:48.980010996
 DEBUG (7): BIN EMPTIED, new level: 0
 
 
@@ -1153,12 +1166,19 @@ DEBUG (4): TRASH OUTSIDE: 2
 
 
 
-DEBUG (5): idk
-DEBUG (2): idk
-DEBUG (3): idk
-DEBUG (4): idk
-DEBUG (4): idk
-DEBUG (4): SENDING 2 to NEIGH 0DEBUG (4): Sending alert message to the truck
+DEBUG (3): my coordinates are (1692,356)
+DEBUG (2): my coordinates are (421,1267)
+DEBUG (4): SOMEONE ANSWERED
+DEBUG (4): Node 2 has distance 646
+DEBUG (4): Node 2 has distance 646
+DEBUG (4): SOMEONE ANSWERED
+DEBUG (4): Node 3 has distance 1958
+DEBUG (4): SENDING 2 to NEIGH 2
+DEBUG (4): distance 646
+DEBUG (2): Received from neighbout: trash = 2
+
+
+DEBUG (4): Sending alert message to the truck
 DEBUG (4): Truck received the message and acknowledged
 
 
@@ -1289,7 +1309,7 @@ DEBUG (4): Truck received the message and acknowledged
 
 
 DEBUG (5): Sending alert message to the truck
-DEBUG (5): Truck received the message and acknowledged
+DEBUG (5): Truck did not acknowledge the message
 
 
 DEBUG (1): There was an attempt to add trash to the bin at time 0:4:29.531250010
@@ -1338,7 +1358,7 @@ DEBUG (0): Reached destination (499,1909)
 DEBUG (0): Bin 4 emptied
 
 
-DEBUG (4): Truck arrived at time 0:4:37.711853012
+DEBUG (4): Truck arrived at time 0:4:37.714004488
 DEBUG (4): BIN EMPTIED, new level: 0
 
 
@@ -1495,19 +1515,21 @@ DEBUG (3): TRASH OUTSIDE: 4
 
 
 
-DEBUG (5): idk
-DEBUG (2): idk
-DEBUG (4): idk
-DEBUG (3): Received from neighbout: trash = 2
-
-
-DEBUG (3): idk
+DEBUG (4): my coordinates are (499,1909)
+DEBUG (3): SOMEONE ANSWERED
+DEBUG (3): Node 4 has distance 1958
+DEBUG (3): Node 4 has distance 1958
 DEBUG (3): Sending alert message to the truck
-DEBUG (3): SENDING 4 to NEIGH 0DEBUG (3): Truck received the message and acknowledged
+DEBUG (3): SENDING 4 to NEIGH 4
+DEBUG (3): distance 1958
+DEBUG (3): Truck received the message and acknowledged
+
+
+DEBUG (4): Received from neighbout: trash = 4
 
 
 DEBUG (5): Sending alert message to the truck
-DEBUG (5): Truck did not acknowledge the message
+DEBUG (5): Truck received the message and acknowledged
 
 
 DEBUG (6): There was an attempt to add trash to the bin at time 0:4:57.992187510
@@ -1558,7 +1580,7 @@ DEBUG (6): TRASH OUTSIDE: 0
 
 
 DEBUG (2): Sending alert message to the truck
-DEBUG (2): Truck received the message and acknowledged
+DEBUG (2): Truck did not acknowledge the message
 
 
 DEBUG (3): Sending alert message to the truck
@@ -1582,14 +1604,14 @@ DEBUG (1): TRASH OUTSIDE: 2
 
 
 
-DEBUG (7): idk
-DEBUG (6): idk
-DEBUG (2): idk
-DEBUG (1): idk
-DEBUG (1): Received from neighbout: trash = 1
-
-
-DEBUG (1): idk
+DEBUG (7): my coordinates are (1384,1177)
+DEBUG (6): my coordinates are (113,87)
+DEBUG (1): SOMEONE ANSWERED
+DEBUG (1): Node 6 has distance 1503
+DEBUG (1): Node 6 has distance 1503
+DEBUG (1): SOMEONE ANSWERED
+DEBUG (1): Node 7 has distance 1025
+DEBUG (1): Node 7 has distance 1025
 DEBUG (2): Sending alert message to the truck
 DEBUG (2): Truck received the message and acknowledged
 
@@ -1621,7 +1643,12 @@ DEBUG (7): TRASH OUTSIDE: 0
 
 
 
-DEBUG (1): SENDING 2 to NEIGH 0DEBUG (7): There was an attempt to add trash to the bin at time 0:5:11.687500010
+DEBUG (1): SENDING 2 to NEIGH 7
+DEBUG (1): distance 1025
+DEBUG (7): Received from neighbout: trash = 2
+
+
+DEBUG (7): There was an attempt to add trash to the bin at time 0:5:11.687500010
 DEBUG (7): ADDED 8 units
 DEBUG (7): TRASH LEVEL: 34
 DEBUG (7): STATUS: 0
@@ -1689,7 +1716,7 @@ DEBUG (5): Truck received the message and acknowledged
 
 
 DEBUG (1): Sending alert message to the truck
-DEBUG (1): Truck received the message and acknowledged
+DEBUG (1): Truck did not acknowledge the message
 
 
 DEBUG (2): Sending alert message to the truck
@@ -1838,7 +1865,23 @@ DEBUG (0): Reached destination (1692,356)
 DEBUG (0): Bin 3 emptied
 
 
-DEBUG (3): Truck arrived at time 0:5:41.611419661
+DEBUG (0): Truck did not acknowledge the message
+
+
+DEBUG (3): Sending alert message to the truck
+DEBUG (0): Distance to bin is 0 m
+DEBUG (0): Received ALERT message from 3
+DEBUG (0): Started traveling to (1692,356)
+
+
+DEBUG (0): Reached destination (1692,356)
+DEBUG (0): Bin 3 emptied
+
+
+DEBUG (3): Truck received the message and acknowledged
+
+
+DEBUG (3): Truck arrived at time 0:5:41.871215846
 DEBUG (3): BIN EMPTIED, new level: 0
 
 
@@ -1905,7 +1948,7 @@ DEBUG (0): Reached destination (1306,998)
 DEBUG (0): Bin 5 emptied
 
 
-DEBUG (5): Truck arrived at time 0:5:51.069610584
+DEBUG (5): Truck arrived at time 0:5:51.076782213
 DEBUG (5): BIN EMPTIED, new level: 0
 
 
@@ -1943,19 +1986,17 @@ DEBUG (2): TRASH OUTSIDE: 5
 
 
 
-DEBUG (6): idk
-DEBUG (4): idk
-DEBUG (1): idk
-DEBUG (3): idk
-DEBUG (2): Received from neighbout: trash = 4
-
-
-DEBUG (2): idk
-DEBUG (2): Received from neighbout: trash = 2
-
-
-DEBUG (2): idk
-DEBUG (2): idk
+DEBUG (6): my coordinates are (113,87)
+DEBUG (4): my coordinates are (499,1909)
+DEBUG (3): my coordinates are (1692,356)
+DEBUG (2): SOMEONE ANSWERED
+DEBUG (2): Node 6 has distance 1219
+DEBUG (2): Node 6 has distance 1219
+DEBUG (2): SOMEONE ANSWERED
+DEBUG (2): Node 3 has distance 1563
+DEBUG (2): SOMEONE ANSWERED
+DEBUG (2): Node 4 has distance 646
+DEBUG (2): Node 4 has distance 646
 DEBUG (6): There was an attempt to add trash to the bin at time 0:5:56.585937510
 DEBUG (6): ADDED 7 units
 DEBUG (6): TRASH LEVEL: 78
@@ -1988,7 +2029,12 @@ DEBUG (3): TRASH OUTSIDE: 0
 
 
 DEBUG (2): Sending alert message to the truck
-DEBUG (2): SENDING 5 to NEIGH 0DEBUG (2): Truck received the message and acknowledged
+DEBUG (2): SENDING 5 to NEIGH 4
+DEBUG (2): distance 646
+DEBUG (2): Truck received the message and acknowledged
+
+
+DEBUG (4): Received from neighbout: trash = 5
 
 
 DEBUG (1): Sending alert message to the truck
@@ -2013,7 +2059,7 @@ DEBUG (1): Truck received the message and acknowledged
 
 
 DEBUG (2): Sending alert message to the truck
-DEBUG (2): Truck received the message and acknowledged
+DEBUG (2): Truck did not acknowledge the message
 
 
 DEBUG (4): There was an attempt to add trash to the bin at time 0:6:11.187500010
@@ -2037,7 +2083,7 @@ DEBUG (0): Reached destination (1614,178)
 DEBUG (0): Bin 1 emptied
 
 
-DEBUG (1): Truck arrived at time 0:6:14.007827726
+DEBUG (1): Truck arrived at time 0:6:14.000869718
 DEBUG (1): BIN EMPTIED, new level: 0
 
 
@@ -2108,7 +2154,7 @@ DEBUG (2): TRASH OUTSIDE: 17
 
 
 DEBUG (2): Sending alert message to the truck
-DEBUG (2): Truck did not acknowledge the message
+DEBUG (2): Truck received the message and acknowledged
 
 
 DEBUG (6): There was an attempt to add trash to the bin at time 0:6:25.882812510
@@ -2216,7 +2262,7 @@ DEBUG (0): Reached destination (421,1267)
 DEBUG (0): Bin 2 emptied
 
 
-DEBUG (2): Truck arrived at time 0:6:47.679717996
+DEBUG (2): Truck arrived at time 0:6:47.683166490
 DEBUG (2): BIN EMPTIED, new level: 0
 
 
@@ -2490,7 +2536,7 @@ DEBUG (3): TRASH OUTSIDE: 0
 
 
 DEBUG (6): Sending alert message to the truck
-DEBUG (6): Truck received the message and acknowledged
+DEBUG (6): Truck did not acknowledge the message
 
 
 DEBUG (2): There was an attempt to add trash to the bin at time 0:7:43.890625010
@@ -2559,7 +2605,7 @@ DEBUG (0): Reached destination (113,87)
 DEBUG (0): Bin 6 emptied
 
 
-DEBUG (6): Truck arrived at time 0:7:52.181655896
+DEBUG (6): Truck arrived at time 0:7:52.191513039
 DEBUG (6): BIN EMPTIED, new level: 0
 
 
@@ -2818,12 +2864,24 @@ DEBUG (7): TRASH OUTSIDE: 2
 
 
 
-DEBUG (6): idk
-DEBUG (5): idk
-DEBUG (1): idk
-DEBUG (7): idk
+DEBUG (6): my coordinates are (113,87)
+DEBUG (5): my coordinates are (1306,998)
+DEBUG (1): my coordinates are (1614,178)
+DEBUG (7): SOMEONE ANSWERED
+DEBUG (7): Node 6 has distance 1674
+DEBUG (7): Node 6 has distance 1674
+DEBUG (7): SOMEONE ANSWERED
+DEBUG (7): Node 5 has distance 195
+DEBUG (7): Node 5 has distance 195
+DEBUG (7): SOMEONE ANSWERED
+DEBUG (7): Node 1 has distance 1025
 DEBUG (7): Sending alert message to the truck
-DEBUG (7): SENDING 2 to NEIGH 0DEBUG (7): Truck received the message and acknowledged
+DEBUG (7): SENDING 2 to NEIGH 5
+DEBUG (7): distance 195
+DEBUG (7): Truck did not acknowledge the message
+
+
+DEBUG (5): Received from neighbout: trash = 2
 
 
 DEBUG (4): There was an attempt to add trash to the bin at time 0:8:48.414062510
@@ -2905,7 +2963,7 @@ DEBUG (4): Truck received the message and acknowledged
 
 
 DEBUG (7): Sending alert message to the truck
-DEBUG (7): Truck received the message and acknowledged
+DEBUG (7): Truck did not acknowledge the message
 
 
 DEBUG (1): There was an attempt to add trash to the bin at time 0:9:6.875000010
@@ -2991,7 +3049,7 @@ DEBUG (0): Reached destination (1384,1177)
 DEBUG (0): Bin 7 emptied
 
 
-DEBUG (7): Truck arrived at time 0:9:16.165847763
+DEBUG (7): Truck arrived at time 0:9:16.159774795
 DEBUG (7): BIN EMPTIED, new level: 0
 
 
@@ -3061,7 +3119,7 @@ DEBUG (2): TRASH OUTSIDE: 0
 
 
 DEBUG (3): Sending alert message to the truck
-DEBUG (3): Truck did not acknowledge the message
+DEBUG (3): Truck received the message and acknowledged
 
 
 DEBUG (4): Sending alert message to the truck
@@ -3109,17 +3167,11 @@ DEBUG (4): TRASH OUTSIDE: 4
 
 
 DEBUG (4): Sending alert message to the truck
-DEBUG (5): idk
-DEBUG (3): idk
-DEBUG (2): idk
-DEBUG (4): Received from neighbout: trash = 5
-
-
-DEBUG (4): idk
+DEBUG (5): my coordinates are (1306,998)
+DEBUG (2): my coordinates are (421,1267)
 DEBUG (4): Truck received the message and acknowledged
 
 
-DEBUG (4): idk
 DEBUG (6): There was an attempt to add trash to the bin at time 0:9:33.382812510
 DEBUG (6): ADDED 3 units
 DEBUG (6): TRASH LEVEL: 52
@@ -3129,7 +3181,12 @@ DEBUG (6): TRASH OUTSIDE: 0
 
 
 
-DEBUG (4): SENDING 4 to NEIGH 0DEBUG (6): There was an attempt to add trash to the bin at time 0:9:35.335937510
+DEBUG (4): SENDING 4 to NEIGH 2
+DEBUG (4): distance 0
+DEBUG (2): Received from neighbout: trash = 4
+
+
+DEBUG (6): There was an attempt to add trash to the bin at time 0:9:35.335937510
 DEBUG (6): ADDED 9 units
 DEBUG (6): TRASH LEVEL: 61
 DEBUG (6): STATUS: 0
@@ -3139,7 +3196,7 @@ DEBUG (6): TRASH OUTSIDE: 0
 
 
 DEBUG (3): Sending alert message to the truck
-DEBUG (3): Truck did not acknowledge the message
+DEBUG (3): Truck received the message and acknowledged
 
 
 DEBUG (4): Sending alert message to the truck
@@ -3293,7 +3350,7 @@ DEBUG (0): Reached destination (499,1909)
 DEBUG (0): Bin 4 emptied
 
 
-DEBUG (4): Truck arrived at time 0:10:5.829193116
+DEBUG (4): Truck arrived at time 0:10:5.840103120
 DEBUG (4): BIN EMPTIED, new level: 0
 
 
@@ -3428,7 +3485,7 @@ DEBUG (3): Truck received the message and acknowledged
 
 
 DEBUG (1): Sending alert message to the truck
-DEBUG (1): Truck received the message and acknowledged
+DEBUG (1): Truck did not acknowledge the message
 
 
 DEBUG (3): There was an attempt to add trash to the bin at time 0:10:38.742187510
@@ -3493,18 +3550,17 @@ DEBUG (1): TRASH OUTSIDE: 1
 
 
 
-DEBUG (7): idk
-DEBUG (6): idk
-DEBUG (2): idk
-DEBUG (1): Received from neighbout: trash = 5
-
-
-DEBUG (1): idk
-DEBUG (1): idk
-DEBUG (1): Received from neighbout: trash = 2
-
-
-DEBUG (1): idk
+DEBUG (7): my coordinates are (1384,1177)
+DEBUG (6): my coordinates are (113,87)
+DEBUG (2): my coordinates are (421,1267)
+DEBUG (1): SOMEONE ANSWERED
+DEBUG (1): Node 6 has distance 1503
+DEBUG (1): Node 6 has distance 1503
+DEBUG (1): SOMEONE ANSWERED
+DEBUG (1): Node 7 has distance 1025
+DEBUG (1): Node 7 has distance 1025
+DEBUG (1): SOMEONE ANSWERED
+DEBUG (1): Node 2 has distance 1615
 DEBUG (3): Sending alert message to the truck
 DEBUG (3): Truck received the message and acknowledged
 
@@ -3513,7 +3569,12 @@ DEBUG (5): Sending alert message to the truck
 DEBUG (5): Truck received the message and acknowledged
 
 
-DEBUG (1): SENDING 1 to NEIGH 0DEBUG (3): There was an attempt to add trash to the bin at time 0:10:46.554687510
+DEBUG (1): SENDING 1 to NEIGH 7
+DEBUG (1): distance 1025
+DEBUG (7): Received from neighbout: trash = 1
+
+
+DEBUG (3): There was an attempt to add trash to the bin at time 0:10:46.554687510
 DEBUG (3): ADDED 10 units
 DEBUG (3): TRASH LEVEL: 100
 DEBUG (3): STATUS: 2
@@ -3522,22 +3583,24 @@ DEBUG (3): TRASH OUTSIDE: 8
 
 
 
-DEBUG (5): idk
-DEBUG (2): idk
-DEBUG (4): idk
-DEBUG (3): Received from neighbout: trash = 5
-
-
-DEBUG (3): idk
-DEBUG (3): Received from neighbout: trash = 4
-
-
-DEBUG (3): idk
+DEBUG (2): my coordinates are (421,1267)
+DEBUG (4): my coordinates are (499,1909)
+DEBUG (3): SOMEONE ANSWERED
+DEBUG (3): Node 4 has distance 1958
+DEBUG (3): Node 4 has distance 1958
+DEBUG (3): SOMEONE ANSWERED
+DEBUG (3): Node 2 has distance 1563
+DEBUG (3): Node 2 has distance 1563
 DEBUG (1): Sending alert message to the truck
 DEBUG (1): Truck received the message and acknowledged
 
 
-DEBUG (3): SENDING 8 to NEIGH 0DEBUG (7): There was an attempt to add trash to the bin at time 0:10:48.601562510
+DEBUG (3): SENDING 8 to NEIGH 2
+DEBUG (3): distance 1563
+DEBUG (2): Received from neighbout: trash = 8
+
+
+DEBUG (7): There was an attempt to add trash to the bin at time 0:10:48.601562510
 DEBUG (7): ADDED 4 units
 DEBUG (7): TRASH LEVEL: 41
 DEBUG (7): STATUS: 0
@@ -3556,7 +3619,7 @@ DEBUG (3): TRASH OUTSIDE: 12
 
 
 DEBUG (3): Sending alert message to the truck
-DEBUG (3): Truck did not acknowledge the message
+DEBUG (3): Truck received the message and acknowledged
 
 
 DEBUG (5): Sending alert message to the truck
@@ -3694,7 +3757,7 @@ DEBUG (2): TRASH OUTSIDE: 0
 
 
 DEBUG (3): Sending alert message to the truck
-DEBUG (3): Truck received the message and acknowledged
+DEBUG (3): Truck did not acknowledge the message
 
 
 DEBUG (5): Sending alert message to the truck
@@ -3709,7 +3772,11 @@ DEBUG (0): Reached destination (1692,356)
 DEBUG (0): Bin 3 emptied
 
 
-DEBUG (0): Truck did not acknowledge the message
+DEBUG (3): Truck arrived at time 0:11:13.642532344
+DEBUG (3): BIN EMPTIED, new level: 0
+
+
+DEBUG (0): Truck received the message and acknowledged
 
 
 DEBUG (1): There was an attempt to add trash to the bin at time 0:11:13.828125010
@@ -3719,26 +3786,6 @@ DEBUG (1): STATUS: 2
 DEBUG (1): TRASH OUTSIDE: 11
 
 
-
-
-DEBUG (3): Sending alert message to the truck
-DEBUG (0): Distance to bin is 0 m
-DEBUG (0): Received ALERT message from 3
-DEBUG (0): Started traveling to (1692,356)
-
-
-DEBUG (0): Reached destination (1692,356)
-DEBUG (0): Bin 3 emptied
-
-
-DEBUG (3): Truck received the message and acknowledged
-
-
-DEBUG (3): Truck arrived at time 0:11:13.916366522
-DEBUG (3): BIN EMPTIED, new level: 0
-
-
-DEBUG (0): Truck received the message and acknowledged
 
 
 DEBUG (5): Sending alert message to the truck
@@ -3802,23 +3849,7 @@ DEBUG (0): Reached destination (1306,998)
 DEBUG (0): Bin 5 emptied
 
 
-DEBUG (0): Truck did not acknowledge the message
-
-
-DEBUG (5): Sending alert message to the truck
-DEBUG (0): Distance to bin is 0 m
-DEBUG (0): Received ALERT message from 5
-DEBUG (0): Started traveling to (1306,998)
-
-
-DEBUG (0): Reached destination (1306,998)
-DEBUG (0): Bin 5 emptied
-
-
-DEBUG (5): Truck received the message and acknowledged
-
-
-DEBUG (5): Truck arrived at time 0:11:24.699844338
+DEBUG (5): Truck arrived at time 0:11:24.074310309
 DEBUG (5): BIN EMPTIED, new level: 0
 
 
@@ -3884,7 +3915,7 @@ DEBUG (4): TRASH OUTSIDE: 0
 
 
 DEBUG (6): Sending alert message to the truck
-DEBUG (6): Truck did not acknowledge the message
+DEBUG (6): Truck received the message and acknowledged
 
 
 DEBUG (7): There was an attempt to add trash to the bin at time 0:11:36.453125010
@@ -3922,14 +3953,14 @@ DEBUG (6): Truck received the message and acknowledged
 
 
 DEBUG (1): Sending alert message to the truck
-DEBUG (1): Truck received the message and acknowledged
+DEBUG (1): Truck did not acknowledge the message
 
 
 DEBUG (0): Reached destination (1614,178)
 DEBUG (0): Bin 1 emptied
 
 
-DEBUG (1): Truck arrived at time 0:11:48.965255713
+DEBUG (1): Truck arrived at time 0:11:48.956756583
 DEBUG (1): BIN EMPTIED, new level: 0
 
 
@@ -3982,7 +4013,7 @@ DEBUG (7): TRASH OUTSIDE: 0
 
 
 DEBUG (6): Sending alert message to the truck
-DEBUG (6): Truck received the message and acknowledged
+DEBUG (6): Truck did not acknowledge the message
 
 
 DEBUG (2): There was an attempt to add trash to the bin at time 0:11:55.843750010
@@ -4082,7 +4113,7 @@ DEBUG (0): Reached destination (113,87)
 DEBUG (0): Bin 6 emptied
 
 
-DEBUG (6): Truck arrived at time 0:12:8.891723639
+DEBUG (6): Truck arrived at time 0:12:8.888809199
 DEBUG (6): BIN EMPTIED, new level: 0
 
 
@@ -4130,7 +4161,7 @@ DEBUG (3): TRASH OUTSIDE: 0
 
 
 DEBUG (7): Sending alert message to the truck
-DEBUG (7): Truck received the message and acknowledged
+DEBUG (7): Truck did not acknowledge the message
 
 
 DEBUG (5): There was an attempt to add trash to the bin at time 0:12:16.445312510
@@ -4190,11 +4221,17 @@ DEBUG (7): TRASH OUTSIDE: 3
 
 
 
-DEBUG (6): idk
-DEBUG (1): idk
-DEBUG (5): idk
-DEBUG (7): idk
-DEBUG (7): idk
+DEBUG (1): my coordinates are (1614,178)
+DEBUG (6): my coordinates are (113,87)
+DEBUG (5): my coordinates are (1306,998)
+DEBUG (7): SOMEONE ANSWERED
+DEBUG (7): Node 6 has distance 1674
+DEBUG (7): Node 6 has distance 1674
+DEBUG (7): SOMEONE ANSWERED
+DEBUG (7): Node 5 has distance 195
+DEBUG (7): Node 5 has distance 195
+DEBUG (7): SOMEONE ANSWERED
+DEBUG (7): Node 1 has distance 1025
 DEBUG (4): There was an attempt to add trash to the bin at time 0:12:24.234375010
 DEBUG (4): ADDED 5 units
 DEBUG (4): TRASH LEVEL: 49
@@ -4205,7 +4242,12 @@ DEBUG (4): TRASH OUTSIDE: 0
 
 
 DEBUG (7): Sending alert message to the truck
-DEBUG (7): SENDING 3 to NEIGH 0DEBUG (7): Truck received the message and acknowledged
+DEBUG (7): SENDING 3 to NEIGH 5
+DEBUG (7): distance 195
+DEBUG (7): Truck received the message and acknowledged
+
+
+DEBUG (5): Received from neighbout: trash = 3
 
 
 DEBUG (2): Sending alert message to the truck
@@ -4213,7 +4255,7 @@ DEBUG (2): Truck received the message and acknowledged
 
 
 DEBUG (7): Sending alert message to the truck
-DEBUG (7): Truck did not acknowledge the message
+DEBUG (7): Truck received the message and acknowledged
 
 
 DEBUG (2): Sending alert message to the truck
@@ -4280,7 +4322,7 @@ DEBUG (0): Reached destination (1384,1177)
 DEBUG (0): Bin 7 emptied
 
 
-DEBUG (7): Truck arrived at time 0:12:46.115646361
+DEBUG (7): Truck arrived at time 0:12:46.123489356
 DEBUG (7): BIN EMPTIED, new level: 0
 
 
@@ -4332,18 +4374,19 @@ DEBUG (2): TRASH OUTSIDE: 1
 
 
 
-DEBUG (3): idk
-DEBUG (1): idk
-DEBUG (6): idk
-DEBUG (4): idk
-DEBUG (2): Received from neighbout: trash = 4
-
-
-DEBUG (2): idk
-DEBUG (2): Received from neighbout: trash = 1
-
-
-DEBUG (2): idk
+DEBUG (3): my coordinates are (1692,356)
+DEBUG (1): my coordinates are (1614,178)
+DEBUG (6): my coordinates are (113,87)
+DEBUG (4): my coordinates are (499,1909)
+DEBUG (2): SOMEONE ANSWERED
+DEBUG (2): Node 4 has distance 646
+DEBUG (2): Node 4 has distance 646
+DEBUG (2): SOMEONE ANSWERED
+DEBUG (2): Node 1 has distance 1615
+DEBUG (2): SOMEONE ANSWERED
+DEBUG (2): Node 3 has distance 1563
+DEBUG (2): SOMEONE ANSWERED
+DEBUG (2): Node 6 has distance 1219
 DEBUG (5): There was an attempt to add trash to the bin at time 0:12:48.671875010
 DEBUG (5): ADDED 9 units
 DEBUG (5): TRASH LEVEL: 46
@@ -4353,7 +4396,12 @@ DEBUG (5): TRASH OUTSIDE: 0
 
 
 
-DEBUG (2): SENDING 1 to NEIGH 0DEBUG (7): There was an attempt to add trash to the bin at time 0:12:50.671875010
+DEBUG (2): SENDING 1 to NEIGH 4
+DEBUG (2): distance 646
+DEBUG (4): Received from neighbout: trash = 1
+
+
+DEBUG (7): There was an attempt to add trash to the bin at time 0:12:50.671875010
 DEBUG (7): ADDED 4 units
 DEBUG (7): TRASH LEVEL: 4
 DEBUG (7): STATUS: 0
@@ -4385,7 +4433,7 @@ DEBUG (6): TRASH OUTSIDE: 0
 
 
 DEBUG (2): Sending alert message to the truck
-DEBUG (2): Truck received the message and acknowledged
+DEBUG (2): Truck did not acknowledge the message
 
 
 DEBUG (1): There was an attempt to add trash to the bin at time 0:12:57.343750010
@@ -4473,14 +4521,14 @@ DEBUG (3): TRASH OUTSIDE: 0
 
 
 DEBUG (2): Sending alert message to the truck
-DEBUG (2): Truck received the message and acknowledged
+DEBUG (2): Truck did not acknowledge the message
 
 
 DEBUG (0): Reached destination (421,1267)
 DEBUG (0): Bin 2 emptied
 
 
-DEBUG (2): Truck arrived at time 0:13:17.076415992
+DEBUG (2): Truck arrived at time 0:13:17.064056411
 DEBUG (2): BIN EMPTIED, new level: 0
 
 
@@ -4700,7 +4748,7 @@ DEBUG (0): Received ALERT message from 4
 DEBUG (0): Started traveling to (499,1909)
 
 
-DEBUG (4): Truck did not acknowledge the message
+DEBUG (4): Truck received the message and acknowledged
 
 
 DEBUG (5): There was an attempt to add trash to the bin at time 0:14:10.703125010
@@ -4831,27 +4879,28 @@ DEBUG (4): TRASH OUTSIDE: 2
 
 
 
-DEBUG (5): idk
-DEBUG (2): idk
-DEBUG (3): idk
-DEBUG (4): Received from neighbout: trash = 1
-
-
-DEBUG (4): idk
-DEBUG (4): Received from neighbout: trash = 8
-
-
-DEBUG (4): idk
+DEBUG (2): my coordinates are (421,1267)
+DEBUG (3): my coordinates are (1692,356)
+DEBUG (4): SOMEONE ANSWERED
+DEBUG (4): Node 2 has distance 646
+DEBUG (4): Node 2 has distance 646
+DEBUG (4): SOMEONE ANSWERED
+DEBUG (4): Node 3 has distance 1958
 DEBUG (5): Sending alert message to the truck
 DEBUG (5): Truck received the message and acknowledged
 
 
 DEBUG (4): Sending alert message to the truck
-DEBUG (4): SENDING 2 to NEIGH 0DEBUG (4): Truck received the message and acknowledged
+DEBUG (4): SENDING 2 to NEIGH 2
+DEBUG (4): distance 646
+DEBUG (4): Truck received the message and acknowledged
+
+
+DEBUG (2): Received from neighbout: trash = 2
 
 
 DEBUG (5): Sending alert message to the truck
-DEBUG (5): Truck received the message and acknowledged
+DEBUG (5): Truck did not acknowledge the message
 
 
 DEBUG (4): Sending alert message to the truck
@@ -4901,20 +4950,18 @@ DEBUG (5): TRASH OUTSIDE: 1
 
 
 
-DEBUG (7): idk
-DEBUG (6): idk
-DEBUG (4): idk
-DEBUG (3): idk
-DEBUG (5): idk
-DEBUG (5): Received from neighbout: trash = 3
+DEBUG (7): my coordinates are (1384,1177)
+DEBUG (6): my coordinates are (113,87)
+DEBUG (3): my coordinates are (1692,356)
+DEBUG (5): SOMEONE ANSWERED
+DEBUG (5): Node 6 has distance 1501
+DEBUG (5): Node 6 has distance 1501
+DEBUG (5): SENDING 1 to NEIGH 6
+DEBUG (5): distance 1501
+DEBUG (6): Received from neighbout: trash = 1
 
 
-DEBUG (5): idk
-DEBUG (5): Received from neighbout: trash = 8
-
-
-DEBUG (5): idk
-DEBUG (5): SENDING 1 to NEIGH 0DEBUG (4): There was an attempt to add trash to the bin at time 0:14:47.789062510
+DEBUG (4): There was an attempt to add trash to the bin at time 0:14:47.789062510
 DEBUG (4): ADDED 2 units
 DEBUG (4): TRASH LEVEL: 100
 DEBUG (4): STATUS: 2
@@ -5072,14 +5119,14 @@ DEBUG (7): TRASH OUTSIDE: 0
 
 
 DEBUG (5): Sending alert message to the truck
-DEBUG (5): Truck received the message and acknowledged
+DEBUG (5): Truck did not acknowledge the message
 
 
 DEBUG (0): Reached destination (499,1909)
 DEBUG (0): Bin 4 emptied
 
 
-DEBUG (4): Truck arrived at time 0:15:13.777908334
+DEBUG (4): Truck arrived at time 0:15:13.783142074
 DEBUG (4): BIN EMPTIED, new level: 0
 
 
@@ -5403,7 +5450,7 @@ DEBUG (0): Reached destination (1306,998)
 DEBUG (0): Bin 5 emptied
 
 
-DEBUG (5): Truck arrived at time 0:16:12.940292377
+DEBUG (5): Truck arrived at time 0:16:12.940170308
 DEBUG (5): BIN EMPTIED, new level: 0
 
 
@@ -5472,7 +5519,7 @@ DEBUG (0): Reached destination (1692,356)
 DEBUG (0): Bin 3 emptied
 
 
-DEBUG (3): Truck arrived at time 0:16:25.794647191
+DEBUG (3): Truck arrived at time 0:16:25.788330078
 DEBUG (3): BIN EMPTIED, new level: 0
 
 
@@ -5648,7 +5695,7 @@ DEBUG (0): Reached destination (1614,178)
 DEBUG (0): Bin 1 emptied
 
 
-DEBUG (1): Truck arrived at time 0:17:5.785186786
+DEBUG (1): Truck arrived at time 0:17:5.791702256
 DEBUG (1): BIN EMPTIED, new level: 0
 
 
@@ -5833,7 +5880,7 @@ DEBUG (0): Reached destination (113,87)
 DEBUG (0): Bin 6 emptied
 
 
-DEBUG (6): Truck arrived at time 0:17:50.687149045
+DEBUG (6): Truck arrived at time 0:17:50.694519026
 DEBUG (6): BIN EMPTIED, new level: 0
 
 
@@ -5898,7 +5945,7 @@ DEBUG (1): TRASH OUTSIDE: 0
 
 
 DEBUG (2): Sending alert message to the truck
-DEBUG (2): Truck did not acknowledge the message
+DEBUG (2): Truck received the message and acknowledged
 
 
 DEBUG (7): Sending alert message to the truck
@@ -6093,15 +6140,26 @@ DEBUG (2): TRASH OUTSIDE: 4
 
 
 
-DEBUG (6): idk
-DEBUG (1): idk
-DEBUG (4): idk
-DEBUG (3): idk
+DEBUG (6): my coordinates are (113,87)
+DEBUG (1): my coordinates are (1614,178)
+DEBUG (4): my coordinates are (499,1909)
+DEBUG (3): my coordinates are (1692,356)
+DEBUG (2): SOMEONE ANSWERED
+DEBUG (2): Node 3 has distance 1563
+DEBUG (2): Node 3 has distance 1563
+DEBUG (2): SOMEONE ANSWERED
+DEBUG (2): Node 4 has distance 646
+DEBUG (2): Node 4 has distance 646
 DEBUG (7): Sending alert message to the truck
-DEBUG (7): Truck did not acknowledge the message
+DEBUG (7): Truck received the message and acknowledged
 
 
-DEBUG (2): SENDING 4 to NEIGH 0DEBUG (5): There was an attempt to add trash to the bin at time 0:18:35.351562510
+DEBUG (2): SENDING 4 to NEIGH 4
+DEBUG (2): distance 646
+DEBUG (4): Received from neighbout: trash = 4
+
+
+DEBUG (5): There was an attempt to add trash to the bin at time 0:18:35.351562510
 DEBUG (5): ADDED 10 units
 DEBUG (5): TRASH LEVEL: 51
 DEBUG (5): STATUS: 0
@@ -6150,7 +6208,7 @@ DEBUG (2): Truck received the message and acknowledged
 
 
 DEBUG (7): Sending alert message to the truck
-DEBUG (7): Truck received the message and acknowledged
+DEBUG (7): Truck did not acknowledge the message
 
 
 DEBUG (2): Sending alert message to the truck
@@ -6192,7 +6250,7 @@ DEBUG (0): Reached destination (421,1267)
 DEBUG (0): Bin 2 emptied
 
 
-DEBUG (2): Truck arrived at time 0:18:48.319122328
+DEBUG (2): Truck arrived at time 0:18:48.324279757
 DEBUG (2): BIN EMPTIED, new level: 0
 
 
@@ -6245,7 +6303,7 @@ DEBUG (4): TRASH OUTSIDE: 0
 
 
 DEBUG (7): Sending alert message to the truck
-DEBUG (7): Truck received the message and acknowledged
+DEBUG (7): Truck did not acknowledge the message
 
 
 DEBUG (6): There was an attempt to add trash to the bin at time 0:18:58.812500010
@@ -6329,7 +6387,7 @@ DEBUG (5): TRASH OUTSIDE: 0
 
 
 DEBUG (7): Sending alert message to the truck
-DEBUG (7): Truck did not acknowledge the message
+DEBUG (7): Truck received the message and acknowledged
 
 
 DEBUG (7): There was an attempt to add trash to the bin at time 0:19:15.437500010
@@ -6341,10 +6399,17 @@ DEBUG (7): TRASH OUTSIDE: 3
 
 
 
-DEBUG (1): idk
-DEBUG (6): idk
-DEBUG (5): idk
-DEBUG (7): idk
+DEBUG (6): my coordinates are (113,87)
+DEBUG (5): my coordinates are (1306,998)
+DEBUG (1): my coordinates are (1614,178)
+DEBUG (7): SOMEONE ANSWERED
+DEBUG (7): Node 6 has distance 1674
+DEBUG (7): Node 6 has distance 1674
+DEBUG (7): SOMEONE ANSWERED
+DEBUG (7): Node 5 has distance 195
+DEBUG (7): Node 5 has distance 195
+DEBUG (7): SOMEONE ANSWERED
+DEBUG (7): Node 1 has distance 1025
 DEBUG (5): There was an attempt to add trash to the bin at time 0:19:16.367187510
 DEBUG (5): ADDED 8 units
 DEBUG (5): TRASH LEVEL: 82
@@ -6373,7 +6438,12 @@ DEBUG (3): TRASH OUTSIDE: 0
 
 
 DEBUG (7): Sending alert message to the truck
-DEBUG (7): SENDING 3 to NEIGH 0DEBUG (7): Truck received the message and acknowledged
+DEBUG (7): SENDING 3 to NEIGH 5
+DEBUG (7): distance 195
+DEBUG (7): Truck received the message and acknowledged
+
+
+DEBUG (5): Received from neighbout: trash = 3
 
 
 DEBUG (7): Sending alert message to the truck
@@ -6402,11 +6472,11 @@ DEBUG (0): Reached destination (1384,1177)
 DEBUG (0): Bin 7 emptied
 
 
-DEBUG (7): Truck arrived at time 0:19:23.423721298
+DEBUG (7): Truck arrived at time 0:19:23.419723496
 DEBUG (7): BIN EMPTIED, new level: 0
 
 
-DEBUG (0): Truck did not acknowledge the message
+DEBUG (0): Truck received the message and acknowledged
 
 
 DEBUG (4): There was an attempt to add trash to the bin at time 0:19:26.109375010
@@ -6526,17 +6596,13 @@ DEBUG (4): TRASH OUTSIDE: 0
 
 
 DEBUG (4): Sending alert message to the truck
-DEBUG (5): idk
-DEBUG (3): idk
-DEBUG (2): idk
-DEBUG (4): Received from neighbout: trash = 4
-
-
-DEBUG (4): idk
-DEBUG (4): Received from neighbout: trash = 8
-
-
-DEBUG (4): idk
+DEBUG (3): my coordinates are (1692,356)
+DEBUG (2): my coordinates are (421,1267)
+DEBUG (4): SOMEONE ANSWERED
+DEBUG (4): Node 2 has distance 646
+DEBUG (4): Node 2 has distance 646
+DEBUG (4): SOMEONE ANSWERED
+DEBUG (4): Node 3 has distance 1958
 DEBUG (4): Truck received the message and acknowledged
 
 
@@ -6553,7 +6619,12 @@ DEBUG (5): Sending alert message to the truck
 DEBUG (5): Truck received the message and acknowledged
 
 
-DEBUG (4): SENDING 0 to NEIGH 0DEBUG (4): Sending alert message to the truck
+DEBUG (4): SENDING 0 to NEIGH 2
+DEBUG (4): distance 646
+DEBUG (2): Received from neighbout: trash = 0
+
+
+DEBUG (4): Sending alert message to the truck
 DEBUG (4): Truck received the message and acknowledged
 
 
@@ -6580,14 +6651,14 @@ DEBUG (1): TRASH OUTSIDE: 0
 
 
 DEBUG (4): Sending alert message to the truck
-DEBUG (4): Truck received the message and acknowledged
+DEBUG (4): Truck did not acknowledge the message
 
 
 DEBUG (0): Reached destination (1306,998)
 DEBUG (0): Bin 5 emptied
 
 
-DEBUG (5): Truck arrived at time 0:19:52.997344964
+DEBUG (5): Truck arrived at time 0:19:52.995849629
 DEBUG (5): BIN EMPTIED, new level: 0
 
 
@@ -6613,7 +6684,12 @@ DEBUG (6): TRASH OUTSIDE: 0
 
 
 DEBUG (4): Sending alert message to the truck
-DEBUG (4): Truck did not acknowledge the message
+DEBUG (0): Distance to bin is 1217 m
+DEBUG (0): Received ALERT message from 4
+DEBUG (0): Started traveling to (499,1909)
+
+
+DEBUG (4): Truck received the message and acknowledged
 
 
 DEBUG (1): There was an attempt to add trash to the bin at time 0:19:59.218750010
@@ -6671,11 +6747,6 @@ DEBUG (7): TRASH OUTSIDE: 0
 
 
 DEBUG (4): Sending alert message to the truck
-DEBUG (0): Distance to bin is 1217 m
-DEBUG (0): Received ALERT message from 4
-DEBUG (0): Started traveling to (499,1909)
-
-
 DEBUG (4): Truck received the message and acknowledged
 
 
@@ -6813,7 +6884,7 @@ DEBUG (1): TRASH OUTSIDE: 0
 
 
 DEBUG (4): Sending alert message to the truck
-DEBUG (4): Truck did not acknowledge the message
+DEBUG (4): Truck received the message and acknowledged
 
 
 DEBUG (4): There was an attempt to add trash to the bin at time 0:20:29.585937510
@@ -6944,17 +7015,24 @@ DEBUG (4): TRASH OUTSIDE: 39
 
 
 
+DEBUG (0): Reached destination (499,1909)
+DEBUG (0): Bin 4 emptied
+
+
+DEBUG (4): Truck arrived at time 0:20:52.225540128
+DEBUG (4): BIN EMPTIED, new level: 0
+
+
+DEBUG (0): Truck received the message and acknowledged
+
+
 DEBUG (4): There was an attempt to add trash to the bin at time 0:20:54.976562510
 DEBUG (4): ADDED 10 units
-DEBUG (4): TRASH LEVEL: 100
-DEBUG (4): STATUS: 2
-DEBUG (4): TRASH OUTSIDE: 49
+DEBUG (4): TRASH LEVEL: 10
+DEBUG (4): STATUS: 0
+DEBUG (4): TRASH OUTSIDE: 0
 
 
-
-
-DEBUG (4): Sending alert message to the truck
-DEBUG (4): Truck received the message and acknowledged
 
 
 DEBUG (3): There was an attempt to add trash to the bin at time 0:20:56.906250010
@@ -6964,17 +7042,6 @@ DEBUG (3): STATUS: 1
 DEBUG (3): TRASH OUTSIDE: 0
 
 
-
-
-DEBUG (0): Reached destination (499,1909)
-DEBUG (0): Bin 4 emptied
-
-
-DEBUG (4): Truck arrived at time 0:20:57.104919404
-DEBUG (4): BIN EMPTIED, new level: 0
-
-
-DEBUG (0): Truck received the message and acknowledged
 
 
 DEBUG (1): There was an attempt to add trash to the bin at time 0:20:59.765625010
@@ -7028,7 +7095,7 @@ DEBUG (3): Truck received the message and acknowledged
 
 DEBUG (4): There was an attempt to add trash to the bin at time 0:21:6.695312510
 DEBUG (4): ADDED 10 units
-DEBUG (4): TRASH LEVEL: 10
+DEBUG (4): TRASH LEVEL: 20
 DEBUG (4): STATUS: 0
 DEBUG (4): TRASH OUTSIDE: 0
 
@@ -7042,5 +7109,9 @@ DEBUG (1): STATUS: 1
 DEBUG (1): TRASH OUTSIDE: 0
 
 
+
+
+DEBUG (3): Sending alert message to the truck
+DEBUG (3): Truck received the message and acknowledged
 
 
