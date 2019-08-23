@@ -1,0 +1,13 @@
+1. implementare bene tutti i controlli tx/rx
+2. implrmentare tutti i metodi per alert
+3. implementare tutti i metodi per il truck
+4. implementare debugging
+
+1. nodo inizia a leggere
+2. se supera livello critico invia un alert
+3. se truck è in viaggio lo scarta, altrimenti invia ack
+4. truck inizia a viaggiare e imposta "in viaggio"
+5. arriva e invia "TRUCK"
+6. nodo riceve truck e invia ack
+7. nodo svuota il cestino
+8. truck acquisisce coordinate del nodo

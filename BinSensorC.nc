@@ -24,7 +24,7 @@ generic module BinSensorC() {
 	}
 	
 	void setTimer(){
-		call Timer0.startOneShot( 1000 * (1 + (call Random.rand16() % GENERATION_INTERVAL)));
+		call Timer0.startOneShot( 100 * (1 + (call Random.rand16() % GENERATION_INTERVAL)));
 	}
 	
 }
