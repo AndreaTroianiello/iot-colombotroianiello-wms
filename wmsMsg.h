@@ -30,7 +30,7 @@ typedef nx_struct move_msg{
 #define TRUCK 2
 #define MOVE 3
 #define BINRES 4
-#define MVTRASH 5;
+#define MVTRASH 5
 
 enum{
 	AM_BIN_CHANNEL = 6,

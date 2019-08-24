@@ -11,6 +11,8 @@ implementation {
   components new TimerMilliC() as TruckTimer;
   components new TimerMilliC() as AlertTimer;
   components new TimerMilliC() as MoveTrashTimer;  
+  components new TimerMilliC() as MoveResTimer;  
+  components new TimerMilliC() as UnlockBinTimer;  
   components new AMSenderC(AM_TRUCK_CHANNEL) as TS;
   components new AMReceiverC(AM_TRUCK_CHANNEL) as TR;
   components new AMSenderC(AM_BIN_CHANNEL) as BS;
@@ -46,6 +48,8 @@ implementation {
   Mote.TruckTimer -> TruckTimer;
   Mote.AlertTimer -> AlertTimer;
   Mote.MoveTrashTimer -> MoveTrashTimer;
+  Mote.MoveResTimer -> MoveResTimer;
+  Mote.UnlockBinTimer -> UnlockBinTimer;
 
 }
 
