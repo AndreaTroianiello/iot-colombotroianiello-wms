@@ -14,13 +14,21 @@ module WMSMoteC {
         
         interface SplitControl;    	
         
-        //TRUCK Channel
+        /**
+         * Interfaces used to communicate on the "truck" channel.
+         * 
+         */
         interface AMPacket as TAMPacket; 
 	    interface Packet as TPacket;
 	    interface AMSend as TSChannel;
         interface Receive as TRChannel;
 
-        //TRUCK Channel
+        /**
+         * Interfaces used to communicate on the "bin" channel.
+         * This channel is used for bin-bin communications.
+         * On this channel, every time a bin wants to communicate, it send a broadcast message,
+         * then the following message are bin to bin in a p2p way. 
+         */
         interface AMPacket as BAMPacket; 
 	    interface Packet as BPacket;
 	    interface AMSend as BSChannel;
@@ -30,40 +38,56 @@ module WMSMoteC {
     }
 
 } implementation {
-    // Global constants
+    /**
+     * Global constants used by both the bins and the truck.
+     */
     const uint16_t MAX_X = 2000;
     const uint16_t MAX_Y = 2000;
     const uint8_t ALPHA_BIN = 1;
     const uint8_t ALPHA_TRUCK = 60;
 
-    // Bin related constants
-    const uint8_t CRITICAL = 85;
-    const uint8_t FULL = 100;
+    /**
+     * Bin related constants and enum, they are needed only by the bin type motes.
+     */
+    const uint8_t CRITICAL_LEVEL = 85;
+    const uint8_t FULL_LEVEL = 100;
 
-    // Global variables
-    uint16_t x,y;
+    // An enumeration that represent the possible states of the bins.
+    enum{ 
+        NORMAL = 0,
+        CRITICAL = 1, 
+        FULL = 2
+    };
+
+    /**
+     * Global variables used by both the bins and the truck.
+     */
+    
+    uint16_t x, y, distance, node_d;
     bool bin;
-    message_t bpacket;
     message_t tpacket;
-    uint16_t distance;
-    uint16_t node_d;
 
-    // Bin related variables
+    /**
+     * Bin related variables, they are needed only by the bin type motes.
+     */
     uint8_t trash_level;
+    // Trash outside the bin exceeding the capacity.
     uint8_t extra_trash;
-    // 0 = normal mode, 1 = alert mode, 2 = full mode
+    // 0 = normal mode, 1 = alert mode, 2 = full mode, uses the enum.
     uint8_t bin_mode;
-    bool alerting;
-    bool redirecting; 
+    bool alerting, redirecting; 
     uint16_t min_distance;
+    message_t bpacket;
 
-    //Truck related variables
+    /**
+     * Truck related variables, they are needed only by the truck type motes.
+     */
     bool moving;
 
     void init();
     void initBin();
     void initTruck();
-    void computeDistance(uint16_t x2, uint16_t y2);
+    uint16_t computeDistance(uint16_t x2, uint16_t y2);
     uint32_t computeTravelTime();
     void addTrashNormal(uint8_t trash);
     void addTrashAlert(uint8_t trash);
@@ -77,9 +101,13 @@ module WMSMoteC {
     task void replyAvailable();
 
 
+    /**
+     * The "main" method of the node. After the mote booted, it turns on the network and then calls the init methods.
+     */
     event void Boot.booted() {
 	    dbg("boot","Bin booted.\n");
         call SplitControl.start();
+
         init();
 
         if(TOS_NODE_ID >0){
@@ -91,10 +119,11 @@ module WMSMoteC {
             initTruck();
         }    
     }
+    
 
     event void SplitControl.startDone(error_t err){
         if(err == SUCCESS) {
-	        dbg("radio","Radio on!\n\n\n\n\n");
+	        dbg("radio","Radio on!\n\n\n");
         }
         else{
             dbgerror("radio","something went wrong\n");
@@ -104,7 +133,10 @@ module WMSMoteC {
   
     event void SplitControl.stopDone(error_t err){}
 
-
+    /**
+     * The "global" init method. It is used by both the truck and bin motes.
+     * Randomly generates the truck coordinates and sets distance and node_d to 0.
+     */
     void init(){
         x = call Random.rand16() % MAX_X;
         y = call Random.rand16() % MAX_Y;
@@ -113,41 +145,104 @@ module WMSMoteC {
         dbg("init", "Bin location is (%i, %i)\n",x,y);
     }
 
+    /**
+     * The truck init method. It is used only by the truck, initializes its variables.
+     */
     void initTruck(){
         moving=FALSE;
         bin=FALSE;
     }
 
+    /**
+     * The bin init method. It is used only by the bins, initializes their variables.
+     */
     void initBin(){
         trash_level = 0;
         extra_trash = 0;
-        bin_mode = 0;
+        bin_mode = NORMAL;
         min_distance=0;
         alerting = FALSE;
         redirecting = FALSE;
         bin=TRUE;
     }
 
-    void computeDistance(uint16_t x2, uint16_t y2){
+    /** 
+     * Compute the distance of this mode from the one which has coordinates x,y represented by the parameters of this method.
+     * The dostance is stored in the glboal variable "distance" so that it can be reused by all the tasks.
+     */
+    uint16_t computeDistance(uint16_t x2, uint16_t y2){
         uint32_t xs= (x-x2)*(x-x2);
         uint32_t ys= (y-y2)*(y-y2);
         distance = sqrt(xs+ys);
+        return distance;
     }
 
+    /**
+     * Compute the travel time (T-bin and T-truck)
+     * To compute the travel time is multiplies the distance and the ALPHA value.
+     */
     uint32_t computeTravelTime(){
         if(bin)
             return ALPHA_BIN*distance;
         return ALPHA_TRUCK*distance;
     }
-   
+
+    /**
+     * Method used to add trash to the bin when its status is "NORMAL"
+     * After adding the trash, the method checks if the status changed and in case it is needed, it starts alerting.
+     */
+    void addTrashNormal(uint8_t trash){
+        trash_level += trash;
+        if(trash_level >= CRITICAL_LEVEL) {
+            bin_mode = CRITICAL;
+            call AlertTimer.startOneShot(1000);
+            dbg("bin","Level: %i, Status: CRITICAL\n\n",trash_level);
+        }else{
+             dbg("bin","Level: %i, Status: NORMAL\n\n",trash_level);
+        }
+    }
+
+    /**
+     * Method used to add trash to the bin when its status is "CRITICAL"
+     * After adding the trash, the method checks if the status changed. 
+     * In case there is the needed, it starts redirecting the trash to other bins.
+     */
+    void addTrashAlert(uint8_t trash){
+        trash_level += trash;
+        if(trash_level >= FULL_LEVEL) {
+            bin_mode = FULL;
+            extra_trash = trash_level - FULL_LEVEL;
+            trash_level = FULL_LEVEL;
+            if(extra_trash > 0){
+                post askToNeighbours();
+            }
+            dbg("bin","Level: %i, Status: FULL, Trash outside: %i\n\n",trash_level, extra_trash);
+        }else{
+            dbg("bin","Level: %i, Status: CRITICAL\n\n",trash_level);
+        }
+    }
+
+    /**
+     * Method used to add trash to the bin when its status is "FULL"
+     * After adding the trash, if the bin isn't alreadt redirecting, starts to redirect trash to neighbour bins.
+     */
+    void addTrashFull(uint8_t trash){
+        extra_trash += trash;
+        if(redirecting == FALSE){
+            post askToNeighbours();
+        }
+        dbg("bin","Level: %i, Status: FULL, Trash outside: %i\n\n",trash_level, extra_trash);
+    }
+
+    
     event void Read.readDone(error_t result, uint8_t data) {
         if(result == SUCCESS){
             dbg("bin","Attempt to ADD %i UNITS to the bin at time %s\n",data,sim_time_string());
-            if(bin_mode == 0){
+            if(bin_mode == NORMAL){
                addTrashNormal(data);
-            }else if(bin_mode == 1){
+            }else if(bin_mode == CRITICAL){
                addTrashAlert(data);
-            }else if(bin_mode==2){
+            }else if(bin_mode==FULL){
                 addTrashFull(data);
             }    
             dbg_clear("bin","\n\n");    
@@ -168,8 +263,12 @@ module WMSMoteC {
         }
     }
 
+    /**
+     * Empties the bin when the trucks arrives to collect the trash.
+     * After emptiying the bin, it sets the status to normal and resets the alerting and redirecting actions.
+     */
     task void emptyTrash(){
-        bin_mode=0;
+        bin_mode=NORMAL;
         trash_level=0;
         extra_trash=0;
         alerting=FALSE;
@@ -178,6 +277,9 @@ module WMSMoteC {
         dbg("bin","BIN EMPTIED, new level: %i\n",trash_level);
     }
 
+    /**
+     * Task used by the truck to send a message notifying its arrival to a bin.
+     */
     task void signalArrival(){
         truck_msg_t* msg = (truck_msg_t*) (call TPacket.getPayload(&tpacket,sizeof(truck_msg_t)));
         msg->msg_type=TRUCK;
@@ -185,9 +287,11 @@ module WMSMoteC {
         call PacketAcknowledgements.requestAck(&tpacket);
         call TSChannel.send(node_d,&tpacket,sizeof(truck_msg_t));
         moving=FALSE;
-
     }
 
+    /**
+     * Task used to ask to the neighbours if they are available to accept the extra trash.
+     */
     task void askToNeighbours(){
         move_msg_t* msg = (move_msg_t*) (call BPacket.getPayload(&bpacket,sizeof(move_msg_t)));
         redirecting = TRUE;
@@ -198,9 +302,40 @@ module WMSMoteC {
         call PacketAcknowledgements.noAck(&bpacket);
         call BSChannel.send(AM_BROADCAST_ADDR,&bpacket,sizeof(move_msg_t));
         call MoveTrashTimer.startOneShot(2000);
+        // Set to 0 both the min_distance and node_d so that we can compute the closest bin who accepts.
         min_distance= 0;
         node_d=0;
         dbg("bin","Sent request to neighbours to redirect extra trash\n\n\n");
+    }
+
+    /**
+     * Task used to reply after a MOVE request. It is used only in case the bin status is normal.
+     */
+    task void replyAvailable(){
+        move_msg_t* resp = (move_msg_t*) (call BPacket.getPayload(&bpacket,sizeof(move_msg_t)));
+        resp->msg_type=BINRES;
+        resp->node_id = TOS_NODE_ID;
+        resp->node_x = x;
+        resp->node_y = y;
+        call PacketAcknowledgements.noAck(&bpacket);
+        call BSChannel.send(node_d, &bpacket, sizeof(move_msg_t));
+        dbg("bin","Received MOVE request from bin %i. ACCEPTED.\n",node_d);
+        call UnlockBinTimer.startOneShot(2000);
+    }
+
+    /**
+     * Task used to move trash from a bin to another when the latter one accepted and is the closer to the former one.
+     * If redirecting == FALSE it means that in the meanwhile the truck arrived and collected all the trash so there is no need to redirect.
+     */
+    task void moveTrash(){
+        if(redirecting==TRUE){
+            move_msg_t* resp = (move_msg_t*) (call BPacket.getPayload(&bpacket,sizeof(move_msg_t)));
+            resp->msg_type=MVTRASH;
+            resp->node_id = TOS_NODE_ID;
+            resp->trash = extra_trash;
+            call PacketAcknowledgements.requestAck(&bpacket);
+            call BSChannel.send(node_d, &bpacket, sizeof(move_msg_t));
+        }
     }
 
 
@@ -215,7 +350,7 @@ module WMSMoteC {
     }
     
     event void AlertTimer.fired(){
-        if(bin_mode > 0){
+        if(bin_mode > NORMAL){
             post sendAlert();
             if(alerting == FALSE){
                 call AlertTimer.startPeriodic(10000);
@@ -241,32 +376,10 @@ module WMSMoteC {
         }
     }
 
-    task void moveTrash(){
-        if(redirecting==TRUE){
-            move_msg_t* resp = (move_msg_t*) (call BPacket.getPayload(&bpacket,sizeof(move_msg_t)));
-            resp->msg_type=MVTRASH;
-            resp->node_id = TOS_NODE_ID;
-            resp->trash = extra_trash;
-            call PacketAcknowledgements.requestAck(&bpacket);
-            call BSChannel.send(node_d, &bpacket, sizeof(move_msg_t));
-            
-        }
-    }
+
 
     event void MoveResTimer.fired(){
         post replyAvailable();
-    }
-
-    task void replyAvailable(){
-        move_msg_t* resp = (move_msg_t*) (call BPacket.getPayload(&bpacket,sizeof(move_msg_t)));
-        resp->msg_type=BINRES;
-        resp->node_id = TOS_NODE_ID;
-        resp->node_x = x;
-        resp->node_y = y;
-        call PacketAcknowledgements.noAck(&bpacket);
-        call BSChannel.send(node_d, &bpacket, sizeof(move_msg_t));
-        dbg("bin","Received MOVE request from bin %i. ACCEPTED.\n",node_d);
-        call UnlockBinTimer.startOneShot(2000);
     }
 
     event void TSChannel.sendDone(message_t* buf,error_t err) {
@@ -336,7 +449,7 @@ module WMSMoteC {
         if(bin == TRUE){
              move_msg_t* msg = (move_msg_t*) payload;
                 if(msg->msg_type == MOVE){
-                    if(bin_mode == 0 && node_d == 0){
+                    if(bin_mode == NORMAL && node_d == 0){
                         uint32_t wait;
                         node_d = msg->node_id;
                         computeDistance(msg->node_x,msg->node_y);
@@ -358,11 +471,11 @@ module WMSMoteC {
                     node_d=0;
                     call UnlockBinTimer.stop();
                     dbg("bin","Received %i units from bin %i at %s\n",msg->trash,msg->node_id,sim_time_string());
-                    if(bin_mode == 0){
+                    if(bin_mode == NORMAL){
                         addTrashNormal(msg->trash);
-                    }else if(bin_mode == 1){
+                    }else if(bin_mode == CRITICAL){
                         addTrashAlert(msg->trash);
-                    }else if(bin_mode==2){
+                    }else if(bin_mode == FULL){
                         addTrashFull(msg->trash);
                     } 
                 }
@@ -373,38 +486,5 @@ module WMSMoteC {
 
 
 
-    void addTrashNormal(uint8_t trash){
-        trash_level += trash;
-        if(trash_level >= CRITICAL) {
-            bin_mode = 1;
-            call AlertTimer.startOneShot(1000);
-            dbg("bin","Level: %i, Status: CRITICAL\n\n",trash_level);
-        }else{
-             dbg("bin","Level: %i, Status: NORMAL\n\n",trash_level);
-        }
-    }
-
-
-    void addTrashAlert(uint8_t trash){
-        trash_level += trash;
-        if(trash_level >= FULL) {
-            bin_mode = 2;
-            extra_trash = trash_level - FULL;
-            trash_level = FULL;
-            if(extra_trash > 0){
-                post askToNeighbours();
-            }
-            dbg("bin","Level: %i, Status: FULL, Trash outside: %i\n\n",trash_level, extra_trash);
-        }else{
-            dbg("bin","Level: %i, Status: CRITICAL\n\n",trash_level);
-        }
-    }
-    void addTrashFull(uint8_t trash){
-        extra_trash += trash;
-        if(redirecting == FALSE){
-            post askToNeighbours();
-        }
-        dbg("bin","Level: %i, Status: FULL, Trash outside: %i\n\n",trash_level, extra_trash);
-    }
-
+   
 }

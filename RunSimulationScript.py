@@ -45,7 +45,14 @@ t.addChannel("truck",out);
 print "Activate debug message on channel radio"
 t.addChannel("radio",out);
 
+for i in range(0,8):
+    print "Creating node",i,"...";
+    n0 = t.getNode(i);
+    t0 = i*t.ticksPerSecond();
+    n0.bootAtTime(t0);
+    print ">>>Will boot at time", t0/t.ticksPerSecond(), "[sec]";
 
+'''
 print "Creating the bin node 0...";
 node0 =t.getNode(0);
 time0 = 0*t.ticksPerSecond();
@@ -95,7 +102,7 @@ time7 = 7*t.ticksPerSecond();
 node7.bootAtTime(time7);
 print ">>>Will boot at time",  time7/t.ticksPerSecond(), "[sec]";
 
-
+'''
 
 
 
