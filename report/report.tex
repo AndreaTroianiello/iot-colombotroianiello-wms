@@ -1,0 +1,147 @@
+\documentclass[a4paper,12pt,notitlepage]{report}
+\usepackage[T1]{fontenc}    % Codifica dei font latini
+\usepackage[utf8]{inputenc} % Lettere accentate da tastiera
+\usepackage[english]{babel} % Lingua del documento  
+\usepackage{graphicx}
+
+\graphicspath{{images/}}    % Specifica la cartella con le immagini
+
+\author{Matteo Colombo \and Andrea Troianiello}
+\title{NonSoloLibri}
+
+
+
+\usepackage{hyperref}       % Per collegamenti ipertestuali, 
+\hypersetup{hidelinks}      % Rimuove riquadri dai collegamenti                     
+
+\begin{document}
+
+
+\begin{titlepage}           % Compone la pagina iniziale
+    \centering
+    {\Large Internet of Things}\\[4em]
+    \includegraphics[width=7cm]{polimi.png}\\[8em]
+    {\Huge Waste Management System}\\[4em]
+    {\large MATTEO COLOMBO - 883114 - 10459278}\\[1em]
+    {\large ANDREA TROIANIELLO - 898113 - 10455250}\\[4em]
+    \today
+\end{titlepage}
+
+
+% ------------------------- % Inizio del contenuto
+% ------------------------- % Fine del contenuto
+\section*{Introduction}
+The project chosen consist in implementing a Waste Management System network,
+composed by at least 8 motes: one truck and 7 or more bins.
+
+We choose to implement the project with the following tools:
+\begin{itemize}
+    \item TinyOS
+    \item TOSSIM
+    \item TOSSIM-Live
+\end{itemize}
+
+\section*{Assumptions}
+\begin{enumerate}
+    \item Coordinates are expressed in meters.
+    \item Bins and truck coordinates are randomly generated in the range [0,1999].
+    \item When the truck is traveling to a bin, it ignores all the alert messages.
+    \item The truck acknowledges the reception of an Alert message, but doesn't respond.
+        If, for example, it is traveling to bin \#1, bin \#1 will keep sending alert messages.
+    \item Alert messages are periodically repeated every 10 seconds, after the first one.
+    \item When a bin receives a Move request, it sets a lock, so that other Move requests from other nodes are rejected.
+    \item A Move request lock lasts 2s, after that the bin releases it.
+    \item If a bin in Normal status accepts a Move request and then, with the trash redirected from another mote,
+        becomes full, it will still accept the trash and send itself a new Move request.
+\end{enumerate}
+
+\section*{General Idea}
+Due to the limitations with heterogeneous networks of TOSSIM, each node, depending on its ID, when turned on decides how it should act:
+\begin{itemize}
+    \item A truck is  a node whose ID is 0.
+    \item A bin is  a node whose ID is greater than 0.
+\end{itemize}
+
+\section*{Communication Channels}
+To distinguish between bin-bin and bin-truck communication, we decided to use two channels, the first one (Channel 6) dedicated
+to bin-bin messages and the second one (Channel 7), dedicated to Alert and Truck messages.
+\begin{itemize}
+    \item On the truck-bin channel only end to end messages are sent.
+    \item On the bin-bin channel a broadcast messages is sent in case of a Move message, while end to end messages are used for the following responses.
+\end{itemize}
+
+\section*{Components}
+We decided to create two components:
+\begin{description}
+    \item[WMSMote:] It is the main component that depending on its ID can be either a truck or a bin.
+    \item[BinSensor:] It is a non-bootable component that represents the sensor placed on each bin that triggers an signals an event every time some trash is added. 
+\end{description}
+
+\section*{BinSensor}
+A BinSensor simulates the sensor which measures the quantity of trash that is added in the bin at every iteration.
+
+Every time some trash is generated, an event containing the number of new units is emitted.
+
+To work it uses a timer, which every time is set with a different (random) value in the range [1,30]s.\\[1em]
+\begin{center}
+    \includegraphics[scale=0.9]{sensor.png}
+\end{center}
+
+\section*{WMSMote}
+The WMSMote is the main component of the project and includes the logic and implementation of both the truck and the bins.
+
+They both share some code and respond to some common events, but have different behaviour.
+
+\paragraph{The Truck}
+has a simple behaviour which can be represented by this finite state machine:
+
+\begin{center}
+    \includegraphics[scale=0.9]{truck.png}
+\end{center}
+
+When the truck is waiting, it listen for Alert messages and when the first arrives it starts traveling and sets the variable \emph{moving=true}. 
+If other alerts arrive while the truck is moving, they are ignored.
+
+The \emph{TruckTimer.fired} event is used to simulate the travel, when it fires it means that the truck is arrived to destination.
+
+At destination the truck can empty the trash and notify the bin. Then it acquires the coordinates, releases the lock on \emph{moving} and starts again to listen.
+
+The truck listens only to messages on the truck-bin channel, while even if he receives those on the bin-bin channel, it ignores them.
+
+\paragraph*{The Bin} has a more complex behaviour within respect to the truck, as it communicates on two channels and has more statuses.
+
+\begin{center}
+    \includegraphics[scale=0.75]{bin.png}
+\end{center}
+
+The event \emph{Add trash} is emitted by the BinSensor and depending on the current state, it is handled in different ways.
+
+If there is a state change when the trash level is increased, the mote may start alerting the truck os redirecting trash to neighbours.
+\\\\
+A Bin Mote is always listening on two channels, on the truck channel is listening for arrival notifications of the truck so that it can be emptied,
+while on the bin-bin channel it is waiting for Move requests from other bins.
+
+When the trash outside a bin is greater than zero, the bin sends a broadcast Move message to its neighbours and starts a \emph{MoveTrashTimer}. When this fires, it checks if at least a
+neighbour bin responded and if so it sends trash to it.
+
+When a bin receives a Move request, it checks its internal status and if its Normal it starts a \emph{MoveResTimer} whose timeout depends on the distance. When it fires it responds to the mote which made the move request.
+
+When a mote accepts to receive trash from another bin, it sets a lock so that if it receives other move requests from other nodes they are ignored. To avoid deadlocks, there is a timer after which the lock is released and the node starts to listen again for Move requests.
+
+\section*{Implementation and Simulation}
+The application was completely implemented as by project requirements and its completely documented.
+
+For the simulation part we did two tests, the first one with the topology and noise trace provided at lesson, and the second one with a completely new topology and noise trace.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.29]{topology.png}
+    \caption{Topology 2}
+    \label{}
+\end{figure}
+
+
+
+
+
+\end{document}
