@@ -26,7 +26,7 @@ typedef nx_struct truck_msg{
 *Contains the type of message, the id of the bin, its coordinates and the extra trash.
 *The type can be MOVE,BINRES and MVTRASH.
 *MOVE is used when the bin has extra trash and wants to send it to a neighbour.
-*BINRES is used when th bin can accept other trash and commincates it to the neighbour.
+*BINRES is used when the bin can accept other trash and commincates it to the neighbour.
 *MVTRASH is used to move the extra trash between bins.
 */
 typedef nx_struct move_msg{
