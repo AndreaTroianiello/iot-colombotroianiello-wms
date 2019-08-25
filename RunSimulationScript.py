@@ -16,8 +16,8 @@ sf_process = True;
 sf_throttle = True;
 
 
-topofile="topology_1.txt";
-modelfile="meyer-heavy.txt";
+topofile="topology_2.txt";
+modelfile="meyer-heavy-2.txt";
 
 
 print "Initializing mac....";
@@ -30,7 +30,7 @@ print "Initializing simulator....";
 t.init();
 
 
-simulation_outfile = "simulation.txt";
+simulation_outfile = "simulation2.txt";
 print "Saving sensors simulation output to:", simulation_outfile;
 simulation_out = open(simulation_outfile, "w");
 

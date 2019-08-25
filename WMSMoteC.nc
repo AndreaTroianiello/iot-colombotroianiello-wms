@@ -466,9 +466,9 @@ module WMSMoteC {
                 if(call PacketAcknowledgements.wasAcked(&bpacket)){
                     extra_trash = 0;
                     redirecting = FALSE;
-                    dbg("bin","Trash was moved to bin %i\n",msg->node_id);
+                    dbg("bin","Trash was moved to bin\n");
                 }else{
-                    dbgerror("radio","There was a problem while moving trash. Therefore trash was deleted\n");
+                    dbgerror("radio","There was a problem while moving trash.\n");
                     post moveTrash();
                 }
             }
