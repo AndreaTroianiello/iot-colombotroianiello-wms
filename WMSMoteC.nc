@@ -6,11 +6,15 @@ module WMSMoteC {
 	    interface Boot;    
 	    interface Read<uint8_t>;
        	interface Random;
-        interface Timer<TMilli> as TruckTimer;
-        interface Timer<TMilli> as AlertTimer;
-        interface Timer<TMilli> as MoveTrashTimer;
-        interface Timer<TMilli> as MoveResTimer;
-        interface Timer<TMilli> as UnlockBinTimer;
+
+        /**
+        *Timers used during the simulation.
+        */
+        interface Timer<TMilli> as TruckTimer;//Simulates the moviment of the truck.
+        interface Timer<TMilli> as AlertTimer;//Time lapse between the sending of the alert messsages.
+        interface Timer<TMilli> as MoveTrashTimer;//Time lapse during the bin collects the replies of the neighbours.
+        interface Timer<TMilli> as MoveResTimer;//Time lapse after that the bin replieis to the neighbour.
+        interface Timer<TMilli> as UnlockBinTimer;//Timeout used to lock a bin during the trash exchanges. 
         
         interface SplitControl;    	
         interface SplitControl as SerialSplitControl;
@@ -129,19 +133,33 @@ module WMSMoteC {
         }    
     }
     
+    /**
+    *The method called when the serial port is ready.
+    */
     event void SerialSplitControl.startDone(error_t err){}
 
+    /**
+    *The method called when radio is ready.
+    *If the radio fails to start, it tries a new one.
+    */
     event void SplitControl.startDone(error_t err){
         if(err == SUCCESS) {
 	        dbg("radio","Radio on!\n\n\n");
         }
         else{
-            dbgerror("radio","something went wrong\n");
+            dbgerror("radio","Something went wrong\n");
             call SplitControl.start();
         }
     }
-  
+    
+    /**
+    *The method called when the serial port is stopped.
+    */
     event void SerialSplitControl.stopDone(error_t err){}
+
+    /**
+    *The method called when the radio is stopped.
+    */
     event void SplitControl.stopDone(error_t err){}
 
     /**
@@ -245,7 +263,10 @@ module WMSMoteC {
         dbg("bin","Level: %i, Status: FULL, Trash outside: %i\n\n",trash_level, extra_trash);
     }
 
-    
+    /**
+    *Method called after the sensor has read a value of trash.
+    *If the sensor does not fail, the value of trash is added to the level taking into account the status.
+    */
     event void Read.readDone(error_t result, uint8_t data) {
         if(result == SUCCESS){
             dbg("bin","Attempt to ADD %i UNITS to the bin at time %s\n",data,sim_time_string());
@@ -261,6 +282,9 @@ module WMSMoteC {
         }      
     }
 
+    /**
+    *Task called when the bin reaches the "CRITICAL" status and notifies its id and coordinates to the truck.
+    */
     task void sendAlert(){
         alert_msg_t* msg = (alert_msg_t*)(call TPacket.getPayload(&tpacket, sizeof(alert_msg_t)));
         msg->msg_type = ALERT;
@@ -350,6 +374,10 @@ module WMSMoteC {
         }
     }
 
+    /**
+    *Task used by the bin to communicate using the serial port. 
+    *Creates a packet containg the id of the node, its status, the trash level and extra trash and it.
+    */
     task void sendSerialPacket(){
         serial_msg_t* cm = (serial_msg_t*)call SerialPacket.getPayload(&spacket, sizeof(serial_msg_t));
         if (cm == NULL) {return;}
@@ -366,18 +394,25 @@ module WMSMoteC {
         }
     }
 
-
-
+    /**
+    *After TruckTimer expires this method is called. The truck arrives to the destination and notifies it to the bin.
+    */
     event void TruckTimer.fired(){
         post signalArrival();
         dbg("truck","Reached destination at (%i,%i)\n",x,y);
         dbg("truck","Bin %i emptied\n",node_d);
     }
 
+    /**
+    *After UnlockBinTimer expires this method is called and node_d is resetted.
+    */
     event void UnlockBinTimer.fired(){
         node_d=0;
     }
     
+    /**
+    *When AlertTimer expires, this methed is used to alert the truck if the status of the bin is "CRITICAL" or "FULL".
+    */
     event void AlertTimer.fired(){
         if(bin_mode > NORMAL){
             post sendAlert();
@@ -390,6 +425,10 @@ module WMSMoteC {
         }
     }
 
+    /**
+    *When MoveTrashTimer expires, this methed is used to send the extra_trash to the closest available neighbour.
+    *If redirecting is FALSE, all neighbours refused the request of the bin.
+    */
     event void MoveTrashTimer.fired(){
         if(redirecting == TRUE){
             dbg("bin","MOVE request timeout\n");
@@ -405,13 +444,22 @@ module WMSMoteC {
         }
     }
 
+    /**
+    *When AMSerialSend sends a packet using the serial port, this method is called.
+    */
     event void AMSerialSend.sendDone(message_t* buf,error_t err) {}
 
-
+    /**
+    *After MoveResTimer expires, the bin sends the affirmative answer to the neighbour.
+    */
     event void MoveResTimer.fired(){
         post replyAvailable();
     }
 
+    /**
+    *This method is called after a packet is sent on the trcuk channel.
+    *If the truck does not receives the ack of the bin, it sends another message.
+    */
     event void TSChannel.sendDone(message_t* buf,error_t err) {
         if(&tpacket == buf && err == SUCCESS){
             if(bin == TRUE){
@@ -436,6 +484,11 @@ module WMSMoteC {
         }
     }
  
+    /**
+    *This method is used after a message is received on the truck channel.
+    *If the bin receives the message, empties the trash.
+    *If the truck receives the message and is not moving, accepts the alert message of the bin and moves to it.
+    */
     event message_t* TRChannel.receive(message_t* buf,void* payload, uint8_t len) {
             if(bin == FALSE){
                 if(moving == FALSE){
@@ -451,7 +504,7 @@ module WMSMoteC {
                     dbg("truck","Received ALERT message from %i\n",node_d);
                     dbg("truck","Distance to bin is %i m\n",distance);
                     dbg("truck","Started traveling to (%i,%i)\n",x,y);
-                    dbg("truck", "Expected travel time: %ims\n",travel_time);
+                    dbg("truck","Expected travel time: %ims\n",travel_time);
                 }
             }else{
                 post emptyTrash();
@@ -459,6 +512,11 @@ module WMSMoteC {
         return buf;
     }
 
+    /**
+    *Method called after a packet is sent on the bin channel.
+    *If the message type is MVTRASH, controls if the ack is arrived.
+    *If is not arrived sends another packet, otherwise sets extra_trash equal to zero.
+    */
     event void BSChannel.sendDone(message_t* buf,error_t err) {
         if(buf == &bpacket){
             move_msg_t* msg = (move_msg_t*) ((call BPacket.getPayload(&bpacket,sizeof(move_msg_t))));
@@ -475,6 +533,12 @@ module WMSMoteC {
         }
     }
  
+    /**
+    *After a packet is received on the bin channel, this method controls its type.
+    *If is MOVE and the bin is "CRITICAL", the message is discarded otherwise replies to the neighbour.
+    *If is BINRES and redirecting is TRUE, the bin computes the distance and accepts it if the neighbour is the closest one.
+    *If is MVTRASH and the source is right, adds the trash received.
+    */
     event message_t* BRChannel.receive(message_t* buf,void* payload, uint8_t len) {
         if(bin == TRUE){
              move_msg_t* msg = (move_msg_t*) payload;
@@ -510,12 +574,7 @@ module WMSMoteC {
                     } 
                     post sendSerialPacket();
                 }
-        }
-           
+        }         
         return buf;
     }
-
-
-
-   
 }
