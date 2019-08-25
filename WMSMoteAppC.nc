@@ -18,13 +18,17 @@ implementation {
   components new AMSenderC(AM_BIN_CHANNEL) as BS;
   components new AMReceiverC(AM_BIN_CHANNEL) as BR;
   components ActiveMessageC;
+  components SerialActiveMessageC as AM;
 
   Mote.Boot -> MainC.Boot;
   
   //Radio Control
   Mote.SplitControl -> ActiveMessageC;
   Mote.PacketAcknowledgements -> ActiveMessageC;
-  
+
+  // Serial Control
+  Mote.SerialSplitControl -> AM;
+  Mote.AMSerialSend -> AM.AMSend[AM_SERIAL_MSG];
 
   //TRUCK CHANNEL
   Mote.TAMPacket -> TS;
@@ -38,6 +42,8 @@ implementation {
   Mote.BSChannel -> BS;
   Mote.BRChannel -> BR;
 
+  //SERIAL CHANNEL
+  Mote.SerialPacket -> AM;
 
 
   Mote.Random -> RandomC;

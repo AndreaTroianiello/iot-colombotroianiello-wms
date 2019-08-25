@@ -10,6 +10,10 @@ import time;
 from TOSSIM import *;
 
 t = Tossim([]);
+sf = SerialForwarder(9001);
+throttle = Throttle(t,10);
+sf_process = True;
+sf_throttle = True;
 
 
 topofile="topology_1.txt";
@@ -52,59 +56,6 @@ for i in range(0,8):
     n0.bootAtTime(t0);
     print ">>>Will boot at time", t0/t.ticksPerSecond(), "[sec]";
 
-'''
-print "Creating the bin node 0...";
-node0 =t.getNode(0);
-time0 = 0*t.ticksPerSecond();
-node0.bootAtTime(time0);
-print ">>>Will boot at time",  time0/t.ticksPerSecond(), "[sec]";
-
-
-print "Creating node 1...";
-node1 =t.getNode(1);
-time1 = 1*t.ticksPerSecond(); #instant at which each node should be turned on
-node1.bootAtTime(time1);
-print ">>>Will boot at time",  time1/t.ticksPerSecond(), "[sec]";
-
-print "Creating node 2...";
-node2 = t.getNode(2);
-time2 = 2*t.ticksPerSecond();
-node2.bootAtTime(time2);
-print ">>>Will boot at time", time2/t.ticksPerSecond(), "[sec]";
-
-print "Creating the bin node 3...";
-node3 =t.getNode(3);
-time3 = 3*t.ticksPerSecond();
-node3.bootAtTime(time3);
-print ">>>Will boot at time",  time3/t.ticksPerSecond(), "[sec]";
-
-print "Creating the bin node 4...";
-node4 =t.getNode(4);
-time4 = 4*t.ticksPerSecond();
-node4.bootAtTime(time4);
-print ">>>Will boot at time",  time4/t.ticksPerSecond(), "[sec]";
-
-print "Creating the bin node 5...";
-node5 =t.getNode(5);
-time5 = 5*t.ticksPerSecond();
-node5.bootAtTime(time5);
-print ">>>Will boot at time",  time5/t.ticksPerSecond(), "[sec]";
-
-print "Creating the bin node 6...";
-node6 =t.getNode(6);
-time6 = 6*t.ticksPerSecond();
-node6.bootAtTime(time6);
-print ">>>Will boot at time",  time6/t.ticksPerSecond(), "[sec]";
-
-print "Creating the bin node 7...";
-node7 =t.getNode(7);
-time7 = 7*t.ticksPerSecond();
-node7.bootAtTime(time7);
-print ">>>Will boot at time",  time7/t.ticksPerSecond(), "[sec]";
-
-'''
-
-
 
 print "Creating radio channels..."
 f = open(topofile, "r");
@@ -145,8 +96,18 @@ for i in range(0,8):
 
 print "Start simulation with TOSSIM! \n\n\n";
 
-for i in range(0,22700):
-	t.runNextEvent()
-	
-print "\n\n\nSimulation finished!";
+if ( sf_process == True ):
+	sf.process();
+if ( sf_throttle == True ):
+	throttle.initialize();
 
+for i in range(0,23000):
+	t.runNextEvent();
+	if ( sf_throttle == True ):
+		throttle.checkThrottle();
+ 	if ( sf_process == True ):
+		sf.process();
+
+print "Simulation finished!";
+
+throttle.printStatistics()

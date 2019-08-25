@@ -22,6 +22,12 @@ typedef nx_struct move_msg{
 	nx_uint8_t trash;
 } move_msg_t;
 
+typedef nx_struct serial_msg{
+	nx_uint16_t node_id;
+	nx_uint8_t trash_level;
+	nx_uint8_t status;
+	nx_uint8_t outside_trash;
+} serial_msg_t;
 
 
 
@@ -35,6 +41,9 @@ typedef nx_struct move_msg{
 enum{
 	AM_BIN_CHANNEL = 6,
 	AM_TRUCK_CHANNEL = 7,
+};
+enum {
+AM_SERIAL_MSG = 0x89,
 };
 
 #endif

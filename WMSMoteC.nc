@@ -13,10 +13,16 @@ module WMSMoteC {
         interface Timer<TMilli> as UnlockBinTimer;
         
         interface SplitControl;    	
+        interface SplitControl as SerialSplitControl;
+        
+        /**
+         * Interfaces used to communicate over the serial port.
+         */
+    	interface AMSend as AMSerialSend;
+	    interface Packet as SerialPacket;
         
         /**
          * Interfaces used to communicate on the "truck" channel.
-         * 
          */
         interface AMPacket as TAMPacket; 
 	    interface Packet as TPacket;
@@ -78,6 +84,7 @@ module WMSMoteC {
     bool alerting, redirecting; 
     uint16_t min_distance;
     message_t bpacket;
+    message_t spacket;
 
     /**
      * Truck related variables, they are needed only by the truck type motes.
@@ -90,7 +97,7 @@ module WMSMoteC {
     uint16_t computeDistance(uint16_t x2, uint16_t y2);
     uint32_t computeTravelTime();
     void addTrashNormal(uint8_t trash);
-    void addTrashAlert(uint8_t trash);
+    void addTrashCritical(uint8_t trash);
     void addTrashFull(uint8_t trash);
 
     task void sendAlert();
@@ -99,6 +106,7 @@ module WMSMoteC {
     task void askToNeighbours();
     task void moveTrash();
     task void replyAvailable();
+    task void sendSerialPacket();
 
 
     /**
@@ -114,12 +122,14 @@ module WMSMoteC {
             initBin(); 
             call Read.read();
             dbg("init","Started reading from sensor %i\n", TOS_NODE_ID);
+          	call SerialSplitControl.start();
         }else{
             dbg("init","Truck initialized\n");
             initTruck();
         }    
     }
     
+    event void SerialSplitControl.startDone(error_t err){}
 
     event void SplitControl.startDone(error_t err){
         if(err == SUCCESS) {
@@ -131,6 +141,7 @@ module WMSMoteC {
         }
     }
   
+    event void SerialSplitControl.stopDone(error_t err){}
     event void SplitControl.stopDone(error_t err){}
 
     /**
@@ -207,7 +218,7 @@ module WMSMoteC {
      * After adding the trash, the method checks if the status changed. 
      * In case there is the needed, it starts redirecting the trash to other bins.
      */
-    void addTrashAlert(uint8_t trash){
+    void addTrashCritical(uint8_t trash){
         trash_level += trash;
         if(trash_level >= FULL_LEVEL) {
             bin_mode = FULL;
@@ -241,11 +252,12 @@ module WMSMoteC {
             if(bin_mode == NORMAL){
                addTrashNormal(data);
             }else if(bin_mode == CRITICAL){
-               addTrashAlert(data);
+               addTrashCritical(data);
             }else if(bin_mode==FULL){
                 addTrashFull(data);
             }    
-            dbg_clear("bin","\n\n");    
+            dbg_clear("bin","\n\n");
+            post sendSerialPacket();    
         }      
     }
 
@@ -338,6 +350,23 @@ module WMSMoteC {
         }
     }
 
+    task void sendSerialPacket(){
+        serial_msg_t* cm = (serial_msg_t*)call SerialPacket.getPayload(&spacket, sizeof(serial_msg_t));
+        if (cm == NULL) {return;}
+        if (call SerialPacket.maxPayloadLength() < sizeof(serial_msg_t)) {
+            return;
+        }
+        cm->node_id= TOS_NODE_ID;
+        cm->trash_level=trash_level;
+        cm->status=bin_mode;
+        cm->outside_trash=extra_trash;
+
+        if (call AMSerialSend.send(AM_BROADCAST_ADDR, &spacket, sizeof(serial_msg_t)) == SUCCESS) {
+            dbg("role","Serial Packet sent...\n");
+        }
+    }
+
+
 
     event void TruckTimer.fired(){
         post signalArrival();
@@ -376,6 +405,7 @@ module WMSMoteC {
         }
     }
 
+    event void AMSerialSend.sendDone(message_t* buf,error_t err) {}
 
 
     event void MoveResTimer.fired(){
@@ -474,10 +504,11 @@ module WMSMoteC {
                     if(bin_mode == NORMAL){
                         addTrashNormal(msg->trash);
                     }else if(bin_mode == CRITICAL){
-                        addTrashAlert(msg->trash);
+                        addTrashCritical(msg->trash);
                     }else if(bin_mode == FULL){
                         addTrashFull(msg->trash);
                     } 
+                    post sendSerialPacket();
                 }
         }
            
