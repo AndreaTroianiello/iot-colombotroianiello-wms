@@ -500,10 +500,10 @@ DEBUG (7): MOVE request timeout
 DEBUG (7): Redirecting 1 units to bin 5
 
 
-DEBUG (5): Received 1 units from bin 7 at 0:3:8.642486581
+DEBUG (5): Received 1 units from bin 7 at 0:3:8.644989008
 DEBUG (5): Level: 68, Status: NORMAL
 
-DEBUG (7): Trash was moved to bin
+DEBUG (7): Trash was moved to bin 7
 DEBUG (4): Attempt to ADD 6 UNITS to the bin at time 0:3:10.523437510
 DEBUG (4): Level: 80, Status: NORMAL
 
@@ -551,13 +551,13 @@ DEBUG (7): Redirecting 8 units to bin 5
 DEBUG (7): Truck received the message and acknowledged
 
 
-DEBUG (5): Received 8 units from bin 7 at 0:3:17.445419269
+DEBUG (5): Received 8 units from bin 7 at 0:3:17.445159871
 DEBUG (5): Level: 83, Status: NORMAL
 
-DEBUG (7): Trash was moved to bin
+DEBUG (7): Trash was moved to bin 7
 DEBUG (0): Reached destination at (1384,1177)
 DEBUG (0): Bin 7 emptied
-DEBUG (7): Truck arrived at time 0:3:22.310729963
+DEBUG (7): Truck arrived at time 0:3:22.302459708
 DEBUG (7): BIN EMPTIED, new level: 0
 DEBUG (0): Bin received the message and acknowledged
 
@@ -625,7 +625,7 @@ DEBUG (5): Truck received the message and acknowledged
 
 DEBUG (0): Reached destination at (1306,998)
 DEBUG (0): Bin 5 emptied
-DEBUG (5): Truck arrived at time 0:3:39.560852044
+DEBUG (5): Truck arrived at time 0:3:39.562194821
 DEBUG (5): BIN EMPTIED, new level: 0
 DEBUG (0): Bin received the message and acknowledged
 
@@ -709,10 +709,10 @@ DEBUG (4): MOVE request timeout
 DEBUG (4): Redirecting 2 units to bin 2
 
 
-DEBUG (2): Received 2 units from bin 4 at 0:4:8.143325809
+DEBUG (2): Received 2 units from bin 4 at 0:4:8.148376439
 DEBUG (2): Level: 79, Status: NORMAL
 
-DEBUG (4): Trash was moved to bin
+DEBUG (4): Trash was moved to bin 4
 DEBUG (3): Attempt to ADD 3 UNITS to the bin at time 0:4:12.023437510
 DEBUG (3): Level: 82, Status: NORMAL
 
@@ -729,7 +729,7 @@ DEBUG (6): Level: 42, Status: NORMAL
 
 
 DEBUG (4): Sending alert message to the truck
-DEBUG (4): Truck did not acknowledge the message
+DEBUG (4): Truck received the message and acknowledged
 
 
 DEBUG (5): Attempt to ADD 1 UNITS to the bin at time 0:4:18.906250010
@@ -782,8 +782,8 @@ DEBUG (4): Level: 100, Status: FULL, Trash outside: 9
 DEBUG (4): Sent request to neighbours to redirect extra trash
 
 
-DEBUG (3): Received MOVE request from bin 4. DISCARDED.
 DEBUG (2): Received MOVE request from bin 4. DISCARDED.
+DEBUG (3): Received MOVE request from bin 4. DISCARDED.
 DEBUG (5): Received MOVE request from bin 4. ACCEPTED.
 DEBUG (4): Bin 5 accepted MOVE request. Distance: 1217m
 DEBUG (1): Attempt to ADD 8 UNITS to the bin at time 0:4:30.531250010
@@ -795,10 +795,10 @@ DEBUG (4): MOVE request timeout
 DEBUG (4): Redirecting 9 units to bin 5
 
 
-DEBUG (5): Received 9 units from bin 4 at 0:4:30.604080205
+DEBUG (5): Received 9 units from bin 4 at 0:4:30.604949951
 DEBUG (5): Level: 15, Status: NORMAL
 
-DEBUG (4): Trash was moved to bin
+DEBUG (4): Trash was moved to bin 4
 DEBUG (1): Sending alert message to the truck
 DEBUG (1): Truck received the message and acknowledged
 
@@ -889,10 +889,10 @@ DEBUG (4): Redirecting 5 units to bin 5
 DEBUG (4): Truck received the message and acknowledged
 
 
-DEBUG (5): Received 5 units from bin 4 at 0:4:54.060821426
+DEBUG (5): Received 5 units from bin 4 at 0:4:54.054504324
 DEBUG (5): Level: 26, Status: NORMAL
 
-DEBUG (4): Trash was moved to bin
+DEBUG (4): Trash was moved to bin 4
 DEBUG (4): Attempt to ADD 9 UNITS to the bin at time 0:4:55.015625010
 DEBUG (4): Level: 100, Status: FULL, Trash outside: 9
 
@@ -929,14 +929,13 @@ DEBUG (4): MOVE request timeout
 DEBUG (4): Redirecting 9 units to bin 5
 
 
-DEBUG (5): Received 9 units from bin 4 at 0:4:56.974304186
+DEBUG (5): Received 9 units from bin 4 at 0:4:56.973815908
 DEBUG (5): Level: 35, Status: NORMAL
 
-ERROR (4): There was a problem while moving trash.
-DEBUG (4): Trash was moved to bin
+DEBUG (4): Trash was moved to bin 4
 DEBUG (0): Reached destination at (499,1909)
 DEBUG (0): Bin 4 emptied
-DEBUG (4): Truck arrived at time 0:4:57.002059914
+DEBUG (4): Truck arrived at time 0:4:57.007110567
 DEBUG (4): BIN EMPTIED, new level: 0
 DEBUG (0): Bin received the message and acknowledged
 

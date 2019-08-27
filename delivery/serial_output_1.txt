@@ -1,0 +1,1102 @@
+----------------
+FROM NODE: 	1
+TRASH LEVEL: 	9
+BIN STATUS: 	0
+OUTSIDE TRASH: 	0
+---------------- 
+
+
+----------------
+FROM NODE: 	4
+TRASH LEVEL: 	3
+BIN STATUS: 	0
+OUTSIDE TRASH: 	0
+---------------- 
+
+
+----------------
+FROM NODE: 	7
+TRASH LEVEL: 	6
+BIN STATUS: 	0
+OUTSIDE TRASH: 	0
+---------------- 
+
+
+----------------
+FROM NODE: 	4
+TRASH LEVEL: 	11
+BIN STATUS: 	0
+OUTSIDE TRASH: 	0
+---------------- 
+
+
+----------------
+FROM NODE: 	1
+TRASH LEVEL: 	10
+BIN STATUS: 	0
+OUTSIDE TRASH: 	0
+---------------- 
+
+
+----------------
+FROM NODE: 	2
+TRASH LEVEL: 	4
+BIN STATUS: 	0
+OUTSIDE TRASH: 	0
+---------------- 
+
+
+----------------
+FROM NODE: 	5
+TRASH LEVEL: 	7
+BIN STATUS: 	0
+OUTSIDE TRASH: 	0
+---------------- 
+
+
+----------------
+FROM NODE: 	3
+TRASH LEVEL: 	8
+BIN STATUS: 	0
+OUTSIDE TRASH: 	0
+---------------- 
+
+
+----------------
+FROM NODE: 	6
+TRASH LEVEL: 	2
+BIN STATUS: 	0
+OUTSIDE TRASH: 	0
+---------------- 
+
+
+----------------
+FROM NODE: 	1
+TRASH LEVEL: 	18
+BIN STATUS: 	0
+OUTSIDE TRASH: 	0
+---------------- 
+
+
+----------------
+FROM NODE: 	4
+TRASH LEVEL: 	15
+BIN STATUS: 	0
+OUTSIDE TRASH: 	0
+---------------- 
+
+
+----------------
+FROM NODE: 	7
+TRASH LEVEL: 	16
+BIN STATUS: 	0
+OUTSIDE TRASH: 	0
+---------------- 
+
+
+----------------
+FROM NODE: 	5
+TRASH LEVEL: 	17
+BIN STATUS: 	0
+OUTSIDE TRASH: 	0
+---------------- 
+
+
+---------------- 
+FROM NODE: 	5
+TRASH LEVEL: 	20
+BIN STATUS: 	0
+OUTSIDE TRASH: 	0
+---------------- 
+
+
+----------------
+FROM NODE: 	2
+TRASH LEVEL: 	7
+BIN STATUS: 	0
+OUTSIDE TRASH: 	0
+---------------- 
+
+
+----------------
+FROM NODE: 	3
+TRASH LEVEL: 	13
+BIN STATUS: 	0
+OUTSIDE TRASH: 	0
+---------------- 
+
+
+----------------
+FROM NODE: 	7
+TRASH LEVEL: 	26
+BIN STATUS: 	0
+OUTSIDE TRASH: 	0
+---------------- 
+
+
+----------------
+FROM NODE: 	1
+TRASH LEVEL: 	22
+BIN STATUS: 	0
+OUTSIDE TRASH: 	0
+---------------- 
+
+
+----------------
+FROM NODE: 	4
+TRASH LEVEL: 	25
+BIN STATUS: 	0
+OUTSIDE TRASH: 	0
+---------------- 
+
+
+----------------
+FROM NODE: 	7
+TRASH LEVEL: 	32
+BIN STATUS: 	0
+OUTSIDE TRASH: 	0
+---------------- 
+
+
+----------------
+FROM NODE: 	7
+TRASH LEVEL: 	41
+BIN STATUS: 	0
+OUTSIDE TRASH: 	0
+---------------- 
+
+
+----------------
+FROM NODE: 	6
+TRASH LEVEL: 	10
+BIN STATUS: 	0
+OUTSIDE TRASH: 	0
+---------------- 
+
+
+----------------
+FROM NODE: 	5
+TRASH LEVEL: 	22
+BIN STATUS: 	0
+OUTSIDE TRASH: 	0
+---------------- 
+
+
+----------------
+FROM NODE: 	2
+TRASH LEVEL: 	14
+BIN STATUS: 	0
+OUTSIDE TRASH: 	0
+---------------- 
+
+
+----------------
+FROM NODE: 	5
+TRASH LEVEL: 	30
+BIN STATUS: 	0
+OUTSIDE TRASH: 	0
+---------------- 
+
+
+----------------
+FROM NODE: 	7
+TRASH LEVEL: 	46
+BIN STATUS: 	0
+OUTSIDE TRASH: 	0
+---------------- 
+
+
+----------------
+FROM NODE: 	7
+TRASH LEVEL: 	53
+BIN STATUS: 	0
+OUTSIDE TRASH: 	0
+---------------- 
+
+
+----------------
+FROM NODE: 	3
+TRASH LEVEL: 	18
+BIN STATUS: 	0
+OUTSIDE TRASH: 	0
+---------------- 
+
+
+----------------
+FROM NODE: 	4
+TRASH LEVEL: 	27
+BIN STATUS: 	0
+OUTSIDE TRASH: 	0
+---------------- 
+
+
+----------------
+FROM NODE: 	1
+TRASH LEVEL: 	24
+BIN STATUS: 	0
+OUTSIDE TRASH: 	0
+---------------- 
+
+
+----------------
+FROM NODE: 	3
+TRASH LEVEL: 	26
+BIN STATUS: 	0
+OUTSIDE TRASH: 	0
+---------------- 
+
+
+----------------
+FROM NODE: 	6
+TRASH LEVEL: 	11
+BIN STATUS: 	0
+OUTSIDE TRASH: 	0
+---------------- 
+
+
+----------------
+FROM NODE: 	2
+TRASH LEVEL: 	20
+BIN STATUS: 	0
+OUTSIDE TRASH: 	0
+---------------- 
+
+
+----------------
+FROM NODE: 	4
+TRASH LEVEL: 	34
+BIN STATUS: 	0
+OUTSIDE TRASH: 	0
+---------------- 
+
+
+----------------
+FROM NODE: 	5
+TRASH LEVEL: 	31
+BIN STATUS: 	0
+OUTSIDE TRASH: 	0
+---------------- 
+
+
+----------------
+FROM NODE: 	4
+TRASH LEVEL: 	36
+BIN STATUS: 	0
+OUTSIDE TRASH: 	0
+---------------- 
+
+
+----------------
+FROM NODE: 	5
+TRASH LEVEL: 	35
+BIN STATUS: 	0
+OUTSIDE TRASH: 	0
+---------------- 
+
+
+----------------
+FROM NODE: 	1
+TRASH LEVEL: 	29
+BIN STATUS: 	0
+OUTSIDE TRASH: 	0
+---------------- 
+
+
+----------------
+FROM NODE: 	3
+TRASH LEVEL: 	29
+BIN STATUS: 	0
+OUTSIDE TRASH: 	0
+---------------- 
+
+
+----------------
+FROM NODE: 	7
+TRASH LEVEL: 	58
+BIN STATUS: 	0
+OUTSIDE TRASH: 	0
+---------------- 
+
+
+----------------
+FROM NODE: 	3
+TRASH LEVEL: 	32
+BIN STATUS: 	0
+OUTSIDE TRASH: 	0
+---------------- 
+
+
+----------------
+FROM NODE: 	4
+TRASH LEVEL: 	46
+BIN STATUS: 	0
+OUTSIDE TRASH: 	0
+---------------- 
+
+
+----------------
+FROM NODE: 	6
+TRASH LEVEL: 	15
+BIN STATUS: 	0
+OUTSIDE TRASH: 	0
+---------------- 
+
+
+----------------
+FROM NODE: 	1
+TRASH LEVEL: 	33
+BIN STATUS: 	0
+OUTSIDE TRASH: 	0
+---------------- 
+
+
+----------------
+FROM NODE: 	5
+TRASH LEVEL: 	42
+BIN STATUS: 	0
+OUTSIDE TRASH: 	0
+---------------- 
+
+
+----------------
+FROM NODE: 	7
+TRASH LEVEL: 	63
+BIN STATUS: 	0
+OUTSIDE TRASH: 	0
+---------------- 
+
+
+----------------
+FROM NODE: 	2
+TRASH LEVEL: 	27
+BIN STATUS: 	0
+OUTSIDE TRASH: 	0
+---------------- 
+
+
+----------------
+FROM NODE: 	3
+TRASH LEVEL: 	39
+BIN STATUS: 	0
+OUTSIDE TRASH: 	0
+---------------- 
+
+
+----------------
+FROM NODE: 	5
+TRASH LEVEL: 	49
+BIN STATUS: 	0
+OUTSIDE TRASH: 	0
+---------------- 
+
+
+----------------
+FROM NODE: 	1
+TRASH LEVEL: 	38
+BIN STATUS: 	0
+OUTSIDE TRASH: 	0
+---------------- 
+
+
+----------------
+FROM NODE: 	7
+TRASH LEVEL: 	73
+BIN STATUS: 	0
+OUTSIDE TRASH: 	0
+---------------- 
+
+
+----------------
+FROM NODE: 	7
+TRASH LEVEL: 	79
+BIN STATUS: 	0
+OUTSIDE TRASH: 	0
+---------------- 
+
+
+----------------
+FROM NODE: 	4
+TRASH LEVEL: 	51
+BIN STATUS: 	0
+OUTSIDE TRASH: 	0
+---------------- 
+
+
+----------------
+FROM NODE: 	5
+TRASH LEVEL: 	58
+BIN STATUS: 	0
+OUTSIDE TRASH: 	0
+---------------- 
+
+
+----------------
+FROM NODE: 	6
+TRASH LEVEL: 	18
+BIN STATUS: 	0
+OUTSIDE TRASH: 	0
+---------------- 
+
+
+----------------
+FROM NODE: 	6
+TRASH LEVEL: 	23
+BIN STATUS: 	0
+OUTSIDE TRASH: 	0
+---------------- 
+
+
+----------------
+FROM NODE: 	3
+TRASH LEVEL: 	42
+BIN STATUS: 	0
+OUTSIDE TRASH: 	0
+---------------- 
+
+
+----------------
+FROM NODE: 	7
+TRASH LEVEL: 	82
+BIN STATUS: 	0
+OUTSIDE TRASH: 	0
+---------------- 
+
+
+----------------
+FROM NODE: 	1
+TRASH LEVEL: 	43
+BIN STATUS: 	0
+OUTSIDE TRASH: 	0
+---------------- 
+
+
+----------------
+FROM NODE: 	2
+TRASH LEVEL: 	36
+BIN STATUS: 	0
+OUTSIDE TRASH: 	0
+---------------- 
+
+
+----------------
+FROM NODE: 	5
+TRASH LEVEL: 	60
+BIN STATUS: 	0
+OUTSIDE TRASH: 	0
+---------------- 
+
+
+----------------
+FROM NODE: 	2
+TRASH LEVEL: 	41
+BIN STATUS: 	0
+OUTSIDE TRASH: 	0
+---------------- 
+
+
+----------------
+FROM NODE: 	4
+TRASH LEVEL: 	60
+BIN STATUS: 	0
+OUTSIDE TRASH: 	0
+---------------- 
+
+
+----------------
+FROM NODE: 	1
+TRASH LEVEL: 	45
+BIN STATUS: 	0
+OUTSIDE TRASH: 	0
+---------------- 
+
+
+----------------
+FROM NODE: 	5
+TRASH LEVEL: 	64
+BIN STATUS: 	0
+OUTSIDE TRASH: 	0
+---------------- 
+
+
+----------------
+FROM NODE: 	6
+TRASH LEVEL: 	28
+BIN STATUS: 	0
+OUTSIDE TRASH: 	0
+---------------- 
+
+
+----------------
+FROM NODE: 	4
+TRASH LEVEL: 	68
+BIN STATUS: 	0
+OUTSIDE TRASH: 	0
+---------------- 
+
+
+----------------
+FROM NODE: 	2
+TRASH LEVEL: 	43
+BIN STATUS: 	0
+OUTSIDE TRASH: 	0
+---------------- 
+
+
+----------------
+FROM NODE: 	3
+TRASH LEVEL: 	45
+BIN STATUS: 	0
+OUTSIDE TRASH: 	0
+---------------- 
+
+
+----------------
+FROM NODE: 	1
+TRASH LEVEL: 	49
+BIN STATUS: 	0
+OUTSIDE TRASH: 	0
+---------------- 
+
+
+----------------
+FROM NODE: 	4
+TRASH LEVEL: 	74
+BIN STATUS: 	0
+OUTSIDE TRASH: 	0
+---------------- 
+
+
+----------------
+FROM NODE: 	7
+TRASH LEVEL: 	92
+BIN STATUS: 	1
+OUTSIDE TRASH: 	0
+---------------- 
+
+
+----------------
+FROM NODE: 	2
+TRASH LEVEL: 	50
+BIN STATUS: 	0
+OUTSIDE TRASH: 	0
+---------------- 
+
+
+----------------
+FROM NODE: 	5
+TRASH LEVEL: 	66
+BIN STATUS: 	0
+OUTSIDE TRASH: 	0
+---------------- 
+
+
+----------------
+FROM NODE: 	5
+TRASH LEVEL: 	67
+BIN STATUS: 	0
+OUTSIDE TRASH: 	0
+---------------- 
+
+
+----------------
+FROM NODE: 	1
+TRASH LEVEL: 	55
+BIN STATUS: 	0
+OUTSIDE TRASH: 	0
+---------------- 
+
+
+----------------
+FROM NODE: 	3
+TRASH LEVEL: 	48
+BIN STATUS: 	0
+OUTSIDE TRASH: 	0
+---------------- 
+
+
+----------------
+FROM NODE: 	3
+TRASH LEVEL: 	56
+BIN STATUS: 	0
+OUTSIDE TRASH: 	0
+---------------- 
+
+
+----------------
+FROM NODE: 	6
+TRASH LEVEL: 	32
+BIN STATUS: 	0
+OUTSIDE TRASH: 	0
+---------------- 
+
+
+----------------
+FROM NODE: 	1
+TRASH LEVEL: 	63
+BIN STATUS: 	0
+OUTSIDE TRASH: 	0
+---------------- 
+
+
+----------------
+FROM NODE: 	2
+TRASH LEVEL: 	58
+BIN STATUS: 	0
+OUTSIDE TRASH: 	0
+---------------- 
+
+
+----------------
+FROM NODE: 	1
+TRASH LEVEL: 	67
+BIN STATUS: 	0
+OUTSIDE TRASH: 	0
+---------------- 
+
+
+----------------
+FROM NODE: 	2
+TRASH LEVEL: 	62
+BIN STATUS: 	0
+OUTSIDE TRASH: 	0
+---------------- 
+
+
+----------------
+FROM NODE: 	7
+TRASH LEVEL: 	96
+BIN STATUS: 	1
+OUTSIDE TRASH: 	0
+---------------- 
+
+
+----------------
+FROM NODE: 	7
+TRASH LEVEL: 	100
+BIN STATUS: 	2
+OUTSIDE TRASH: 	1
+---------------- 
+
+
+----------------
+FROM NODE: 	5
+TRASH LEVEL: 	68
+BIN STATUS: 	0
+OUTSIDE TRASH: 	0
+---------------- 
+
+
+----------------
+FROM NODE: 	4
+TRASH LEVEL: 	80
+BIN STATUS: 	0
+OUTSIDE TRASH: 	0
+---------------- 
+
+
+----------------
+FROM NODE: 	4
+TRASH LEVEL: 	81
+BIN STATUS: 	0
+OUTSIDE TRASH: 	0
+---------------- 
+
+
+----------------
+FROM NODE: 	5
+TRASH LEVEL: 	75
+BIN STATUS: 	0
+OUTSIDE TRASH: 	0
+---------------- 
+
+
+----------------
+FROM NODE: 	3
+TRASH LEVEL: 	61
+BIN STATUS: 	0
+OUTSIDE TRASH: 	0
+---------------- 
+
+
+----------------
+FROM NODE: 	7
+TRASH LEVEL: 	100
+BIN STATUS: 	2
+OUTSIDE TRASH: 	5
+---------------- 
+
+
+----------------
+FROM NODE: 	7
+TRASH LEVEL: 	100
+BIN STATUS: 	2
+OUTSIDE TRASH: 	8
+---------------- 
+
+
+----------------
+FROM NODE: 	5
+TRASH LEVEL: 	83
+BIN STATUS: 	0
+OUTSIDE TRASH: 	0
+---------------- 
+
+
+----------------
+FROM NODE: 	7
+TRASH LEVEL: 	1
+BIN STATUS: 	0
+OUTSIDE TRASH: 	0
+---------------- 
+
+
+----------------
+FROM NODE: 	6
+TRASH LEVEL: 	35
+BIN STATUS: 	0
+OUTSIDE TRASH: 	0
+---------------- 
+
+
+----------------
+FROM NODE: 	3
+TRASH LEVEL: 	66
+BIN STATUS: 	0
+OUTSIDE TRASH: 	0
+---------------- 
+
+
+----------------
+FROM NODE: 	5
+TRASH LEVEL: 	90
+BIN STATUS: 	1
+OUTSIDE TRASH: 	0
+---------------- 
+
+
+----------------
+FROM NODE: 	2
+TRASH LEVEL: 	69
+BIN STATUS: 	0
+OUTSIDE TRASH: 	0
+---------------- 
+
+
+----------------
+FROM NODE: 	1
+TRASH LEVEL: 	75
+BIN STATUS: 	0
+OUTSIDE TRASH: 	0
+---------------- 
+
+
+----------------
+FROM NODE: 	6
+TRASH LEVEL: 	39
+BIN STATUS: 	0
+OUTSIDE TRASH: 	0
+---------------- 
+
+
+----------------
+FROM NODE: 	4
+TRASH LEVEL: 	87
+BIN STATUS: 	1
+OUTSIDE TRASH: 	0
+---------------- 
+
+
+----------------
+FROM NODE: 	4
+TRASH LEVEL: 	97
+BIN STATUS: 	1
+OUTSIDE TRASH: 	0
+---------------- 
+
+
+----------------
+FROM NODE: 	3
+TRASH LEVEL: 	73
+BIN STATUS: 	0
+OUTSIDE TRASH: 	0
+---------------- 
+
+
+----------------
+FROM NODE: 	2
+TRASH LEVEL: 	73
+BIN STATUS: 	0
+OUTSIDE TRASH: 	0
+---------------- 
+
+
+----------------
+FROM NODE: 	5
+TRASH LEVEL: 	2
+BIN STATUS: 	0
+OUTSIDE TRASH: 	0
+---------------- 
+
+
+----------------
+FROM NODE: 	6
+TRASH LEVEL: 	41
+BIN STATUS: 	0
+OUTSIDE TRASH: 	0
+---------------- 
+
+
+----------------
+FROM NODE: 	7
+TRASH LEVEL: 	6
+BIN STATUS: 	0
+OUTSIDE TRASH: 	0
+---------------- 
+
+
+----------------
+FROM NODE: 	3
+TRASH LEVEL: 	79
+BIN STATUS: 	0
+OUTSIDE TRASH: 	0
+---------------- 
+
+
+----------------
+FROM NODE: 	1
+TRASH LEVEL: 	80
+BIN STATUS: 	0
+OUTSIDE TRASH: 	0
+---------------- 
+
+
+----------------
+FROM NODE: 	5
+TRASH LEVEL: 	5
+BIN STATUS: 	0
+OUTSIDE TRASH: 	0
+---------------- 
+
+
+----------------
+FROM NODE: 	2
+TRASH LEVEL: 	77
+BIN STATUS: 	0
+OUTSIDE TRASH: 	0
+---------------- 
+
+
+----------------
+FROM NODE: 	4
+TRASH LEVEL: 	100
+BIN STATUS: 	2
+OUTSIDE TRASH: 	2
+---------------- 
+
+
+----------------
+FROM NODE: 	2
+TRASH LEVEL: 	79
+BIN STATUS: 	0
+OUTSIDE TRASH: 	0
+---------------- 
+
+
+----------------
+FROM NODE: 	3
+TRASH LEVEL: 	82
+BIN STATUS: 	0
+OUTSIDE TRASH: 	0
+---------------- 
+
+
+----------------
+FROM NODE: 	7
+TRASH LEVEL: 	16
+BIN STATUS: 	0
+OUTSIDE TRASH: 	0
+---------------- 
+
+
+----------------
+FROM NODE: 	6
+TRASH LEVEL: 	42
+BIN STATUS: 	0
+OUTSIDE TRASH: 	0
+---------------- 
+
+
+----------------
+FROM NODE: 	5
+TRASH LEVEL: 	6
+BIN STATUS: 	0
+OUTSIDE TRASH: 	0
+---------------- 
+
+
+----------------
+FROM NODE: 	1
+TRASH LEVEL: 	81
+BIN STATUS: 	0
+OUTSIDE TRASH: 	0
+---------------- 
+
+
+----------------
+FROM NODE: 	3
+TRASH LEVEL: 	84
+BIN STATUS: 	0
+OUTSIDE TRASH: 	0
+---------------- 
+
+
+----------------
+FROM NODE: 	3
+TRASH LEVEL: 	90
+BIN STATUS: 	1
+OUTSIDE TRASH: 	0
+---------------- 
+
+
+----------------
+FROM NODE: 	7
+TRASH LEVEL: 	19
+BIN STATUS: 	0
+OUTSIDE TRASH: 	0
+---------------- 
+
+
+----------------
+FROM NODE: 	2
+TRASH LEVEL: 	88
+BIN STATUS: 	1
+OUTSIDE TRASH: 	0
+---------------- 
+
+
+----------------
+FROM NODE: 	4
+TRASH LEVEL: 	100
+BIN STATUS: 	2
+OUTSIDE TRASH: 	9
+---------------- 
+
+
+----------------
+FROM NODE: 	1
+TRASH LEVEL: 	89
+BIN STATUS: 	1
+OUTSIDE TRASH: 	0
+---------------- 
+
+
+----------------
+FROM NODE: 	5
+TRASH LEVEL: 	15
+BIN STATUS: 	0
+OUTSIDE TRASH: 	0
+---------------- 
+
+
+----------------
+FROM NODE: 	2
+TRASH LEVEL: 	90
+BIN STATUS: 	1
+OUTSIDE TRASH: 	0
+---------------- 
+
+
+----------------
+FROM NODE: 	6
+TRASH LEVEL: 	45
+BIN STATUS: 	0
+OUTSIDE TRASH: 	0
+---------------- 
+
+
+----------------
+FROM NODE: 	5
+TRASH LEVEL: 	21
+BIN STATUS: 	0
+OUTSIDE TRASH: 	0
+---------------- 
+
+
+----------------
+FROM NODE: 	3
+TRASH LEVEL: 	96
+BIN STATUS: 	1
+OUTSIDE TRASH: 	0
+---------------- 
+
+
+----------------
+FROM NODE: 	1
+TRASH LEVEL: 	90
+BIN STATUS: 	1
+OUTSIDE TRASH: 	0
+---------------- 
+
+
+----------------
+FROM NODE: 	2
+TRASH LEVEL: 	94
+BIN STATUS: 	1
+OUTSIDE TRASH: 	0
+---------------- 
+
+
+----------------
+FROM NODE: 	4
+TRASH LEVEL: 	100
+BIN STATUS: 	2
+OUTSIDE TRASH: 	5
+---------------- 
+
+
+----------------
+FROM NODE: 	5
+TRASH LEVEL: 	26
+BIN STATUS: 	0
+OUTSIDE TRASH: 	0
+---------------- 
+
+
+----------------
+FROM NODE: 	4
+TRASH LEVEL: 	100
+BIN STATUS: 	2
+OUTSIDE TRASH: 	9
+---------------- 
+
+
+----------------
+FROM NODE: 	7
+TRASH LEVEL: 	26
+BIN STATUS: 	0
+OUTSIDE TRASH: 	0
+---------------- 
+
+
+----------------
+FROM NODE: 	3
+TRASH LEVEL: 	100
+BIN STATUS: 	2
+OUTSIDE TRASH: 	4
+---------------- 
+
+
+----------------
+FROM NODE: 	5
+TRASH LEVEL: 	35
+BIN STATUS: 	0
+OUTSIDE TRASH: 	0
+---------------- 
+
+
+----------------
+FROM NODE: 	6
+TRASH LEVEL: 	49
+BIN STATUS: 	0
+OUTSIDE TRASH: 	0
+---------------- 

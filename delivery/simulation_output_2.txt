@@ -486,22 +486,19 @@ DEBUG (7): Level: 100, Status: FULL, Trash outside: 1
 DEBUG (7): Sent request to neighbours to redirect extra trash
 
 
-DEBUG (5): Received MOVE request from bin 7. ACCEPTED.
-DEBUG (7): Bin 5 accepted MOVE request. Distance: 195m
+DEBUG (3): Received MOVE request from bin 7. ACCEPTED.
+DEBUG (7): Bin 3 accepted MOVE request. Distance: 876m
 DEBUG (7): Sending alert message to the truck
 DEBUG (7): Truck received the message and acknowledged
 
 
 DEBUG (1): Received MOVE request from bin 7. ACCEPTED.
-DEBUG (7): Bin 1 accepted MOVE request. Distance: 1025m
-DEBUG (6): Received MOVE request from bin 7. ACCEPTED.
-DEBUG (7): Bin 6 accepted MOVE request. Distance: 1674m
 DEBUG (7): MOVE request timeout
-DEBUG (7): Redirecting 1 units to bin 5
+DEBUG (7): Redirecting 1 units to bin 3
 
 
-DEBUG (5): Received 1 units from bin 7 at 0:3:8.642486581
-DEBUG (5): Level: 68, Status: NORMAL
+DEBUG (3): Received 1 units from bin 7 at 0:3:8.642990118
+DEBUG (3): Level: 57, Status: NORMAL
 
 DEBUG (7): Trash was moved to bin
 DEBUG (4): Attempt to ADD 6 UNITS to the bin at time 0:3:10.523437510
@@ -515,12 +512,12 @@ DEBUG (4): Level: 81, Status: NORMAL
 
 
 DEBUG (5): Attempt to ADD 7 UNITS to the bin at time 0:3:13.476562510
-DEBUG (5): Level: 75, Status: NORMAL
+DEBUG (5): Level: 74, Status: NORMAL
 
 
 
 DEBUG (3): Attempt to ADD 5 UNITS to the bin at time 0:3:14.406250010
-DEBUG (3): Level: 61, Status: NORMAL
+DEBUG (3): Level: 62, Status: NORMAL
 
 
 
@@ -532,8 +529,8 @@ DEBUG (7): Level: 100, Status: FULL, Trash outside: 5
 DEBUG (7): Sent request to neighbours to redirect extra trash
 
 
-DEBUG (5): Received MOVE request from bin 7. ACCEPTED.
-DEBUG (7): Bin 5 accepted MOVE request. Distance: 195m
+DEBUG (3): Received MOVE request from bin 7. ACCEPTED.
+DEBUG (7): Bin 3 accepted MOVE request. Distance: 876m
 DEBUG (1): Received MOVE request from bin 7. ACCEPTED.
 DEBUG (7): Bin 1 accepted MOVE request. Distance: 1025m
 DEBUG (6): Received MOVE request from bin 7. ACCEPTED.
@@ -545,19 +542,19 @@ DEBUG (7): Level: 100, Status: FULL, Trash outside: 8
 
 DEBUG (7): Sending alert message to the truck
 DEBUG (7): MOVE request timeout
-DEBUG (7): Redirecting 8 units to bin 5
+DEBUG (7): Redirecting 8 units to bin 3
 
 
 DEBUG (7): Truck received the message and acknowledged
 
 
-DEBUG (5): Received 8 units from bin 7 at 0:3:17.445419269
-DEBUG (5): Level: 83, Status: NORMAL
+DEBUG (3): Received 8 units from bin 7 at 0:3:17.442001320
+DEBUG (3): Level: 70, Status: NORMAL
 
 DEBUG (7): Trash was moved to bin
 DEBUG (0): Reached destination at (1384,1177)
 DEBUG (0): Bin 7 emptied
-DEBUG (7): Truck arrived at time 0:3:22.310729963
+DEBUG (7): Truck arrived at time 0:3:22.303237896
 DEBUG (7): BIN EMPTIED, new level: 0
 DEBUG (0): Bin received the message and acknowledged
 
@@ -573,26 +570,18 @@ DEBUG (6): Level: 35, Status: NORMAL
 
 
 DEBUG (3): Attempt to ADD 5 UNITS to the bin at time 0:3:27.101562510
-DEBUG (3): Level: 66, Status: NORMAL
+DEBUG (3): Level: 75, Status: NORMAL
 
 
 
 DEBUG (5): Attempt to ADD 7 UNITS to the bin at time 0:3:27.148437510
-DEBUG (5): Level: 90, Status: CRITICAL
+DEBUG (5): Level: 81, Status: NORMAL
 
 
 
 DEBUG (2): Attempt to ADD 7 UNITS to the bin at time 0:3:28.054687510
 DEBUG (2): Level: 69, Status: NORMAL
 
-
-
-DEBUG (5): Sending alert message to the truck
-DEBUG (0): Received ALERT message from 5
-DEBUG (0): Distance to bin is 195 m
-DEBUG (0): Started traveling to (1306,998)
-DEBUG (0): Expected travel time: 11700ms
-DEBUG (5): Truck received the message and acknowledged
 
 
 DEBUG (1): Attempt to ADD 8 UNITS to the bin at time 0:3:29.007812510
@@ -611,6 +600,10 @@ DEBUG (4): Level: 87, Status: CRITICAL
 
 
 DEBUG (4): Sending alert message to the truck
+DEBUG (0): Received ALERT message from 4
+DEBUG (0): Distance to bin is 1148 m
+DEBUG (0): Started traveling to (499,1909)
+DEBUG (0): Expected travel time: 68880ms
 DEBUG (4): Truck received the message and acknowledged
 
 
@@ -619,19 +612,8 @@ DEBUG (4): Level: 97, Status: CRITICAL
 
 
 
-DEBUG (5): Sending alert message to the truck
-DEBUG (5): Truck received the message and acknowledged
-
-
-DEBUG (0): Reached destination at (1306,998)
-DEBUG (0): Bin 5 emptied
-DEBUG (5): Truck arrived at time 0:3:39.560852044
-DEBUG (5): BIN EMPTIED, new level: 0
-DEBUG (0): Bin received the message and acknowledged
-
-
 DEBUG (3): Attempt to ADD 7 UNITS to the bin at time 0:3:42.726562510
-DEBUG (3): Level: 73, Status: NORMAL
+DEBUG (3): Level: 82, Status: NORMAL
 
 
 
@@ -641,15 +623,11 @@ DEBUG (2): Level: 73, Status: NORMAL
 
 
 DEBUG (4): Sending alert message to the truck
-DEBUG (0): Received ALERT message from 4
-DEBUG (0): Distance to bin is 1217 m
-DEBUG (0): Started traveling to (499,1909)
-DEBUG (0): Expected travel time: 73020ms
 DEBUG (4): Truck received the message and acknowledged
 
 
 DEBUG (5): Attempt to ADD 2 UNITS to the bin at time 0:3:47.656250010
-DEBUG (5): Level: 2, Status: NORMAL
+DEBUG (5): Level: 83, Status: NORMAL
 
 
 
@@ -664,7 +642,7 @@ DEBUG (7): Level: 6, Status: NORMAL
 
 
 DEBUG (3): Attempt to ADD 6 UNITS to the bin at time 0:3:52.492187510
-DEBUG (3): Level: 79, Status: NORMAL
+DEBUG (3): Level: 88, Status: CRITICAL
 
 
 
@@ -673,18 +651,30 @@ DEBUG (1): Level: 80, Status: NORMAL
 
 
 
+DEBUG (3): Sending alert message to the truck
+DEBUG (3): Truck received the message and acknowledged
+
+
 DEBUG (4): Sending alert message to the truck
 DEBUG (4): Truck received the message and acknowledged
 
 
 DEBUG (5): Attempt to ADD 3 UNITS to the bin at time 0:3:59.375000010
-DEBUG (5): Level: 5, Status: NORMAL
+DEBUG (5): Level: 86, Status: CRITICAL
 
+
+
+DEBUG (5): Sending alert message to the truck
+DEBUG (5): Truck received the message and acknowledged
 
 
 DEBUG (2): Attempt to ADD 4 UNITS to the bin at time 0:4:1.257812510
 DEBUG (2): Level: 77, Status: NORMAL
 
+
+
+DEBUG (3): Sending alert message to the truck
+DEBUG (3): Truck did not acknowledge the message
 
 
 DEBUG (4): Sending alert message to the truck
@@ -699,22 +689,19 @@ DEBUG (4): Level: 100, Status: FULL, Trash outside: 2
 DEBUG (4): Sent request to neighbours to redirect extra trash
 
 
-DEBUG (2): Received MOVE request from bin 4. ACCEPTED.
-DEBUG (4): Bin 2 accepted MOVE request. Distance: 646m
-DEBUG (5): Received MOVE request from bin 4. ACCEPTED.
-DEBUG (4): Bin 5 accepted MOVE request. Distance: 1217m
-DEBUG (3): Received MOVE request from bin 4. ACCEPTED.
-DEBUG (4): Bin 3 accepted MOVE request. Distance: 1958m
+DEBUG (3): Received MOVE request from bin 4. DISCARDED.
+DEBUG (5): Received MOVE request from bin 4. DISCARDED.
 DEBUG (4): MOVE request timeout
-DEBUG (4): Redirecting 2 units to bin 2
+DEBUG (4): No bin found to redirect. Discarding extra units
 
 
-DEBUG (2): Received 2 units from bin 4 at 0:4:8.143325809
-DEBUG (2): Level: 79, Status: NORMAL
+DEBUG (1): Received MOVE request from bin 4. ACCEPTED.
+DEBUG (5): Sending alert message to the truck
+DEBUG (5): Truck received the message and acknowledged
 
-DEBUG (4): Trash was moved to bin
+
 DEBUG (3): Attempt to ADD 3 UNITS to the bin at time 0:4:12.023437510
-DEBUG (3): Level: 82, Status: NORMAL
+DEBUG (3): Level: 91, Status: CRITICAL
 
 
 
@@ -723,18 +710,26 @@ DEBUG (7): Level: 16, Status: NORMAL
 
 
 
+DEBUG (3): Sending alert message to the truck
+DEBUG (3): Truck received the message and acknowledged
+
+
 DEBUG (6): Attempt to ADD 1 UNITS to the bin at time 0:4:14.046875010
 DEBUG (6): Level: 42, Status: NORMAL
 
 
 
 DEBUG (4): Sending alert message to the truck
-DEBUG (4): Truck did not acknowledge the message
+DEBUG (4): Truck received the message and acknowledged
 
 
 DEBUG (5): Attempt to ADD 1 UNITS to the bin at time 0:4:18.906250010
-DEBUG (5): Level: 6, Status: NORMAL
+DEBUG (5): Level: 87, Status: CRITICAL
 
+
+
+DEBUG (5): Sending alert message to the truck
+DEBUG (5): Truck received the message and acknowledged
 
 
 DEBUG (1): Attempt to ADD 1 UNITS to the bin at time 0:4:20.765625010
@@ -743,17 +738,17 @@ DEBUG (1): Level: 81, Status: NORMAL
 
 
 DEBUG (3): Attempt to ADD 2 UNITS to the bin at time 0:4:20.812500010
-DEBUG (3): Level: 84, Status: NORMAL
-
-
-
-DEBUG (3): Attempt to ADD 6 UNITS to the bin at time 0:4:23.742187510
-DEBUG (3): Level: 90, Status: CRITICAL
+DEBUG (3): Level: 93, Status: CRITICAL
 
 
 
 DEBUG (3): Sending alert message to the truck
 DEBUG (3): Truck received the message and acknowledged
+
+
+DEBUG (3): Attempt to ADD 6 UNITS to the bin at time 0:4:23.742187510
+DEBUG (3): Level: 99, Status: CRITICAL
+
 
 
 DEBUG (4): Sending alert message to the truck
@@ -766,7 +761,7 @@ DEBUG (7): Level: 19, Status: NORMAL
 
 
 DEBUG (2): Attempt to ADD 9 UNITS to the bin at time 0:4:26.648437510
-DEBUG (2): Level: 88, Status: CRITICAL
+DEBUG (2): Level: 86, Status: CRITICAL
 
 
 
@@ -782,34 +777,33 @@ DEBUG (4): Level: 100, Status: FULL, Trash outside: 9
 DEBUG (4): Sent request to neighbours to redirect extra trash
 
 
+DEBUG (5): Received MOVE request from bin 4. DISCARDED.
 DEBUG (3): Received MOVE request from bin 4. DISCARDED.
-DEBUG (2): Received MOVE request from bin 4. DISCARDED.
-DEBUG (5): Received MOVE request from bin 4. ACCEPTED.
-DEBUG (4): Bin 5 accepted MOVE request. Distance: 1217m
+DEBUG (5): Sending alert message to the truck
+DEBUG (5): Truck received the message and acknowledged
+
+
 DEBUG (1): Attempt to ADD 8 UNITS to the bin at time 0:4:30.531250010
 DEBUG (1): Level: 89, Status: CRITICAL
 
 
 
 DEBUG (4): MOVE request timeout
-DEBUG (4): Redirecting 9 units to bin 5
+DEBUG (4): No bin found to redirect. Discarding extra units
 
 
-DEBUG (5): Received 9 units from bin 4 at 0:4:30.604080205
-DEBUG (5): Level: 15, Status: NORMAL
-
-DEBUG (4): Trash was moved to bin
+DEBUG (1): Received MOVE request from bin 4. ACCEPTED.
 DEBUG (1): Sending alert message to the truck
 DEBUG (1): Truck received the message and acknowledged
 
 
-DEBUG (2): Attempt to ADD 2 UNITS to the bin at time 0:4:33.484375010
-DEBUG (2): Level: 90, Status: CRITICAL
-
-
-
 DEBUG (3): Sending alert message to the truck
 DEBUG (3): Truck received the message and acknowledged
+
+
+DEBUG (2): Attempt to ADD 2 UNITS to the bin at time 0:4:33.484375010
+DEBUG (2): Level: 88, Status: CRITICAL
+
 
 
 DEBUG (4): Sending alert message to the truck
@@ -820,8 +814,23 @@ DEBUG (2): Sending alert message to the truck
 DEBUG (2): Truck received the message and acknowledged
 
 
+DEBUG (5): Sending alert message to the truck
+DEBUG (5): Truck received the message and acknowledged
+
+
 DEBUG (1): Sending alert message to the truck
 DEBUG (1): Truck received the message and acknowledged
+
+
+DEBUG (3): Sending alert message to the truck
+DEBUG (3): Truck did not acknowledge the message
+
+
+DEBUG (0): Reached destination at (499,1909)
+DEBUG (0): Bin 4 emptied
+DEBUG (4): Truck arrived at time 0:4:43.196273782
+DEBUG (4): BIN EMPTIED, new level: 0
+DEBUG (0): Bin received the message and acknowledged
 
 
 DEBUG (6): Attempt to ADD 3 UNITS to the bin at time 0:4:43.343750010
@@ -829,21 +838,21 @@ DEBUG (6): Level: 45, Status: NORMAL
 
 
 
-DEBUG (3): Sending alert message to the truck
-DEBUG (3): Truck received the message and acknowledged
-
-
-DEBUG (4): Sending alert message to the truck
-DEBUG (4): Truck received the message and acknowledged
-
-
 DEBUG (2): Sending alert message to the truck
-DEBUG (2): Truck received the message and acknowledged
+DEBUG (0): Received ALERT message from 2
+DEBUG (0): Distance to bin is 646 m
+DEBUG (0): Started traveling to (421,1267)
+DEBUG (0): Expected travel time: 38760ms
+DEBUG (2): Truck did not acknowledge the message
 
 
 DEBUG (5): Attempt to ADD 6 UNITS to the bin at time 0:4:48.203125010
-DEBUG (5): Level: 21, Status: NORMAL
+DEBUG (5): Level: 93, Status: CRITICAL
 
+
+
+DEBUG (5): Sending alert message to the truck
+DEBUG (5): Truck received the message and acknowledged
 
 
 DEBUG (1): Sending alert message to the truck
@@ -851,102 +860,83 @@ DEBUG (1): Truck received the message and acknowledged
 
 
 DEBUG (3): Attempt to ADD 6 UNITS to the bin at time 0:4:51.085937510
-DEBUG (3): Level: 96, Status: CRITICAL
-
-
-
-DEBUG (1): Attempt to ADD 1 UNITS to the bin at time 0:4:52.015625010
-DEBUG (1): Level: 90, Status: CRITICAL
-
-
-
-DEBUG (2): Attempt to ADD 4 UNITS to the bin at time 0:4:52.039062510
-DEBUG (2): Level: 94, Status: CRITICAL
-
-
-
-DEBUG (4): Attempt to ADD 5 UNITS to the bin at time 0:4:52.085937510
-DEBUG (4): Level: 100, Status: FULL, Trash outside: 5
-
-
-
-DEBUG (4): Sent request to neighbours to redirect extra trash
-
-
-DEBUG (3): Received MOVE request from bin 4. DISCARDED.
-DEBUG (2): Received MOVE request from bin 4. DISCARDED.
-DEBUG (5): Received MOVE request from bin 4. ACCEPTED.
-DEBUG (4): Bin 5 accepted MOVE request. Distance: 1217m
-DEBUG (3): Sending alert message to the truck
-DEBUG (3): Truck received the message and acknowledged
-
-
-DEBUG (4): Sending alert message to the truck
-DEBUG (4): MOVE request timeout
-DEBUG (4): Redirecting 5 units to bin 5
-
-
-DEBUG (4): Truck received the message and acknowledged
-
-
-DEBUG (5): Received 5 units from bin 4 at 0:4:54.060821426
-DEBUG (5): Level: 26, Status: NORMAL
-
-DEBUG (4): Trash was moved to bin
-DEBUG (4): Attempt to ADD 9 UNITS to the bin at time 0:4:55.015625010
-DEBUG (4): Level: 100, Status: FULL, Trash outside: 9
-
-
-
-DEBUG (4): Sent request to neighbours to redirect extra trash
-
-
-DEBUG (3): Received MOVE request from bin 4. DISCARDED.
-DEBUG (2): Received MOVE request from bin 4. DISCARDED.
-DEBUG (7): Attempt to ADD 7 UNITS to the bin at time 0:4:55.085937510
-DEBUG (7): Level: 26, Status: NORMAL
-
-
-
-DEBUG (3): Attempt to ADD 8 UNITS to the bin at time 0:4:55.968750010
-DEBUG (3): Level: 100, Status: FULL, Trash outside: 4
+DEBUG (3): Level: 100, Status: FULL, Trash outside: 5
 
 
 
 DEBUG (3): Sent request to neighbours to redirect extra trash
 
 
-DEBUG (5): Received MOVE request from bin 3. DISCARDED.
-DEBUG (4): Received MOVE request from bin 3. DISCARDED.
+DEBUG (7): Received MOVE request from bin 3. DISCARDED.
 DEBUG (2): Received MOVE request from bin 3. DISCARDED.
-DEBUG (5): Received MOVE request from bin 4. ACCEPTED.
-DEBUG (4): Bin 5 accepted MOVE request. Distance: 1217m
+DEBUG (1): Attempt to ADD 1 UNITS to the bin at time 0:4:52.015625010
+DEBUG (1): Level: 90, Status: CRITICAL
+
+
+
+DEBUG (2): Attempt to ADD 4 UNITS to the bin at time 0:4:52.039062510
+DEBUG (2): Level: 92, Status: CRITICAL
+
+
+
+DEBUG (3): Sending alert message to the truck
+DEBUG (3): Truck received the message and acknowledged
+
+
+DEBUG (4): Attempt to ADD 5 UNITS to the bin at time 0:4:52.085937510
+DEBUG (4): Level: 5, Status: NORMAL
+
+
+
+DEBUG (4): Received MOVE request from bin 3. ACCEPTED.
+DEBUG (3): Bin 4 accepted MOVE request. Distance: 1958m
+DEBUG (3): MOVE request timeout
+DEBUG (3): Redirecting 5 units to bin 4
+
+
+DEBUG (4): Received 5 units from bin 3 at 0:4:53.041397101
+DEBUG (4): Level: 10, Status: NORMAL
+
+DEBUG (3): Trash was moved to bin
+DEBUG (4): Attempt to ADD 9 UNITS to the bin at time 0:4:55.015625010
+DEBUG (4): Level: 19, Status: NORMAL
+
+
+
+DEBUG (7): Attempt to ADD 7 UNITS to the bin at time 0:4:55.085937510
+DEBUG (7): Level: 26, Status: NORMAL
+
+
+
+DEBUG (3): Attempt to ADD 8 UNITS to the bin at time 0:4:55.968750010
+DEBUG (3): Level: 100, Status: FULL, Trash outside: 8
+
+
+
+DEBUG (3): Sent request to neighbours to redirect extra trash
+
+
+DEBUG (2): Received MOVE request from bin 3. DISCARDED.
 DEBUG (2): Sending alert message to the truck
 DEBUG (2): Truck received the message and acknowledged
 
 
-DEBUG (4): MOVE request timeout
-DEBUG (4): Redirecting 9 units to bin 5
-
-
-DEBUG (5): Received 9 units from bin 4 at 0:4:56.974304186
-DEBUG (5): Level: 35, Status: NORMAL
-
-ERROR (4): There was a problem while moving trash.
-DEBUG (4): Trash was moved to bin
-DEBUG (0): Reached destination at (499,1909)
-DEBUG (0): Bin 4 emptied
-DEBUG (4): Truck arrived at time 0:4:57.002059914
-DEBUG (4): BIN EMPTIED, new level: 0
-DEBUG (0): Bin received the message and acknowledged
-
-
+DEBUG (4): Received MOVE request from bin 3. ACCEPTED.
+DEBUG (3): Bin 4 accepted MOVE request. Distance: 1958m
 DEBUG (3): MOVE request timeout
-DEBUG (3): No bin found to redirect. Discarding extra units
+DEBUG (3): Redirecting 8 units to bin 4
 
 
+DEBUG (4): Received 8 units from bin 3 at 0:4:57.932296712
+DEBUG (4): Level: 27, Status: NORMAL
+
+DEBUG (3): Trash was moved to bin
 DEBUG (6): Attempt to ADD 4 UNITS to the bin at time 0:4:57.992187510
 DEBUG (6): Level: 49, Status: NORMAL
 
+
+
+DEBUG (5): Sending alert message to the truck
+DEBUG (5): Truck received the message and acknowledged
 
 
